@@ -8,6 +8,9 @@ export default class AppText extends Component {
   constructor(props) {
     super(props)
     this.style = [{fontFamily: Fonts.Rubik}];
+    if (this.props.font == 'light') this.style = [{fontFamily: Fonts.RubikLight}];
+    if (this.props.font == 'bold') this.style = [{fontFamily: Fonts.RubikBold}];
+
     if( props.style ) {
       if( Array.isArray(props.style) ) {
         this.style = this.style.concat(props.style)

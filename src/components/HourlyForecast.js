@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {
   Platform,
   StyleSheet,
-  Header,
-  Text,
   View
 } from 'react-native';
 import { connect } from 'react-redux';

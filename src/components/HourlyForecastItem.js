@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   Image
 } from 'react-native';
 // import { getIconSource } from '../helpers/iconHelper';
+import AppText from './AppText';
+import Icon from './Icon';
 import { getHoursFromUnix } from '../helpers/timeHelper';
 
 class HourlyForecastItem extends Component {
@@ -17,11 +18,9 @@ class HourlyForecastItem extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <Text style={styles.tempTextStyle}>{roundedTemp}°C</Text>
-          <Text style={styles.iconStyle}>o</Text>
-          {// <Image source={iconSource} style={styles.iconStyle} />
-          }
-          <Text style={styles.timeStyle}>{timeString}</Text>
+          <Icon name={icon} style={styles.iconStyle} />
+          <AppText style={styles.tempTextStyle}>{roundedTemp}°C</AppText>
+          <AppText style={styles.timeStyle}>{timeString}</AppText>
         </View>
 
       </View>
@@ -33,7 +32,7 @@ const styles = {
   container: {
     // width: '20%',
     flex: 1,
-    aspectRatio: 1,
+    // aspectRatio: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     borderWidth: 1,
@@ -47,16 +46,19 @@ const styles = {
     flexDirection: 'column',
   },
   iconStyle: {
+    fontSize: 28,
+  },
+  tempTextStyle: {
+    fontSize: 16,
     padding: 4,
+    // flex: 1,
+    // marginVertical: 2
   },
   timeStyle: {
+    fontSize: 12,
     // flex: 1,
     // paddingBottom: 2
   },
-  tempTextStyle: {
-    // flex: 1,
-    // marginVertical: 2
-  }
 }
 
 export default HourlyForecastItem;

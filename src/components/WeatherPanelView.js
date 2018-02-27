@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
+import AppText from './AppText';
 import HourlyForecast from './HourlyForecast';
+
 
 
 class WeatherPanel extends Component {
@@ -13,9 +14,9 @@ class WeatherPanel extends Component {
   render() {
     return (
       <View style={styles.container}>
-      	<Text style={styles.heading}>
+      	<AppText style={styles.heading}>
       		Hourly Forcast
-      	</Text>
+      	</AppText>
       	<HourlyForecast style={styles.hourly} hours="5" />
       </View>
     );

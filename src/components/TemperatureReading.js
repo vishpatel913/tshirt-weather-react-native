@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from './Icon';
+import AppText from './AppText';
 // import { getIconSource } from '../helpers/iconHelper';
 
 
@@ -14,26 +14,27 @@ class TemperatureReading extends Component {
 
   render() {
     const { temperature, apparentTemperature, summary, icon } = this.props;
+    console.log(icon);
 
     return(
       <View style={styles.container}>
-        <View>
-          <Text style={styles.temperatureValue}>
+        <View style={styles.tempContainer}>
+          <AppText font="light" style={styles.temperatureValue}>
             {temperature}&deg;C
-          </Text>
-          <Icon name={icon}/>
+          </AppText>
+          <Icon name={icon} size={60}/>
         </View>
-        <Text style={styles.fontMedium}>{summary}</Text>
-        <Text style={styles.fontSmall}>Feels like {apparentTemperature}&deg;C</Text>
+        <AppText style={styles.fontMedium}>{summary}</AppText>
+        <AppText style={styles.fontSmall}>Feels like {apparentTemperature}&deg;C</AppText>
       </View>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const { temperature, apparentTemperature, summary, icon, time } = state.weather.currently;
+  const { temperature, apparentTemperature, summary, icon } = state.weather.currently;
 
-  return { temperature, apparentTemperature, summary, icon, time };
+  return { temperature, apparentTemperature, summary, icon };
 };
 
 export default connect(mapStateToProps, null)(TemperatureReading);
@@ -41,6 +42,10 @@ export default connect(mapStateToProps, null)(TemperatureReading);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+  },
+  tempContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
   temperatureValue: {

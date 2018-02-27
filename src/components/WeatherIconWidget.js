@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
+import AppText from './AppText';
+import Icon from './Icon';
 // import { getIconSource } from '../helpers/iconHelper';
 
 const WEATHER_DATA = {
@@ -13,19 +14,19 @@ const WEATHER_DATA = {
     description: 'Wind Speed',
     key: 'windSpeed',
     unit: 'km/h',
-    icon: "O"
+    icon: 'wind'
   },
   cloud: {
     description: 'Cloud Cover',
     key: 'cloudCover',
     unit: '%',
-    icon: "O"
+    icon: 'cloud'
   },
   rain: {
     description: 'Chance of Rain',
     key: 'precipProbability',
     unit: '%',
-    icon: "O"
+    icon: 'raindrops'
   }
 }
 
@@ -47,9 +48,9 @@ class WeatherIconWidget extends Component {
     return(
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <Text style={styles.icon}>{this.state.icon}</Text>
-          <Text style={styles.value}>{value}</Text>
-          <Text style={styles.title}>{this.state.title}</Text>
+          <Icon name={this.state.icon} style={styles.icon} />
+          <AppText style={styles.value}>{value}</AppText>
+          <AppText style={styles.title}>{this.state.title}</AppText>
         </View>
       </View>
     );
@@ -72,23 +73,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderWidth: 1,
     borderColor: "#00A588",
-    paddingVertical: 12,
-    paddingHorizontal: 4
+    padding: 4,
   },
   dataWrap: {
     alignItems: 'center',
     flexDirection: 'column',
+    flex: 1
   },
-  title: {
-    flex: 1,
-    fontSize: 12
+  icon: {
+    flex: 2,
+    fontSize: 36,
   },
   value: {
-    flex: 1,
+    flex: 2,
     fontSize: 20,
     paddingVertical: 2
   },
-  icon: {
+  title: {
     flex: 1,
-  }
+    fontSize: 12,
+    // justifyContent:'flex-end',
+  },
 })

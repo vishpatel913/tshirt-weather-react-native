@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
   View,
   ScrollView,
   RefreshControl
 } from 'react-native';
 import { connect } from 'react-redux';
 
+import AppText from './AppText';
 import TemperatureReading from './TemperatureReading';
 import WeatherIconWidget from './WeatherIconWidget';
 import WeatherPanelView from './WeatherPanelView';
@@ -69,21 +69,21 @@ class Main extends Component {
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} refreshControl={this.renderRefreshControl()}>
         <View style={styles.info}>
-          <Text>
+          <AppText>
             {this.props.city}
-          </Text>
-          <Text>
+          </AppText>
+          <AppText>
             {date}
-          </Text>
+          </AppText>
         </View>
-        <TemperatureReading />
+        <TemperatureReading style={styles.tempReading} />
         <WeatherPanelView />
         <View style={styles.weatherWidgets}>
           <WeatherIconWidget type="cloud"/>
           <WeatherIconWidget type="wind"/>
           <WeatherIconWidget type="rain"/>
         </View>
-        <Text style={styles.timestamp}>Last Updated: {time}</Text>
+        <AppText style={styles.timestamp}>Last Updated: {time}</AppText>
       </ScrollView>
     );
   }
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   timestamp: {
-    textAlign: 'left',
+    textAlign: 'right',
     fontSize: 12,
   }
 });

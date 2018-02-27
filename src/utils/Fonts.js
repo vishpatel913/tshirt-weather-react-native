@@ -1,3 +1,5 @@
 export const Fonts = {
-  Rubik: 'Rubik-Light'
+  Rubik: 'Rubik',
+  RubikLight: 'Rubik-Light',
+  RubikBold: 'Rubik-Medium',
 }

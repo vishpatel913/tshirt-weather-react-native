@@ -81,7 +81,7 @@ class Main extends Component {
         <View style={styles.weatherWidgets}>
           <WeatherIconWidget type="cloud"/>
           <WeatherIconWidget type="wind"/>
-          <WeatherIconWidget type="rain"/>
+          <WeatherIconWidget type="rainprobability"/>
         </View>
         <AppText style={styles.timestamp}>Last Updated: {time}</AppText>
       </ScrollView>
@@ -109,11 +109,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   info: {
+    flex: 1,
+    justifyContent: 'flex-start',
     flexDirection: 'row',
     justifyContent:'space-between',
   },
   weatherWidgets: {
-    flex: 1,
+    flex: 3,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 10,

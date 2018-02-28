@@ -7,15 +7,11 @@ import {
 import { connect } from 'react-redux';
 import Icon from './Icon';
 import AppText from './AppText';
-// import { getIconSource } from '../helpers/iconHelper';
-
 
 class TemperatureReading extends Component {
 
   render() {
     const { temperature, apparentTemperature, summary, icon } = this.props;
-    console.log(icon);
-
     return(
       <View style={styles.container}>
         <View style={styles.tempContainer}>
@@ -41,7 +37,7 @@ export default connect(mapStateToProps, null)(TemperatureReading);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
     alignItems: 'center',
   },
   tempContainer: {

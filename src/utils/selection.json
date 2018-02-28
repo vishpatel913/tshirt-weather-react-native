@@ -681,7 +681,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": [
-          "wind"
+          "windy"
         ]
       },
       "attrs": [
@@ -690,7 +690,7 @@
       "properties": {
         "order": 24,
         "id": 1,
-        "name": "wind",
+        "name": "windy",
         "prevSize": 32,
         "code": 59671
       },
@@ -710,7 +710,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": [
-          "windy"
+          "wind"
         ]
       },
       "attrs": [
@@ -719,7 +719,7 @@
       "properties": {
         "order": 23,
         "id": 0,
-        "name": "windy",
+        "name": "wind",
         "prevSize": 32,
         "code": 59672
       },

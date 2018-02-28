@@ -29,8 +29,11 @@ export default (state = INITIAL_STATE, action) => {
               windSpeed,
               windGust,
               cloudCover,
+              humidity,
               visibility,
-              precipProbability
+              precipProbability,
+              precipIntensity,
+              precipType,
             } = currently;
       const loading = false;
       const currentTempRounded = Math.round(temperature);
@@ -44,9 +47,12 @@ export default (state = INITIAL_STATE, action) => {
           time,
           windSpeed,
           windGust,
+          humidity: humidity*100,
           cloudCover: cloudCover*100,
           visibility,
-          precipProbability: precipProbability*100
+          precipProbability: precipProbability*100,
+          precipIntensity,
+          precipType,
         },
         hourly: hourly,
         daily: daily,

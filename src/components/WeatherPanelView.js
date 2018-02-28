@@ -14,7 +14,7 @@ class WeatherPanel extends Component {
   render() {
     return (
       <View style={styles.container}>
-      	<AppText style={styles.heading}>
+      	<AppText font="bold" style={styles.heading}>
       		Hourly Forcast
       	</AppText>
       	<HourlyForecast style={styles.hourly} hours="5" />
@@ -27,7 +27,7 @@ module.exports = WeatherPanel;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 7,
     flexDirection: 'column',
     padding: 8,
     borderWidth: 1,

@@ -76,9 +76,11 @@ class Main extends Component {
             {date}
           </AppText>
         </View>
-        <CurrentTemperature style={styles.tempReading} />
+        
+        <CurrentTemperature />
         <WeatherPanelView />
         <WeatherData />
+
         <View style={styles.footer}>
           <AppText font="light" style={styles.footerText}>
             TShirt Weather

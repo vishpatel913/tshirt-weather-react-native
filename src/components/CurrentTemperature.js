@@ -16,10 +16,15 @@ class CurrentTemperature extends Component {
     const { sunriseTime, sunsetTime } = this.props;
     let time = getHoursFromUnix(Date.now()/1000);
     if (time > sunsetTime) {
-      return;
+      return(
+        <View style={styles.sunContainer}>
+          <Icon name='sunrise' size={20}/>
+          <AppText style={styles.fontSmall}>{sunriseTime[1]}</AppText>
+        </View>
+      );
     } else {
-      let day = sunriseTime < time && time < sunsetTime;
-      const sunObj = day ? { time: sunsetTime, icon: 'sunset'} : { time: sunriseTime, icon: 'sunrise'};
+      let day = sunriseTime[0] < time && time < sunsetTime;
+      const sunObj = day ? { time: sunsetTime, icon: 'sunset'} : { time: sunriseTime[0], icon: 'sunrise'};
       return(
         <View style={styles.sunContainer}>
           <Icon name={sunObj.icon} size={20}/>

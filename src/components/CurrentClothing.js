@@ -37,7 +37,7 @@ class CurrentClothing extends Component {
   renderSubImages() {
     let { averageTemp, averageAppTemp, averageCloud, averagePrecipProb, sunsetTime, sunriseTime } = this.props;
     let time = getHoursFromUnix(Date.now()/1000);
-    let sunny = averageCloud < 0.3 && time < sunsetTime && time > sunriseTime;
+    let sunny = averageCloud < 0.3 && time < sunsetTime && time > sunriseTime[0];
     let cold = averageTemp < 1 || averageAppTemp < 5;
     let rain = averagePrecipProb > 0.6;
     var subArray = [];

@@ -10,7 +10,7 @@ const INITIAL_STATE = {
     time: 0
   },
   today: {
-    sunriseTime: 0,
+    sunriseTime: [],
     sunsetTime: 0
   },
   hourly: {
@@ -82,7 +82,7 @@ export default(state = INITIAL_STATE, action) => {
       const loading = false;
       const currentTempRounded = Math.round(temperature);
       const apparentTempRounded = Math.round(apparentTemperature);
-      const sunriseTime = getHoursFromUnix(daily.data[0].sunriseTime);
+      const sunriseTime = [getHoursFromUnix(daily.data[0].sunriseTime), getHoursFromUnix(daily.data[1].sunriseTime)];
       const sunsetTime = getHoursFromUnix(daily.data[0].sunsetTime);
       return {
         currently: {

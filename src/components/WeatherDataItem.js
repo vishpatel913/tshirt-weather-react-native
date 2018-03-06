@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import AppText from './AppText';
 import Icon from './Icon';
 
-class WeatherIconWidget extends Component {
+class WeatherDataItem extends Component {
   constructor(props) {
     super(props);
     this.state = this.getWeatherInfo(this.props);
@@ -17,10 +17,10 @@ class WeatherIconWidget extends Component {
   getWeatherInfo(currently) {
     switch (currently.type) {
       case 'wind':
-        return { title: 'Wind Speed', key: 'windSpeed', unit: 'km/h', icon: 'windy' };
+        return { title: 'Wind Speed', key: 'windSpeed', unit: 'mph', icon: 'windy' };
         break;
       case 'cloud':
-        return { title: 'Cloud Cover', key: 'cloudCover', unit: '%', icon: 'cloud' }
+        return { title: 'Cloud Cover', key: 'cloudCover', unit: '%', icon: 'cloud', percentage: true };
         break;
       case 'rainprobability':
         let typeProps = { name: 'Rain', icon: 'raindrops' }
@@ -29,16 +29,16 @@ class WeatherIconWidget extends Component {
         } else if (currently.precipType == 'sleet') {
           typeProps = { name: 'Sleet', icon: 'snowflake' }
         }
-        return { title: `Chance of ${typeProps.name}`, key: 'precipProbability', unit: '%', icon: `${typeProps.icon}` };
+        return { title: `Chance of ${typeProps.name}`, key: 'precipProbability', unit: '%', icon: `${typeProps.icon}`, percentage: true };
         break;
       case 'rainintensity':
-        let type = 'Rain';
-        if (currently.precipType == 'snow') type = 'Snow';
-        if (currently.precipType == 'sleet') type = 'Sleet';
-        return { title: `${type} Intensity`, key: 'precipIntensity', unit: '%', icon: 'showers' };
+        let typeName = 'Rain';
+        if (currently.precipType == 'snow') typeName = 'Snow';
+        if (currently.precipType == 'sleet') typeName = 'Sleet';
+        return { title: `${typeName} Intensity`, key: 'precipIntensity', unit: 'mmph', icon: 'umbrella' };
         break;
       case 'humidity':
-        return { title: 'Humidity', key: 'humidity', unit: '%', icon: 'humidity' };
+        return { title: 'Humidity', key: 'humidity', unit: '%', icon: 'humidity', percentage: true };
         break;
       default:
         return { title: 'Temperature', key: 'temperature', unit: '°C', icon: 'thermometer' };
@@ -47,17 +47,15 @@ class WeatherIconWidget extends Component {
 
   render() {
     this.state = this.getWeatherInfo(this.props);
-    const value = Math.round(this.props[this.state.key]) + this.state.unit;
+    const value = this.state.percentage
+      ? Math.round(this.props[this.state.key] * 100)
+      : Math.round(this.props[this.state.key]);
     let { icon, title } = this.state;
-    // if (this.props.type == 'rain' && this.props.temperature < 0) {
-    //   icon = 'snowflake';
-    //   title = 'Chance of Snow';
-    // }
     return(
       <View style={styles.container}>
         <View style={styles.dataWrap}>
           <Icon name={icon} style={styles.icon} />
-          <AppText style={styles.value}>{value}</AppText>
+          <AppText style={styles.value}>{value + this.state.unit}</AppText>
           <AppText style={styles.title}>{title}</AppText>
         </View>
       </View>
@@ -71,7 +69,7 @@ const mapStateToProps = (state) => {
   return { temperature, apparentTemperature, windSpeed, humidity, cloudCover, precipProbability, precipIntensity, precipType };
 };
 
-export default connect(mapStateToProps, null)(WeatherIconWidget);
+export default connect(mapStateToProps, null)(WeatherDataItem);
 
 const styles = StyleSheet.create({
   container: {

@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import AppText from './AppText';
 import HourlyForecast from './HourlyForecast';
-
+import CurrentClothing from './CurrentClothing';
 
 
 class WeatherPanel extends Component {
@@ -17,13 +17,14 @@ class WeatherPanel extends Component {
       	<AppText font="bold" style={styles.heading}>
       		Hourly Forcast
       	</AppText>
+        <CurrentClothing />
       	<HourlyForecast style={styles.hourly} hours="5" />
       </View>
     );
   }
 }
 
-module.exports = WeatherPanel;
+export default WeatherPanel;
 
 const styles = StyleSheet.create({
   container: {
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
     borderColor: "#00A588",
   },
   heading: {
-    flex: 1,
     textAlign: 'center',
     fontSize: 16,
   },

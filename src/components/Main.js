@@ -9,9 +9,9 @@ import {
 import { connect } from 'react-redux';
 
 import AppText from './AppText';
-import TemperatureReading from './TemperatureReading';
-import WeatherIconWidget from './WeatherIconWidget';
+import CurrentTemperature from './CurrentTemperature';
 import WeatherPanelView from './WeatherPanelView';
+import WeatherData from './WeatherData';
 
 import { getWeather } from '../actions/WeatherActions';
 import { getLocation } from '../actions/GeolocationActions';
@@ -76,14 +76,17 @@ class Main extends Component {
             {date}
           </AppText>
         </View>
-        <TemperatureReading style={styles.tempReading} />
+        <CurrentTemperature style={styles.tempReading} />
         <WeatherPanelView />
-        <View style={styles.weatherWidgets}>
-          <WeatherIconWidget type="cloud"/>
-          <WeatherIconWidget type="wind"/>
-          <WeatherIconWidget type="rainprobability"/>
+        <WeatherData />
+        <View style={styles.footer}>
+          <AppText font="light" style={styles.footerText}>
+            TShirt Weather
+          </AppText>
+          <AppText font="light" style={styles.footerText}>
+            Last Updated: {time}
+          </AppText>
         </View>
-        <AppText style={styles.timestamp}>Last Updated: {time}</AppText>
       </ScrollView>
     );
   }
@@ -110,19 +113,14 @@ const styles = StyleSheet.create({
   },
   info: {
     flex: 1,
-    justifyContent: 'flex-start',
     flexDirection: 'row',
     justifyContent:'space-between',
   },
-  weatherWidgets: {
-    flex: 3,
+  footer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 10,
-    alignItems: 'flex-end',
+    justifyContent:'space-between',
   },
-  timestamp: {
-    textAlign: 'right',
+  footerText: {
     fontSize: 12,
-  }
+  },
 });

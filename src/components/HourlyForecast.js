@@ -5,7 +5,8 @@ import {
   View
 } from 'react-native';
 import { connect } from 'react-redux';
-import HourlyForecastItem from "./HourlyForecastItem";
+import AppText from './AppText';
+import HourlyForecastItem from './HourlyForecastItem';
 
 class HourlyForecast extends Component {
 
@@ -17,23 +18,32 @@ class HourlyForecast extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.renderHourlyForecast(this.props.hours)}
-      </View>
+      // <View style={styles.container}>
+        // <AppText font='light'>{this.props.summary}</AppText>
+        <View style={styles.rowContainer}>
+          {this.renderHourlyForecast(this.props.hours)}
+        </View>
+      // </View>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const { data } = state.weather.hourly;
+  const { summary, data } = state.weather.hourly;
 
-  return { data };
+  return { summary, data };
 };
 
 export default connect(mapStateToProps, null)(HourlyForecast);
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
+  rowContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',

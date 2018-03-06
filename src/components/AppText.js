@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { Fonts } from '../utils/Fonts';
 
-export default class AppText extends Component {
+class AppText extends Component {
   constructor(props) {
     super(props)
     this.style = [{fontFamily: Fonts.Rubik}];
@@ -28,3 +28,5 @@ export default class AppText extends Component {
     )
   }
 }
+
+export default AppText;

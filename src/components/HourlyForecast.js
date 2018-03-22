@@ -18,12 +18,9 @@ class HourlyForecast extends Component {
 
   render() {
     return (
-      // <View style={styles.container}>
-        // <AppText font='light'>{this.props.summary}</AppText>
-        <View style={styles.rowContainer}>
-          {this.renderHourlyForecast(this.props.hours)}
-        </View>
-      // </View>
+      <View style={styles.container}>
+        {this.renderHourlyForecast(this.props.hours)}
+      </View>
     );
   }
 }
@@ -39,13 +36,9 @@ export default connect(mapStateToProps, null)(HourlyForecast);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-end'
-  },
-  rowContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
+    borderTopWidth: 1,
+    borderColor: "#00A58833",
   },
 })

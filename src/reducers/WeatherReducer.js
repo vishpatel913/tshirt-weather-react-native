@@ -6,12 +6,15 @@ const INITIAL_STATE = {
     temperature: 0,
     apparentTemperature: 0,
     summary: '',
-    icon: '',
     time: 0
   },
   today: {
     sunriseTime: [],
-    sunsetTime: 0
+    sunsetTime: 0,
+    sunshine: {
+      average: 0,
+      max: 0,
+    },
   },
   hourly: {
     data: []
@@ -30,8 +33,7 @@ function calculateAverage(data, attr, number) {
     var value = dataObj[attr];
     total += value;
   }
-  average = Math.round(total / number);
-  return average;
+  return total / number;
 }
 
 function calculateMax(data, attr, number) {
@@ -58,6 +60,21 @@ function calculateMin(data, attr, number) {
     }
   }
   return min;
+}
+
+function calculateSunshine(data, time) {
+  var total = 0;
+  var max = -Infinity;
+  var i = 0;
+  while (data[i].time < time) {
+    var value = 1 - data[i].cloudCover;
+    total += value;
+    if (value >= max) {
+      max = value;
+    };
+    i++;
+  }
+  return { average: total/i, max: max };
 }
 
 
@@ -102,6 +119,7 @@ export default(state = INITIAL_STATE, action) => {
         today: {
           sunriseTime,
           sunsetTime,
+          sunshine: calculateSunshine(hourly.data, daily.data[0].sunsetTime),
           averageTemp: calculateAverage(hourly.data, 'temperature', 5),
           averageAppTemp: calculateAverage(hourly.data, 'apparentTemperature', 5),
           averageWindSpeed: calculateAverage(hourly.data, 'windSpeed', 5),

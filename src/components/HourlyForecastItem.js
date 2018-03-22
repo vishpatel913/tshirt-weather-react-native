@@ -17,9 +17,9 @@ class HourlyForecastItem extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <Icon name={icon} style={styles.iconStyle} />
-          <AppText style={styles.tempTextStyle}>{roundedTemp}°C</AppText>
           <AppText style={styles.timeStyle}>{timeString}</AppText>
+          <Icon name={icon} size={28} color={'#00A588'} />
+          <AppText style={styles.tempTextStyle}>{roundedTemp}°C</AppText>
         </View>
       </View>
     );
@@ -31,25 +31,20 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: "#00A588",
-    padding: 4,
-    margin: 4,
+    margin: 8,
   },
   dataWrap: {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
   },
-  iconStyle: {
-    fontSize: 28,
-  },
   tempTextStyle: {
-    fontSize: 16,
-    padding: 4,
+    fontSize: 20,
+    color: '#007269'
   },
   timeStyle: {
     fontSize: 12,
+    marginBottom: 4
   },
 }
 

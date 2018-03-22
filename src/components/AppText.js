@@ -7,9 +7,9 @@ import { Fonts } from '../utils/Fonts';
 class AppText extends Component {
   constructor(props) {
     super(props)
-    this.style = [{fontFamily: Fonts.Rubik}];
-    if (this.props.font == 'light') this.style = [{fontFamily: Fonts.RubikLight}];
-    if (this.props.font == 'bold') this.style = [{fontFamily: Fonts.RubikBold}];
+    this.style = [{fontFamily: Fonts.Rubik, color: '#666666'}];
+    if (this.props.font == 'light') this.style = [{fontFamily: Fonts.RubikLight, color: '#666666'}];
+    if (this.props.font == 'bold') this.style = [{fontFamily: Fonts.RubikBold, color: '#007269'}];
 
     if( props.style ) {
       if( Array.isArray(props.style) ) {

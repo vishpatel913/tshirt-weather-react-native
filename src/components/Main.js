@@ -4,7 +4,8 @@ import {
   StyleSheet,
   View,
   ScrollView,
-  RefreshControl
+  RefreshControl,
+  PermissionsAndroid
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -28,8 +29,6 @@ class Main extends Component {
 
   state = {
     error: '',
-    latitude: 0,
-    longitude: 0,
     refreshing: false
   }
 
@@ -42,7 +41,7 @@ class Main extends Component {
         this.props.getLocation({ latitude, longitude });
       },
       (error) => this.setState({ error: error.message || '' }),
-      { enableHighAccuracy: true, timeout: 20000, maximumage: 1000 }
+      { timeout: 20000, maximumage: 1000 }
     );
   }
 
@@ -60,14 +59,20 @@ class Main extends Component {
   }
 
   renderRefreshControl() {
-    return <RefreshControl refreshing={this.state.refreshing} onRefresh={this.refreshWeather.bind(this)}/>;
+    return <RefreshControl
+      tintColor="#00A588"
+      refreshing={this.state.refreshing}
+      onRefresh={this.refreshWeather.bind(this)}/>;
   }
 
   render() {
-    let date = getLongDateString(this.props.time);
-    let time = getHoursFromUnix(this.props.time, true);
+    var date = getLongDateString(this.props.time);
+    var time = getHoursFromUnix(this.props.time, true);
     return (
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} refreshControl={this.renderRefreshControl()}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+        refreshControl={this.renderRefreshControl()}>
         <View style={styles.info}>
           <AppText>
             {this.props.city}
@@ -76,7 +81,7 @@ class Main extends Component {
             {date}
           </AppText>
         </View>
-        
+
         <CurrentTemperature />
         <WeatherPanelView />
         <WeatherData />
@@ -104,19 +109,31 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getWeather, getLocation })(Main);
 
+const platformStyles = Platform.select({
+  ios: StyleSheet.create({
+      statusBar: {
+        marginTop: 20,
+      }
+  }),
+})
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    padding: 20,
     backgroundColor: '#F3EDE7',
   },
   contentContainer: {
     flex: 1,
+    margin: 20,
+    justifyContent: 'space-between',
   },
   info: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent:'space-between',
+    marginTop: Platform.select({
+      ios: 20,
+      android: 0
+    })
   },
   footer: {
     flexDirection: 'row',
@@ -124,5 +141,6 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
+    color: '#007269'
   },
 });

@@ -8,13 +8,18 @@ export const getHoursFromUnix = (time, hour12 = false) => {
     hour12: hour12
   };
 
-  return date.toLocaleString('en-UK', options);
+  var times = date.toLocaleTimeString('en-UK', options).split(':');
+  var formattedTime = times[0] + ':' + times[1];
+
+  return formattedTime;
 }
 
 export const getLongDateString = (time) => {
   const date = new Date(0);
   date.setUTCSeconds(time);
-  return `${date.toDateString()}`;
+  const d = date.toDateString().split(' ');
+  const formattedDate = `${d[0]}, ${d[2]} ${d[1]} ${d[3]}`
+  return formattedDate;
 };
 
 export const getDayOfWeek = (time) => {

@@ -23,7 +23,7 @@ class WeatherDataItem extends Component {
         return { title: 'Cloud Cover', key: 'cloudCover', unit: '%', icon: 'cloud', percentage: true };
         break;
       case 'rainprobability':
-        let typeProps = { name: 'Rain', icon: 'raindrops' }
+        var typeProps = { name: 'Rain', icon: 'raindrops' }
         if (currently.precipType == 'snow') {
           typeProps = { name: 'Snow', icon: 'snowflake' }
         } else if (currently.precipType == 'sleet') {
@@ -32,7 +32,7 @@ class WeatherDataItem extends Component {
         return { title: `Chance of ${typeProps.name}`, key: 'precipProbability', unit: '%', icon: `${typeProps.icon}`, percentage: true };
         break;
       case 'rainintensity':
-        let typeName = 'Rain';
+        var typeName = 'Rain';
         if (currently.precipType == 'snow') typeName = 'Snow';
         if (currently.precipType == 'sleet') typeName = 'Sleet';
         return { title: `${typeName} Intensity`, key: 'precipIntensity', unit: 'mmph', icon: 'umbrella' };
@@ -50,11 +50,11 @@ class WeatherDataItem extends Component {
     const value = this.state.percentage
       ? Math.round(this.props[this.state.key] * 100)
       : Math.round(this.props[this.state.key]);
-    let { icon, title } = this.state;
+    var { icon, title } = this.state;
     return(
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <Icon name={icon} style={styles.icon} />
+          <Icon name={icon} size={36} color={'#00A588'} style={styles.icon} />
           <AppText style={styles.value}>{value + this.state.unit}</AppText>
           <AppText style={styles.title}>{title}</AppText>
         </View>
@@ -64,9 +64,27 @@ class WeatherDataItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { temperature, apparentTemperature, windSpeed, humidity, cloudCover, precipProbability, precipIntensity, precipType } = state.weather.currently;
+  const {
+    temperature,
+    apparentTemperature,
+    windSpeed,
+    humidity,
+    cloudCover,
+    precipProbability,
+    precipIntensity,
+    precipType
+  } = state.weather.currently;
 
-  return { temperature, apparentTemperature, windSpeed, humidity, cloudCover, precipProbability, precipIntensity, precipType };
+  return {
+    temperature,
+    apparentTemperature,
+    windSpeed,
+    humidity,
+    cloudCover,
+    precipProbability,
+    precipIntensity,
+    precipType
+  };
 };
 
 export default connect(mapStateToProps, null)(WeatherDataItem);
@@ -78,8 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: "#00A588",
+    backgroundColor: '#00A5880D',
     padding: 4,
   },
   dataWrap: {
@@ -89,12 +106,12 @@ const styles = StyleSheet.create({
   },
   icon: {
     flex: 2,
-    fontSize: 36,
   },
   value: {
     flex: 2,
     fontSize: 20,
-    marginVertical: 4
+    marginVertical: 4,
+    color: '#007269',
   },
   title: {
     flex: 1,

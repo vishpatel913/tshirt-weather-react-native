@@ -11,7 +11,7 @@ import WeatherDataItem from './WeatherDataItem';
 class WeatherData extends Component {
 
   renderWeatherWidgets() {
-    let typeList = ['cloud', 'wind', 'rainprobability'];
+    var typeList = ['cloud', 'wind', 'rainprobability'];
     if (this.props.precipProbability > 50 ) typeList = ['rainprobability', 'rainintensity', 'humidity']
     return typeList.map((type) =>
       <WeatherDataItem type={type} key={type}/>

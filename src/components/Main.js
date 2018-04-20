@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import AppText from './AppText';
 import Icon from './Icon';
 import CurrentTemperature from './CurrentTemperature';
-import WeatherPanelView from './WeatherPanelView';
+import WeatherPanel from './WeatherPanel';
 import WeatherData from './WeatherData';
 
 import { getWeather } from '../actions/WeatherActions';
@@ -86,7 +86,7 @@ class Main extends Component {
         </View>
 
         <CurrentTemperature />
-        <WeatherPanelView />
+        <WeatherPanel />
         <WeatherData />
 
         <View style={styles.footer}>

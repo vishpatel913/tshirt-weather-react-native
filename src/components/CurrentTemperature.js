@@ -12,6 +12,26 @@ import { getHoursFromUnix } from '../helpers/timeHelper';
 
 class CurrentTemperature extends Component {
 
+  renderFeelsLikeData() {
+    const { temperature, apparentTemperature, tempHigh, tempLow } = this.props;
+    if (apparentTemperature != temperature) {
+      return(
+        <AppText font="light" style={styles.fontMedium}>
+          Feels like {apparentTemperature}&deg;C
+        </AppText>
+      );
+    } else {
+      return(
+        <AppText font="light" style={styles.fontMedium}>
+          <Icon name="arrow-up" color={'#666666'}/>
+          {tempHigh}&deg;C &nbsp;
+          <Icon name="arrow-down" color={'#666666'}/>
+          {tempLow}&deg;C
+        </AppText>
+      );
+    }
+  }
+
   renderSunData() {
     const { sunriseTime, sunsetTime } = this.props;
     var time = getHoursFromUnix(Date.now()/1000);
@@ -37,7 +57,11 @@ class CurrentTemperature extends Component {
   }
 
   render() {
-    const { temperature, apparentTemperature, summary, icon } = this.props;
+    const {
+      temperature,
+      summary,
+      icon
+    } = this.props;
     return(
         <View style={styles.container}>
           <View style={[styles.rowContainer, styles.tempRowAlign]}>
@@ -55,9 +79,7 @@ class CurrentTemperature extends Component {
           </View>
           <View style={styles.rowContainer}>
             <View style={styles.tempContainer}>
-              <AppText font="light" style={styles.fontMedium}>
-                Feels like {apparentTemperature}&deg;C
-              </AppText>
+              {this.renderFeelsLikeData()}
             </View>
             <View style={styles.infoContainer}>
               {this.renderSunData()}
@@ -77,16 +99,20 @@ const mapStateToProps = (state) => {
   } = state.weather.currently;
   const {
     sunriseTime,
-    sunsetTime
+    sunsetTime,
+    tempHigh,
+    tempLow,
   } = state.weather.today;
 
   return {
     temperature,
     apparentTemperature,
+    tempHigh,
+    tempLow,
     summary,
     icon,
     sunriseTime,
-    sunsetTime
+    sunsetTime,
   };
 };
 
@@ -97,7 +123,6 @@ const styles = StyleSheet.create({
     flex: 3,
     alignItems: 'center',
     flexDirection: 'column',
-    margin: 8,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -111,7 +136,6 @@ const styles = StyleSheet.create({
   },
   tempContainer: {
     flex: 2,
-    flexDirection: 'column',
     flexWrap: 'nowrap',
   },
   infoContainer: {

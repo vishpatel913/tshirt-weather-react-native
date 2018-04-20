@@ -10,6 +10,7 @@ import {
 import { connect } from 'react-redux';
 
 import AppText from './AppText';
+import Icon from './Icon';
 import CurrentTemperature from './CurrentTemperature';
 import WeatherPanelView from './WeatherPanelView';
 import WeatherData from './WeatherData';
@@ -73,8 +74,10 @@ class Main extends Component {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
         refreshControl={this.renderRefreshControl()}>
-        <View style={styles.info}>
+        <View style={styles.headerInfo}>
           <AppText>
+            <Icon name="location" size={12} color={'#666666'}/>
+            &nbsp;
             {this.props.city}
           </AppText>
           <AppText>
@@ -127,7 +130,7 @@ const styles = StyleSheet.create({
     margin: 20,
     justifyContent: 'space-between',
   },
-  info: {
+  headerInfo: {
     flexDirection: 'row',
     justifyContent:'space-between',
     marginTop: Platform.select({

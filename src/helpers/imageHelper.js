@@ -1,20 +1,29 @@
 export const getImageSource = (image) => {
+  const TSHIRT_IMAGE = require('../../assets/images/tshirt.png');
+  const JACKET_IMAGE = require('../../assets/images/jacket.png');
+  const HOODIE_IMAGE = require('../../assets/images/hoodie.png');
+  const COAT_IMAGE = require('../../assets/images/coat.png');
+  const SUNNIES_IMAGE = require('../../assets/images/sunglasses.png');
+  const WINTER_IMAGE = require('../../assets/images/winter.png');
+  const UMBRELLA_IMAGE = require('../../assets/images/umbrella.png');
+  const NA_IMAGE = require('../../assets/images/na.png');
+
   switch (image) {
     case 'tshirt':
-      return require('../../assets/images/tshirt.png');
+      return TSHIRT_IMAGE;
     case 'jacket':
-      return require('../../assets/images/jacket.png');
+      return JACKET_IMAGE;
     case 'hoodie':
-      return require('../../assets/images/hoodie.png');
+      return HOODIE_IMAGE;
     case 'coat':
-      return require('../../assets/images/coat.png');
+      return COAT_IMAGE;
     case 'sunglasses':
-      return require('../../assets/images/sunglasses.png');
+      return SUNNIES_IMAGE;
     case 'winter':
-      return require('../../assets/images/winter.png');
+      return WINTER_IMAGE;
     case 'umbrella':
-      return require('../../assets/images/umbrella.png');
+      return UMBRELLA_IMAGE;
     default:
-      return require('../../assets/images/na.png');
+      return NA_IMAGE;
   }
 };

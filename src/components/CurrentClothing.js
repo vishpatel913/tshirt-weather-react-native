@@ -8,29 +8,29 @@ import { getHoursFromUnix } from '../helpers/timeHelper';
 class CurrentClothing extends Component {
 
   getClothingDetails() {
-    var { averageTemp, averageCloud, averageWindSpeed } = this.props;
-    // var windConst = 0.5 * (9 - averageWindSpeed);
-    var cloudConst = 6 * averageCloud;
-    if (averageTemp > cloudConst + 18) {
-      console.log("TempEquation", averageTemp + " > " + cloudConst + " + 18");
+    var { tempAverage, cloudCoverAverage, windSpeedAverage } = this.props;
+    // var windConst = 0.5 * (9 - windSpeedAverage);
+    var cloudConst = 6 * cloudCoverAverage;
+    if (tempAverage > cloudConst + 18) {
+      console.log("TShirtTempEquation", `${tempAverage} > ${cloudConst} + 18`);
       return {
         image: 'tshirt',
         caption: `It's T-shirt Weather!`
       }
-    } else if (averageTemp > cloudConst + 12) {
-      console.log("TempEquation", averageTemp + " > " + cloudConst + " + 12");
-      return {
-        image: 'hoodie',
-        caption: `Hoodie or jumper`
-      }
-    } else if (averageTemp > cloudConst + 6) {
-      console.log("TempEquation", averageTemp + " > " + cloudConst + " + 6");
+    } else if (tempAverage > cloudConst + 12) {
+      console.log("JacketTempEquation", `${tempAverage} > ${cloudConst} + 12`);
       return {
         image: 'jacket',
         caption: `Maybe a light jacket`
       }
+    } else if (tempAverage > cloudConst + 6) {
+      console.log("HoodieTempEquation", `${tempAverage} > ${cloudConst} + 6`);
+      return {
+        image: 'hoodie',
+        caption: `Hoodie or jumper`
+      }
     } else {
-      console.log("TempEquation", averageTemp + " < " + cloudConst + " + 6");
+      console.log("CoatTempEquation", `${tempAverage} < ${cloudConst} + 6`);
       return {
         image: 'coat',
         caption: `Coat or layer up`
@@ -40,18 +40,19 @@ class CurrentClothing extends Component {
 
   renderSubImages() {
     var {
-      averageTemp,
-      averageAppTemp,
+      tempAverage,
+      appTempAverage,
       sunshine,
-      averagePrecipProb,
+      precipProbAverage,
       precipProbability,
       sunsetTime,
       sunriseTime
     } = this.props;
+
     var time = getHoursFromUnix(Date.now()/1000);
-    var sunny = (sunshine.average > 0.65 || sunshine.max > 0.75) && time > sunriseTime[0];
-    var cold = averageTemp < 1 || averageAppTemp < 3;
-    var rain = averagePrecipProb > 0.6 || precipProbability > 0.75;
+    var sunny = (sunshine.average > 0.65 || sunshine.max > 0.75);
+    var cold = tempAverage < 1 || appTempAverage < 3;
+    var rain = precipProbAverage > 0.6 || precipProbability > 0.75;
     var subArray = [];
     if (sunny && subArray.length < 2) subArray.push('sunglasses');
     if (cold && subArray.length < 2) subArray.push('winter');
@@ -98,14 +99,12 @@ const mapStateToProps = ( state ) => {
     sunriseTime,
     sunsetTime,
     sunshine,
-    averageTemp,
-    averageAppTemp,
-    // averageWindSpeed,
-    averagePrecipProb,
-    averageCloud,
-    // minCloud,
-    // maxCloud,
-    maxPrecipInten
+    tempAverage,
+    appTempAverage,
+    // windSpeedAverage,
+    precipProbAverage,
+    cloudCoverAverage,
+    precipIntenAverage
   } = state.weather.today;
   const {
     temperature,
@@ -115,26 +114,26 @@ const mapStateToProps = ( state ) => {
     precipProbability,
     precipIntensity
   } = state.weather.currently;
+  const daily = state.weather.daily;
 
   return {
     summary,
     sunriseTime,
     sunsetTime,
     sunshine,
-    averageTemp,
-    averageAppTemp,
-    // averageWindSpeed,
-    averagePrecipProb,
-    averageCloud,
-    // minCloud,
-    // maxCloud,
-    maxPrecipInten,
+    tempAverage,
+    appTempAverage,
+    // windSpeedAverage,
+    precipProbAverage,
+    cloudCoverAverage,
+    precipIntenAverage,
     temperature,
     apparentTemperature,
     // windSpeed,
     cloudCover,
     precipProbability,
-    precipIntensity
+    precipIntensity,
+    daily
   };
 };
 

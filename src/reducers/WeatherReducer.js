@@ -1,10 +1,9 @@
-import { GET_WEATHER_SUCCESS } from '../actions/types';
-import { getHoursFromUnix } from '../helpers/timeHelper';
+import {GET_WEATHER_SUCCESS} from '../actions/types';
+import {getHoursFromUnix} from '../helpers/timeHelper';
 
 const INITIAL_STATE = {
   currently: {
     temperature: 0,
-    apparentTemperature: 0,
     summary: '',
     time: 0
   },
@@ -13,15 +12,23 @@ const INITIAL_STATE = {
     sunsetTime: 0,
     sunshine: {
       average: 0,
-      max: 0,
-    },
+      max: 0
+    }
   },
   hourly: {
     data: []
   },
   daily: {
     summary: '',
-    data: []
+    data: [
+      {
+        temperatureHigh: '',
+        apparentTemperatureHigh: '',
+        cloudCover: '',
+        windSpeed: '',
+        precipProbability: ''
+      }
+    ]
   }
 };
 
@@ -74,14 +81,16 @@ function calculateSunshine(data, time) {
     };
     i++;
   }
-  return { average: total/i, max: max };
+  return {
+    average: total / i,
+    max: max
+  };
 }
-
 
 export default(state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_WEATHER_SUCCESS:
-      const { currently, daily, hourly } = action.payload.data;
+      const {currently, daily, hourly} = action.payload.data;
       const {
         temperature,
         apparentTemperature,
@@ -99,7 +108,12 @@ export default(state = INITIAL_STATE, action) => {
       const loading = false;
       const currentTempRounded = Math.round(temperature);
       const apparentTempRounded = Math.round(apparentTemperature);
-      const sunriseTime = [getHoursFromUnix(daily.data[0].sunriseTime), getHoursFromUnix(daily.data[1].sunriseTime)];
+      const tempHighRounded = Math.round(daily.data[0].temperatureHigh);
+      const tempLowRounded = Math.round(daily.data[0].temperatureLow);
+      const sunriseTime = [
+        getHoursFromUnix(daily.data[0].sunriseTime),
+        getHoursFromUnix(daily.data[1].sunriseTime)
+      ];
       const sunsetTime = getHoursFromUnix(daily.data[0].sunsetTime);
       return {
         currently: {
@@ -120,14 +134,16 @@ export default(state = INITIAL_STATE, action) => {
           sunriseTime,
           sunsetTime,
           sunshine: calculateSunshine(hourly.data, daily.data[0].sunsetTime),
-          averageTemp: calculateAverage(hourly.data, 'temperature', 5),
-          averageAppTemp: calculateAverage(hourly.data, 'apparentTemperature', 5),
-          averageWindSpeed: calculateAverage(hourly.data, 'windSpeed', 5),
-          averagePrecipProb: calculateAverage(hourly.data, 'precipProbability', 5),
-          averageCloud: calculateAverage(hourly.data, 'cloudCover', 5),
-          minCloud: calculateMin(hourly.data, 'cloudCover', 5),
-          maxCloud: calculateMax(hourly.data, 'cloudCover', 5),
-          maxPrecipInten: calculateMax(hourly.data, 'precipIntensity', 5),
+          tempAverage: calculateAverage(hourly.data, 'temperature', 5),
+          tempHigh: tempHighRounded,
+          tempLow: tempLowRounded,
+          appTempAverage: calculateAverage(hourly.data, 'apparentTemperature', 5),
+          precipProbAverage: calculateAverage(hourly.data, 'precipProbability', 5),
+          precipIntenAverage: calculateMax(hourly.data, 'precipIntensity', 5),
+          windSpeedAverage: calculateAverage(hourly.data, 'windSpeed', 5),
+          cloudCoverAverage: calculateAverage(hourly.data, 'cloudCover', 5),
+          cloudCoverMin: calculateMin(hourly.data, 'cloudCover', 5),
+          cloudCoverMax: calculateMax(hourly.data, 'cloudCover', 5)
         },
         hourly: hourly,
         daily: daily,

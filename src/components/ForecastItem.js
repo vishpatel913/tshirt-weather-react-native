@@ -6,18 +6,18 @@ import {
 
 import AppText from './AppText';
 import Icon from './Icon';
-import { getHoursFromUnix } from '../helpers/timeHelper';
+import { getHoursFromUnix, getDayOfWeek } from '../helpers/timeHelper';
 
-class HourlyForecastItem extends Component {
+class ForecastItem extends Component {
   render() {
-    const { icon, temperature, time } = this.props.hourly;
-    const roundedTemp = Math.round(temperature);
-    const timeString = getHoursFromUnix(time, false);
+    const { icon, temperature, temperatureMax, time } = this.props.data;
+    const roundedTemp = Math.round(temperature) || Math.round(temperatureMax);
+    const label = this.props.time ? getHoursFromUnix(time) : getDayOfWeek(time, true);
 
     return (
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <AppText style={styles.timeStyle}>{timeString}</AppText>
+          <AppText style={styles.labelStyle}>{label}</AppText>
           <Icon name={icon} size={28} color={'#00A588'} />
           <AppText style={styles.tempTextStyle}>{roundedTemp}°C</AppText>
         </View>
@@ -25,6 +25,8 @@ class HourlyForecastItem extends Component {
     );
   }
 };
+
+export default ForecastItem;
 
 const styles = {
   container: {
@@ -42,10 +44,8 @@ const styles = {
     fontSize: 20,
     color: '#007269'
   },
-  timeStyle: {
+  labelStyle: {
     fontSize: 12,
     marginBottom: 4
   },
 }
-
-export default HourlyForecastItem;

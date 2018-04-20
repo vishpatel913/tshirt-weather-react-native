@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import Swiper from 'react-native-swiper'
 import AppText from './AppText';
 import Forecast from './Forecast';
-import ClothingDetails from './ClothingDetails';
+import CurrentClothing from './CurrentClothing';
+import TomorrowClothing from './TomorrowClothing';
 
 
 class WeatherPanel extends Component {
@@ -33,6 +34,7 @@ class WeatherPanel extends Component {
           dot={this.renderSwipeDot()}
           activeDot={this.renderSwipeDot(true)}
           paginationStyle={{
+            position: 'absolute',
             bottom: -24
           }}
           loop={false}>
@@ -40,14 +42,14 @@ class WeatherPanel extends Component {
             <AppText font="bold" style={styles.heading}>
               Today
             </AppText>
-            <ClothingDetails today data={this.props.today}/>
+            <CurrentClothing />
             <Forecast style={styles.forecast} data={this.props.hourly.data} time={true} />
           </View>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
           		Tomorrow
           	</AppText>
-            <ClothingDetails tomorrow data={this.props.daily.data[1]}/>
+            <TomorrowClothing />
             <Forecast style={styles.forecast} data={this.props.daily.data} time={false} />
           </View>
         </Swiper>

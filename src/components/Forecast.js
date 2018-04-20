@@ -11,7 +11,7 @@ class Forecast extends Component {
 
   renderForecast(number) {
     return this.props.data.map((data, index) =>
-      index != 0 && index <= number && <ForecastItem key={data.time} data={data} showTime={this.props.time} />
+      index != 0 && index <= number && <ForecastItem key={JSON.stringify(data)} data={data} showTime={this.props.time} />
     );
   }
 

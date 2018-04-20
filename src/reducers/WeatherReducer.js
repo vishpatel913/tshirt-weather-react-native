@@ -22,6 +22,10 @@ const INITIAL_STATE = {
     summary: '',
     data: [
       {
+        summary: '',
+      },
+      {
+        summary: '',
         temperatureHigh: '',
         apparentTemperatureHigh: '',
         cloudCover: '',

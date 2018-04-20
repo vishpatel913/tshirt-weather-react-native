@@ -5,7 +5,7 @@ import AppText from './AppText';
 import { getImageSource } from '../helpers/imageHelper';
 import { getHoursFromUnix } from '../helpers/timeHelper';
 
-class CurrentClothing extends Component {
+class ClothingDetails extends Component {
 
   getClothingDetails() {
     var { tempAverage, cloudCoverAverage, windSpeedAverage } = this.props;
@@ -137,7 +137,7 @@ const mapStateToProps = ( state ) => {
   };
 };
 
-export default connect(mapStateToProps, null)(CurrentClothing);
+export default connect(mapStateToProps, null)(ClothingDetails);
 
 const styles = StyleSheet.create({
   container: {

@@ -13,14 +13,14 @@ import ClothingDetails from './ClothingDetails';
 
 class WeatherPanel extends Component {
 
-  renderSwipeDot(active) {
+  renderSwipeDot(active = false) {
     const dotStyle = {
-      backgroundColor: 'rgba(0, 164, 136, 0.3)',
+      backgroundColor: '#00a4884D',
       width: 8,
       height: 8,
-      borderRadius: 5,
-      marginLeft: 5,
-      marginRight: 5
+      borderRadius: 4,
+      marginLeft: 4,
+      marginRight: 4
     };
     if (active) dotStyle.backgroundColor = '#00A588';
     return <View style={dotStyle} />
@@ -30,10 +30,10 @@ class WeatherPanel extends Component {
     return (
       <View style={styles.container}>
         <Swiper style={styles.wrapper}
-          dot={this.renderSwipeDot(false)}
+          dot={this.renderSwipeDot()}
           activeDot={this.renderSwipeDot(true)}
           paginationStyle={{
-            bottom: -25
+            bottom: -24
           }}
           loop={false}>
           <View style={styles.slide}>
@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     borderColor: "#00A58833",
     // backgroundColor: '#00A5880D',
     width: '100%',
-    marginBottom: 15,
+    marginTop: 4,
+    marginBottom: 16,
   },
   slide: {
     flex: 1,

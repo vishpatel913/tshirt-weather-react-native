@@ -12,7 +12,7 @@ class ForecastItem extends Component {
   render() {
     const { icon, temperature, temperatureMax, time } = this.props.data;
     const roundedTemp = Math.round(temperature) || Math.round(temperatureMax);
-    const label = this.props.time ? getHoursFromUnix(time) : getDayOfWeek(time, true);
+    const label = this.props.showTime ? getHoursFromUnix(time) : getDayOfWeek(time, true);
 
     return (
       <View style={styles.container}>

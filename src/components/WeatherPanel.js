@@ -34,8 +34,10 @@ class WeatherPanel extends Component {
           dot={this.renderSwipeDot()}
           activeDot={this.renderSwipeDot(true)}
           paginationStyle={{
-            position: 'absolute',
-            bottom: -24
+            bottom: Platform.select({
+              ios: -24,
+              android: 0
+            }),
           }}
           loop={false}>
           <View style={styles.slide}>
@@ -43,14 +45,14 @@ class WeatherPanel extends Component {
               Today
             </AppText>
             <CurrentClothing />
-            <Forecast style={styles.forecast} data={this.props.hourly.data} time={true} />
+            <Forecast data={this.props.hourly.data} time={true} />
           </View>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
           		Tomorrow
           	</AppText>
             <TomorrowClothing />
-            <Forecast style={styles.forecast} data={this.props.daily.data} time={false} />
+            <Forecast data={this.props.daily.data} time={false} />
           </View>
         </Swiper>
       </View>
@@ -72,10 +74,12 @@ const styles = StyleSheet.create({
     padding: 8,
     borderWidth: 1,
     borderColor: "#00A58833",
-    // backgroundColor: '#00A5880D',
     width: '100%',
     marginTop: 4,
-    marginBottom: 16,
+    marginBottom: Platform.select({
+      ios: 16,
+      android: 0
+    }),
   },
   slide: {
     flex: 1,

@@ -33,5 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     borderTopWidth: 1,
     borderColor: "#00A58833",
+    marginBottom: Platform.select({
+      android: 4
+    }),
   },
 })

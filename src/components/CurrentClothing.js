@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
@@ -8,11 +8,11 @@ import AccessoryDetails from './AccessoryDetails';
 class CurrentClothing extends Component {
 
   render() {
-    var clothingData = {
+    let clothingData = {
       temperature: this.props.tempAverage,
       cloudCover: this.props.cloudCoverAverage
     }
-    var accessoryData = {
+    let accessoryData = {
       temperature: this.props.tempAverage,
       apparentTemperature: this.props.appTempAverage,
       sunshine: this.props.sunshine,

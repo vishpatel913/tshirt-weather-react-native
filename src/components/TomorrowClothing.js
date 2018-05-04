@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
 import AccessoryDetails from './AccessoryDetails';
 
 class CurrentClothing extends Component {
-
   render() {
-    var clothingData = {
+    let clothingData = {
       temperature: this.props.temperatureHigh,
       cloudCover: this.props.cloudCover
     }
-    var accessoryData = {
+    let accessoryData = {
       temperature: this.props.temperatureHigh,
       apparentTemperature: this.props.apparentTemperatureHigh,
       cloudCover: this.props.cloudCover,
       precipProbability: this.props.precipProbability
     }
-    console.log('clothingData', clothingData);
-    console.log('accessoryData', accessoryData);
     return (
       <View style={styles.container}>
         <ClothingDetails data={clothingData}/>
@@ -32,10 +29,9 @@ class CurrentClothing extends Component {
       </View>
     );
   }
-
 }
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = (state) => {
   // const { summary } = state.weather.daily;
   const {
     summary,
@@ -69,6 +65,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   daySummary: {
-    fontSize: 12
-  }
+    fontSize: 12,
+  },
 });

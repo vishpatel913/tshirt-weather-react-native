@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { getImageSource } from '../helpers/imageHelper';
 
 class AccessoryDetails extends Component {
 
   renderSubImages() {
-    var {
+    let {
       temperature,
       apparentTemperature,
       sunshine,
@@ -13,12 +13,12 @@ class AccessoryDetails extends Component {
       precipProbability,
     } = this.props.data;
 
-    var sunny = sunshine
+    let sunny = sunshine
       ? sunshine.average > 0.65 || sunshine.max > 0.75
-      : cloudCover < 0.25;
-    var cold = temperature < 1 || apparentTemperature < 3;
-    var rain = precipProbability > 0.6;
-    var imgArray = [];
+      : cloudCover < 0.35;
+    let cold = temperature < 1 || apparentTemperature < 3;
+    let rain = precipProbability > 0.6;
+    let imgArray = [];
     if (sunny && imgArray.length < 2) imgArray.push('sunglasses');
     if (cold && imgArray.length < 2) imgArray.push('winter');
     if (rain && imgArray.length < 2) imgArray.push('umbrella');

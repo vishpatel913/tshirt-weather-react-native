@@ -2,14 +2,14 @@ export const getHoursFromUnix = (time, hour12 = false) => {
   const date = new Date(0);
   date.setUTCSeconds(time);
 
-  var options = {
+  let options = {
     hour: 'numeric',
     minute: 'numeric',
     hour12: hour12
   };
 
-  var times = date.toLocaleTimeString('en-UK', options).split(':');
-  var formattedTime = times[0] + ':' + times[1];
+  let times = date.toLocaleTimeString('en-UK', options).split(':');
+  let formattedTime = times[0] + ':' + times[1];
 
   return formattedTime;
 }

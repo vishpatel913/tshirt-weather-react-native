@@ -44,7 +44,14 @@ class WeatherPanel extends Component {
         >
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
-              Today
+              Now
+            </AppText>
+            <CurrentClothing now={true} />
+            <Forecast data={this.props.hourly.data} time={true} />
+          </View>
+          <View style={styles.slide}>
+            <AppText font="bold" style={styles.heading}>
+              Later Today
             </AppText>
             <CurrentClothing />
             <Forecast data={this.props.hourly.data} time={true} />

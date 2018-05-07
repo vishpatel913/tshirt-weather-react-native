@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Image
-} from 'react-native';
+import { View } from 'react-native';
 
 import AppText from './AppText';
 import Icon from './Icon';
@@ -42,10 +39,10 @@ const styles = {
   },
   tempTextStyle: {
     fontSize: 20,
-    color: '#007269'
+    color: '#007269',
   },
   labelStyle: {
     fontSize: 12,
-    marginBottom: 4
+    marginBottom: 4,
   },
-}
+};

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import AppText from './AppText';
 import { getImageSource } from '../helpers/imageHelper';
 
 class ClothingDetails extends Component {
 
   getClothingDetails() {
-    var { temperature, cloudCover } = this.props.data;
-    var cloudConst = 6 * cloudCover;
+    let { temperature, cloudCover } = this.props.data;
+    let cloudConst = 6 * cloudCover;
     if (temperature > cloudConst + 18) {
       console.log("TShirtTempEquation", `${temperature} > ${cloudConst} + 18`);
       return {
@@ -36,7 +36,7 @@ class ClothingDetails extends Component {
   }
 
   render() {
-    var details = this.getClothingDetails();
+    let details = this.getClothingDetails();
     return (
       <View style={styles.container}>
         <Image

@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from './Icon';
@@ -11,11 +10,10 @@ import AppText from './AppText';
 import { getHoursFromUnix } from '../helpers/timeHelper';
 
 class CurrentTemperature extends Component {
-
   renderFeelsLikeData() {
     const { temperature, apparentTemperature, tempHigh, tempLow } = this.props;
-    if (apparentTemperature != temperature) {
-      return(
+    if (apparentTemperature !== temperature) {
+      return (
         <AppText font="light" style={styles.fontMedium}>
           Feels like {apparentTemperature}&deg;C
         </AppText>
@@ -34,16 +32,16 @@ class CurrentTemperature extends Component {
 
   renderSunData() {
     const { sunriseTime, sunsetTime } = this.props;
-    var time = getHoursFromUnix(Date.now()/1000);
+    let time = getHoursFromUnix(Date.now()/1000);
     if (time > sunsetTime) {
       return(
         <View style={styles.sunContainer}>
-          <Icon name='sunrise' size={20} color={'#666666'}/>
+          <Icon name='sunrise' size={20} color={'#666666'} />
           <AppText style={styles.fontSmall}>{sunriseTime[1]}</AppText>
         </View>
       );
     } else {
-      var day = sunriseTime[0] < time && time < sunsetTime;
+      let day = sunriseTime[0] < time && time < sunsetTime;
       const sunObj = day
         ? { time: sunsetTime, icon: 'sunset'}
         : { time: sunriseTime[0], icon: 'sunrise'};
@@ -153,9 +151,6 @@ const styles = StyleSheet.create({
     color: '#007269',
     fontSize: 16,
     textAlign: 'center',
-  },
-  fontLarge: {
-    fontSize: 18,
   },
   fontMedium: {
     fontSize: 16,

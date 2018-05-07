@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
@@ -8,16 +8,26 @@ import AccessoryDetails from './AccessoryDetails';
 class CurrentClothing extends Component {
 
   render() {
-    var clothingData = {
-      temperature: this.props.tempAverage,
-      cloudCover: this.props.cloudCoverAverage
-    }
-    var accessoryData = {
-      temperature: this.props.tempAverage,
-      apparentTemperature: this.props.appTempAverage,
-      sunshine: this.props.sunshine,
-      precipProbability: this.props.precipProbAverage
-    }
+    let clothingData = this.props.now
+      ? {
+        temperature: this.props.temperature,
+        cloudCover: this.props.cloudCover
+      } : {
+        temperature: this.props.tempAverage,
+        cloudCover: this.props.cloudCoverAverage
+      };
+    let accessoryData = this.props.now
+      ? {
+        temperature: this.props.temperature,
+        apparentTemperature: this.props.apparentTemperature,
+        sunshine: this.props.sunshine,
+        precipProbability: this.props.precipProbability
+      } : {
+        temperature: this.props.tempAverage,
+        apparentTemperature: this.props.appTempAverage,
+        sunshine: this.props.sunshine,
+        precipProbability: this.props.precipProbAverage
+      }
     return (
       <View style={styles.container}>
         <ClothingDetails data={clothingData}/>
@@ -45,6 +55,14 @@ const mapStateToProps = ( state ) => {
     precipIntenAverage
   } = state.weather.today;
 
+  const {
+    temperature,
+    apparentTemperature,
+    // windSpeedAverage,
+    precipProbability,
+    cloudCover,
+  } = state.weather.currently;
+
   return {
     summary,
     sunshine,
@@ -54,6 +72,10 @@ const mapStateToProps = ( state ) => {
     precipProbAverage,
     cloudCoverAverage,
     precipIntenAverage,
+    temperature,
+    apparentTemperature,
+    precipProbability,
+    cloudCover,
   };
 };
 

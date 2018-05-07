@@ -1,21 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 import { connect } from 'react-redux';
-import AppText from './AppText';
 import WeatherDataItem from './WeatherDataItem';
 
 class WeatherData extends Component {
 
   renderWeatherWidgets() {
-    var typeList = ['cloud', 'wind', 'rainprobability'];
-    if (this.props.precipProbability > 50 ) typeList = ['rainprobability', 'rainintensity', 'humidity']
-    return typeList.map((type) =>
-      <WeatherDataItem type={type} key={type}/>
-    );
+    let typeList = ['cloud', 'wind', 'rainprobability'];
+    if (this.props.precipProbability > 50) typeList = ['rainprobability', 'rainintensity', 'humidity']
+    return typeList.map(type =>
+      <WeatherDataItem type={type} key={type} />);
   }
 
   render() {
@@ -29,7 +26,6 @@ class WeatherData extends Component {
 
 const mapStateToProps = (state) => {
   const { precipProbability } = state.weather.currently;
-
   return { precipProbability };
 };
 
@@ -42,4 +38,4 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: 'flex-end',
   },
-})
+});

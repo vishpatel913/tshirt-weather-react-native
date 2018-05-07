@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 import { connect } from 'react-redux';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
 import AppText from './AppText';
 import Forecast from './Forecast';
 import CurrentClothing from './CurrentClothing';
@@ -21,36 +21,40 @@ class WeatherPanel extends Component {
       height: 8,
       borderRadius: 4,
       marginLeft: 4,
-      marginRight: 4
+      marginRight: 4,
     };
     if (active) dotStyle.backgroundColor = '#00A588';
-    return <View style={dotStyle} />
+    return <View style={dotStyle} />;
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Swiper style={styles.wrapper}
+        <Swiper
+          style={styles.wrapper}
           dot={this.renderSwipeDot()}
           activeDot={this.renderSwipeDot(true)}
           paginationStyle={{
-            position: 'absolute',
-            bottom: -24
+            bottom: Platform.select({
+              ios: -24,
+              android: 0,
+            }),
           }}
-          loop={false}>
+          loop={false}
+        >
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
               Today
             </AppText>
             <CurrentClothing />
-            <Forecast style={styles.forecast} data={this.props.hourly.data} time={true} />
+            <Forecast data={this.props.hourly.data} time={true} />
           </View>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
-          		Tomorrow
-          	</AppText>
+              Tomorrow
+            </AppText>
             <TomorrowClothing />
-            <Forecast style={styles.forecast} data={this.props.daily.data} time={false} />
+            <Forecast data={this.props.daily.data} time={false} />
           </View>
         </Swiper>
       </View>
@@ -71,18 +75,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: 8,
     borderWidth: 1,
-    borderColor: "#00A58833",
-    // backgroundColor: '#00A5880D',
+    borderColor: '#00A58833',
     width: '100%',
     marginTop: 4,
-    marginBottom: 16,
+    marginBottom: Platform.select({
+      ios: 16,
+      android: 0,
+    }),
   },
   slide: {
     flex: 1,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   heading: {
     textAlign: 'center',
     fontSize: 16,
   },
-})
+});

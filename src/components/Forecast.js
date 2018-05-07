@@ -1,18 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
-import AppText from './AppText';
 import ForecastItem from './ForecastItem';
 
 class Forecast extends Component {
-
   renderForecast(number) {
     return this.props.data.map((data, index) =>
-      index != 0 && index <= number && <ForecastItem key={JSON.stringify(data)} data={data} showTime={this.props.time} />
-    );
+      index !== 0
+      && index <= number
+      && <ForecastItem key={JSON.stringify(data)} data={data} showTime={this.props.time} />);
   }
 
   render() {
@@ -32,6 +31,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     borderTopWidth: 1,
-    borderColor: "#00A58833",
+    borderColor: '#00A58833',
+    marginBottom: Platform.select({
+      android: 4,
+    }),
   },
-})
+});

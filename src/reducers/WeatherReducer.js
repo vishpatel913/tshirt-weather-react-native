@@ -1,5 +1,5 @@
-import {GET_WEATHER_SUCCESS} from '../actions/types';
-import {getHoursFromUnix} from '../helpers/timeHelper';
+import { GET_WEATHER_SUCCESS } from '../actions/types';
+import { getHoursFromUnix } from '../helpers/timeHelper';
 
 const INITIAL_STATE = {
   currently: {
@@ -37,22 +37,22 @@ const INITIAL_STATE = {
 };
 
 function calculateAverage(data, attr, number) {
-  var total = 0;
-  var average = 0;
-  for (var i = 0; i < number; i++) {
-    var dataObj = data[i];
-    var value = dataObj[attr];
+  let total = 0;
+  let average = 0;
+  for (let i = 0; i < number; i++) {
+    let dataObj = data[i];
+    let value = dataObj[attr];
     total += value;
   }
   return total / number;
 }
 
 function calculateMax(data, attr, number) {
-  var total = 0;
-  var max = -Infinity;
-  for (var i = 0; i < number; i++) {
-    var dataObj = data[i];
-    var value = dataObj[attr];
+  let total = 0;
+  let max = -Infinity;
+  for (let i = 0; i < number; i++) {
+    let dataObj = data[i];
+    let value = dataObj[attr];
     if (value >= max) {
       max = value;
     }
@@ -61,11 +61,11 @@ function calculateMax(data, attr, number) {
 }
 
 function calculateMin(data, attr, number) {
-  var total = 0;
-  var min = Infinity;
-  for (var i = 0; i < number; i++) {
-    var dataObj = data[i];
-    var value = dataObj[attr];
+  let total = 0;
+  let min = Infinity;
+  for (let i = 0; i < number; i++) {
+    let dataObj = data[i];
+    let value = dataObj[attr];
     if (value <= min) {
       min = value;
     }
@@ -74,11 +74,11 @@ function calculateMin(data, attr, number) {
 }
 
 function calculateSunshine(data, time) {
-  var total = 0;
-  var max = -Infinity;
-  var i = 0;
+  let total = 0;
+  let max = -Infinity;
+  let i = 0;
   while (data[i].time < time) {
-    var value = 1 - data[i].cloudCover;
+    let value = 1 - data[i].cloudCover;
     total += value;
     if (value >= max) {
       max = value;

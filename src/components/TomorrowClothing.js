@@ -5,7 +5,6 @@ import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
 import AccessoryDetails from './AccessoryDetails';
 
-<<<<<<< HEAD
 /**
  * renders the clothing components
  * using next day weather attributes
@@ -14,10 +13,6 @@ import AccessoryDetails from './AccessoryDetails';
  */
 class TomorrowClothing extends Component {
 
-=======
-class CurrentClothing extends Component {
-  
->>>>>>> master
   render() {
     let clothingData = {
       temperature: this.props.temperatureHigh,

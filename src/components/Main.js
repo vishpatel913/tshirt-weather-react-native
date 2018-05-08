@@ -37,6 +37,7 @@ class Main extends Component {
         this.props.getWeather({ latitude, longitude });
         this.props.getLocation({ latitude, longitude });
       },
+      // TODO: handle location errors
       error => this.setState({ error: error.message || '' }),
       { timeout: 20000, maximumage: 1000 }
     );
@@ -51,6 +52,7 @@ class Main extends Component {
   }
 
   refreshWeather() {
+    // TODO: refresh position as well || at least test the watcher
     const { latitude, longitude } = this.state;
     this.props.getWeather({ latitude, longitude });
   }

@@ -8,5 +8,6 @@ export const getLocation = ({ latitude, longitude }) => {
       .then(response => {
         dispatch({type: GET_LOCATION_SUCCESS, payload: response });
       });
+      // TODO: handle api errors here, use catch and alert back to main component
   };
 };

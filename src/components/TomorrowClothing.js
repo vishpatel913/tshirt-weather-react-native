@@ -6,6 +6,7 @@ import ClothingDetails from './ClothingDetails';
 import AccessoryDetails from './AccessoryDetails';
 
 class CurrentClothing extends Component {
+  
   render() {
     let clothingData = {
       temperature: this.props.temperatureHigh,

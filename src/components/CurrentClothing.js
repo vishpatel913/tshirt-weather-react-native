@@ -5,10 +5,14 @@ import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
 import AccessoryDetails from './AccessoryDetails';
 
+/**
+ * renders the clothing components
+ * using current and average weather attributes
+ */
 class CurrentClothing extends Component {
 
   render() {
-<<<<<<< HEAD
+
     let clothingData = {
       temperature: this.props.tempAverage,
       cloudCover: this.props.cloudCoverAverage
@@ -19,28 +23,7 @@ class CurrentClothing extends Component {
       sunshine: this.props.sunshine,
       precipProbability: this.props.precipProbAverage
     }
-=======
-    let clothingData = this.props.now
-      ? {
-        temperature: this.props.temperature,
-        cloudCover: this.props.cloudCover
-      } : {
-        temperature: this.props.tempAverage,
-        cloudCover: this.props.cloudCoverAverage
-      };
-    let accessoryData = this.props.now
-      ? {
-        temperature: this.props.temperature,
-        apparentTemperature: this.props.apparentTemperature,
-        sunshine: this.props.sunshine,
-        precipProbability: this.props.precipProbability
-      } : {
-        temperature: this.props.tempAverage,
-        apparentTemperature: this.props.appTempAverage,
-        sunshine: this.props.sunshine,
-        precipProbability: this.props.precipProbAverage
-      }
->>>>>>> 1d649ed75ed851dab327c05b1de80ac1a1645dc4
+    
     return (
       <View style={styles.container}>
         <ClothingDetails data={clothingData}/>

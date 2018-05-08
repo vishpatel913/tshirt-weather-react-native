@@ -1,10 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
-  icon: {
-    color: primary
-  }
-});
-
-export const primary = '#00A588';
-export const primaryDark = '#007269';
+export const themeColors = {
+  primary: '#00A588',
+  primaryDark: '#007269',
+  background: '#F3EDE7',
+  text: '#666666'
+};

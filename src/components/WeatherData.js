@@ -6,11 +6,19 @@ import {
 import { connect } from 'react-redux';
 import WeatherDataItem from './WeatherDataItem';
 
+/**
+* renders weather components
+* using weather attributes from the state
+* depending on the current state
+*/
 class WeatherData extends Component {
 
   renderWeatherWidgets() {
     let typeList = ['cloud', 'wind', 'rainprobability'];
-    if (this.props.precipProbability > 50) typeList = ['rainprobability', 'rainintensity', 'humidity']
+    if (this.props.precipProbability > 50) {
+      typeList = ['rainprobability', 'rainintensity', 'humidity'];
+    }
+
     return typeList.map(type =>
       <WeatherDataItem type={type} key={type} />);
   }

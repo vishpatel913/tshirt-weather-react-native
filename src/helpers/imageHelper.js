@@ -1,13 +1,13 @@
-export const getImageSource = (image) => {
-  const TSHIRT_IMAGE = require('../../assets/images/tshirt.png');
-  const JACKET_IMAGE = require('../../assets/images/jacket.png');
-  const HOODIE_IMAGE = require('../../assets/images/hoodie.png');
-  const COAT_IMAGE = require('../../assets/images/coat.png');
-  const SUNNIES_IMAGE = require('../../assets/images/sunglasses.png');
-  const WINTER_IMAGE = require('../../assets/images/winter.png');
-  const UMBRELLA_IMAGE = require('../../assets/images/umbrella.png');
-  const NA_IMAGE = require('../../assets/images/na.png');
+const TSHIRT_IMAGE = require('../../assets/images/tshirt.png');
+const JACKET_IMAGE = require('../../assets/images/jacket.png');
+const HOODIE_IMAGE = require('../../assets/images/hoodie.png');
+const COAT_IMAGE = require('../../assets/images/coat.png');
+const SUNNIES_IMAGE = require('../../assets/images/sunglasses.png');
+const WINTER_IMAGE = require('../../assets/images/winter.png');
+const UMBRELLA_IMAGE = require('../../assets/images/umbrella.png');
+const NA_IMAGE = require('../../assets/images/na.png');
 
+export const getImageSource = (image) => {
   switch (image) {
     case 'tshirt':
       return TSHIRT_IMAGE;

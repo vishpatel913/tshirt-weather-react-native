@@ -7,5 +7,5 @@ export default combineReducers({
     weather: WeatherReducer,
     geolocation: GeolocationReducer,
     refreshing: RefreshingReducer,
-    // ,[ANOTHER REDUCER], [ANOTHER REDUCER]...
+    // ,[OTHER REDUCERS]
 })

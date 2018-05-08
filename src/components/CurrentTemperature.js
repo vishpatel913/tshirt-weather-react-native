@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from './Icon';
 import AppText from './AppText';
-
 import { getHoursFromUnix } from '../helpers/timeHelper';
+import { themeColors } from '../styles/Theme';
 
+/**
+ * renders a header component
+ * displaying current temperature, icon and summary
+ * based on the weather attributes passed in from the state
+ */
 class CurrentTemperature extends Component {
+
+  /**
+   * renders either the apparent temperature
+   * or the temperature high and low
+   * based on the current temperature values
+   */
   renderFeelsLikeData() {
     const { temperature, apparentTemperature, tempHigh, tempLow } = this.props;
+
     if (apparentTemperature !== temperature) {
       return (
         <AppText font="light" style={styles.fontMedium}>
@@ -21,15 +30,19 @@ class CurrentTemperature extends Component {
     } else {
       return(
         <AppText font="light" style={styles.fontMedium}>
-          <Icon name="arrow-up" color={'#666666'}/>
+          <Icon name="arrow-up" color={themeColors.text}/>
           {tempHigh}&deg;C &nbsp;
-          <Icon name="arrow-down" color={'#666666'}/>
+          <Icon name="arrow-down" color={themeColors.text}/>
           {tempLow}&deg;C
         </AppText>
       );
     }
   }
 
+  /**
+   * renders a sundown/sunrise time with relavant icon
+   * based on the current time
+   */
   renderSunData() {
     const { sunriseTime, sunsetTime } = this.props;
     let time = getHoursFromUnix(Date.now()/1000);
@@ -55,11 +68,8 @@ class CurrentTemperature extends Component {
   }
 
   render() {
-    const {
-      temperature,
-      summary,
-      icon
-    } = this.props;
+    const { temperature, summary, icon } = this.props;
+
     return(
         <View style={styles.container}>
           <View style={[styles.rowContainer, styles.tempRowAlign]}>
@@ -144,11 +154,11 @@ const styles = StyleSheet.create({
   },
   temperatureValue: {
     fontSize: 88,
-    color: '#00A588',
+    color: themeColors.primary,
     textAlignVertical: 'bottom',
   },
   summaryText: {
-    color: '#007269',
+    color: themeColors.primaryDark,
     fontSize: 16,
     textAlign: 'center',
   },

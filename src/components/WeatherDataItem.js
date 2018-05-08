@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import AppText from './AppText';
 import Icon from './Icon';
+import { themeColors } from '../styles/Theme';
 
+/**
+ * renders single weather data component
+ * displaying an icon, title and value
+ * based on a key passed in
+ */
 class WeatherDataItem extends Component {
   constructor(props) {
     super(props);
     this.state = this.getWeatherInfo(this.props);
   }
 
+  /**
+   * gets a weather object
+   * based on the passed in key
+   * TODO: refactor to take in relavent data as component
+   */
   getWeatherInfo(currently) {
     let rainTypeProps;
     let rainTypeName;
@@ -33,7 +41,11 @@ class WeatherDataItem extends Component {
           rainTypeProps = { name: 'Sleet', icon: 'snowflake' };
         }
         return {
-          title: `Chance of ${rainTypeProps.name}`, key: 'precipProbability', unit: '%', icon: `${rainTypeProps.icon}`, percentage: true,
+          title: `Chance of ${rainTypeProps.name}`,
+          key: 'precipProbability',
+          unit: '%',
+          icon: `${rainTypeProps.icon}`,
+          percentage: true,
         };
       case 'rainintensity':
         rainTypeName = 'Rain';
@@ -62,7 +74,7 @@ class WeatherDataItem extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.dataWrap}>
-          <Icon name={icon} size={36} color={'#00A588'} style={styles.icon} />
+          <Icon name={icon} size={36} color={themeColors.primary} style={styles.icon} />
           <AppText style={styles.value}>{value + this.state.unit}</AppText>
           <AppText style={styles.title}>{title}</AppText>
         </View>
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#00A5880D',
+    backgroundColor: themeColors.primary + '0D',
     padding: 4,
   },
   dataWrap: {
@@ -119,7 +131,7 @@ const styles = StyleSheet.create({
     flex: 2,
     fontSize: 20,
     marginVertical: 4,
-    color: '#007269',
+    color: themeColors.primaryDark,
   },
   title: {
     flex: 1,

@@ -17,6 +17,7 @@ import WeatherData from './WeatherData';
 import { getWeather } from '../actions/WeatherActions';
 import { getLocation } from '../actions/GeolocationActions';
 import { getLongDateString, getHoursFromUnix } from '../helpers/timeHelper';
+import { themeColors } from '../styles/Theme';
 
 class Main extends Component {
   state = {
@@ -24,6 +25,10 @@ class Main extends Component {
     refreshing: false
   }
 
+  /**
+   * sets weather details and location in the state
+   * on component mount
+   */
   componentDidMount() {
     this.watchId = navigator.geolocation.getCurrentPosition(
       position => {
@@ -52,7 +57,7 @@ class Main extends Component {
 
   renderRefreshControl() {
     return <RefreshControl
-      tintColor="#00A588"
+      tintColor={themeColors.primary}
       refreshing={this.state.refreshing}
       onRefresh={this.refreshWeather.bind(this)}/>;
   }
@@ -60,6 +65,7 @@ class Main extends Component {
   render() {
     let date = getLongDateString(this.props.time);
     let time = getHoursFromUnix(this.props.time, true);
+
     return (
       <ScrollView
         style={styles.container}
@@ -67,7 +73,7 @@ class Main extends Component {
         refreshControl={this.renderRefreshControl()}>
         <View style={styles.headerInfo}>
           <AppText>
-            <Icon name="location" size={12} color={'#666666'}/>
+            <Icon name="location" size={12} color={themeColors.text}/>
             &nbsp;
             {this.props.city}
           </AppText>
@@ -103,18 +109,10 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { getWeather, getLocation })(Main);
 
-const platformStyles = Platform.select({
-  ios: StyleSheet.create({
-      statusBar: {
-        marginTop: 20,
-      }
-  }),
-})
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    backgroundColor: '#F3EDE7',
+    backgroundColor: themeColors.background,
   },
   contentContainer: {
     flex: 1,
@@ -135,6 +133,6 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: '#007269'
+    color: themeColors.primaryDark,
   },
 });

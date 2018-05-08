@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import Swiper from 'react-native-swiper';
 import AppText from './AppText';
 import Forecast from './Forecast';
 import CurrentClothing from './CurrentClothing';
 import TomorrowClothing from './TomorrowClothing';
+import { themeColors } from '../styles/Theme';
 
-
+/**
+ * renders a swipe panel for use as the main data container
+ */
 class WeatherPanel extends Component {
 
+  /**
+   * renders pagination dot for swipe panel
+   */
   renderSwipeDot(active = false) {
     const dotStyle = {
-      backgroundColor: '#00a4884D',
+      backgroundColor: themeColors.primary + '4D',
       width: 8,
       height: 8,
       borderRadius: 4,
       marginLeft: 4,
       marginRight: 4,
     };
-    if (active) dotStyle.backgroundColor = '#00A588';
+    if (active) dotStyle.backgroundColor = themeColors.primary;
     return <View style={dotStyle} />;
   }
 
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: 8,
     borderWidth: 1,
-    borderColor: '#00A58833',
+    borderColor: themeColors.primary + '33',
     width: '100%',
     marginTop: 4,
     marginBottom: Platform.select({

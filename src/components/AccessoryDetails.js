@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { getImageSource } from '../helpers/imageHelper';
+import { themeColors } from '../styles/Theme';
 
+/**
+ * renders up to two sub-images
+ * based on the weather attributes passed in from the state
+ */
 class AccessoryDetails extends Component {
 
   renderSubImages() {
@@ -18,10 +23,12 @@ class AccessoryDetails extends Component {
       : cloudCover < 0.35;
     let cold = temperature < 1 || apparentTemperature < 3;
     let rain = precipProbability > 0.6;
+
     let imgArray = [];
     if (sunny && imgArray.length < 2) imgArray.push('sunglasses');
     if (cold && imgArray.length < 2) imgArray.push('winter');
     if (rain && imgArray.length < 2) imgArray.push('umbrella');
+
     return imgArray.map((image) =>
       <Image
         source={getImageSource(image)}
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
   },
   smallImage: {
     padding: 4,
-    tintColor: '#00A588',
+    tintColor: themeColors.primary,
     width: "50%",
     aspectRatio: 1,
   },

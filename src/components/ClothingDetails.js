@@ -2,25 +2,31 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import AppText from './AppText';
 import { getImageSource } from '../helpers/imageHelper';
+import { themeColors } from '../styles/Theme';
 
+/**
+ * renders a main clothing image
+ * based on the weather attributes passed in from the state
+ */
 class ClothingDetails extends Component {
 
   getClothingDetails() {
     let { temperature, cloudCover } = this.props.data;
+
     let cloudConst = 6 * cloudCover;
-    if (temperature > cloudConst + 18) {
+    if (temperature >= cloudConst + 18) {
       console.log("TShirtTempEquation", `${temperature} > ${cloudConst} + 18`);
       return {
         image: 'tshirt',
         caption: `It's T-shirt Weather!`
       }
-    } else if (temperature > cloudConst + 12) {
+    } else if (temperature >= cloudConst + 12) {
       console.log("JacketTempEquation", `${temperature} > ${cloudConst} + 12`);
       return {
         image: 'jacket',
         caption: `Maybe a light jacket`
       }
-    } else if (temperature > cloudConst + 6) {
+    } else if (temperature >= cloudConst + 6) {
       console.log("HoodieTempEquation", `${temperature} > ${cloudConst} + 6`);
       return {
         image: 'hoodie',
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   clothingImage: {
-    tintColor: '#007269',
+    tintColor: themeColors.primaryDark,
     flex: 1,
     height: undefined,
     width: undefined

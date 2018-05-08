@@ -5,7 +5,14 @@ import AppText from './AppText';
 import ClothingDetails from './ClothingDetails';
 import AccessoryDetails from './AccessoryDetails';
 
-class CurrentClothing extends Component {
+/**
+ * renders the clothing components
+ * using next day weather attributes
+ * NOTE: same functionality as CurrentClothing
+ * TODO: refactor
+ */
+class TomorrowClothing extends Component {
+
   render() {
     let clothingData = {
       temperature: this.props.temperatureHigh,
@@ -17,6 +24,7 @@ class CurrentClothing extends Component {
       cloudCover: this.props.cloudCover,
       precipProbability: this.props.precipProbability
     }
+
     return (
       <View style={styles.container}>
         <ClothingDetails data={clothingData}/>
@@ -32,7 +40,6 @@ class CurrentClothing extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // const { summary } = state.weather.daily;
   const {
     summary,
     temperatureHigh,
@@ -50,7 +57,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(CurrentClothing);
+export default connect(mapStateToProps, null)(TomorrowClothing);
 
 const styles = StyleSheet.create({
   container: {

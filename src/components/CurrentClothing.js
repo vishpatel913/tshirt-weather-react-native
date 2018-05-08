@@ -12,7 +12,6 @@ import AccessoryDetails from './AccessoryDetails';
 class CurrentClothing extends Component {
 
   render() {
-
     let clothingData = {
       temperature: this.props.tempAverage,
       cloudCover: this.props.cloudCoverAverage
@@ -23,7 +22,7 @@ class CurrentClothing extends Component {
       sunshine: this.props.sunshine,
       precipProbability: this.props.precipProbAverage
     }
-    
+
     return (
       <View style={styles.container}>
         <ClothingDetails data={clothingData}/>

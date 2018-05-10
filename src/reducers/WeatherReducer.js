@@ -94,7 +94,7 @@ function calculateSunshine(data, time) {
 export default(state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_WEATHER_SUCCESS:
-      const {currently, daily, hourly} = action.payload.data;
+      const { currently, daily, hourly } = action.payload.data;
       const {
         temperature,
         apparentTemperature,

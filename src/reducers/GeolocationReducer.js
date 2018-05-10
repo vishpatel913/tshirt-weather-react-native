@@ -1,6 +1,4 @@
-import {
-  GET_LOCATION_SUCCESS
-} from '../actions/types';
+import { GET_LOCATION_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {
   location: ''

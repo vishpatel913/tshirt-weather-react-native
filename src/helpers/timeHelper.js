@@ -7,10 +7,9 @@ export const getHoursFromUnix = (time, hour12 = false) => {
     minute: 'numeric',
     hour12: hour12
   };
-  let times = date.toLocaleTimeString('en-UK', options).split(':');
-  let formattedTime = times[0] + ':' + times[1];
+  let t = date.toLocaleTimeString('en-UK', options).split(':');
 
-  return formattedTime;
+  return `${t[0]}:${t[1]}`;
 }
 
 export const getLongDateString = (time) => {
@@ -18,13 +17,12 @@ export const getLongDateString = (time) => {
   const date = new Date(0);
   date.setUTCSeconds(time);
   const d = date.toDateString().split(' ');
-  const formattedDate = `${d[0]} ${d[2]} ${d[1]} ${d[3]}`;
 
-  return formattedDate;
+  return `${d[0]} ${d[2]} ${d[1]} ${d[3]}`;
 };
 
 export const getDayOfWeek = (time, short = false) => {
-  
+
   const days = short
   ? ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat']
   : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];

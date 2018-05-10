@@ -9,6 +9,6 @@ export const getWeather = ({ latitude, longitude }) => {
       dispatch({type: GET_WEATHER_SUCCESS, payload: response});
       dispatch({type: REFRESH_FINISHED});
     });
-    // TODO: handle api errors here, use catch and alert back to main component
+    // TODO: handle api errors here, use catch to dispatch to reducer
   };
 };

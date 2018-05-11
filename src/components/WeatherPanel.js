@@ -4,14 +4,34 @@ import { connect } from 'react-redux';
 import Swiper from 'react-native-swiper';
 import AppText from './AppText';
 import Forecast from './Forecast';
-import CurrentClothing from './CurrentClothing';
-import TomorrowClothing from './TomorrowClothing';
+import ClothingDisplay from './ClothingDisplay';
 import { themeColors } from '../styles/Theme';
 
 /**
  * renders a swipe panel for use as the main data container
  */
 class WeatherPanel extends Component {
+
+  getCurrentWeatherData() {
+    return {
+      temperature: this.props.today.tempAverage,
+      apparentTemperature: this.props.today.appTempAverage,
+      cloudCover: this.props.today.cloudCoverAverage,
+      sunshine: this.props.today.sunshine,
+      precipProbability: this.props.today.precipProbAverage,
+      summary: this.props.hourly.summary
+    }
+  }
+
+  getTomorrowWeatherData() {
+    return {
+      temperature: this.props.daily.data[1].temperatureHigh,
+      apparentTemperature: this.props.daily.data[1].apparentTemperatureHigh,
+      cloudCover: this.props.daily.data[1].cloudCover,
+      precipProbability: this.props.daily.data[1].precipProbability,
+      summary: this.props.daily.data[1].summary
+    }
+  }
 
   /**
    * renders pagination dot for swipe panel
@@ -42,20 +62,19 @@ class WeatherPanel extends Component {
               android: 0,
             }),
           }}
-          loop={false}
-        >
+          loop={false}>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
               Today
             </AppText>
-            <CurrentClothing />
+            <ClothingDisplay data={this.getCurrentWeatherData()} />
             <Forecast data={this.props.hourly.data} time={true} />
           </View>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
               Tomorrow
             </AppText>
-            <TomorrowClothing />
+            <ClothingDisplay data={this.getTomorrowWeatherData()} />
             <Forecast data={this.props.daily.data} time={false} />
           </View>
         </Swiper>
@@ -65,7 +84,7 @@ class WeatherPanel extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { hourly, today, daily } = state.weather;
+  const { hourly, daily, today } = state.weather;
   return { hourly, daily, today };
 };
 

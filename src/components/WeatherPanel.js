@@ -12,7 +12,7 @@ import { themeColors } from '../styles/Theme';
  */
 class WeatherPanel extends Component {
 
-  getCurrentWeatherData() {
+  getCurrentData() {
     return {
       temperature: this.props.today.tempAverage,
       apparentTemperature: this.props.today.appTempAverage,
@@ -23,13 +23,23 @@ class WeatherPanel extends Component {
     }
   }
 
-  getTomorrowWeatherData() {
+  getTomorrowData() {
     return {
       temperature: this.props.daily.data[1].temperatureHigh,
       apparentTemperature: this.props.daily.data[1].apparentTemperatureHigh,
       cloudCover: this.props.daily.data[1].cloudCover,
       precipProbability: this.props.daily.data[1].precipProbability,
       summary: this.props.daily.data[1].summary
+    }
+  }
+
+  getNowData() {
+    return {
+      temperature: this.props.currently.temperature,
+      apparentTemperature: this.props.currently.apparentTemperature,
+      cloudCover: this.props.currently.cloudCover,
+      precipProbability: this.props.currently.precipProbability,
+      summary: this.props.currently.summary
     }
   }
 
@@ -67,14 +77,14 @@ class WeatherPanel extends Component {
             <AppText font="bold" style={styles.heading}>
               Today
             </AppText>
-            <ClothingDisplay data={this.getCurrentWeatherData()} />
+            <ClothingDisplay data={this.getCurrentData()} />
             <Forecast data={this.props.hourly.data} time={true} />
           </View>
           <View style={styles.slide}>
             <AppText font="bold" style={styles.heading}>
               Tomorrow
             </AppText>
-            <ClothingDisplay data={this.getTomorrowWeatherData()} />
+            <ClothingDisplay data={this.getTomorrowData()} />
             <Forecast data={this.props.daily.data} time={false} />
           </View>
         </Swiper>
@@ -84,8 +94,8 @@ class WeatherPanel extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { hourly, daily, today } = state.weather;
-  return { hourly, daily, today };
+  const { hourly, daily, today, currently } = state.weather;
+  return { hourly, daily, today, currently };
 };
 
 export default connect(mapStateToProps, null)(WeatherPanel);

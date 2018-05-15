@@ -77,7 +77,7 @@ function calculateSunshine(data, time) {
   let total = 0;
   let max = -Infinity;
   let i = 0;
-  while (data[i].time < time) {
+  while (data[i].time < time - 3600) {
     let value = 1 - data[i].cloudCover;
     total += value;
     if (value >= max) {
@@ -85,8 +85,9 @@ function calculateSunshine(data, time) {
     };
     i++;
   }
+  max == -Infinity ? 0 : max;
   return {
-    average: total / i,
+    average: total / i || 0,
     max: max
   };
 }

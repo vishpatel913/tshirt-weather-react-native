@@ -20,7 +20,6 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
 
 # Android/IntelliJ
 #
@@ -30,43 +29,31 @@ build/
 local.properties
 *.iml
 
-# Gradle
-/build/
-/RNTester/android/app/build/
-/RNTester/android/app/gradle/
-/RNTester/android/app/gradlew
-/RNTester/android/app/gradlew.bat
-/ReactAndroid/build/
-
-# Buck
-\.buckd/
-buck-out/
-/ReactAndroid/src/main/jni/prebuilt/lib/armeabi-v7a/
-/ReactAndroid/src/main/jni/prebuilt/lib/x86/
-/ReactAndroid/src/main/gen
-# BUCK
-*.keystore
-
-# Watchman
-.watchmanconfig
-
-
-# Node
-node_modules
-*.log
-.nvm
-/bots/node_modules/
+# node.js
+#
+node_modules/
 npm-debug.log
 yarn-error.log
 
-# TODO: Check in yarn.lock in open source. Right now we need to keep it out
-# from the GitHub repo as importing it might conflict with internal workspaces
-*/**/yarn.lock
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+!debug.keystore
 
-# Test generated files
-/ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
-*.js.meta
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
 
-/coverage
-/third-party
-apikey.js
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/

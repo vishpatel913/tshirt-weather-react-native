@@ -39,6 +39,13 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/Khula-Light.ttf</string>
+		<string>Fonts/Khula-Regular.ttf</string>
+		<string>Fonts/Khula-SemiBold</string>
+		<string>Fonts/TextMeOne-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

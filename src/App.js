@@ -1,8 +1,8 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
-import HomeContainer from './src/containers/HomeContainer';
+import HomeContainer from './containers/HomeContainer';
 import {ThemeProvider} from 'styled-components';
-import theme from './src/assets/style/theme';
+import theme from './assets/style/theme';
 
 const App = () => {
   return (

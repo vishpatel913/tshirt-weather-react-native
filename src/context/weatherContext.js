@@ -14,6 +14,16 @@ const initialState = {
 
 export const WeatherContext = createContext(initialState);
 
+export const withWeatherContext = (Component) => (props) => {
+  return (
+    <WeatherContext.Consumer>
+      {(ctx) => (
+        <Component {...props} weather={ctx.weather} actions={ctx.actions} />
+      )}
+    </WeatherContext.Consumer>
+  );
+};
+
 const WeatherProvider = ({children}) => {
   const [loading, setLoading] = useState(initialState.loading);
   const [coords, setCoords] = useState(initialState.coords);
@@ -21,8 +31,8 @@ const WeatherProvider = ({children}) => {
 
   const getLocation = async () => {
     setLoading(true);
+    setCoords({lat: 51.4623656, lon: -0.1699604});
     setTimeout(async () => {
-      setCoords({lat: 51.4623656, lon: -0.1699604});
       setLoading(false);
     }, 1000);
   };
@@ -34,11 +44,13 @@ const WeatherProvider = ({children}) => {
     });
   }, [coords]);
 
+  const ctx = {
+    weather: {loading, coords, current},
+    actions: {getLocation},
+  };
+
   return (
-    <WeatherContext.Provider
-      value={{weather: {loading, coords, current}, actions: {getLocation}}}>
-      {children}
-    </WeatherContext.Provider>
+    <WeatherContext.Provider value={ctx}>{children}</WeatherContext.Provider>
   );
 };
 

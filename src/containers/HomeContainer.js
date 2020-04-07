@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
 
 import {Header} from 'react-native/Libraries/NewAppScreen';
 import styled from 'styled-components/native';
-import {WeatherContext} from '../context/weatherContext';
+import {withWeatherContext} from '../context/weatherContext';
 
 const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.color.light};
@@ -29,9 +29,7 @@ const SectionDescription = styled.Text`
   color: ${({theme}) => theme.color.dark};
 `;
 
-const HomeContainer = () => {
-  const {weather, actions} = useContext(WeatherContext);
-
+const HomeContainer = ({weather, actions}) => {
   useEffect(() => {
     actions.getLocation();
   }, []);
@@ -44,9 +42,6 @@ const HomeContainer = () => {
           <Body>
             <SectionContainer>
               <SectionTitle>Temp: {weather.current.temp}</SectionTitle>
-              <SectionDescription>
-                {weather.current.weather[0].main}
-              </SectionDescription>
             </SectionContainer>
           </Body>
         </ScrollContainer>
@@ -55,4 +50,4 @@ const HomeContainer = () => {
   );
 };
 
-export default HomeContainer;
+export default withWeatherContext(HomeContainer);

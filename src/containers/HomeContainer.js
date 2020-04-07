@@ -1,31 +1,15 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Header} from 'react-native/Libraries/NewAppScreen';
 import styled from 'styled-components/native';
+import {WeatherContext} from '../context/weatherContext';
 
 const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.color.light};
 `;
-const Engine = styled.View`
-  position: absolute;
-  right: 0;
-`;
-const Footer = styled.Text`
-  color: ${({theme}) => theme.color.dark};
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px;
-  padding-right: 12px;
-  text-align: right;
-`;
 const Body = styled.View`
-  background-color: ${({theme}) => theme.color.light};
+  background-color: ${({theme}) => theme.color.white};
 `;
 const SectionContainer = styled.View`
   margin-top: 32px;
@@ -44,51 +28,26 @@ const SectionDescription = styled.Text`
   font-weight: 400;
   color: ${({theme}) => theme.color.dark};
 `;
-const Highlight = styled.Text`
-  font-family: ${({theme}) => theme.font.body};
-  font-weight: 600;
-  color: ${({theme}) => theme.color.main};
-  padding: 8px;
-`;
 
 const HomeContainer = () => {
+  const {weather, actions} = useContext(WeatherContext);
+
+  useEffect(() => {
+    actions.getLocation();
+  }, []);
+
   return (
     <>
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
           <Header />
-          {global.HermesInternal == null ? null : (
-            <Engine>
-              <Footer>Engine: Hermes</Footer>
-            </Engine>
-          )}
           <Body>
             <SectionContainer>
-              <SectionTitle>Step One</SectionTitle>
+              <SectionTitle>Temp: {weather.current.temp}</SectionTitle>
               <SectionDescription>
-                Edit <Highlight>HomeContainer.js</Highlight> to change this
-                screen and then come back to see your edits.
+                {weather.current.weather[0].main}
               </SectionDescription>
             </SectionContainer>
-            <SectionContainer>
-              <SectionTitle>See Your Changes</SectionTitle>
-              <SectionDescription>
-                <ReloadInstructions />
-              </SectionDescription>
-            </SectionContainer>
-            <SectionContainer>
-              <SectionTitle>Debug</SectionTitle>
-              <SectionDescription>
-                <DebugInstructions />
-              </SectionDescription>
-            </SectionContainer>
-            <SectionContainer>
-              <SectionDescription>Learn More</SectionDescription>
-              <SectionDescription>
-                Read the docs to discover what to do next:
-              </SectionDescription>
-            </SectionContainer>
-            <LearnMoreLinks />
           </Body>
         </ScrollContainer>
       </SafeAreaView>

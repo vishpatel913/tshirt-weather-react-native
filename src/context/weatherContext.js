@@ -8,7 +8,9 @@ const initialState = {
     lon: null,
   },
   current: {
-    temp: 7,
+    main: {
+      temp: 7,
+    },
   },
 };
 
@@ -17,9 +19,7 @@ export const WeatherContext = createContext(initialState);
 export const withWeatherContext = (Component) => (props) => {
   return (
     <WeatherContext.Consumer>
-      {(ctx) => (
-        <Component {...props} weather={ctx.weather} actions={ctx.actions} />
-      )}
+      {(ctx) => <Component {...props} data={ctx.data} actions={ctx.actions} />}
     </WeatherContext.Consumer>
   );
 };
@@ -39,13 +39,16 @@ const WeatherProvider = ({children}) => {
 
   useEffect(() => {
     const ows = new OpenWeatherService(coords);
-    ows.getAllData().then((res) => {
-      setCurrent(res.current);
-    });
-  }, [coords]);
+    ows
+      .getCurrentData()
+      .then((res) => {
+        setCurrent(res);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   const ctx = {
-    weather: {loading, coords, current},
+    data: {loading, coords, current},
     actions: {getLocation},
   };
 

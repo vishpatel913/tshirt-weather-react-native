@@ -29,7 +29,9 @@ const SectionDescription = styled.Text`
   color: ${({theme}) => theme.color.dark};
 `;
 
-const HomeContainer = ({weather, actions}) => {
+const HomeContainer = ({data, actions}) => {
+  const {loading, current} = data;
+
   useEffect(() => {
     actions.getLocation();
   }, []);
@@ -41,7 +43,13 @@ const HomeContainer = ({weather, actions}) => {
           <Header />
           <Body>
             <SectionContainer>
-              <SectionTitle>Temp: {weather.current.temp}</SectionTitle>
+              <SectionTitle>Temp: {current.main.temp}</SectionTitle>
+              {current.weather &&
+                current.weather.map((desc) => (
+                  <SectionDescription key={desc.id}>
+                    {desc.main}, {desc.description}
+                  </SectionDescription>
+                ))}
             </SectionContainer>
           </Body>
         </ScrollContainer>

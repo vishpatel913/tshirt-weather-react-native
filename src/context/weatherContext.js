@@ -19,12 +19,12 @@ export const WeatherContext = createContext(initialState);
 export const withWeatherContext = (Component) => (props) => {
   return (
     <WeatherContext.Consumer>
-      {(ctx) => <Component {...props} data={ctx.data} actions={ctx.actions} />}
+      {(ctx) => <Component {...props} weather={ctx} />}
     </WeatherContext.Consumer>
   );
 };
 
-const WeatherProvider = ({children}) => {
+export const WeatherProvider = ({children}) => {
   const [loading, setLoading] = useState(initialState.loading);
   const [coords, setCoords] = useState(initialState.coords);
   const [current, setCurrent] = useState(initialState.current);
@@ -48,7 +48,9 @@ const WeatherProvider = ({children}) => {
   }, []);
 
   const ctx = {
-    data: {loading, coords, current},
+    loading,
+    coords,
+    current,
     actions: {getLocation},
   };
 
@@ -56,5 +58,3 @@ const WeatherProvider = ({children}) => {
     <WeatherContext.Provider value={ctx}>{children}</WeatherContext.Provider>
   );
 };
-
-export default WeatherProvider;

@@ -29,8 +29,8 @@ const SectionDescription = styled.Text`
   color: ${({theme}) => theme.color.dark};
 `;
 
-const HomeContainer = ({data, actions}) => {
-  const {current} = data;
+const HomeContainer = ({weather}) => {
+  const {current, actions} = weather;
 
   useEffect(() => {
     actions.getLocation();

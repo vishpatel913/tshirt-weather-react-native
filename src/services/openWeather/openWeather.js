@@ -4,7 +4,8 @@ import {
   mockCurrentResponse,
   mockForecastResponse,
   mockOnecallResponse,
-} from '../tests/mocks';
+} from './mocks';
+
 class OpenWeatherService {
   constructor(coords) {
     this.coords = coords;

@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react';
-import OpenWeatherService from '../services/openWeather';
+import {OpenWeatherService} from '../services';
 
 const initialState = {
   loading: true,
@@ -31,10 +31,10 @@ const WeatherProvider = ({children}) => {
 
   const getLocation = async () => {
     setLoading(true);
-    setCoords({lat: 51.4623656, lon: -0.1699604});
     setTimeout(async () => {
+      setCoords({lat: 51.4623656, lon: -0.1699604});
       setLoading(false);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {

@@ -1,3 +1,1 @@
-import OpenWeatherService from './openWeather';
-
-export default {OpenWeatherService};
+export {default as OpenWeatherService} from './openWeather';

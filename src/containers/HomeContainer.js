@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
-
 import {Header} from 'react-native/Libraries/NewAppScreen';
 import styled from 'styled-components/native';
 import {withWeatherContext} from '../context/weatherContext';
+import {CurrentCard} from '../components';
 
 const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.color.light};
@@ -30,7 +30,7 @@ const SectionDescription = styled.Text`
 `;
 
 const HomeContainer = ({data, actions}) => {
-  const {loading, current} = data;
+  const {current} = data;
 
   useEffect(() => {
     actions.getLocation();
@@ -41,15 +41,18 @@ const HomeContainer = ({data, actions}) => {
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
           <Header />
+          {/* <CurrentCard
+            main={current.main}
+            location={current.name}
+            updated={current.dt}
+            clouds={current.clouds}
+          /> */}
           <Body>
             <SectionContainer>
-              <SectionTitle>Temp: {current.main.temp}</SectionTitle>
-              {current.weather &&
-                current.weather.map((desc) => (
-                  <SectionDescription key={desc.id}>
-                    {desc.main}, {desc.description}
-                  </SectionDescription>
-                ))}
+              <SectionTitle>Body</SectionTitle>
+              <SectionDescription>
+                Temp: {current.main.temp}ºC
+              </SectionDescription>
             </SectionContainer>
           </Body>
         </ScrollContainer>

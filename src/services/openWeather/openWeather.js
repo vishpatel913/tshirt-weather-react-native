@@ -31,18 +31,10 @@ class OpenWeatherService {
       });
   }
 
-  async getAllData() {
-    // const response = await this.get('onecall');
-    const response = mockOnecallResponse;
-
-    return response;
-  }
-
   async getCurrentData() {
     // const response = await this.get('current');
     const response = mockCurrentResponse;
-
-    return response;
+    return OpenWeatherService.normaliseDayData(response);
   }
 
   async getForecastData() {
@@ -50,6 +42,46 @@ class OpenWeatherService {
     const response = mockForecastResponse;
 
     return response;
+  }
+
+  async getAllData() {
+    // const response = await this.get('onecall');
+    const response = mockOnecallResponse;
+
+    return response;
+  }
+
+  static normaliseDayData(obj) {
+    const {
+      coord,
+      visibility,
+      timezone,
+      weather,
+      main,
+      wind,
+      clouds,
+      dt,
+      sys,
+      name,
+    } = obj;
+
+    return {
+      coords: coord,
+      timestamp: dt,
+      sunrise: sys.sunrise,
+      sunset: sys.sunset,
+      main: weather.main,
+      description: weather.description,
+      icon: weather.icon,
+      ...main,
+      clouds: clouds.all,
+      wind_speed: wind.speed,
+      wind_deg: wind.deg,
+      location: name,
+      country: sys.country,
+      visibility,
+      timezone,
+    };
   }
 }
 

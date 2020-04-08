@@ -41,18 +41,10 @@ const HomeContainer = ({weather}) => {
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
           <Header />
-          {/* <CurrentCard
-            main={current.main}
-            location={current.name}
-            updated={current.dt}
-            clouds={current.clouds}
-          /> */}
           <Body>
             <SectionContainer>
               <SectionTitle>Body</SectionTitle>
-              <SectionDescription>
-                Temp: {current.main.temp}ºC
-              </SectionDescription>
+              <SectionDescription>Temp: {current.temp}ºC</SectionDescription>
             </SectionContainer>
           </Body>
         </ScrollContainer>

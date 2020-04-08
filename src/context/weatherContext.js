@@ -8,9 +8,7 @@ const initialState = {
     lon: null,
   },
   current: {
-    main: {
-      temp: 7,
-    },
+    temp: 7,
   },
 };
 

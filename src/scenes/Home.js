@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
 import styled from 'styled-components/native';
-import {withWeatherContext} from '../context/weatherContext';
+import {withWeatherContext} from '../modules/weatherContext';
 import {Header} from '../components';
 
 const ScrollContainer = styled.ScrollView`
@@ -29,7 +29,7 @@ const SectionDescription = styled.Text`
   color: ${({theme}) => theme.color.main};
 `;
 
-const HomeContainer = ({weather}) => {
+const Home = ({weather}) => {
   const {current, actions} = weather;
 
   useEffect(() => {
@@ -53,4 +53,4 @@ const HomeContainer = ({weather}) => {
   );
 };
 
-export default withWeatherContext(HomeContainer);
+export default withWeatherContext(Home);

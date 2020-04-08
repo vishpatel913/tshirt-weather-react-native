@@ -1,10 +1,10 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
-import {WeatherProvider} from './src/context/weatherContext';
+import {WeatherProvider} from './modules/weatherContext';
 
-import HomeContainer from './src/containers/HomeContainer';
-import theme from './src/styles/theme';
+import Home from './scenes/Home';
+import theme from './styles/theme';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       <WeatherProvider>
         <ThemeProvider theme={theme}>
           <StatusBar barStyle="dark-content" />
-          <HomeContainer />
+          <Home />
         </ThemeProvider>
       </WeatherProvider>
     </>

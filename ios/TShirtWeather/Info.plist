@@ -43,7 +43,7 @@
 	<array>
 		<string>Fonts/Khula-Light.ttf</string>
 		<string>Fonts/Khula-Regular.ttf</string>
-		<string>Fonts/Khula-SemiBold</string>
+		<string>Fonts/Khula-Semibold</string>
 		<string>Fonts/TextMeOne-Regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

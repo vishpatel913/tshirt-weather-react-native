@@ -1,1 +1,1 @@
-export {default as CurrentCard} from './CurrentCard';
+export {default as Header} from './Header';

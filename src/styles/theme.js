@@ -1,7 +1,7 @@
 export default {
   font: {
     head: 'TextMeOne-Regular',
-    body: 'Khula-Regular',
+    body: 'Khula',
   },
   color: {
     purpleDark: '#070544',
@@ -14,11 +14,16 @@ export default {
     yellowLight: '#FFF376',
     beige: '#FDF9ED',
 
-    main: '#332AD8',
-    dark: '#323232',
-    light: '#FDF9ED',
+    primary: '#332AD8',
+    main: '#323232',
+    background: '#FDF9ED',
 
     white: '#FFF',
     black: '#000',
+  },
+  spacing: {
+    single: '8px',
+    double: '16px',
+    half: '4px',
   },
 };

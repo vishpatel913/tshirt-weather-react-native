@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
-import {Header} from 'react-native/Libraries/NewAppScreen';
 import styled from 'styled-components/native';
 import {withWeatherContext} from '../context/weatherContext';
-import {CurrentCard} from '../components';
+import {Header} from '../components';
 
 const ScrollContainer = styled.ScrollView`
-  background-color: ${({theme}) => theme.color.light};
+  background-color: ${({theme}) => theme.color.white};
+  /* background-color: ${({theme}) => theme.color.light}; */
 `;
 const Body = styled.View`
   background-color: ${({theme}) => theme.color.white};
@@ -26,7 +26,7 @@ const SectionDescription = styled.Text`
   font-family: ${({theme}) => theme.font.body};
   font-size: 16px;
   font-weight: 400;
-  color: ${({theme}) => theme.color.dark};
+  color: ${({theme}) => theme.color.main};
 `;
 
 const HomeContainer = ({weather}) => {
@@ -40,7 +40,7 @@ const HomeContainer = ({weather}) => {
     <>
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
-          <Header />
+          <Header temp={current.temp} location={current.location} />
           <Body>
             <SectionContainer>
               <SectionTitle>Body</SectionTitle>

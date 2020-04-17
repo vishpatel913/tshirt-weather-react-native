@@ -40,7 +40,7 @@ const Home = ({weather}) => {
     <>
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
-          <Header temp={current.temp} location={current.location} />
+          <Header current={current} />
           <Body>
             <SectionContainer>
               <SectionTitle>Body</SectionTitle>

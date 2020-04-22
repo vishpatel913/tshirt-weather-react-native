@@ -1,7 +1,29 @@
-export default {
+import {} from 'styled-components/native';
+
+declare module 'styled-components' {
+  type Theme = typeof theme;
+  export interface DefaultTheme extends Theme {
+    font: {
+      head: string;
+      body: string;
+    };
+    spacing: {
+      single: string;
+      double: string;
+      half: string;
+    };
+  }
+}
+
+export const theme = {
   font: {
     head: 'TextMeOne-Regular',
     body: 'Khula',
+  },
+  spacing: {
+    single: '8px',
+    double: '16px',
+    half: '4px',
   },
   color: {
     purpleDark: '#070544',
@@ -20,10 +42,5 @@ export default {
 
     white: '#FFF',
     black: '#000',
-  },
-  spacing: {
-    single: '8px',
-    double: '16px',
-    half: '4px',
   },
 };

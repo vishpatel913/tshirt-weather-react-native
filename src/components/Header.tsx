@@ -13,9 +13,9 @@ import ThermometerCold from '../assets/svg/thermometer-cold.svg';
 interface Props {
   temp: number;
   clouds: number;
-  sunrise: number;
-  sunset: number;
-  location: string;
+  sunrise?: number;
+  sunset?: number;
+  location?: string;
 }
 
 const HeaderContainer = styled.View`

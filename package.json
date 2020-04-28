@@ -63,6 +63,7 @@
     "react-native-svg-transformer": "^0.14.3",
     "react-native-testing-library": "^1.13.0",
     "react-test-renderer": "16.11.0",
+    "serverless-offline": "^6.1.4",
     "stylelint": "^13.3.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",

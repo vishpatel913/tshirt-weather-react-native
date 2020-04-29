@@ -10,10 +10,13 @@ def main(event, context):
     }
     weather_api = WeatherAPI(coords)
 
-    data = {
-        'current': weather_api.get('weather'),
-        'all': weather_api.get('onecall'),
-    }
+    current = weather_api.get('weather')
+    data = weather_api.get('onecall')
+
+    data['country'] = current['sys']['country']
+    data['location'] = current['name']
+    data['current']['temp_max'] = current['main']['temp_max']
+    data['current']['temp_min'] = current['main']['temp_min']
 
     response = {
         "statusCode": 200,

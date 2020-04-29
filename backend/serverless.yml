@@ -9,9 +9,7 @@ provider:
   name: aws
   runtime: python3.8
   environment: ${file(./.env.yml)}
-
-# you can overwrite defaults here
-stage: prod
+  stage: prod
 # region: us-east-1
 
 plugins:

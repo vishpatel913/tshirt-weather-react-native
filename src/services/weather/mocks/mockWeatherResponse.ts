@@ -1,12 +1,16 @@
 export default {
   lat: 51.46,
   lon: -0.17,
+  country: 'GB',
+  location: 'Wandsworth',
   timezone: 'Europe/London',
   current: {
     dt: 1586340321,
     sunrise: 1586323161,
     sunset: 1586371505,
     temp: 15.73,
+    temp_min: 10,
+    temp_max: 16,
     feels_like: 12.27,
     pressure: 1025,
     humidity: 52,
@@ -16,6 +20,9 @@ export default {
     visibility: 10000,
     wind_speed: 3.6,
     wind_deg: 100,
+    rain: {
+      '1h': 0.25,
+    },
     weather: [
       {
         id: 804,

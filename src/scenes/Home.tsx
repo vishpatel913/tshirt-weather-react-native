@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
-import {
-  withWeatherContext,
-  WeatherContextInterface,
-} from '../modules/weatherContext';
+import { withWeather, WeatherState } from '../modules/weatherContext';
 import { Header } from '../components';
 
 interface Props {
-  weather: WeatherContextInterface;
+  weather: WeatherState;
 }
 
 const ScrollContainer = styled.ScrollView`
@@ -36,7 +33,7 @@ const SectionDescription = styled.Text`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { current, actions } = weather;
+  const { current, geocoding, actions } = weather;
 
   useEffect(() => {
     actions?.getLocation();
@@ -48,7 +45,7 @@ const Home = ({ weather }: Props) => {
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
           {current && (
             <Header
-              location={current.location}
+              location={geocoding.location}
               temp={current.temp}
               clouds={current.clouds}
               sunrise={current.sunrise}
@@ -67,4 +64,4 @@ const Home = ({ weather }: Props) => {
   );
 };
 
-export default withWeatherContext(Home);
+export default withWeather(Home);

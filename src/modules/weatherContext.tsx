@@ -6,16 +6,25 @@ import React, {
   ReactNode,
   ComponentType,
 } from 'react';
-import { OpenWeatherService } from '../services';
+import { WeatherService } from '../services';
 import { Coords } from '../types/coords';
-import { Current } from '../types/weather';
+import { Weather, WeatherResponse, DailyWeather } from '../types/weather';
 
-export interface WeatherContextInterface {
+export interface WeatherState {
   loading: boolean;
   coords: Coords;
-  current: Current;
+  geocoding: Geocoding;
+  current: Weather;
+  hourly: Weather[];
+  daily: DailyWeather[];
   actions?: Actions;
 }
+
+type Geocoding = {
+  timezone: string;
+  country: string;
+  location: string;
+};
 
 type Actions = {
   getLocation: () => Promise<void>;
@@ -28,17 +37,23 @@ type ProviderProps = {
 const initialState = {
   loading: true,
   coords: undefined,
+  geocoding: undefined,
   current: undefined,
+  hourly: undefined,
+  daily: undefined,
 };
 
-export const WeatherContext = createContext<Partial<WeatherContextInterface>>(
+export const WeatherContext = createContext<Partial<WeatherState>>(
   initialState,
 );
 
 export const WeatherProvider = ({ children }: ProviderProps) => {
   const [loading, setLoading] = useState(initialState.loading);
   const [coords, setCoords] = useState<Coords | undefined>(undefined);
-  const [current, setCurrent] = useState<Current | undefined>(undefined);
+  const [geocoding, setGeocoding] = useState<Geocoding | undefined>(undefined);
+  const [current, setCurrent] = useState<Weather | undefined>(undefined);
+  const [hourly, setHourly] = useState<Weather[] | undefined>(undefined);
+  const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
 
   const getLocation = async () => {
     setLoading(true);
@@ -50,11 +65,17 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
 
   useEffect(() => {
     if (coords) {
-      const ows = new OpenWeatherService(coords);
-      ows
-        .getCurrentData()
-        .then((value: Current) => {
-          setCurrent(value);
+      const ws = new WeatherService(coords);
+      ws.get('weather')
+        .then((res: WeatherResponse) => {
+          setGeocoding({
+            timezone: res.timezone,
+            location: res.location,
+            country: res.country,
+          });
+          setCurrent(res.current);
+          setHourly(res.hourly);
+          setDaily(res.daily);
         })
         .catch((err) => console.error(err));
     }
@@ -63,7 +84,10 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const ctx = {
     loading,
     coords,
+    geocoding,
     current,
+    hourly,
+    daily,
     actions: { getLocation },
   };
 
@@ -74,9 +98,9 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
 
 export const useWeather = () => useContext(WeatherContext);
 
-export const withWeatherContext = <P extends object>(
-  Component: ComponentType<P>,
-) => (props: any) => (
+export const withWeather = <P extends object>(Component: ComponentType<P>) => (
+  props: any,
+) => (
   <WeatherContext.Consumer>
     {(ctx) => <Component {...props} weather={ctx} />}
   </WeatherContext.Consumer>

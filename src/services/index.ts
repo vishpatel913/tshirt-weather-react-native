@@ -1,1 +1,1 @@
-export { default as OpenWeatherService } from './openWeather';
+export { default as WeatherService } from './weather';

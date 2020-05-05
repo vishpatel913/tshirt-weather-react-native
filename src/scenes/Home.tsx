@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
-import { LocationHeader, TemperatureMain, Text } from '../components';
+import { LocationHeader, TemperatureCurrent, Text } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 
 interface Props {
@@ -33,7 +33,7 @@ const Home = ({ weather }: Props) => {
       <SafeAreaView>
         <ScrollContainer contentInsetAdjustmentBehavior="automatic">
           <LocationHeader location={geocoding.location} />
-          <TemperatureMain
+          <TemperatureCurrent
             temp={current.temp}
             min={current.temp_min}
             max={current.temp_max}

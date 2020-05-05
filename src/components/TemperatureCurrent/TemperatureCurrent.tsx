@@ -51,7 +51,7 @@ const DetailsView = styled.View`
   align-items: center;
 `;
 
-const TemperatureMain = ({
+const TemperatureCurrent = ({
   temp,
   min,
   max,
@@ -82,4 +82,4 @@ const TemperatureMain = ({
   );
 };
 
-export default TemperatureMain;
+export default TemperatureCurrent;

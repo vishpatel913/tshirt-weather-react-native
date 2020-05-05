@@ -3,7 +3,12 @@ import {} from 'styled-components/native';
 declare module 'styled-components' {
   type Theme = typeof theme;
   export interface DefaultTheme extends Theme {
-    font: string;
+    font: {
+      thin: string;
+      light: string;
+      main: string;
+      bold: string;
+    };
     spacing: {
       single: string;
       double: string;
@@ -13,7 +18,12 @@ declare module 'styled-components' {
 }
 
 export const theme = {
-  font: 'WorkSans-Regular',
+  font: {
+    thin: 'WorkSans-Thin',
+    light: 'WorkSans-ExtraLight',
+    main: 'WorkSans-Light',
+    bold: 'WorkSans-Regular',
+  },
   spacing: {
     single: '16px',
     double: '32px',

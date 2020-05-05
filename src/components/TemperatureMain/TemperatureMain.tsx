@@ -18,7 +18,7 @@ const Container = styled.View`
 const DescriptionView = styled.View`
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 `;
 const DescriptionText = styled(Text)`
   font-size: 36px;
@@ -32,13 +32,12 @@ const TemperatureView = styled.View`
 const Temperature = styled(Text)`
   flex: 3;
   font-size: 128px;
-  font-weight: 200;
+  line-height: 132px;
 `;
 const VariationView = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.single};
 `;
 const VariationRule = styled.View`
   width: 100%;
@@ -49,7 +48,7 @@ const VariationRule = styled.View`
 const DetailsView = styled.View`
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 `;
 
 const TemperatureMain = ({
@@ -68,7 +67,7 @@ const TemperatureMain = ({
         <DescriptionText>{label}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
-        <Temperature>{Math.ceil(temp)}°</Temperature>
+        <Temperature weight={1}>{Math.ceil(temp)}°</Temperature>
         <VariationView>
           <Text size={24}>{max}°C</Text>
           <VariationRule />

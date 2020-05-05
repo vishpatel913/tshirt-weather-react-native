@@ -67,7 +67,7 @@ const TemperatureMain = ({
         <DescriptionText>{label}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
-        <Temperature weight={1}>{Math.ceil(temp)}°</Temperature>
+        <Temperature weight="light">{Math.ceil(temp)}°</Temperature>
         <VariationView>
           <Text size={24}>{max}°C</Text>
           <VariationRule />

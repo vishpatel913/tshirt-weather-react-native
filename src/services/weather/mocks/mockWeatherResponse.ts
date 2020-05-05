@@ -5,9 +5,9 @@ export default {
   location: 'Wandsworth',
   timezone: 'Europe/London',
   current: {
-    dt: 1586340321,
-    sunrise: 1586323161,
-    sunset: 1586371505,
+    dt: 1588699315,
+    sunrise: 1588652679,
+    sunset: 1588706998,
     temp: 15.73,
     temp_min: 10,
     temp_max: 16,

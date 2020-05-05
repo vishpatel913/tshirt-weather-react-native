@@ -3,10 +3,7 @@ import {} from 'styled-components/native';
 declare module 'styled-components' {
   type Theme = typeof theme;
   export interface DefaultTheme extends Theme {
-    font: {
-      head: string;
-      body: string;
-    };
+    font: string;
     spacing: {
       single: string;
       double: string;
@@ -16,14 +13,11 @@ declare module 'styled-components' {
 }
 
 export const theme = {
-  font: {
-    head: 'TextMeOne-Regular',
-    body: 'Khula',
-  },
+  font: 'WorkSans-Regular',
   spacing: {
-    single: '8px',
-    double: '16px',
-    half: '4px',
+    single: '16px',
+    double: '32px',
+    half: '8px',
   },
   color: {
     purpleDark: '#070544',

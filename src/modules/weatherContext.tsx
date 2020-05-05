@@ -6,6 +6,7 @@ import React, {
   ReactNode,
   ComponentType,
 } from 'react';
+import moment from 'moment';
 import { WeatherService } from '../services';
 import { Coords } from '../types/coords';
 import { Weather, WeatherResponse, DailyWeather } from '../types/weather';
@@ -14,6 +15,7 @@ export interface WeatherState {
   loading: boolean;
   coords: Coords;
   geocoding: Geocoding;
+  day: boolean;
   current: Weather;
   hourly: Weather[];
   daily: DailyWeather[];
@@ -38,6 +40,7 @@ const initialState = {
   loading: true,
   coords: undefined,
   geocoding: undefined,
+  day: true,
   current: undefined,
   hourly: undefined,
   daily: undefined,
@@ -86,6 +89,9 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     coords,
     geocoding,
     current,
+    day:
+      moment(current?.dt, 'X').isAfter(moment(current?.sunrise, 'X')) &&
+      moment(current?.dt, 'X').isBefore(moment(current?.sunset, 'X')),
     hourly,
     daily,
     actions: { getLocation },

@@ -41,10 +41,8 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/Khula-Light.ttf</string>
-		<string>Fonts/Khula-Regular.ttf</string>
-		<string>Fonts/Khula-Semibold</string>
-		<string>Fonts/TextMeOne-Regular.ttf</string>
+		<string>Fonts/WorkSans-Regular.ttf</string>
+		<string>Fonts/Weather-Icons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -10,7 +10,7 @@ const App = () => (
   <>
     <WeatherProvider>
       <ThemeProvider theme={theme}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="dark-content" translucent />
         <Home />
       </ThemeProvider>
     </WeatherProvider>

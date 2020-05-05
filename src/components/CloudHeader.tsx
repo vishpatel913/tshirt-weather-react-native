@@ -1,30 +1,17 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import moment from 'moment';
-import { Text, Title } from './atoms';
-import Sun from '../assets/svg/sun.svg';
-import Moon from '../assets/svg/moon.svg';
-import Cloud from '../assets/svg/cloud.svg';
-import CloudRain from '../assets/svg/rain-cloud.svg';
-import Clouds from '../assets/svg/cloud-both.svg';
-import ThermometerHot from '../assets/svg/thermometer-hot.svg';
-import ThermometerCold from '../assets/svg/thermometer-cold.svg';
+import Cloud from '../assets/svgs/cloud.svg';
 
 interface Props {
-  temp: number;
   clouds: number;
-  sunrise?: number;
-  sunset?: number;
-  location?: string;
 }
 
 const HeaderContainer = styled.View`
   position: relative;
   width: 100%;
+  height: 200px;
 `;
-const ContentContainer = styled.View`
-  padding: ${({ theme }) => theme.spacing.double};
-`;
+
 const VectorContainer = styled.View`
   background-color: ${({ theme }) => theme.color.blueLight};
   position: absolute;
@@ -42,8 +29,7 @@ const ScatteredCloud = styled(Cloud)<{
   z-index: 50;
 `;
 
-const Header = ({ temp, clouds, sunrise, sunset, location }: Props) => {
-  const now = moment();
+const CloudHeader = ({ clouds }: Props) => {
   const randomClouds = Array.from(
     { length: Math.floor(clouds / Math.sqrt(10) + clouds / 5) },
     () => ({
@@ -55,14 +41,6 @@ const Header = ({ temp, clouds, sunrise, sunset, location }: Props) => {
 
   return (
     <HeaderContainer>
-      <ContentContainer>
-        <Title level={1}>
-          {Math.round(temp)}
-          ºC
-        </Title>
-        <Title level={2}>{clouds}</Title>
-        <Text>{location}</Text>
-      </ContentContainer>
       <VectorContainer>
         {randomClouds.map((cloud) => (
           <ScatteredCloud key={cloud.x * cloud.y} height="128" pos={cloud} />
@@ -72,4 +50,4 @@ const Header = ({ temp, clouds, sunrise, sunset, location }: Props) => {
   );
 };
 
-export default Header;
+export default CloudHeader;

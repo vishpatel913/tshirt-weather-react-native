@@ -59,11 +59,11 @@ const TemperatureCurrent = ({
   iconId,
   sunChange,
 }: Props) => {
-  const sunTime = moment(sunChange, 'X').format('hh:mm a');
+  const sunTime = moment(sunChange, 'X').format('h:mm a');
   return (
     <Container>
       <DescriptionView>
-        <WeatherIcon id={iconId} size={32} />
+        <WeatherIcon id={iconId} size={40} />
         <DescriptionText>{label}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
@@ -75,7 +75,7 @@ const TemperatureCurrent = ({
         </VariationView>
       </TemperatureView>
       <DetailsView>
-        <Icon name="horizon" size={12} />
+        <Icon name="horizon" size={20} />
         <Text>{sunTime}</Text>
       </DetailsView>
     </Container>

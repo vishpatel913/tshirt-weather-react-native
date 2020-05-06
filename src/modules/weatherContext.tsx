@@ -12,13 +12,13 @@ import { Coords } from '../types/coords';
 import { Weather, WeatherResponse, DailyWeather } from '../types/weather';
 
 export interface WeatherState {
-  loading: boolean;
   coords: Coords;
   geocoding: Geocoding;
-  day: boolean;
   current: Weather;
   hourly: Weather[];
   daily: DailyWeather[];
+  loading: boolean;
+  daytime: boolean;
   actions?: Actions;
 }
 
@@ -37,13 +37,13 @@ type ProviderProps = {
 };
 
 const initialState = {
-  loading: true,
   coords: undefined,
   geocoding: undefined,
-  day: true,
   current: undefined,
   hourly: undefined,
   daily: undefined,
+  loading: true,
+  daytime: true,
 };
 
 export const WeatherContext = createContext<Partial<WeatherState>>(
@@ -85,15 +85,15 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   }, [coords]);
 
   const ctx = {
-    loading,
     coords,
     geocoding,
     current,
-    day:
-      moment(current?.dt, 'X').isAfter(moment(current?.sunrise, 'X')) &&
-      moment(current?.dt, 'X').isBefore(moment(current?.sunset, 'X')),
     hourly,
     daily,
+    loading,
+    daytime:
+      moment().isAfter(moment(current?.sunrise, 'X')) &&
+      moment().isBefore(moment(current?.sunset, 'X')),
     actions: { getLocation },
   };
 

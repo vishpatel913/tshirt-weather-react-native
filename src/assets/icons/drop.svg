@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 238 503" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-9979,-14248)">
-        <g transform="matrix(4.16667,0,0,4.16667,0,0)">
+<svg width="100%" height="100%" viewBox="0 0 503 503" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(4.16667,0,0,4.16667,-9846.5,-14248)">
+        <g>
             <path d="M2449.25,3503.63L2449.28,3503.63C2421.73,3466.7 2423.54,3403.07 2422.23,3423.48C2418.77,3476.65 2397.83,3503.63 2397.83,3503.63C2396.08,3506.96 2395.07,3510.61 2395.07,3514.53C2395.07,3528.59 2407.83,3540.03 2423.54,3540.03C2439.27,3540.03 2452.01,3528.59 2452.01,3514.53C2452.01,3510.61 2451,3506.96 2449.25,3503.63Z" style="fill-rule:nonzero;"/>
         </g>
     </g>

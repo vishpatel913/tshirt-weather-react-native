@@ -47,4 +47,25 @@ export const theme = {
     white: '#FFF',
     black: '#000',
   },
+  gradientMap: {
+    clear: {
+      day: ['#37a9d8', '#90d2ec'],
+      night: ['#0e2755', '#504fa7'],
+      sunrise: ['#006f7d', '#e8f1bb'],
+      sunset: ['#753676', '#febea2'],
+    },
+    clouds: {
+      day: ['#37a9d8', '#9ebacd'],
+      night: ['#0e2755', '#959bc6'],
+    },
+    rain: {
+      day: ['#70919f', '#b0cad4'],
+      night: ['#1e363b', '#728591'],
+    },
+    snow: {
+      day: ['#7e9ecc', '#adc2da'],
+      night: ['#3a4759', '#899fb8'],
+    },
+    pink: ['#E04483', '#E67FC4'],
+  },
 };

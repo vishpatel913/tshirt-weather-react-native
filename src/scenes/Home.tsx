@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import styled from 'styled-components/native';
-import { LocationHeader, TemperatureCurrent, Text } from '../components';
+import {
+  LocationHeader,
+  TemperatureCurrent,
+  Text,
+  Layout,
+} from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 
 interface Props {
   weather: WeatherState;
 }
 
-const ScrollContainer = styled.ScrollView`
-  padding-top: 32px;
-  background-color: ${({ theme }) => theme.color.purple};
-  min-height: 120%;
-`;
 const LoadingContainer = styled.View`
   height: 100%;
   width: 100%;
@@ -22,7 +22,7 @@ const LoadingContainer = styled.View`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { current, day, geocoding, actions } = weather;
+  const { current, daytime, geocoding, actions } = weather;
 
   useEffect(() => {
     actions?.getLocation();
@@ -31,7 +31,7 @@ const Home = ({ weather }: Props) => {
   return current ? (
     <>
       <SafeAreaView>
-        <ScrollContainer contentInsetAdjustmentBehavior="automatic">
+        <Layout landscape>
           <LocationHeader location={geocoding.location} />
           <TemperatureCurrent
             temp={current.temp}
@@ -39,14 +39,17 @@ const Home = ({ weather }: Props) => {
             max={current.temp_max}
             label={current.weather[0].main}
             iconId={current.weather[0].id}
-            sunChange={day ? current.sunset : current.sunrise}
+            sunChange={daytime ? current.sunset : current.sunrise}
           />
-        </ScrollContainer>
+          <View />
+        </Layout>
       </SafeAreaView>
     </>
   ) : (
     <LoadingContainer>
-      <Text weight={400}>Loading...</Text>
+      <Text size={32} weight="thin">
+        Loading...
+      </Text>
     </LoadingContainer>
   );
 };

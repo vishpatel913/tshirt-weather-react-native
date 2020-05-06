@@ -68,11 +68,13 @@ const TemperatureCurrent = ({
       </DescriptionView>
       <TemperatureView>
         <Temperature weight="light">{Math.ceil(temp)}°</Temperature>
-        <VariationView>
-          <Text size={24}>{max}°C</Text>
-          <VariationRule />
-          <Text size={24}>{min}°C</Text>
-        </VariationView>
+        {max && min && (
+          <VariationView>
+            <Text size={24}>{Math.ceil(max)}°C</Text>
+            <VariationRule />
+            <Text size={24}>{Math.floor(min)}°C</Text>
+          </VariationView>
+        )}
       </TemperatureView>
       <DetailsView>
         <Icon name="horizon" size={20} />

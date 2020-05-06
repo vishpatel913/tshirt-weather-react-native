@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import { Icon } from '.';
 import { useWeather } from '../../modules/weatherContext';
 
@@ -10,31 +9,31 @@ interface Props {
 }
 
 const WeatherIcon = ({ id, ...rest }: Props) => {
-  const { day } = useWeather();
+  const { daytime } = useWeather();
   let iconName = '?';
-  const withTag = (text: string) => `${text}-${day ? 'day' : 'night'}`;
+  const withTime = (text: string) => `${text}-${daytime ? 'day' : 'night'}`;
 
   switch (Math.floor(id / 100)) {
     case 2:
       iconName = 'thunder';
-      if (id < 202 || id > 229) iconName = withTag('rain-light');
-      if (id === 202 || id === 232) iconName = 'rain-heavy-thunder';
+      if (id < 202 || id > 229) iconName = withTime('rain');
+      if (id === 202 || id === 232) iconName = 'shower-thunder';
       break;
     case 3:
       iconName = 'rain';
-      if (id === 321) iconName = 'rain-heavy';
-      if (id < 305) iconName = withTag('rain-light');
+      if (id === 321) iconName = 'shower';
+      if (id < 305) iconName = withTime('rain');
       break;
     case 5:
-      iconName = 'rain-heavy';
+      iconName = 'shower';
       if (id === 511) iconName = 'snowflake';
-      if (id < 505) iconName = withTag('rain-light');
+      if (id < 505) iconName = withTime('rain');
       break;
     case 6:
       iconName = 'snow';
-      if (id < 620) iconName = day ? 'sleet-day' : 'snow-night';
+      if (id < 620) iconName = daytime ? 'sleet-day' : 'snow-night';
       if (id < 615) iconName = 'rain-mixed';
-      if (id < 610) iconName = withTag('snow');
+      if (id < 610) iconName = withTime('snow');
       break;
     case 7:
       iconName = 'mist';
@@ -42,8 +41,8 @@ const WeatherIcon = ({ id, ...rest }: Props) => {
       break;
     case 8:
       iconName = 'clouds';
-      if (id === 800) withTag('clear');
-      if (id < 803) iconName = withTag('clouds');
+      if (id < 803) iconName = withTime('clouds');
+      if (id === 800) iconName = withTime('clear');
       break;
     default:
       break;

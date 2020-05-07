@@ -18,6 +18,11 @@ def main(event, context):
     data['current']['temp_max'] = current['main']['temp_max']
     data['current']['temp_min'] = current['main']['temp_min']
 
+    with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'w') as outfile:
+        outfile.write("export default ")
+    with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'a') as outfile:
+        json.dump(data, outfile)
+
     response = {
         "statusCode": 200,
         "body": json.dumps(data)

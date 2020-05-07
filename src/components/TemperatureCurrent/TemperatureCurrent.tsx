@@ -12,9 +12,7 @@ interface Props {
   sunChange?: number;
 }
 
-const Container = styled.View`
-  padding: ${({ theme }) => theme.spacing.double};
-`;
+const Container = styled.View``;
 const DescriptionView = styled.View`
   display: flex;
   flex-direction: row;

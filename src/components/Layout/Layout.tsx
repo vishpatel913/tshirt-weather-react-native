@@ -12,7 +12,7 @@ interface Props {
 
 const LayoutContainer = styled(LinearGradient)`
   justify-content: space-between;
-  padding-top: 32px;
+  padding: ${({ theme }) => theme.spacing.double};
   height: 100%;
   position: relative;
 `;

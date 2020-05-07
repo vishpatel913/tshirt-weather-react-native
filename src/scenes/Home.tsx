@@ -6,6 +6,7 @@ import {
   TemperatureCurrent,
   Text,
   Layout,
+  TemperatureHourly,
 } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 
@@ -22,13 +23,13 @@ const LoadingContainer = styled.View`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { current, daytime, geocoding, actions } = weather;
+  const { current, hourly, daytime, geocoding, actions } = weather;
 
   useEffect(() => {
     actions?.getLocation();
   }, []);
 
-  return current ? (
+  return current && hourly ? (
     <>
       <SafeAreaView>
         <Layout landscape>
@@ -41,7 +42,13 @@ const Home = ({ weather }: Props) => {
             iconId={current.weather[0].id}
             sunChange={daytime ? current.sunset : current.sunrise}
           />
-          <View />
+          <TemperatureHourly
+            data={hourly.map((item) => ({
+              time: item.dt,
+              temp: item.temp,
+              icon: item.weather[0].id,
+            }))}
+          />
         </Layout>
       </SafeAreaView>
     </>

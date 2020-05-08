@@ -1,7 +1,7 @@
 import qs from 'querystring';
 import { Coords } from 'src/types/coords';
-import mockResponse from './mocks/mockWeatherResponse';
-// import mockResponse from './mocks/tempGeneratedResponse';
+// import mockResponse from './mocks/mockWeatherResponse';
+import mockResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
   coords: Coords;

@@ -3,6 +3,8 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { WeatherProvider } from './modules/weatherContext';
 import { theme } from './styles/theme';
+
+import { SwipeRouter } from './components';
 import Home from './scenes/Home';
 
 const App = () => (
@@ -14,7 +16,9 @@ const App = () => (
           translucent
           backgroundColor="#00000000"
         />
-        <Home />
+        <SwipeRouter>
+          <Home />
+        </SwipeRouter>
       </ThemeProvider>
     </WeatherProvider>
   </>

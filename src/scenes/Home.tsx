@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 import {
   LocationHeader,
@@ -13,6 +13,11 @@ import { withWeather, WeatherState } from '../modules/weatherContext';
 interface Props {
   weather: WeatherState;
 }
+
+const PageLayout = styled(Layout)`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const LoadingContainer = styled.View`
   height: 100%;
@@ -32,7 +37,7 @@ const Home = ({ weather }: Props) => {
   return current && hourly ? (
     <>
       <SafeAreaView>
-        <Layout landscape>
+        <PageLayout landscape>
           <LocationHeader location={geocoding.location} />
           <TemperatureCurrent
             temp={current.temp}
@@ -49,7 +54,7 @@ const Home = ({ weather }: Props) => {
               icon: item.weather[0].id,
             }))}
           />
-        </Layout>
+        </PageLayout>
       </SafeAreaView>
     </>
   ) : (

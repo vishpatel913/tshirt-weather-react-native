@@ -4,14 +4,16 @@ import { useWeather } from '../../modules/weatherContext';
 
 interface Props {
   id: number;
+  timestamp?: number;
   size?: number;
   color?: string;
 }
 
-const WeatherIcon = ({ id, ...rest }: Props) => {
-  const { daytime } = useWeather();
+const WeatherIcon = ({ id, timestamp, ...rest }: Props) => {
+  const { isDaytime } = useWeather();
+  const isDay = isDaytime(timestamp);
   let iconName = '?';
-  const withTime = (text: string) => `${text}-${daytime ? 'day' : 'night'}`;
+  const withTime = (text: string) => `${text}-${isDay ? 'day' : 'night'}`;
 
   switch (Math.floor(id / 100)) {
     case 2:
@@ -31,7 +33,7 @@ const WeatherIcon = ({ id, ...rest }: Props) => {
       break;
     case 6:
       iconName = 'snow';
-      if (id < 620) iconName = daytime ? 'sleet-day' : 'snow-night';
+      if (id < 620) iconName = isDay ? 'sleet-day' : 'snow-night';
       if (id < 615) iconName = 'rain-mixed';
       if (id < 610) iconName = withTime('snow');
       break;

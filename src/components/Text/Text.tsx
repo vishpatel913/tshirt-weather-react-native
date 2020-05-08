@@ -6,6 +6,7 @@ interface Props {
   size?: number;
   grey?: boolean;
   weight?: string;
+  shadow?: boolean;
   children?: ReactNode;
 }
 
@@ -18,6 +19,8 @@ const StyledText = styled(RNText)<Props>`
   font-size: ${({ size }) => Math.ceil((size || 16) / 4) * 4}px;
   color: ${({ theme }) => theme.color.white};
   opacity: ${({ grey }) => (grey ? 0.7 : 1)};
+  text-shadow: ${({ shadow }) =>
+    shadow ? '2px 2px 5px rgba(0, 0, 0, 0.5)' : 'none'};
 `;
 
 const Text = (props: Props) => {

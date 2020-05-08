@@ -1,7 +1,6 @@
 import qs from 'querystring';
 import { Coords } from 'src/types/coords';
-// import mockResponse from './mocks/mockWeatherResponse';
-import mockResponse from './mocks/tempGeneratedResponse';
+import devResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
   coords: Coords;
@@ -18,7 +17,7 @@ class WeatherService {
       lon: this.coords.lon,
     };
     console.log({ params });
-    return mockResponse;
+    return devResponse;
     // return fetch(`${this.baseUrl}/${endpoint}?${qs.stringify(params)}`)
     //   .then((res) => res.json())
     //   .then((json) => {

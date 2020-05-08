@@ -28,7 +28,8 @@ const LoadingContainer = styled.View`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { current, hourly, daytime, geocoding, actions } = weather;
+  const { geocoding, current, hourly, isDaytime, actions } = weather;
+  const daytime = isDaytime();
 
   useEffect(() => {
     actions?.getLocation();
@@ -49,9 +50,12 @@ const Home = ({ weather }: Props) => {
           />
           <TemperatureHourly
             data={hourly.map((item) => ({
-              time: item.dt,
-              temp: item.temp,
-              icon: item.weather[0].id,
+              x: item.dt,
+              y: Math.ceil(item.temp),
+              data: {
+                icon: item.weather[0].id,
+                percentage: item.rain?.['1h'] || item.snow?.['1h'] || undefined,
+              },
             }))}
           />
         </PageLayout>

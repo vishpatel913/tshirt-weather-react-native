@@ -114,7 +114,7 @@ export default {
       wind_speed: 1.42,
       wind_deg: 178,
       weather: [
-        { id: 803, main: 'Clouds', description: 'broken clouds', icon: '04d' },
+        { id: 802, main: 'Clouds', description: 'broken clouds', icon: '04d' },
       ],
     },
     {

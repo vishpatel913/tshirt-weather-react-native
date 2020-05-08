@@ -14,10 +14,13 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-python-requirements
 
 custom:
   serverless-offline:
     httpPort: 5000
+  pythonRequirements:
+    dockerizePip: false
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -36,11 +39,13 @@ custom:
 #            - "/*"
 
 # you can add packaging information here
-#package:
-#  include:
-#    - include-me.py
-#    - include-me-dir/**
-#  exclude:
+package:
+  #  include:
+  #    - include-me.py
+  #    - include-me-dir/**
+  exclude:
+    - venv/** # virtualenv
+
 #    - exclude-me.py
 #    - exclude-me-dir/**
 

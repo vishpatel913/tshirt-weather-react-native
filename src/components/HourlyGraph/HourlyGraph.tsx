@@ -7,6 +7,7 @@ import {
   VictoryScatter,
   VictoryBar,
   VictoryAxis,
+  VictoryLabel,
 } from 'victory-native';
 import { WeatherIcon, Text } from '..';
 
@@ -37,7 +38,7 @@ const NodeAdditional = styled(Text)`
 const NodeLabel = ({
   x,
   y,
-  datum: { additional, icon, timestamp, label },
+  datum: { label, timestamp, icon, additional },
 }: any) => (
   <NodeContainer x={x} y={y}>
     {additional && (
@@ -53,6 +54,7 @@ const NodeLabel = ({
 );
 
 const HourlyGraph = ({ data = [] }: Props) => {
+  const isLoading = data.length < 1;
   const graphData = data.slice(0, 6);
   const domainY: [number, number] = [
     Math.min(...graphData.map((i) => i.y)) - 2,
@@ -108,6 +110,9 @@ const HourlyGraph = ({ data = [] }: Props) => {
             axis: { stroke: 'none' },
             tickLabels: { fontSize: 16, fill: '#fff' },
           }}
+          fixLabelOverlap
+          tickFormat={(t, i) => (i > 0 ? t : 'NOW')}
+          tickLabelComponent={isLoading ? <View /> : <VictoryLabel />}
         />
       </VictoryChart>
     </GraphContainer>

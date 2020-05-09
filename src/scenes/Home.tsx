@@ -6,7 +6,6 @@ import moment from 'moment';
 import {
   LocationHeader,
   TemperatureCurrent,
-  Text,
   Layout,
   HourlyGraph,
 } from '../components';
@@ -21,23 +20,15 @@ const PageLayout = styled(Layout)`
   justify-content: space-between;
 `;
 
-const LoadingContainer = styled.View`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Home = ({ weather }: Props) => {
-  const { geocoding, current, hourly, isDaytime, actions, isLoading } = weather;
+  const { geocoding, current, hourly, isDaytime, actions } = weather;
   const daytime = isDaytime();
 
   useEffect(() => {
     actions?.getLocation();
   }, []);
 
-  return !isLoading ? (
+  return (
     <>
       <SafeAreaView>
         <PageLayout landscape>
@@ -65,12 +56,6 @@ const Home = ({ weather }: Props) => {
         </PageLayout>
       </SafeAreaView>
     </>
-  ) : (
-    <LoadingContainer>
-      <Text size={32} weight="thin">
-        Loading...
-      </Text>
-    </LoadingContainer>
   );
 };
 

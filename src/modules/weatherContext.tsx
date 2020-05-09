@@ -63,6 +63,15 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     }, 2000);
   };
 
+  const isDaytime = (ts?: number) => {
+    const now = ts ? moment(ts, 'X') : moment();
+    const sunTime = (value: number) => moment(value, current ? 'X' : 'HH');
+    return (
+      now.isAfter(sunTime(current?.sunrise || 6)) &&
+      now.isBefore(sunTime(current?.sunset || 21))
+    );
+  };
+
   useEffect(() => {
     if (coords) {
       const ws = new WeatherService(coords);
@@ -89,13 +98,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     hourly,
     daily,
     isLoading,
-    isDaytime: (ts?: number) => {
-      const time = ts ? moment(ts, 'X') : moment();
-      return (
-        time.isAfter(moment(current?.sunrise, 'X')) &&
-        time.isBefore(moment(current?.sunset, 'X'))
-      );
-    },
+    isDaytime,
     actions: { getLocation },
   };
 

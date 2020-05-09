@@ -19,13 +19,6 @@ const GardientContainer = styled(LinearGradient)`
   position: relative;
 `;
 const SwipeContainer = styled(Swiper)``;
-const LoadingContainer = styled.View`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const Footer = styled.View`
   position: absolute;
   bottom: ${({ theme }) => theme.spacing.single};
@@ -42,7 +35,7 @@ const UpdatedText = styled(Text)`
 `;
 
 const SwipeRouter = ({ children }: Props) => {
-  const { current, isDaytime, isLoading } = useWeather();
+  const { current, isDaytime } = useWeather();
   const { pages, index, push } = useRouter();
   const { gradientMap } = useContext(ThemeContext);
   const daytime = isDaytime();

@@ -4,8 +4,6 @@ import moment from 'moment';
 
 import { LandscapeVector, Text } from '..';
 import { useWeather } from '../../modules/weatherContext';
-import Sun from '../../assets/svgs/sun.svg';
-import Moon from '../../assets/svgs/moon.svg';
 
 interface Props {
   children: ReactNode;
@@ -23,12 +21,6 @@ const Background = styled.View`
   left: 0;
   right: 0;
 `;
-const StyledSkyVector = styled.View<{ opacity?: number }>`
-  position: absolute;
-  top: 32px;
-  right: 32px;
-  opacity: ${({ opacity }) => opacity};
-`;
 const Footer = styled.View`
   position: absolute;
   bottom: 0;
@@ -37,16 +29,12 @@ const Footer = styled.View`
 `;
 
 const Layout = ({ children, landscape, ...rest }: Props) => {
-  const { current, isDaytime } = useWeather();
-  const SkyVector = StyledSkyVector.withComponent(isDaytime() ? Sun : Moon);
-  const cloudOpacity = (100 - (current?.clouds || 0)) / 100;
-
+  const { current } = useWeather();
   return (
     <LayoutContainer {...rest}>
       {landscape && (
         <Background>
           <LandscapeVector />
-          <SkyVector width={64} height={64} opacity={cloudOpacity} />
         </Background>
       )}
       {children}

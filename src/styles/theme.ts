@@ -12,6 +12,7 @@ declare module 'styled-components' {
     spacing: {
       single: string;
       double: string;
+      triple: string;
       half: string;
     };
   }
@@ -27,6 +28,7 @@ export const theme = {
   spacing: {
     single: '16px',
     double: '32px',
+    triple: '48px',
     half: '8px',
   },
   color: {

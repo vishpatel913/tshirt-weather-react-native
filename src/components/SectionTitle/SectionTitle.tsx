@@ -8,6 +8,7 @@ interface Props {
 
 const TitleContainer = styled.View`
   flex-direction: row;
+  margin-bottom: ${({ theme }) => theme.spacing.single};
 `;
 const Stroke = styled.View`
   flex-grow: 1;

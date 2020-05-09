@@ -46,7 +46,7 @@ const Home = ({ weather }: Props) => {
           <HourlyGraph
             domain={[2, 0]}
             data={hourly?.map((item) => ({
-              x: moment(item.dt, 'X').format('ha'),
+              x: moment.unix(item.dt).format('ha'),
               y: Math.ceil(item.temp),
               label: `${Math.ceil(item.temp)}°`,
               timestamp: item.dt,

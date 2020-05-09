@@ -37,7 +37,7 @@ const VariationView = styled.View`
   display: flex;
   align-items: center;
 `;
-const VariationRule = styled.View`
+const Hr = styled.View`
   width: 100%;
   border: solid 0.5px white;
   opacity: 0.5;
@@ -72,7 +72,7 @@ const TemperatureCurrent = ({
               <Icon name="arrow-up" size={16} />
               {Math.ceil(max)}°C
             </Text>
-            <VariationRule />
+            <Hr />
             <Text size={24}>
               <Icon name="arrow-down" size={16} />
               {Math.floor(min)}°C

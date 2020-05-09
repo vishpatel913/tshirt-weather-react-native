@@ -64,7 +64,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   };
 
   const isDaytime = (ts?: number) => {
-    const now = ts ? moment(ts, 'X') : moment();
+    const now = ts ? moment.unix(ts) : moment();
     const sunTime = (value: number) => moment(value, current ? 'X' : 'HH');
     return (
       now.isAfter(sunTime(current?.sunrise || 6)) &&

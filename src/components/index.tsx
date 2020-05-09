@@ -6,3 +6,4 @@ export { default as LocationHeader } from './LocationHeader';
 export { default as LandscapeVector } from './LandscapeVector';
 export { default as TemperatureCurrent } from './TemperatureCurrent';
 export { default as HourlyGraph } from './HourlyGraph';
+export { default as SectionTitle } from './SectionTitle';

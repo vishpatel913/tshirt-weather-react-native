@@ -7,6 +7,7 @@ interface Props {
   grey?: boolean;
   weight?: string;
   shadow?: boolean;
+  transform?: string;
   children?: ReactNode;
 }
 
@@ -21,6 +22,7 @@ const StyledText = styled(RNText)<Props>`
   opacity: ${({ grey }) => (grey ? 0.7 : 1)};
   text-shadow: ${({ shadow }) =>
     shadow ? '2px 2px 5px rgba(0, 0, 0, 0.5)' : 'none'};
+  text-transform: ${({ transform }) => transform || 'none'};
 `;
 
 const Text = (props: Props) => {

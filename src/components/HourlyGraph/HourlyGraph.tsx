@@ -1,6 +1,6 @@
 import React from 'react';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
-import moment from 'moment';
 import {
   VictoryChart,
   VictoryLine,
@@ -11,20 +11,17 @@ import {
 import { WeatherIcon, Text } from '..';
 
 interface Props {
-  data: NodeProps[];
+  data?: NodeProps[];
 }
 
 interface NodeProps {
-  x: number;
+  x: string;
   y: number;
   label?: string;
-  data?: DataProps;
+  timestamp?: number;
+  icon?: number;
+  additional?: number;
 }
-
-type DataProps = {
-  icon: number;
-  percentage?: number;
-};
 
 const GraphContainer = styled.View``;
 const NodeContainer = styled.View<{ x: number; y: number }>`
@@ -33,40 +30,38 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   left: ${({ x }) => x - 16}px;
   top: ${({ y }) => y - 88}px;
 `;
-const NodePercentage = styled(Text)`
+const NodeAdditional = styled(Text)`
   left: 30%;
 `;
 
-const NodeLabel = ({ x, y, datum }: any) => {
-  const { data } = datum;
-  return (
-    <NodeContainer x={x} y={y}>
-      {data.percentage && (
-        <NodePercentage weight="bold" size={16}>
-          {data.percentage * 100}%
-        </NodePercentage>
-      )}
-      <WeatherIcon id={data.icon} timestamp={datum.timestamp} size={28} />
-      <Text size={20} weight="bold">
-        {datum.y}°
-      </Text>
-    </NodeContainer>
-  );
-};
+const NodeLabel = ({
+  x,
+  y,
+  datum: { additional, icon, timestamp, label },
+}: any) => (
+  <NodeContainer x={x} y={y}>
+    {additional && (
+      <NodeAdditional weight="bold" size={16}>
+        {additional}
+      </NodeAdditional>
+    )}
+    {icon && <WeatherIcon id={icon} timestamp={timestamp} size={28} />}
+    <Text size={20} weight="bold">
+      {label}
+    </Text>
+  </NodeContainer>
+);
 
-const TemperatureHourly = ({ data }: Props) => {
-  const graphData = data.slice(0, 6).map((item, i) => ({
-    ...item,
-    timestamp: item.x,
-    x: i > 0 ? moment(item.x, 'X').format('ha') : 'NOW',
-  }));
-  const domain: [number, number] = [
+const HourlyGraph = ({ data = [] }: Props) => {
+  const graphData = data.slice(0, 6);
+  const domainY: [number, number] = [
     Math.min(...graphData.map((i) => i.y)) - 2,
     Math.max(...graphData.map((i) => i.y)) + 10,
   ];
   return (
     <GraphContainer>
       <VictoryChart
+        domain={{ y: domainY }}
         padding={{ left: 20, right: 100, bottom: 72 }}
         style={{
           parent: { color: '#fff' },
@@ -74,7 +69,7 @@ const TemperatureHourly = ({ data }: Props) => {
         <VictoryLine
           data={graphData}
           interpolation="natural"
-          domain={{ y: domain }}
+          labelComponent={<View />}
           style={{
             data: {
               stroke: '#fff',
@@ -87,7 +82,7 @@ const TemperatureHourly = ({ data }: Props) => {
         <VictoryScatter
           data={graphData}
           size={3}
-          labels={({ datum }) => `${datum.y}`}
+          labels={() => ''}
           labelComponent={<NodeLabel />}
           style={{
             data: { fill: '#ffffff' },
@@ -100,7 +95,7 @@ const TemperatureHourly = ({ data }: Props) => {
         <VictoryBar
           data={graphData}
           barWidth={1}
-          domain={{ y: domain }}
+          labelComponent={<View />}
           style={{
             data: {
               fill: '#fff',
@@ -119,4 +114,4 @@ const TemperatureHourly = ({ data }: Props) => {
   );
 };
 
-export default TemperatureHourly;
+export default HourlyGraph;

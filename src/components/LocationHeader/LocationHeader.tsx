@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Text } from '..';
 
 interface Props {
-  location: string;
+  location?: string;
 }
 
 const Container = styled.View`
@@ -16,7 +16,7 @@ const Container = styled.View`
 
 const LocationHeader = ({ location }: Props) => (
   <Container>
-    <Text size={24}>{location}</Text>
+    <Text size={24}>{location || 'Loading'}</Text>
     <Text grey>{moment().format('ddd, Do MMM')}</Text>
   </Container>
 );

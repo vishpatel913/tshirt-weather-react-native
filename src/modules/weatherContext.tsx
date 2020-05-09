@@ -17,7 +17,7 @@ export interface WeatherState {
   current?: Weather;
   hourly?: Weather[];
   daily?: DailyWeather[];
-  loading: boolean;
+  isLoading: boolean;
   isDaytime: (ts?: number) => boolean;
   actions?: Actions;
 }
@@ -42,14 +42,14 @@ const initialState = {
   current: undefined,
   hourly: undefined,
   daily: undefined,
-  loading: true,
+  isLoading: true,
   isDaytime: () => true,
 };
 
 export const WeatherContext = createContext<WeatherState>(initialState);
 
 export const WeatherProvider = ({ children }: ProviderProps) => {
-  const [loading, setLoading] = useState(initialState.loading);
+  const [isLoading, setLoading] = useState(initialState.isLoading);
   const [coords, setCoords] = useState<Coords | undefined>(undefined);
   const [geocoding, setGeocoding] = useState<Geocoding | undefined>(undefined);
   const [current, setCurrent] = useState<Weather | undefined>(undefined);
@@ -60,7 +60,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     setLoading(true);
     setTimeout(async () => {
       setCoords({ lat: 51.4623656, lon: -0.1699604 });
-      setLoading(false);
     }, 2000);
   };
 
@@ -77,6 +76,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setCurrent(res.current);
           setHourly(res.hourly);
           setDaily(res.daily);
+          setLoading(false);
         })
         .catch((err) => console.error(err));
     }
@@ -88,7 +88,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     current,
     hourly,
     daily,
-    loading,
+    isLoading,
     isDaytime: (ts?: number) => {
       const time = ts ? moment(ts, 'X') : moment();
       return (

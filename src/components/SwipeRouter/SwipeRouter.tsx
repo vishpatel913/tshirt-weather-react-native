@@ -1,17 +1,14 @@
-import React, {
-  ReactNode,
-  useContext,
-  useEffect,
-  Children,
-  useState,
-} from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 import { Animated, Easing } from 'react-native';
 import styled, { ThemeContext } from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper';
+import moment from 'moment';
 
 import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
+import { Text } from '..';
 import { useWeather } from '../../modules/weatherContext';
+import { useRouter } from '../../modules/routerContext';
 
 interface Props {
   children: ReactNode;
@@ -22,6 +19,13 @@ const GardientContainer = styled(LinearGradient)`
   position: relative;
 `;
 const SwipeContainer = styled(Swiper)``;
+const LoadingContainer = styled.View`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const Footer = styled.View`
   position: absolute;
   bottom: ${({ theme }) => theme.spacing.single};
@@ -31,13 +35,17 @@ const SwipeVectorContainer = styled(Animated.View)`
   margin: auto;
   opacity: 0.6;
 `;
+const UpdatedText = styled(Text)`
+  position: absolute;
+  bottom: ${({ theme }) => theme.spacing.single};
+  left: ${({ theme }) => theme.spacing.double};
+`;
 
 const SwipeRouter = ({ children }: Props) => {
-  const { current, isDaytime } = useWeather();
+  const { current, isDaytime, isLoading } = useWeather();
+  const { pages, index, push } = useRouter();
   const { gradientMap } = useContext(ThemeContext);
   const daytime = isDaytime();
-  const totalPages = Children.count(children);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const arrowY = new Animated.Value(0);
 
   useEffect(() => {
@@ -81,14 +89,17 @@ const SwipeRouter = ({ children }: Props) => {
       <SwipeContainer
         horizontal={false}
         loop={false}
-        onIndexChanged={(i) => setCurrentIndex(i)}
+        onIndexChanged={(i) => push(i)}
         showsPagination={false}
         autoplay={false}
         showsButtons={false}>
         {children}
       </SwipeContainer>
-      {currentIndex !== totalPages - 1 && (
-        <Footer>
+      <Footer>
+        <UpdatedText size={12} weight="bold">
+          Updated: {moment(current?.dt, 'X').format('h:mm a')}
+        </UpdatedText>
+        {index !== pages - 1 && (
           <SwipeVectorContainer
             style={{
               transform: [
@@ -102,8 +113,8 @@ const SwipeRouter = ({ children }: Props) => {
             }}>
             <SwipeArrow width={40} height={40} />
           </SwipeVectorContainer>
-        </Footer>
-      )}
+        )}
+      </Footer>
     </GardientContainer>
   );
 };

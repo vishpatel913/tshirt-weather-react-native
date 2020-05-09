@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
-import moment from 'moment';
-
-import { LandscapeVector, Text } from '..';
-import { useWeather } from '../../modules/weatherContext';
+import { LandscapeVector } from '..';
 
 interface Props {
   children: ReactNode;
@@ -21,30 +18,16 @@ const Background = styled.View`
   left: 0;
   right: 0;
 `;
-const Footer = styled.View`
-  position: absolute;
-  bottom: 0;
-  bottom: ${({ theme }) => theme.spacing.single};
-  left: ${({ theme }) => theme.spacing.double};
-`;
 
-const Layout = ({ children, landscape, ...rest }: Props) => {
-  const { current } = useWeather();
-  return (
-    <LayoutContainer {...rest}>
-      {landscape && (
-        <Background>
-          <LandscapeVector />
-        </Background>
-      )}
-      {children}
-      <Footer>
-        <Text size={12} weight="bold">
-          Updated: {moment(current?.dt, 'X').format('h:mm a')}
-        </Text>
-      </Footer>
-    </LayoutContainer>
-  );
-};
+const Layout = ({ children, landscape, ...rest }: Props) => (
+  <LayoutContainer {...rest}>
+    {landscape && (
+      <Background>
+        <LandscapeVector />
+      </Background>
+    )}
+    {children}
+  </LayoutContainer>
+);
 
 export default Layout;

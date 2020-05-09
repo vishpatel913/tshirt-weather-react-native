@@ -6,6 +6,7 @@ import moment from 'moment';
 import {
   Layout,
   SectionTitle,
+  DetailTiles,
   HourlyGraph,
   DailyForecast,
 } from '../components';
@@ -22,7 +23,7 @@ const PageLayout = styled(Layout)`
 const SectionView = styled.View``;
 
 const Data = ({ weather }: Props) => {
-  const { daily, hourly } = weather;
+  const { current, daily, hourly } = weather;
   const precip = daily?.[0].rain ? 'rain' : daily?.[0].snow ? 'snow' : null;
 
   return (
@@ -30,6 +31,46 @@ const Data = ({ weather }: Props) => {
       <SafeAreaView>
         <PageLayout>
           <SectionView>
+            <SectionTitle>Details</SectionTitle>
+            <DetailTiles
+              data={[
+                {
+                  text: 'Feels Like',
+                  icon: 'thermometer',
+                  value: current ? Math.ceil(current.feels_like) : undefined,
+                  unit: '°',
+                },
+                {
+                  text: 'Cloud Cover',
+                  icon: 'cloud',
+                  value: current?.clouds,
+                  unit: '%',
+                },
+                {
+                  text: 'UV Index',
+                  icon: 'hot',
+                  value: current?.uvi,
+                },
+                {
+                  text: 'Wind Speed',
+                  icon: 'wind',
+                  value: current?.wind_speed,
+                  unit: 'm/s',
+                },
+                {
+                  text: 'Humidity',
+                  icon: 'humidity',
+                  value: current?.humidity,
+                  unit: '%',
+                },
+                {
+                  text: 'Pressure',
+                  icon: 'barometer',
+                  value: current?.pressure,
+                  unit: 'hPa',
+                },
+              ]}
+            />
             <SectionTitle>{precip || 'rain'}</SectionTitle>
             <HourlyGraph
               domain={[0, 0]}

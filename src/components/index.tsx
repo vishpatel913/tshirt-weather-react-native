@@ -8,3 +8,4 @@ export { default as SectionTitle } from './SectionTitle';
 export { default as TemperatureCurrent } from './TemperatureCurrent';
 export { default as HourlyGraph } from './HourlyGraph';
 export { default as DailyForecast } from './DailyForecast';
+export { default as DetailTiles } from './DetailTiles';

@@ -41,7 +41,7 @@ const VariationRule = styled.View`
   width: 100%;
   border: solid 0.5px white;
   opacity: 0.5;
-  margin: 8px;
+  margin: ${({ theme }) => theme.spacing.half};
 `;
 const DetailsView = styled.View`
   display: flex;

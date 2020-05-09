@@ -9,10 +9,12 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from 'victory-native';
+import { useWeather } from '../../modules/weatherContext';
 import { WeatherIcon, Text } from '..';
 
 interface Props {
   data?: NodeProps[];
+  domain?: [number, number];
 }
 
 interface NodeProps {
@@ -21,7 +23,7 @@ interface NodeProps {
   label?: string;
   timestamp?: number;
   icon?: number;
-  additional?: number;
+  additional?: string;
 }
 
 const GraphContainer = styled.View``;
@@ -29,7 +31,7 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   position: absolute;
   align-items: center;
   left: ${({ x }) => x - 16}px;
-  top: ${({ y }) => y - 88}px;
+  bottom: ${({ y }) => 32 - y}px;
 `;
 const NodeAdditional = styled(Text)`
   left: 30%;
@@ -42,7 +44,7 @@ const NodeLabel = ({
 }: any) => (
   <NodeContainer x={x} y={y}>
     {additional && (
-      <NodeAdditional weight="bold" size={16}>
+      <NodeAdditional weight="bold" size={12}>
         {additional}
       </NodeAdditional>
     )}
@@ -53,18 +55,22 @@ const NodeLabel = ({
   </NodeContainer>
 );
 
-const HourlyGraph = ({ data = [] }: Props) => {
-  const isLoading = data.length < 1;
+const HourlyGraph = ({ data = [], domain }: Props) => {
+  const { isLoading } = useWeather();
+  let domainY = domain || [0, 0];
   const graphData = data.slice(0, 6);
-  const domainY: [number, number] = [
-    Math.min(...graphData.map((i) => i.y)) - 2,
-    Math.max(...graphData.map((i) => i.y)) + 10,
+  domainY = [
+    Math.min(...graphData.map((i) => i.y)) - domainY[0],
+    Math.max(...graphData.map((i) => i.y)) + domainY[1],
   ];
+
   return (
     <GraphContainer>
       <VictoryChart
+        height={200}
         domain={{ y: domainY }}
-        padding={{ left: 20, right: 100, bottom: 72 }}
+        domainPadding={{ y: [10, 120] }}
+        padding={{ left: 20, right: 100, bottom: 64 }}
         style={{
           parent: { color: '#fff' },
         }}>

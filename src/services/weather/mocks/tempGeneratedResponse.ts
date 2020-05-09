@@ -86,8 +86,14 @@ export default {
       wind_speed: 2.6,
       wind_deg: 180,
       weather: [
-        { id: 803, main: 'Clouds', description: 'broken clouds', icon: '04d' },
+        {
+          id: 300,
+          main: 'Drizzle',
+          description: 'light intensity drizzle',
+          icon: '09d',
+        },
       ],
+      rain: { '1h': 0.2 },
     },
     {
       dt: 1588957200,
@@ -100,8 +106,14 @@ export default {
       wind_speed: 1.86,
       wind_deg: 185,
       weather: [
-        { id: 803, main: 'Clouds', description: 'broken clouds', icon: '04d' },
+        {
+          id: 600,
+          main: 'Snow',
+          description: 'light snow',
+          icon: '13d',
+        },
       ],
+      snow: { '1h': 0.1 },
     },
     {
       dt: 1588960800,

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import moment from 'moment';
 import { Text, WeatherIcon, Icon } from '..';
 
 interface Props {
@@ -9,7 +8,6 @@ interface Props {
   max?: number;
   label: string;
   iconId: number;
-  sunChange?: number;
 }
 
 const Container = styled.View``;
@@ -32,10 +30,15 @@ const Temperature = styled(Text)`
   font-size: 128px;
   line-height: 132px;
 `;
-const VariationView = styled.View`
+const HighLowView = styled.View`
   flex: 1;
   display: flex;
   align-items: center;
+`;
+const HighLowItemView = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 const Hr = styled.View`
   width: 100%;
@@ -49,41 +52,30 @@ const DetailsView = styled.View`
   align-items: center;
 `;
 
-const TemperatureCurrent = ({
-  temp,
-  min,
-  max,
-  label,
-  iconId,
-  sunChange,
-}: Props) => {
-  const sunTime = moment(sunChange, 'X').format('h:mm a');
+const TemperatureCurrent = ({ temp, min, max, label, iconId }: Props) => {
   return (
     <Container>
       <DescriptionView>
-        <WeatherIcon id={iconId} size={40} />
+        <WeatherIcon id={iconId} size={48} />
         <DescriptionText>{label}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
         <Temperature weight="light">{Math.ceil(temp)}°</Temperature>
         {max && min && (
-          <VariationView>
-            <Text size={24}>
-              <Icon name="arrow-up" size={16} />
-              {Math.ceil(max)}°C
-            </Text>
+          <HighLowView>
+            <HighLowItemView>
+              <Icon name="arrow-up" size={12} />
+              <Text size={24}>{Math.ceil(max)}°C</Text>
+            </HighLowItemView>
             <Hr />
-            <Text size={24}>
-              <Icon name="arrow-down" size={16} />
-              {Math.floor(min)}°C
-            </Text>
-          </VariationView>
+            <HighLowItemView>
+              <Icon name="arrow-down" size={12} />
+              <Text size={24}>{Math.floor(min)}°C</Text>
+            </HighLowItemView>
+          </HighLowView>
         )}
       </TemperatureView>
-      <DetailsView>
-        <Icon name="horizon" size={20} />
-        <Text>{sunTime}</Text>
-      </DetailsView>
+      <DetailsView />
     </Container>
   );
 };

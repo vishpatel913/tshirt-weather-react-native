@@ -8,7 +8,7 @@ interface Props {
 }
 
 const LayoutContainer = styled.View`
-  padding: ${({ theme }) => `${theme.spacing.triple} ${theme.spacing.double}`};
+  padding: ${({ theme }) => theme.spacing.double};
   height: 100%;
   position: relative;
 `;

@@ -20,7 +20,7 @@ const WhiteIcon = styled(Icon)`
 `;
 
 const StyledIcon = (props: Props) => {
-  return <WhiteIcon {...props} />;
+  return <WhiteIcon {...props} size={props.size || 32} />;
 };
 
 export default StyledIcon;

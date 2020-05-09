@@ -17,7 +17,6 @@ class WeatherService {
       lon: this.coords.lon,
     };
     console.log({ params });
-    return devResponse;
     // return fetch(`${this.baseUrl}/${endpoint}?${qs.stringify(params)}`)
     //   .then((res) => res.json())
     //   .then((json) => {
@@ -27,6 +26,7 @@ class WeatherService {
     //     // TODO: add error handling
     //     console.error('Weather Service Error', error);
     //   });
+    return devResponse;
   }
 }
 

@@ -21,8 +21,7 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { geocoding, current, hourly, isDaytime, actions } = weather;
-  const daytime = isDaytime();
+  const { geocoding, current, hourly, actions } = weather;
 
   useEffect(() => {
     actions?.getLocation();
@@ -40,7 +39,6 @@ const Home = ({ weather }: Props) => {
               max={current.temp_max}
               label={current.weather[0].main}
               iconId={current.weather[0].id}
-              sunChange={daytime ? current.sunset : current.sunrise}
             />
           )}
           <HourlyGraph
@@ -48,7 +46,7 @@ const Home = ({ weather }: Props) => {
             data={hourly?.map((item) => ({
               x: moment.unix(item.dt).format('ha'),
               y: Math.ceil(item.temp),
-              label: `${Math.ceil(item.temp)}°`,
+              unit: '°',
               timestamp: item.dt,
               icon: item.weather[0].id,
               additional:

@@ -12,39 +12,35 @@ interface Props {
 const WeatherIcon = ({ id, timestamp, ...rest }: Props) => {
   const { isDaytime } = useWeather();
   const isDay = isDaytime(timestamp);
-  let iconName = '?';
-  const withTime = (text: string) => `${text}-${isDay ? 'day' : 'night'}`;
+  let iconName = 'na';
 
   switch (Math.floor(id / 100)) {
     case 2:
-      iconName = 'thunder';
-      if (id < 202 || id > 229) iconName = withTime('rain');
-      if (id === 202 || id === 232) iconName = 'shower-thunder';
+      iconName = 'thunderstorm';
       break;
     case 3:
-      iconName = 'rain';
-      if (id === 321) iconName = 'shower';
-      if (id < 305) iconName = withTime('rain');
+      iconName = 'shower';
       break;
     case 5:
-      iconName = 'shower';
-      if (id === 511) iconName = 'snowflake';
-      if (id < 505) iconName = withTime('rain');
+      iconName = 'rain';
+      if (id === 511) iconName = 'hail';
+      if (id > 511) iconName = 'shower';
       break;
     case 6:
       iconName = 'snow';
-      if (id < 620) iconName = isDay ? 'sleet-day' : 'snow-night';
-      if (id < 615) iconName = 'rain-mixed';
-      if (id < 610) iconName = withTime('snow');
+      if (id > 610) iconName = 'sleet';
+      if (id > 614) iconName = 'rain-mix';
       break;
     case 7:
-      iconName = 'mist';
+      iconName = 'fog';
+      if (id === 711 || id === 762) iconName = 'smoke';
       if (id === 781) iconName = 'tornado';
+      if (id === 731 || id === 751 || id === 761) iconName = 'dust';
       break;
     case 8:
-      iconName = 'clouds';
-      if (id < 803) iconName = withTime('clouds');
-      if (id === 800) iconName = withTime('clear');
+      iconName = `cloud-${isDay ? 'day' : 'night'}`;
+      if (id === 800) iconName = `clear-${isDay ? 'day' : 'night'}`;
+      if (id > 802) iconName = 'cloudy';
       break;
     default:
       break;

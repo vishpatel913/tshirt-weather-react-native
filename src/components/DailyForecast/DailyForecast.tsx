@@ -36,14 +36,14 @@ const DailyForecast = ({ data = [] }: Props) => {
   return (
     <Container>
       {data.slice(0, 7).map((item: Day) => (
-        <DayContainer>
+        <DayContainer key={item.timestamp}>
           <Text size={20}>{moment.unix(item.timestamp).format('ddd')}</Text>
           <Text grey size={12} weight="bold">
             {item.additional && `${item.additional}%`}
           </Text>
           <WeatherIcon
-            size={24}
             id={item.icon}
+            size={28}
             timestamp={moment(12, 'HH').unix()}
           />
           <Text size={20}>{item.tempMax && `${Math.ceil(item.tempMax)}°`}</Text>

@@ -20,7 +20,7 @@ interface Props {
 interface NodeProps {
   x: string;
   y: number;
-  label?: string;
+  unit?: string;
   timestamp?: number;
   icon?: number;
   additional?: string;
@@ -31,7 +31,7 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   position: absolute;
   align-items: center;
   left: ${({ x }) => x - 16}px;
-  bottom: ${({ y }) => 32 - y}px;
+  bottom: ${({ y }) => 16 - y}px;
 `;
 const NodeAdditional = styled(Text)`
   left: 30%;
@@ -40,7 +40,8 @@ const NodeAdditional = styled(Text)`
 const NodeLabel = ({
   x,
   y,
-  datum: { label, timestamp, icon, additional },
+  datum,
+  datum: { unit, timestamp, icon, additional },
 }: any) => (
   <NodeContainer x={x} y={y}>
     {additional && (
@@ -48,10 +49,13 @@ const NodeLabel = ({
         {additional}
       </NodeAdditional>
     )}
-    {icon && <WeatherIcon id={icon} timestamp={timestamp} size={28} />}
-    <Text size={20} weight="bold">
-      {label}
-    </Text>
+    {icon && <WeatherIcon id={icon} timestamp={timestamp} />}
+    {unit && (
+      <Text size={20} weight="bold">
+        {datum.y}
+        {unit}
+      </Text>
+    )}
   </NodeContainer>
 );
 
@@ -76,7 +80,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         }}>
         <VictoryLine
           data={graphData}
-          interpolation="natural"
+          interpolation="monotoneX"
           labelComponent={<View />}
           style={{
             data: {
@@ -90,7 +94,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         <VictoryScatter
           data={graphData}
           size={3}
-          labels={() => ''}
+          labels={() => null}
           labelComponent={<NodeLabel />}
           style={{
             data: { fill: '#ffffff' },
@@ -114,7 +118,11 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         <VictoryAxis
           style={{
             axis: { stroke: 'none' },
-            tickLabels: { fontSize: 16, fill: '#fff' },
+            tickLabels: {
+              fontSize: 16,
+              fill: '#fff',
+              fontFamily: 'WorkSans-Regular',
+            },
           }}
           fixLabelOverlap
           tickFormat={(t, i) => (i > 0 ? t : 'NOW')}

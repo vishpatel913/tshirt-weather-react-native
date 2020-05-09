@@ -2,66 +2,109 @@ import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
 import {
-  VictoryScatter,
   VictoryChart,
   VictoryLine,
-  VictoryContainer,
+  VictoryScatter,
+  VictoryBar,
   VictoryAxis,
 } from 'victory-native';
+import { WeatherIcon, Text } from '..';
 
 interface Props {
-  data: HourlyWeather[];
+  data: NodeProps[];
 }
 
-type HourlyWeather = {
-  time: number;
-  temp: number;
+interface NodeProps {
+  x: number;
+  y: number;
+  label?: string;
+  data?: DataProps;
+}
+
+type DataProps = {
   icon: number;
   percentage?: number;
 };
 
 const GraphContainer = styled.View``;
+const NodeContainer = styled.View<{ x: number; y: number }>`
+  position: absolute;
+  align-items: center;
+  left: ${({ x }) => x - 16}px;
+  top: ${({ y }) => y - 88}px;
+`;
+const NodePercentage = styled(Text)`
+  left: 30%;
+`;
+
+const NodeLabel = ({ x, y, datum }: any) => {
+  const { data } = datum;
+  return (
+    <NodeContainer x={x} y={y}>
+      {data.percentage && (
+        <NodePercentage weight="bold" size={16}>
+          {data.percentage * 100}%
+        </NodePercentage>
+      )}
+      <WeatherIcon id={data.icon} timestamp={datum.timestamp} size={28} />
+      <Text size={20} weight="bold">
+        {datum.y}°
+      </Text>
+    </NodeContainer>
+  );
+};
 
 const TemperatureHourly = ({ data }: Props) => {
-  const graphData = data.reduce(
-    (acc, c, i) =>
-      i < 5
-        ? [
-            ...acc,
-            {
-              x: moment(c.time, 'X').format('ha'),
-              y: `${Math.ceil(c.temp)}°`,
-            },
-          ]
-        : acc,
-    [{ x: 'Now', y: `${Math.ceil(data[0].temp)}°` }],
-  );
-
+  const graphData = data.slice(0, 6).map((item, i) => ({
+    ...item,
+    timestamp: item.x,
+    x: i > 0 ? moment(item.x, 'X').format('ha') : 'NOW',
+  }));
+  const domain: [number, number] = [
+    Math.min(...graphData.map((i) => i.y)) - 2,
+    Math.max(...graphData.map((i) => i.y)) + 10,
+  ];
   return (
     <GraphContainer>
       <VictoryChart
-        containerComponent={<VictoryContainer />}
-        padding={{ left: 20, right: 80 }}
+        padding={{ left: 20, right: 100, bottom: 72 }}
         style={{
           parent: { color: '#fff' },
         }}>
         <VictoryLine
-          style={{
-            data: { stroke: '#ffffff80', strokeDasharray: '3', strokeWidth: 1 },
-          }}
-          interpolation="natural"
           data={graphData}
-          domain={{ y: [-15, 30] }}
+          interpolation="natural"
+          domain={{ y: domain }}
+          style={{
+            data: {
+              stroke: '#fff',
+              strokeOpacity: 0.5,
+              strokeDasharray: '3',
+              strokeWidth: 1,
+            },
+          }}
         />
         <VictoryScatter
           data={graphData}
           size={3}
-          labels={({ datum }) => datum.y}
+          labels={({ datum }) => `${datum.y}`}
+          labelComponent={<NodeLabel />}
           style={{
             data: { fill: '#ffffff' },
             labels: {
-              fontSize: 16,
+              fontSize: 20,
               fill: '#fff',
+            },
+          }}
+        />
+        <VictoryBar
+          data={graphData}
+          barWidth={1}
+          domain={{ y: domain }}
+          style={{
+            data: {
+              fill: '#fff',
+              opacity: 0.25,
             },
           }}
         />

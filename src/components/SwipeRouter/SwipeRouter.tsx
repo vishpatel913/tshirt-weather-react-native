@@ -1,4 +1,10 @@
-import React, { ReactNode, useContext, useState, useEffect } from 'react';
+import React, {
+  ReactNode,
+  useContext,
+  useEffect,
+  Children,
+  useState,
+} from 'react';
 import { Animated, Easing } from 'react-native';
 import styled, { ThemeContext } from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,17 +24,20 @@ const GardientContainer = styled(LinearGradient)`
 const SwipeContainer = styled(Swiper)``;
 const Footer = styled.View`
   position: absolute;
-  bottom: ${({ theme }) => theme.spacing.double};
+  bottom: ${({ theme }) => theme.spacing.single};
   width: 100%;
 `;
 const SwipeVectorContainer = styled(Animated.View)`
   margin: auto;
-  opacity: 0.75;
+  opacity: 0.6;
 `;
 
 const SwipeRouter = ({ children }: Props) => {
-  const { daytime, current } = useWeather();
+  const { current, isDaytime } = useWeather();
   const { gradientMap } = useContext(ThemeContext);
+  const daytime = isDaytime();
+  const totalPages = Children.count(children);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const arrowY = new Animated.Value(0);
 
   useEffect(() => {
@@ -41,11 +50,6 @@ const SwipeRouter = ({ children }: Props) => {
       }),
     ).start();
   }, []);
-
-  const translateY = arrowY.interpolate({
-    inputRange: [0, 0.05, 0.15, 1],
-    outputRange: [0, 10, 0, 0],
-  });
 
   const timeKey = daytime ? 'day' : 'night';
   let gradient;
@@ -77,22 +81,29 @@ const SwipeRouter = ({ children }: Props) => {
       <SwipeContainer
         horizontal={false}
         loop={false}
-        onIndexChanged={() => {
-          console.log('onIndexChanged');
-        }}
+        onIndexChanged={(i) => setCurrentIndex(i)}
         showsPagination={false}
         autoplay={false}
         showsButtons={false}>
         {children}
       </SwipeContainer>
-      <Footer>
-        <SwipeVectorContainer
-          style={{
-            transform: [{ translateY }],
-          }}>
-          <SwipeArrow width={40} height={40} />
-        </SwipeVectorContainer>
-      </Footer>
+      {currentIndex !== totalPages - 1 && (
+        <Footer>
+          <SwipeVectorContainer
+            style={{
+              transform: [
+                {
+                  translateY: arrowY.interpolate({
+                    inputRange: [0, 0.05, 0.15, 1],
+                    outputRange: [0, 10, 0, 0],
+                  }),
+                },
+              ],
+            }}>
+            <SwipeArrow width={40} height={40} />
+          </SwipeVectorContainer>
+        </Footer>
+      )}
     </GardientContainer>
   );
 };

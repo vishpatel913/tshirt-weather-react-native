@@ -71,19 +71,23 @@ const Data = ({ weather }: Props) => {
                 },
               ]}
             />
-            <SectionTitle>{precip || 'rain'}</SectionTitle>
-            <HourlyGraph
-              domain={[0, 0]}
-              data={hourly?.map((item) => ({
-                x: moment.unix(item.dt).format('ha'),
-                y: (item.rain || item.snow)?.['1h'] ?? 0,
-                icon: item.rain ? 300 : item.snow ? 600 : undefined,
-                additional:
-                  item.rain || item.snow
-                    ? `${(item.rain || item.snow)?.['1h']}mm`
-                    : undefined,
-              }))}
-            />
+            {precip && (
+              <>
+                <SectionTitle>{precip || 'rain'}</SectionTitle>
+                <HourlyGraph
+                  domain={[0, 0]}
+                  data={hourly?.map((item) => ({
+                    x: moment.unix(item.dt).format('ha'),
+                    y: (item.rain || item.snow)?.['1h'] ?? 0,
+                    icon: item.rain ? 300 : item.snow ? 600 : undefined,
+                    additional:
+                      item.rain || item.snow
+                        ? `${(item.rain || item.snow)?.['1h']}mm`
+                        : undefined,
+                  }))}
+                />
+              </>
+            )}
             <SectionTitle>Next 7 days</SectionTitle>
             <DailyForecast
               data={daily?.map((item) => ({

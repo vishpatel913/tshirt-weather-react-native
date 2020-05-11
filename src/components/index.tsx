@@ -4,6 +4,7 @@ export { default as SwipeRouter } from './SwipeRouter';
 export { default as Layout } from './Layout';
 export { default as LocationHeader } from './LocationHeader';
 export { default as LandscapeVector } from './LandscapeVector';
+export { default as SunMoonVector } from './SunMoonVector';
 export { default as SectionTitle } from './SectionTitle';
 export { default as TemperatureCurrent } from './TemperatureCurrent';
 export { default as HourlyGraph } from './HourlyGraph';

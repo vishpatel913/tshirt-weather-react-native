@@ -51,7 +51,7 @@ const Home = ({ weather }: Props) => {
               icon: item.weather[0].id,
               additional:
                 item.rain || item.snow
-                  ? `${item.rain?.['1h'] || item.snow?.['1h']}mm`
+                  ? `${item.rain || item.snow}mm`
                   : undefined,
             }))}
           />

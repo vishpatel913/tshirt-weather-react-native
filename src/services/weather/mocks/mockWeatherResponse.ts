@@ -20,9 +20,7 @@ export default {
     visibility: 10000,
     wind_speed: 3.6,
     wind_deg: 100,
-    rain: {
-      '1h': 0.25,
-    },
+    rain: 0.25,
     weather: [
       {
         id: 804,
@@ -146,9 +144,7 @@ export default {
           icon: '10d',
         },
       ],
-      rain: {
-        '1h': 0.17,
-      },
+      rain: 0.17,
     },
     {
       dt: 1586361600,
@@ -168,9 +164,7 @@ export default {
           icon: '10d',
         },
       ],
-      rain: {
-        '1h': 0.36,
-      },
+      rain: 0.36,
     },
     {
       dt: 1586365200,
@@ -190,9 +184,7 @@ export default {
           icon: '10d',
         },
       ],
-      rain: {
-        '1h': 0.14,
-      },
+      rain: 0.14,
     },
     {
       dt: 1586368800,
@@ -212,9 +204,7 @@ export default {
           icon: '10d',
         },
       ],
-      rain: {
-        '1h': 0.12,
-      },
+      rain: 0.12,
     },
     {
       dt: 1586372400,
@@ -234,9 +224,7 @@ export default {
           icon: '10n',
         },
       ],
-      rain: {
-        '1h': 0.14,
-      },
+      rain: 0.14,
     },
     {
       dt: 1586376000,

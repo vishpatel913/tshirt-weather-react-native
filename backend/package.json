@@ -4,7 +4,8 @@
   "description": "",
   "main": "handler.py",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "sls offline",
+    "deploy": "sls deploy -v"
   },
   "author": "",
   "license": "ISC",

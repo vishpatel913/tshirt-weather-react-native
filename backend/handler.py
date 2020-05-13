@@ -42,7 +42,17 @@ def main(event, context):
     data['current']['temp_max'] = current['main']['temp_max']
     data['current']['temp_min'] = current['main']['temp_min']
 
-    if hasattr(params, 'export'):
+    precip = ["rain", "snow"]
+    for p in precip:
+        if p in data['current']:
+            data['current'][p] = data['current'][p]['1h']
+
+    for h in data['hourly']:
+        for p in precip:
+            if p in data['current']:
+                data['current'][p] = data['current'][p]['1h']
+
+    if "export" in params:
         with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'w') as outfile:
             outfile.write("export default ")
         with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'a') as outfile:

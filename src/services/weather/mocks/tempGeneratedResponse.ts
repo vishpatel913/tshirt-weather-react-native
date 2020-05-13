@@ -93,7 +93,7 @@ export default {
           icon: '09d',
         },
       ],
-      rain: { '1h': 0.2 },
+      rain: 0.2,
     },
     {
       dt: 1588957200,
@@ -113,7 +113,7 @@ export default {
           icon: '13d',
         },
       ],
-      snow: { '1h': 0.1 },
+      snow: 0.1,
     },
     {
       dt: 1588960800,
@@ -832,7 +832,7 @@ export default {
       weather: [
         { id: 500, main: 'Rain', description: 'light rain', icon: '10d' },
       ],
-      rain: { '1h': 0.11 },
+      rain: 0.11,
     },
     {
       dt: 1589112000,
@@ -847,7 +847,7 @@ export default {
       weather: [
         { id: 500, main: 'Rain', description: 'light rain', icon: '10d' },
       ],
-      rain: { '1h': 0.33 },
+      rain: 0.33,
     },
   ],
   daily: [

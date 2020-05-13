@@ -78,11 +78,11 @@ const Data = ({ weather }: Props) => {
                   domain={[0, 0]}
                   data={hourly?.map((item) => ({
                     x: moment.unix(item.dt).format('ha'),
-                    y: (item.rain || item.snow)?.['1h'] ?? 0,
+                    y: (item.rain || item.snow) ?? 0,
                     icon: item.rain ? 300 : item.snow ? 600 : undefined,
                     additional:
                       item.rain || item.snow
-                        ? `${(item.rain || item.snow)?.['1h']}mm`
+                        ? `${item.rain || item.snow}mm`
                         : undefined,
                   }))}
                 />

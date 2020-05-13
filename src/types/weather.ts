@@ -25,17 +25,14 @@ export interface Weather {
   visibility?: number;
   wind_speed: number;
   wind_deg: number;
-  rain?: Rain;
-  snow?: Rain;
+  rain?: number;
+  snow?: number;
   weather: WeatherInfo[];
 }
 
-export interface DailyWeather
-  extends Omit<Weather, 'temp' | 'feels_like' | 'rain' | 'snow'> {
+export interface DailyWeather extends Omit<Weather, 'temp' | 'feels_like'> {
   temp: Temp;
   feels_like: Temp;
-  rain?: number;
-  snow?: number;
 }
 
 export interface Temp {
@@ -47,9 +44,6 @@ export interface Temp {
   morn: number;
 }
 
-export interface Rain {
-  '1h': number;
-}
 export interface WeatherInfo {
   id: number;
   main: string;

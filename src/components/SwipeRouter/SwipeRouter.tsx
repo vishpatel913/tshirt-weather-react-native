@@ -48,6 +48,7 @@ const SwipeRouter = ({ children }: Props) => {
         autoplay={false}
         showsButtons={false}
         bounces
+        scrollEnabled={!isLoading}
         refreshControl={
           <RefreshControl
             refreshing={isLoading}

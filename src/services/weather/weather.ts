@@ -16,7 +16,7 @@ class WeatherService {
       lat: this.coords.lat,
       lon: this.coords.lon,
     };
-    console.log({ params });
+    console.warn('remove log', { params });
     // return fetch(`${this.baseUrl}/${endpoint}?${qs.stringify(params)}`)
     //   .then((res) => res.json())
     //   .then((json) => {

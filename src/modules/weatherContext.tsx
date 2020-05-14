@@ -6,7 +6,10 @@ import React, {
   ReactNode,
   ComponentType,
 } from 'react';
+import { Alert, PermissionsAndroid } from 'react-native';
 import moment from 'moment';
+import Geolocation from '@react-native-community/geolocation';
+
 import { WeatherService } from '../services';
 import { Coords } from '../types/coords';
 import { Weather, WeatherResponse, DailyWeather } from '../types/weather';
@@ -44,7 +47,7 @@ const initialState = {
   hourly: undefined,
   daily: undefined,
   isLoading: true,
-  isDaytime: () => true,
+  isDaytime: () => false,
   actions: {
     getLocation: () => Promise.resolve(),
     toggleDark: () => undefined,
@@ -52,6 +55,29 @@ const initialState = {
 };
 
 export const WeatherContext = createContext<WeatherState>(initialState);
+
+const requestLocationPermissions = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Location Permission',
+        message:
+          "T-Shirt Weather needs access to your device's " +
+          'geolocation so that you can see your local weather.',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log('You can use the camera');
+    } else {
+      console.log('Camera permission denied');
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
 
 export const WeatherProvider = ({ children }: ProviderProps) => {
   const [isLoading, setLoading] = useState(initialState.isLoading);
@@ -63,9 +89,20 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [reverseDay, setReverseDay] = useState(false);
 
   const getLocation = async () => {
-    setTimeout(async () => {
-      setCoords({ lat: 51.4623656, lon: -0.1699604 });
-    }, 2000);
+    await requestLocationPermissions();
+    Geolocation.getCurrentPosition(
+      (info) => {
+        const { latitude, longitude } = info.coords;
+        setCoords({ lat: latitude, lon: longitude });
+      },
+      (err) => {
+        Alert.alert(err.message);
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 5000,
+      },
+    );
   };
 
   const isDaytime = (ts?: number) => {
@@ -95,7 +132,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setDaily(res.daily);
           setLoading(false);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => Alert.alert(err));
     }
   }, [coords]);
 

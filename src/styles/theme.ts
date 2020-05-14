@@ -32,22 +32,17 @@ export const theme = {
     half: '8px',
   },
   color: {
-    purpleDark: '#070544',
-    purple: '#361D9D',
-    pink: '#E04483',
-    pinkLight: '#E67FC4',
-    blue: '#4361EE',
-    blueLight: '#4ba9f9',
-    yellow: '#FAC140',
-    yellowLight: '#FFF376',
-    beige: '#FDF9ED',
-
-    primary: '#332AD8',
-    main: '#323232',
-    background: '#FDF9ED',
-
-    white: '#FFF',
-    black: '#000',
+    // purpleDark: '#070544',
+    // purple: '#361D9D',
+    // pink: '#E04483',
+    // pinkLight: '#E67FC4',
+    // yellow: '#FAC140',
+    blue: '#1D2F6F',
+    indigo: '#8390FA',
+    yellow: '#FAC748',
+    beige: '#F9E9EC',
+    pink: '#F88DAD',
+    white: '#fff',
   },
   gradientMap: {
     clear: {

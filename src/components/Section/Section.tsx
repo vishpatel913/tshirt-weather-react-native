@@ -20,7 +20,7 @@ const Stroke = styled.View`
   flex-grow: 1;
   height: 50%;
   border-bottom-width: 1px;
-  border-bottom-color: #fff;
+  border-bottom-color: ${({ theme }) => theme.color.white};
   opacity: 0.5;
   margin-left: ${({ theme }) => theme.spacing.half};
 `;

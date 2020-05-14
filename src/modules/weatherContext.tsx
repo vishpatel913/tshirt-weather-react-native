@@ -63,7 +63,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [reverseDay, setReverseDay] = useState(false);
 
   const getLocation = async () => {
-    setLoading(true);
     setTimeout(async () => {
       setCoords({ lat: 51.4623656, lon: -0.1699604 });
     }, 2000);
@@ -80,6 +79,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
 
   useEffect(() => {
     if (!coords) {
+      setLoading(true);
       getLocation();
     } else {
       const ws = new WeatherService(coords);

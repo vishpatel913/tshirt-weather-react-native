@@ -30,7 +30,7 @@ const SunMoonVector = ({ width, height, moon, ...rest }: Props) => {
   };
 
   const animationConfig = {
-    duration: 500,
+    duration: 300,
     animateOnDidMount: false,
     delay: 0,
     useNativeDriver: false,

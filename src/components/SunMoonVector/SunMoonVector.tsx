@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Animated, View, TouchableOpacity } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
+import { useWeather } from '../../modules/weatherContext';
 
 interface Props {
   width?: number;
@@ -19,9 +20,49 @@ const TouchArea = styled(TouchableOpacity)<Props>`
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const SunMoonVector = ({ width, height, moon, ...rest }: Props) => {
+  const { actions } = useWeather();
+  const state = {
+    moonMask: new Animated.Value(moon ? 225 : 0),
+    mainSize: new Animated.Value(moon ? 280 : 200),
+    rayInnerSize: new Animated.Value(moon ? 0 : 240),
+    rayOuterSize: new Animated.Value(moon ? 0 : 280),
+    rayOpacity: new Animated.Value(moon ? 0 : 0.5),
+  };
+
+  const animationConfig = {
+    duration: 500,
+    animateOnDidMount: false,
+    delay: 0,
+    useNativeDriver: false,
+  };
+
+  const animate = () =>
+    Animated.parallel([
+      Animated.timing(state.moonMask, {
+        toValue: !moon ? 225 : 0,
+        ...animationConfig,
+      }),
+      Animated.timing(state.mainSize, {
+        toValue: !moon ? 280 : 200,
+        ...animationConfig,
+      }),
+      Animated.timing(state.rayInnerSize, {
+        toValue: !moon ? 0 : 240,
+        ...animationConfig,
+      }),
+      Animated.timing(state.rayOuterSize, {
+        toValue: !moon ? 0 : 280,
+        ...animationConfig,
+      }),
+      Animated.timing(state.rayOpacity, {
+        toValue: !moon ? 0 : 0.5,
+        ...animationConfig,
+      }),
+    ]);
+
   return (
     <View {...rest}>
-      <TouchArea onPress={() => console.log('HIT')}>
+      <TouchArea onPress={() => animate().start(() => actions?.toggleDark())}>
         <Svg width={width} height={height} viewBox="0 0 600 600">
           <G id="sun-group">
             <Defs>
@@ -30,7 +71,7 @@ const SunMoonVector = ({ width, height, moon, ...rest }: Props) => {
                 <AnimatedCircle
                   cx={400}
                   cy={250}
-                  r={moon ? 225 : 0}
+                  r={state.moonMask}
                   fill="black"
                 />
               </Mask>
@@ -38,22 +79,22 @@ const SunMoonVector = ({ width, height, moon, ...rest }: Props) => {
             <AnimatedCircle
               cx={300}
               cy={300}
-              r={moon ? 0 : 280}
+              r={state.rayOuterSize}
               fill="#fcf8f1"
-              fillOpacity={moon ? 0 : 0.5}
+              fillOpacity={state.rayOpacity}
             />
             <AnimatedCircle
               cx={300}
               cy={300}
-              r={moon ? 0 : 240}
+              r={state.rayInnerSize}
               fill="#fcf8f1"
-              fillOpacity={moon ? 0 : 0.5}
+              fillOpacity={state.rayOpacity}
             />
             <AnimatedCircle
               cx={300}
               cy={300}
-              r={moon ? 280 : 200}
-              fill={moon ? '#f1f6fc' : '#fcf8f1'}
+              r={state.mainSize}
+              fill={`hsl(${moon ? 212.7 : 38.2}, 64.7%, 96.7%)`}
               mask="url(#moon-mask)"
             />
           </G>

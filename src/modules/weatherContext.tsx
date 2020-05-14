@@ -30,6 +30,7 @@ type Geocoding = {
 
 type Actions = {
   getLocation: () => Promise<void>;
+  toggleDark: () => void;
 };
 
 type ProviderProps = {
@@ -46,6 +47,7 @@ const initialState = {
   isDaytime: () => true,
   actions: {
     getLocation: () => Promise.resolve(),
+    toggleDark: () => undefined,
   },
 };
 
@@ -58,6 +60,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [current, setCurrent] = useState<Weather | undefined>(undefined);
   const [hourly, setHourly] = useState<Weather[] | undefined>(undefined);
   const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
+  const [reverseDay, setReverseDay] = useState(false);
 
   const getLocation = async () => {
     setLoading(true);
@@ -69,14 +72,16 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const isDaytime = (ts?: number) => {
     const now = ts ? moment.unix(ts) : moment();
     const sunTime = (value: number) => moment(value, current ? 'X' : 'HH');
-    return (
+    const isBetweenSuns =
       now.isAfter(sunTime(current?.sunrise || 6)) &&
-      now.isBefore(sunTime(current?.sunset || 21))
-    );
+      now.isBefore(sunTime(current?.sunset || 21));
+    return isBetweenSuns !== reverseDay;
   };
 
   useEffect(() => {
-    if (coords) {
+    if (!coords) {
+      getLocation();
+    } else {
       const ws = new WeatherService(coords);
       ws.get('weather')
         .then((res: WeatherResponse) => {
@@ -91,8 +96,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setLoading(false);
         })
         .catch((err) => console.error(err));
-    } else {
-      getLocation();
     }
   }, [coords]);
 
@@ -104,7 +107,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     daily,
     isLoading,
     isDaytime,
-    actions: { getLocation },
+    actions: { getLocation, toggleDark: () => setReverseDay(!reverseDay) },
   };
 
   return (

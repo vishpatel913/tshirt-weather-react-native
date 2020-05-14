@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import { SafeAreaView } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { ThemeContext } from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 
@@ -42,6 +42,7 @@ const hsl = ({ h, s, l }: HSL) => `hsl(${h}, ${s}%, ${l}%)`;
 
 const GradientContainer = ({ children }: Props) => {
   const { current, isDaytime, isLoading } = useWeather();
+  const theme = useContext(ThemeContext);
   const daytime = isDaytime();
   const now = moment();
   const switchRange = 2;
@@ -82,22 +83,22 @@ const GradientContainer = ({ children }: Props) => {
     return initialGradient;
   };
 
-  let gradient: HSL[];
+  let gradientData: HSL[];
   switch (current?.weather[0].icon.slice(0, 2)) {
     case '01':
-      gradient = getInitialGradient();
+      gradientData = getInitialGradient();
       break;
     case '02':
     case '03':
     case '04':
-      gradient = getInitialGradient().map((c, i) =>
+      gradientData = getInitialGradient().map((c, i) =>
         i > 0 ? { ...c, s: 35 - (25 * current.clouds) / 100, l: 70 } : c,
       );
       break;
     case '09':
     case '10':
     case '11':
-      gradient = getInitialGradient().map((c) => ({
+      gradientData = getInitialGradient().map((c) => ({
         ...c,
         h: c.h - 10,
         s: c.s / (daytime ? 2 : 3),
@@ -105,25 +106,29 @@ const GradientContainer = ({ children }: Props) => {
       break;
     case '13':
     case '50':
-      gradient = getInitialGradient().map((c, i) => ({
+      gradientData = getInitialGradient().map((c, i) => ({
         ...c,
         h: c.h + 10,
         s: c.s / (daytime ? 2 : 3),
       }));
       break;
     default:
-      gradient = getInitialGradient();
+      gradientData = baseGradient[daytime ? 'day' : 'night'];
       break;
   }
-  const [gradTop, gradBottom] = gradient;
+  const gradient = isLoading
+    ? [theme.color.blue, theme.color.pink]
+    : gradientData.map((c) => hsl(c));
 
   return (
     <>
-      <SafeAreaView style={{ flex: 0, backgroundColor: hsl(gradTop) }} />
-      <SafeAreaView style={{ flex: 1, backgroundColor: hsl(gradBottom) }}>
-        <GardientContainer colors={gradient.map((c) => hsl(c))}>
-          {children}
-        </GardientContainer>
+      <SafeAreaView style={{ flex: 0, backgroundColor: gradient[0] }} />
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: gradient[1],
+        }}>
+        <GardientContainer colors={gradient}>{children}</GardientContainer>
         <UpdatedText size={12} weight="bold">
           {isLoading
             ? 'Updating...'

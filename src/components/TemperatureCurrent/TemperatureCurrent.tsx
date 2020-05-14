@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Text, WeatherIcon, Icon } from '..';
+import moment from 'moment';
+import { Text, WeatherIcon, Icon, Hr } from '..';
 
 interface Props {
   temp: number;
@@ -8,6 +9,10 @@ interface Props {
   max?: number;
   label: string;
   iconId: number;
+  sunMovement: {
+    time?: number;
+    type: string;
+  };
 }
 
 const Container = styled.View``;
@@ -40,23 +45,24 @@ const HighLowItemView = styled.View`
   align-items: center;
   justify-content: center;
 `;
-const Hr = styled.View`
-  width: 100%;
-  border: solid 0.5px white;
-  opacity: 0.5;
-  margin: ${({ theme }) => theme.spacing.half};
-`;
 const DetailsView = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
-const TemperatureCurrent = ({ temp, min, max, label, iconId }: Props) => {
+const TemperatureCurrent = ({
+  temp,
+  min,
+  max,
+  label,
+  iconId,
+  sunMovement,
+}: Props) => {
   return (
     <Container>
       <DescriptionView>
-        <WeatherIcon id={iconId} size={48} />
+        <WeatherIcon padding id={iconId} size={48} />
         <DescriptionText>{label}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
@@ -64,18 +70,23 @@ const TemperatureCurrent = ({ temp, min, max, label, iconId }: Props) => {
         {max && min && (
           <HighLowView>
             <HighLowItemView>
-              <Icon name="arrow-up" size={12} />
+              <Icon padding name="arrow-up" size={12} />
               <Text size={24}>{Math.ceil(max)}°C</Text>
             </HighLowItemView>
             <Hr />
             <HighLowItemView>
-              <Icon name="arrow-down" size={12} />
+              <Icon padding name="arrow-down" size={12} />
               <Text size={24}>{Math.floor(min)}°C</Text>
             </HighLowItemView>
           </HighLowView>
         )}
       </TemperatureView>
-      <DetailsView />
+      <DetailsView>
+        <Icon padding color="#ffffffb3" size={20} name={sunMovement.type} />
+        <Text grey size={16} weight="bold">
+          {moment(sunMovement.time, 'X').format('h:mm a')}
+        </Text>
+      </DetailsView>
     </Container>
   );
 };

@@ -7,6 +7,7 @@ interface Props {
   timestamp?: number;
   size?: number;
   color?: string;
+  padding?: boolean;
 }
 
 const WeatherIcon = ({ id, timestamp, ...rest }: Props) => {

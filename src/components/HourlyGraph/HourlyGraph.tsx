@@ -61,11 +61,10 @@ const NodeLabel = ({
 
 const HourlyGraph = ({ data = [], domain }: Props) => {
   const { isLoading } = useWeather();
-  let domainY = domain || [0, 0];
   const graphData = data.slice(0, 6);
-  domainY = [
-    Math.min(...graphData.map((i) => i.y)) - domainY[0],
-    Math.max(...graphData.map((i) => i.y)) + domainY[1],
+  const domainY: Props['domain'] = [
+    Math.min(...graphData.map((i) => i.y)) - (domain?.[0] || 0),
+    Math.max(...graphData.map((i) => i.y)) + (domain?.[1] || 0.1),
   ];
 
   return (

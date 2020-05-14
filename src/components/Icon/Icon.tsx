@@ -7,6 +7,7 @@ interface Props {
   name: string;
   size?: number;
   color?: string;
+  padding?: boolean;
 }
 const Icon = createIconSetFromIcoMoon(
   icoMoonConfig,
@@ -14,13 +15,13 @@ const Icon = createIconSetFromIcoMoon(
   'Weather-Icons.ttf',
 );
 
-const WhiteIcon = styled(Icon)`
-  color: ${({ theme }) => theme.color.white};
-  padding: 0 ${({ theme }) => theme.spacing.half};
+const WhiteIcon = styled(Icon)<Props>`
+  color: ${({ theme, color }) => color || theme.color.white};
+  margin: 0 ${({ theme, padding }) => padding && '4px'};
 `;
 
-const StyledIcon = (props: Props) => {
-  return <WhiteIcon {...props} size={props.size || 32} />;
+const StyledIcon = ({ size, ...rest }: Props) => {
+  return <WhiteIcon {...rest} size={size || 32} />;
 };
 
 export default StyledIcon;

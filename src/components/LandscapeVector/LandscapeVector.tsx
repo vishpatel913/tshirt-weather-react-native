@@ -9,8 +9,8 @@ const Container = styled.View`
 `;
 const SkyVector = styled(SunMoonVector)<{ opacity?: number }>`
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 64px;
+  right: 64px;
   opacity: ${({ opacity }) => opacity};
 `;
 

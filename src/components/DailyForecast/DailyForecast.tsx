@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
-import { Text, WeatherIcon } from '..';
+import { Text, WeatherIcon, Hr } from '..';
 
 interface Props {
   data?: Day[];
@@ -16,7 +16,6 @@ interface Day {
 }
 
 const Container = styled.View`
-  margin-bottom: ${({ theme }) => theme.spacing.double};
   flex-direction: row;
   justify-content: space-between;
 `;
@@ -26,20 +25,20 @@ const DayContainer = styled.View`
   justify-content: space-around;
   height: 136px;
 `;
-const Hr = styled.View`
-  width: 80%;
-  border: solid 0.5px white;
-  opacity: 0.5;
-`;
 
 const DailyForecast = ({ data = [] }: Props) => {
   return (
     <Container>
-      {data.slice(0, 7).map((item: Day) => (
+      {data.slice(1, 8).map((item: Day, i: number) => (
         <DayContainer key={item.timestamp}>
           <Text size={20}>{moment.unix(item.timestamp).format('ddd')}</Text>
           <Text grey size={12} weight="bold">
-            {item.additional && `${item.additional}%`}
+            {item.additional && (
+              <>
+                {item.additional}
+                <Text size={8}>mm</Text>
+              </>
+            )}
           </Text>
           <WeatherIcon
             id={item.icon}
@@ -47,7 +46,7 @@ const DailyForecast = ({ data = [] }: Props) => {
             timestamp={moment(12, 'HH').unix()}
           />
           <Text size={20}>{item.tempMax && `${Math.ceil(item.tempMax)}°`}</Text>
-          <Hr />
+          <Hr padded />
           <Text grey size={20}>
             {item.tempMin && `${Math.ceil(item.tempMin)}°`}
           </Text>

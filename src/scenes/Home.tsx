@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { SafeAreaView } from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
 
@@ -21,43 +20,43 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { geocoding, current, hourly, actions } = weather;
-
-  useEffect(() => {
-    actions?.getLocation();
-  }, []);
+  const { geocoding, current, hourly, isDaytime } = weather;
+  const sunData = isDaytime()
+    ? {
+        time: current?.sunset,
+        type: 'sunset',
+      }
+    : {
+        time: current?.sunrise,
+        type: 'sunrise',
+      };
 
   return (
-    <>
-      <SafeAreaView>
-        <PageLayout landscape>
-          <LocationHeader location={geocoding?.location} />
-          {current && (
-            <TemperatureCurrent
-              temp={current.temp}
-              min={current.temp_min}
-              max={current.temp_max}
-              label={current.weather[0].main}
-              iconId={current.weather[0].id}
-            />
-          )}
-          <HourlyGraph
-            domain={[2, 0]}
-            data={hourly?.map((item) => ({
-              x: moment.unix(item.dt).format('ha'),
-              y: Math.ceil(item.temp),
-              unit: '°',
-              timestamp: item.dt,
-              icon: item.weather[0].id,
-              additional:
-                item.rain || item.snow
-                  ? `${item.rain || item.snow}mm`
-                  : undefined,
-            }))}
-          />
-        </PageLayout>
-      </SafeAreaView>
-    </>
+    <PageLayout landscape>
+      <LocationHeader location={geocoding?.location} />
+      {current && (
+        <TemperatureCurrent
+          temp={current.temp}
+          min={current.temp_min}
+          max={current.temp_max}
+          label={current.weather[0].main}
+          iconId={current.weather[0].id}
+          sunMovement={sunData}
+        />
+      )}
+      <HourlyGraph
+        domain={[2, 0]}
+        data={hourly?.map((item) => ({
+          x: moment.unix(item.dt).format('ha'),
+          y: Math.ceil(item.temp),
+          unit: '°',
+          timestamp: item.dt,
+          icon: item.weather[0].id,
+          additional:
+            item.rain || item.snow ? `${item.rain || item.snow}mm` : undefined,
+        }))}
+      />
+    </PageLayout>
   );
 };
 

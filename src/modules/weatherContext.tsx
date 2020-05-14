@@ -19,7 +19,7 @@ export interface WeatherState {
   daily?: DailyWeather[];
   isLoading: boolean;
   isDaytime: (ts?: number) => boolean;
-  actions?: Actions;
+  actions: Actions;
 }
 
 type Geocoding = {
@@ -44,6 +44,9 @@ const initialState = {
   daily: undefined,
   isLoading: true,
   isDaytime: () => true,
+  actions: {
+    getLocation: () => Promise.resolve(),
+  },
 };
 
 export const WeatherContext = createContext<WeatherState>(initialState);
@@ -88,6 +91,8 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setLoading(false);
         })
         .catch((err) => console.error(err));
+    } else {
+      getLocation();
     }
   }, [coords]);
 

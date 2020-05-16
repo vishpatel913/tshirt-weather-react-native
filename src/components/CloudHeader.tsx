@@ -13,7 +13,7 @@ const HeaderContainer = styled.View`
 `;
 
 const VectorContainer = styled.View`
-  /* background-color: ${({ theme }) => theme.color.blueLight}; */
+  /* background-color: ${({ theme }) => theme.color.blue}; */
   position: absolute;
   width: 100%;
   height: 100%;

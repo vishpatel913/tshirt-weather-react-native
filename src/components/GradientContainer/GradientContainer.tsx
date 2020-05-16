@@ -23,7 +23,7 @@ const GardientContainer = styled(LinearGradient)`
 `;
 const UpdatedText = styled(Text)`
   position: absolute;
-  bottom: ${({ theme }) => theme.spacing.double};
+  bottom: ${({ theme }) => theme.spacing.single};
   left: ${({ theme }) => theme.spacing.double};
 `;
 
@@ -45,7 +45,7 @@ const GradientContainer = ({ children }: Props) => {
   const theme = useContext(ThemeContext);
   const daytime = isDaytime();
   const now = moment();
-  const switchRange = 2;
+  const switchRange = 1;
 
   const getRange = (ts?: number) => ({
     before: moment(ts, 'X').subtract(switchRange, 'h'),
@@ -54,7 +54,7 @@ const GradientContainer = ({ children }: Props) => {
   const getNewValueFromTime = (key: keyof HSL, index: number, time: number) => {
     const day = baseGradient.day[index];
     const night = baseGradient.night[index];
-    const m = (night[key] - day[key]) / (switchRange * 60 * 60);
+    const m = (night[key] - day[key]) / (switchRange * 2 * 60 * 60);
     const c = day[key] - m * time;
     return now.unix() * m + c;
   };

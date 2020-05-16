@@ -70,9 +70,9 @@ const requestLocationPermissions = async () => {
       },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('You can use the camera');
+      console.log('You can use Location services');
     } else {
-      console.log('Camera permission denied');
+      console.log('Location permission denied');
     }
   } catch (err) {
     console.warn(err);
@@ -99,8 +99,8 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
         Alert.alert(err.message);
       },
       {
-        enableHighAccuracy: false,
-        timeout: 5000,
+        enableHighAccuracy: true,
+        timeout: 10000,
       },
     );
   };

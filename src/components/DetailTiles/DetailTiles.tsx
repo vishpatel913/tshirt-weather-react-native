@@ -20,12 +20,14 @@ const Container = styled.View`
 `;
 const TileContainer = styled.View`
   width: 30%;
-  height: 112px;
   align-items: center;
   justify-content: space-around;
-  padding: ${({ theme }) => theme.spacing.half};
+  padding: ${({ theme }) => theme.spacing.single};
   background: rgba(225, 225, 225, 0.1);
   margin-bottom: ${({ theme }) => theme.spacing.single};
+`;
+const Label = styled(Text)`
+  margin-top: ${({ theme }) => theme.spacing.half};
 `;
 
 const DetailTiles = ({ data }: Props) => {
@@ -34,7 +36,7 @@ const DetailTiles = ({ data }: Props) => {
       {data?.map((item) => (
         <TileContainer key={item.icon}>
           <Icon name={item.icon} size={36} />
-          <Text size={12}>{item.text}</Text>
+          <Label size={12}>{item.text}</Label>
           <Text size={20}>{`${item.value}${item.unit || ''}`}</Text>
         </TileContainer>
       ))}

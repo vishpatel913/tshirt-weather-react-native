@@ -70,10 +70,10 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
   return (
     <GraphContainer>
       <VictoryChart
-        height={200}
+        height={160}
         domain={{ y: domainY }}
         domainPadding={{ y: [10, 120] }}
-        padding={{ left: 20, right: 100, bottom: 64 }}
+        padding={{ left: 20, right: 100, bottom: 36 }}
         style={{
           parent: { color: '#fff' },
         }}>

@@ -47,10 +47,11 @@ const GradientContainer = ({ children }: Props) => {
   const now = moment();
   const switchRange = 1;
 
-  const getRange = (ts?: number) => ({
-    before: moment(ts, 'X').subtract(switchRange, 'h'),
-    after: moment(ts, 'X').add(switchRange, 'h'),
+  const getRange = (ts?: string) => ({
+    before: moment(ts).subtract(switchRange, 'h'),
+    after: moment(ts).add(switchRange, 'h'),
   });
+
   const getNewValueFromTime = (key: keyof HSL, index: number, time: number) => {
     const day = baseGradient.day[index];
     const night = baseGradient.night[index];
@@ -60,8 +61,8 @@ const GradientContainer = ({ children }: Props) => {
   };
 
   const getInitialGradient = () => {
-    const sunriseRange = getRange(current?.sunrise);
-    const sunsetRange = getRange(current?.sunset);
+    const sunriseRange = getRange(current?.sunrise.value);
+    const sunsetRange = getRange(current?.sunset.value);
     let initialGradient = baseGradient[daytime ? 'day' : 'night'];
     if (
       now.isBetween(sunriseRange.before.format(), sunriseRange.after.format())
@@ -83,56 +84,61 @@ const GradientContainer = ({ children }: Props) => {
     return initialGradient;
   };
 
-  let gradientData: HSL[];
-  switch (current?.weather[0].icon.slice(0, 2)) {
-    case '01':
-      gradientData = getInitialGradient();
-      break;
-    case '02':
-    case '03':
-    case '04':
+  let gradientData: string[] = [theme.color.blue, theme.color.indigo];
+  const weatherCode = current?.weather_code?.value;
+
+  if (current && weatherCode) {
+    if (weatherCode.includes('clear')) {
+      gradientData = getInitialGradient().map((c) => hsl(c));
+    } else if (weatherCode.includes('cloud')) {
       gradientData = getInitialGradient().map((c, i) =>
-        i > 0 ? { ...c, s: 35 - (25 * current.clouds) / 100, l: 70 } : c,
+        i > 0
+          ? hsl({ ...c, s: 35 - (25 * current.cloud_cover.value) / 100, l: 70 })
+          : hsl(c),
       );
-      break;
-    case '09':
-    case '10':
-    case '11':
-      gradientData = getInitialGradient().map((c) => ({
-        ...c,
-        h: c.h - 10,
-        s: c.s / (daytime ? 2 : 3),
-      }));
-      break;
-    case '13':
-    case '50':
-      gradientData = getInitialGradient().map((c, i) => ({
-        ...c,
-        h: c.h + 10,
-        s: c.s / (daytime ? 2 : 3),
-      }));
-      break;
-    default:
-      gradientData = baseGradient[daytime ? 'day' : 'night'];
-      break;
+    } else if (
+      weatherCode.includes('rain') ||
+      weatherCode.includes('drizzle') ||
+      weatherCode.includes('pellets') ||
+      weatherCode.includes('tstorm')
+    ) {
+      gradientData = getInitialGradient().map((c) =>
+        hsl({
+          ...c,
+          h: c.h - 10,
+          s: c.s / (daytime ? 2 : 3),
+        }),
+      );
+    } else if (
+      weatherCode.includes('snow') ||
+      weatherCode.includes('fog') ||
+      weatherCode.includes('flurries')
+    ) {
+      gradientData = getInitialGradient().map((c, i) =>
+        hsl({
+          ...c,
+          h: c.h + 10,
+          s: c.s / (daytime ? 2 : 3),
+        }),
+      );
+    }
   }
-  const gradient = isLoading
-    ? [theme.color.blue, theme.color.pink]
-    : gradientData.map((c) => hsl(c));
 
   return (
     <>
-      <SafeAreaView style={{ flex: 0, backgroundColor: gradient[0] }} />
+      <SafeAreaView style={{ flex: 0, backgroundColor: gradientData[0] }} />
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: gradient[1],
+          backgroundColor: gradientData[1],
         }}>
-        <GardientContainer colors={gradient}>{children}</GardientContainer>
+        <GardientContainer colors={gradientData}>{children}</GardientContainer>
         <UpdatedText size={12} weight="bold">
           {isLoading
             ? 'Updating...'
-            : `Updated: ${moment(current?.dt, 'X').format('h:mm a')}`}
+            : `Updated: ${moment(current?.observation_time.value).format(
+                'h:mm a',
+              )}`}
         </UpdatedText>
       </SafeAreaView>
     </>

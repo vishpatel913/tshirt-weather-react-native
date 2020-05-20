@@ -26,7 +26,7 @@ const Sun = styled(SunMoonVector)<{ opacity?: number }>`
 
 const LandscapeVector = () => {
   const { current, isDaytime } = useWeather();
-  const cloudOpacity = (100 - (current?.clouds || 0)) / 100;
+  const cloudOpacity = (100 - (current?.cloud_cover.value || 0)) / 100;
 
   return (
     <Container>

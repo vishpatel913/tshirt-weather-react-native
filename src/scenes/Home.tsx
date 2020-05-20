@@ -20,40 +20,32 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { geocoding, current, hourly, isDaytime } = weather;
-  const sunData = isDaytime()
-    ? {
-        time: current?.sunset,
-        type: 'sunset',
-      }
-    : {
-        time: current?.sunrise,
-        type: 'sunrise',
-      };
+  const { location, current, hourly } = weather;
 
   return (
     <PageLayout landscape>
-      <LocationHeader location={geocoding?.location} />
+      <LocationHeader location={location} />
       {current && (
         <TemperatureCurrent
-          temp={current.temp}
-          min={current.temp_min}
-          max={current.temp_max}
-          label={current.weather[0].main}
-          iconId={current.weather[0].id}
-          sunMovement={sunData}
+          temp={current.temp.value}
+          min={current.temp_min.value}
+          max={current.temp_max.value}
+          label={current.weather_code.value}
+          icon={current.weather_code.value}
         />
       )}
       <HourlyGraph
         domain={[2, 0]}
         data={hourly?.map((item) => ({
-          x: moment.unix(item.dt).format('ha'),
-          y: Math.ceil(item.temp),
+          x: moment(item.observation_time.value).format('ha'),
+          y: Math.ceil(item.temp.value),
           unit: '°',
-          timestamp: item.dt,
-          icon: item.weather[0].id,
+          timestamp: item.observation_time.value,
+          icon: item.weather_code.value,
           additional:
-            item.rain || item.snow ? `${item.rain || item.snow}mm` : undefined,
+            item.precipitation_type.value !== 'none'
+              ? `${item.precipitation_probability.value}${item.precipitation_probability.units}`
+              : undefined,
         }))}
       />
     </PageLayout>

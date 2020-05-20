@@ -1,5 +1,6 @@
 import qs from 'querystring';
-import { Coords } from 'src/types/coords';
+import { Coords } from '../../types/coords';
+import { WeatherResponse, Weather } from '../../types/weather';
 import devResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
@@ -8,25 +9,29 @@ class WeatherService {
   constructor(coords: Coords) {
     this.coords = coords;
     this.baseUrl =
-      'https://dgr5nygxa5.execute-api.us-east-1.amazonaws.com/prod/';
+      'https://fe883xgkja.execute-api.us-east-1.amazonaws.com/prod';
+    // 'http://localhost:5000/prod';
   }
 
-  async get(endpoint: string) {
+  async get(endpoint: string): Promise<WeatherResponse> {
     const params = {
       lat: this.coords.lat,
       lon: this.coords.lon,
     };
-    console.log('remove log', { params });
-    // return fetch(`${this.baseUrl}/${endpoint}?${qs.stringify(params)}`)
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     return json;
-    //   })
-    //   .catch((error) => {
-    //     // TODO: add error handling
-    //     console.error('Weather Service Error', error);
-    //   });
-    return devResponse;
+
+    let response = await fetch(
+      `${this.baseUrl}/${endpoint}?${qs.stringify(params)}`,
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        return json;
+      })
+      .catch((error) => {
+        // TODO: add error handling
+        console.error('Weather Service Error', error);
+      });
+    // response = process.env.mock ? devResponse : response;
+    return response;
   }
 }
 

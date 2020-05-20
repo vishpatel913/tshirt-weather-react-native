@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
+import { WeatherNumberValue, WeatherCode } from '../../types/weather';
 import { Text, WeatherIcon, Hr } from '..';
 
 interface Props {
@@ -8,11 +9,11 @@ interface Props {
 }
 
 interface Day {
-  timestamp: number;
-  icon: number;
+  timestamp: string;
+  icon: keyof typeof WeatherCode;
   tempMax?: number;
   tempMin?: number;
-  additional?: number;
+  additional?: WeatherNumberValue;
 }
 
 const Container = styled.View`
@@ -31,19 +32,19 @@ const DailyForecast = ({ data = [] }: Props) => {
     <Container>
       {data.slice(1, 8).map((item: Day, i: number) => (
         <DayContainer key={item.timestamp}>
-          <Text size={20}>{moment.unix(item.timestamp).format('ddd')}</Text>
+          <Text size={20}>{moment(item.timestamp).format('ddd')}</Text>
           <Text grey size={12} weight="bold">
             {item.additional && (
               <>
-                {item.additional}
-                <Text size={8}>mm</Text>
+                {item.additional.value}
+                {item.additional.units}
               </>
             )}
           </Text>
           <WeatherIcon
-            id={item.icon}
+            name={item.icon}
             size={28}
-            timestamp={moment(12, 'HH').unix()}
+            timestamp={moment(12, 'HH').format()}
           />
           <Text size={20}>{item.tempMax && `${Math.ceil(item.tempMax)}°`}</Text>
           <Hr padded />

@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 import { LandscapeVector } from '..';
 
@@ -8,7 +9,10 @@ interface Props {
 }
 
 const LayoutContainer = styled.View`
-  padding: ${({ theme }) => `48px ${theme.spacing.double}`};
+  padding: ${({ theme }) =>
+    `${Platform.OS === 'android' ? '48px' : theme.spacing.single} ${
+      theme.spacing.double
+    }`};
   height: 100%;
   position: relative;
 `;

@@ -9,6 +9,7 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from 'victory-native';
+import { WeatherCode } from '../../types/weather';
 import { useWeather } from '../../modules/weatherContext';
 import { WeatherIcon, Text } from '..';
 
@@ -21,8 +22,8 @@ interface NodeProps {
   x: string;
   y: number;
   unit?: string;
-  timestamp?: number;
-  icon?: number;
+  timestamp?: string;
+  icon?: keyof typeof WeatherCode;
   additional?: string;
 }
 
@@ -49,7 +50,9 @@ const NodeLabel = ({
         {additional}
       </NodeAdditional>
     )}
-    {icon && <WeatherIcon id={icon} timestamp={timestamp} />}
+    {icon && icon !== 'none' && (
+      <WeatherIcon name={icon} timestamp={timestamp} />
+    )}
     {unit && (
       <Text size={20} weight="bold">
         {datum.y}

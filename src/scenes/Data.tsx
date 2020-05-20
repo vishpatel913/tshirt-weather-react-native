@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-
 import moment from 'moment';
+
 import {
   Layout,
   Section,
@@ -9,6 +9,7 @@ import {
   HourlyGraph,
   DailyForecast,
 } from '../components';
+import { toTitleCase } from '../modules/utils';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 
 interface Props {
@@ -21,80 +22,80 @@ const PageLayout = styled(Layout)`
 `;
 
 const Data = ({ weather }: Props) => {
-  const { current, daily, hourly } = weather;
+  const { current, daily, hourly, isDaytime } = weather;
+  const sunKey = isDaytime() ? 'sunset' : 'sunrise';
+
   const detailsData = [
     {
       text: 'Feels Like',
       icon: 'thermometer',
-      value: current ? Math.ceil(current.feels_like) : undefined,
-      unit: '°',
+      content: current?.feels_like,
     },
     {
       text: 'Cloud Cover',
       icon: 'cloud',
-      value: current?.clouds,
-      unit: '%',
-    },
-    {
-      text: 'UV Index',
-      icon: 'hot',
-      value: current?.uvi,
+      content: current?.cloud_cover,
     },
     {
       text: 'Wind Speed',
       icon: 'wind',
-      value: current?.wind_speed,
-      unit: 'm/s',
+      content: current?.wind_speed,
+    },
+    {
+      text: toTitleCase(sunKey),
+      icon: sunKey,
+      content: { value: moment(current?.[sunKey].value).format('HH:mm') },
     },
     {
       text: 'Humidity',
       icon: 'humidity',
-      value: current?.humidity,
-      unit: '%',
+      content: current?.humidity,
     },
     {
-      text: 'Pressure',
-      icon: 'barometer',
-      value: current?.pressure,
-      unit: 'hPa',
+      text: 'Moon Phase',
+      icon: current
+        ? `moon-${current.moon_phase.value.replace('_', '-')}`
+        : 'lunar-eclipse',
+      // content: current?.moon_phase.value,
     },
   ];
-  const precip = daily?.[0].rain ? 'rain' : daily?.[0].snow ? 'snow' : null;
+  const precip = (daily?.[0].precipitation_probability.value || 0) > 10;
 
   return (
     <PageLayout>
       <Section title="Details">
         <DetailTiles data={detailsData} />
       </Section>
-      <Section title={precip || 'cloud cover'}>
+      <Section title={precip ? 'chance of rain' : 'cloud cover'}>
         <HourlyGraph
           domain={precip ? undefined : [10, 0]}
           data={hourly?.map((item) => ({
-            x: moment.unix(item.dt).format('ha'),
-            y: precip ? (item.rain || item.snow) ?? 0 : item.clouds,
+            x: moment(item.observation_time.value).format('ha'),
+            y: precip
+              ? item.precipitation_probability.value
+              : item.cloud_cover.value,
             icon: precip
-              ? item.rain
-                ? 300
-                : item.snow
-                ? 600
-                : undefined
-              : 804,
+              ? item.precipitation_type.value
+              : item.weather_code.value,
             additional: precip
-              ? item.rain || item.snow
-                ? `${item.rain || item.snow}mm`
+              ? item.precipitation.value
+                ? `${item.precipitation.value}${item.precipitation.units}`
                 : undefined
-              : `${item.clouds}%`,
+              : `${item.cloud_cover.value}${item.cloud_cover.units}`,
           }))}
         />
       </Section>
       <Section title="Next 7 days">
         <DailyForecast
           data={daily?.map((item) => ({
-            timestamp: item.dt,
-            icon: item.weather[0].id,
-            tempMax: item.temp.max,
-            tempMin: item.temp.min,
-            additional: item.rain || item.snow || undefined,
+            timestamp: item.observation_time.value,
+            icon: item.weather_code.value,
+            tempMax: item.temp[0].min?.value,
+            tempMin: item.temp[1].max?.value,
+            additional:
+              item.precipitation_probability.value > 0
+                ? item.precipitation_probability
+                : undefined,
           }))}
         />
       </Section>

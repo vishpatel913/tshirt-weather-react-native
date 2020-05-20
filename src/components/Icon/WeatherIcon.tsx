@@ -1,51 +1,49 @@
 import React from 'react';
+import { WeatherCode } from '../../types/weather';
 import { Icon } from '.';
 import { useWeather } from '../../modules/weatherContext';
 
+const iconMap = {
+  rain_heavy: 'rain',
+  rain: 'rain',
+  rain_light: 'shower',
+  freezing_rain_heavy: 'sleet',
+  freezing_rain: 'sleet',
+  freezing_rain_light: 'sleet',
+  freezing_drizzle: 'mixed',
+  drizzle: 'shower',
+  ice_pellets_heavy: 'hail',
+  ice_pellets: 'hail',
+  ice_pellets_light: 'sleet',
+  snow_heavy: 'snow',
+  snow: 'snow',
+  snow_light: 'snow',
+  flurries: 'windy',
+  tstorm: 'thunderstorm',
+  fog_light: 'fog',
+  fog: 'fog',
+  cloudy: 'cloudy',
+  mostly_cloudy: 'cloud',
+  partly_cloudy: 'cloud-',
+  mostly_clear: 'cloud-',
+  clear: 'clear-',
+  none: 'na',
+};
+
 interface Props {
-  id: number;
-  timestamp?: number;
+  name: keyof typeof WeatherCode;
+  timestamp?: string;
   size?: number;
   color?: string;
   padding?: boolean;
 }
 
-const WeatherIcon = ({ id, timestamp, ...rest }: Props) => {
+const WeatherIcon = ({ name, timestamp, ...rest }: Props) => {
   const { isDaytime } = useWeather();
   const isDay = isDaytime(timestamp);
-  let iconName = 'na';
+  let iconName: string = WeatherCode.none;
+  iconName = iconMap[name].replace('-', `-${isDay ? 'day' : 'night'}`);
 
-  switch (Math.floor(id / 100)) {
-    case 2:
-      iconName = 'thunderstorm';
-      break;
-    case 3:
-      iconName = 'shower';
-      break;
-    case 5:
-      iconName = 'rain';
-      if (id === 511) iconName = 'hail';
-      if (id > 511) iconName = 'shower';
-      break;
-    case 6:
-      iconName = 'snow';
-      if (id > 610) iconName = 'sleet';
-      if (id > 614) iconName = 'rain-mix';
-      break;
-    case 7:
-      iconName = 'fog';
-      if (id === 711 || id === 762) iconName = 'smoke';
-      if (id === 781) iconName = 'tornado';
-      if (id === 731 || id === 751 || id === 761) iconName = 'dust';
-      break;
-    case 8:
-      iconName = `cloud-${isDay ? 'day' : 'night'}`;
-      if (id === 800) iconName = `clear-${isDay ? 'day' : 'night'}`;
-      if (id > 802) iconName = 'cloudy';
-      break;
-    default:
-      break;
-  }
   return <Icon name={iconName} {...rest} />;
 };
 

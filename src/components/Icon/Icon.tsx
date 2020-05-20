@@ -17,7 +17,7 @@ const Icon = createIconSetFromIcoMoon(
 
 const WhiteIcon = styled(Icon)<Props>`
   color: ${({ theme, color }) => color || theme.color.white};
-  margin: 0 ${({ theme, padding }) => padding && '4px'};
+  margin: 0 ${({ padding }) => padding && '4px'};
 `;
 
 const StyledIcon = ({ size, ...rest }: Props) => {

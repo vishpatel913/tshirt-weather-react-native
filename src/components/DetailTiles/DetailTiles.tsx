@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { WeatherNumberValue, WeatherStringValue } from 'src/types/weather';
 import { Icon, Text } from '..';
 
 interface Props {
@@ -9,8 +10,7 @@ interface Props {
 interface Detail {
   text: string;
   icon: string;
-  value?: number | string;
-  unit?: string;
+  content?: WeatherNumberValue | WeatherStringValue;
 }
 
 const Container = styled.View`
@@ -27,7 +27,7 @@ const TileContainer = styled.View`
   margin-bottom: ${({ theme }) => theme.spacing.single};
 `;
 const Label = styled(Text)`
-  margin-top: ${({ theme }) => theme.spacing.half};
+  margin-top: 4px;
 `;
 
 const DetailTiles = ({ data }: Props) => {
@@ -35,9 +35,13 @@ const DetailTiles = ({ data }: Props) => {
     <Container>
       {data?.map((item) => (
         <TileContainer key={item.icon}>
-          <Icon name={item.icon} size={36} />
+          <Icon name={item.icon} size={32} />
           <Label size={12}>{item.text}</Label>
-          <Text size={20}>{`${item.value}${item.unit || ''}`}</Text>
+          {item.content && (
+            <Text size={20}>{`${item.content?.value}${
+              item.content?.units || ''
+            }`}</Text>
+          )}
         </TileContainer>
       ))}
     </Container>

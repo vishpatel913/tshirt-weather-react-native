@@ -19,7 +19,7 @@ const App = () => (
           backgroundColor="#00000000"
         />
         <GradientContainer>
-          <RouterProvider pages={2}>
+          <RouterProvider pages={1}>
             <SwipeRouter>
               <Home />
               <Data />

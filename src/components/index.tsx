@@ -8,7 +8,7 @@ export { default as LocationHeader } from './LocationHeader';
 export { default as LandscapeVector } from './LandscapeVector';
 export { default as SunMoonVector } from './SunMoonVector';
 export { default as Section } from './Section';
-export { default as TemperatureCurrent } from './TemperatureCurrent';
+export { default as TemperatureHeader } from './TemperatureHeader';
 export { default as HourlyGraph } from './HourlyGraph';
 export { default as DailyForecast } from './DailyForecast';
 export { default as DetailTiles } from './DetailTiles';

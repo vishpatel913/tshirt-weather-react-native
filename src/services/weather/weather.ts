@@ -1,6 +1,7 @@
 import qs from 'querystring';
+import { Alert } from 'react-native';
 import { Coords } from '../../types/coords';
-import { WeatherResponse, Weather } from '../../types/weather';
+import { WeatherResponse } from '../../types/weather';
 import devResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
@@ -28,7 +29,7 @@ class WeatherService {
       })
       .catch((error) => {
         // TODO: add error handling
-        console.error('Weather Service Error', error);
+        Alert.alert(`Weather Service Error: ${error}`);
       });
     // response = process.env.mock ? devResponse : response;
     return response;

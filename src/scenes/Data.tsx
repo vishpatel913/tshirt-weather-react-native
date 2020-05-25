@@ -59,7 +59,7 @@ const Data = ({ weather }: Props) => {
       // content: current?.moon_phase.value,
     },
   ];
-  const precip = (daily?.[0].precipitation_probability.value || 0) > 10;
+  const precip = (daily?.[0].precipitation_probability.value || 0) > 15;
 
   return (
     <PageLayout>
@@ -78,10 +78,8 @@ const Data = ({ weather }: Props) => {
               ? item.precipitation_type.value
               : item.weather_code.value,
             additional: precip
-              ? item.precipitation.value
-                ? `${item.precipitation.value}${item.precipitation.units}`
-                : undefined
-              : `${item.cloud_cover.value}${item.cloud_cover.units}`,
+              ? { ...item.precipitation, type: item.precipitation_type.value }
+              : item.cloud_cover,
           }))}
         />
       </Section>
@@ -90,8 +88,8 @@ const Data = ({ weather }: Props) => {
           data={daily?.map((item) => ({
             timestamp: item.observation_time.value,
             icon: item.weather_code.value,
-            tempMax: item.temp[0].min?.value,
-            tempMin: item.temp[1].max?.value,
+            tempMax: item.temp[1].max?.value,
+            tempMin: item.temp[0].min?.value,
             additional:
               item.precipitation_probability.value > 0
                 ? item.precipitation_probability

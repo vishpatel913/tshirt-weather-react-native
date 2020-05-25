@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import {
   LocationHeader,
-  TemperatureCurrent,
+  TemperatureHeader,
   Layout,
   HourlyGraph,
 } from '../components';
@@ -26,7 +26,7 @@ const Home = ({ weather }: Props) => {
     <PageLayout landscape>
       <LocationHeader location={location} />
       {current && (
-        <TemperatureCurrent
+        <TemperatureHeader
           temp={current.temp.value}
           min={current.temp_min.value}
           max={current.temp_max.value}
@@ -39,12 +39,15 @@ const Home = ({ weather }: Props) => {
         data={hourly?.map((item) => ({
           x: moment(item.observation_time.value).format('ha'),
           y: Math.ceil(item.temp.value),
-          unit: '°',
+          units: '°',
           timestamp: item.observation_time.value,
           icon: item.weather_code.value,
           additional:
             item.precipitation_type.value !== 'none'
-              ? `${item.precipitation_probability.value}${item.precipitation_probability.units}`
+              ? {
+                  ...item.precipitation_probability,
+                  type: item.precipitation_type.value,
+                }
               : undefined,
         }))}
       />

@@ -48,7 +48,7 @@ const DetailsView = styled.View`
   align-items: center;
 `;
 
-const TemperatureCurrent = ({ temp, min, max, label, icon }: Props) => {
+const TemperatureHeader = ({ temp, min, max, label, icon }: Props) => {
   return (
     <Container>
       <DescriptionView>
@@ -78,4 +78,4 @@ const TemperatureCurrent = ({ temp, min, max, label, icon }: Props) => {
   );
 };
 
-export default TemperatureCurrent;
+export default TemperatureHeader;

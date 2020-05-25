@@ -30,7 +30,7 @@ const UpdatedText = styled(Text)`
 const baseGradient = {
   day: [
     { h: 197.5, s: 67.3, l: 53.2 },
-    { h: 196.8, s: 70.6, l: 74.5 },
+    { h: 196.8, s: 70.6, l: 70.5 },
   ],
   night: [
     { h: 218.8, s: 71.6, l: 19.4 },

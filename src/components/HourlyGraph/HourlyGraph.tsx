@@ -9,7 +9,7 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from 'victory-native';
-import { WeatherCode } from '../../types/weather';
+import { WeatherCode, WeatherNumberValue } from '../../types/weather';
 import { useWeather } from '../../modules/weatherContext';
 import { WeatherIcon, Text } from '..';
 
@@ -24,7 +24,7 @@ interface NodeProps {
   unit?: string;
   timestamp?: string;
   icon?: keyof typeof WeatherCode;
-  additional?: string;
+  additional?: WeatherNumberValue;
 }
 
 const GraphContainer = styled.View``;
@@ -42,21 +42,22 @@ const NodeLabel = ({
   x,
   y,
   datum,
-  datum: { unit, timestamp, icon, additional },
+  datum: { units, timestamp, icon, additional },
 }: any) => (
   <NodeContainer x={x} y={y}>
-    {additional && (
+    {additional && additional.value > 0 && (
       <NodeAdditional weight="bold" size={12}>
-        {additional}
+        {additional.value}
+        {additional.units}
       </NodeAdditional>
     )}
     {icon && icon !== 'none' && (
       <WeatherIcon name={icon} timestamp={timestamp} />
     )}
-    {unit && (
+    {units && (
       <Text size={20} weight="bold">
         {datum.y}
-        {unit}
+        {units}
       </Text>
     )}
   </NodeContainer>

@@ -7,7 +7,7 @@ service: weather
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.6
   environment: ${file(./.env.yml)}
   stage: prod
 # region: us-east-1

@@ -3,14 +3,13 @@ import requests
 import os
 from urllib.parse import urlencode
 from urllib.request import urlretrieve
-# import reverse_geocoder as rg
 
 
 class WeatherAPI:
     def __init__(self, coords):
         self.api_url_base = 'https://api.climacell.co/v3/weather'
         self.params = {
-            'apikey': 'dwDaCRiaAN1W81nveL9j1OOTeTMcBfS7',
+            'apikey': os.environ['CLIMACELL_API_KEY'],
             'lat': coords['lat'],
             'lon': coords['lon'],
             'unit_system': 'si',
@@ -47,18 +46,21 @@ class WeatherAPI:
         for r in remove:
             if r in fields:
                 fields.remove(r)
-        params['fields'] = ','.join(
-            fields)
+        params['fields'] = ','.join(fields)
         return self.get('forecast/daily',  params)
 
 
-# def geocode_coords(coords):
-#     result = rg.search((coords['lat'], coords['lon']))
-#     return result[0]['name']
+def geocode_coords(coords):
+    URL = "https://geocode.search.hereapi.com/v1/revgeocode"
+    location = coords['lat'] + ',' + coords['lon']  # taking user input
+    api_key = os.environ['HERE_API_KEY']  # Acquire from developer.here.com
+    PARAMS = {'apikey': api_key, 'at': location}
+    r = requests.get(url=URL, params=PARAMS)
+    data = r.json()
+    return data['items'][0]['address']['district']
 
 
 def calculate_clothing(temp, cloud):
-    print(temp, cloud)
     upper = 4
     lower = 1
     cloudConst = 6 * cloud
@@ -77,7 +79,6 @@ def calculate_clothing(temp, cloud):
 
 
 def main(event, context):
-    print(event)
     params = event['queryStringParameters']
     coords = {
         'lat': params['lat'],
@@ -85,7 +86,7 @@ def main(event, context):
     }
     data = {}
     weather_api = WeatherAPI(coords)
-    data['location'] = 'London'  # geocode_coords(coords)
+    data['location'] = geocode_coords(coords)
     data['current'] = weather_api.get_current()
     data['hourly'] = weather_api.get_hourly()
     data['daily'] = weather_api.get_daily()
@@ -96,12 +97,25 @@ def main(event, context):
     data['current']['temp_max'] = data['daily'][0]['temp'][1]['max']
     data['current']['precipitation_type']['value'] = data['current']['precipitation_type']['value'].replace(
         " ", "_")
+    degC = '°C'
+    data['current']['temp']['units'] = degC
+    data['current']['feels_like']['units'] = degC
+    data['current']['temp_min']['units'] = degC
+    data['current']['temp_max']['units'] = degC
+    data['current']['dewpoint']['units'] = degC
     for h in data['hourly']:
-        h['precipitation_type']['value'] = h['precipitation_type']['value'].replace(
-            " ", "_")
         del h['lat']
         del h['lon']
+        h['precipitation_type']['value'] = h['precipitation_type']['value'].replace(
+            " ", "_")
+        h['temp']['units'] = degC
+        h['feels_like']['units'] = degC
+        h['dewpoint']['units'] = degC
     for d in data['daily']:
+        d['temp'][0]['min']['units'] = degC
+        d['temp'][1]['max']['units'] = degC
+        d['feels_like'][0]['min']['units'] = degC
+        d['feels_like'][1]['max']['units'] = degC
         del d['lat']
         del d['lon']
 

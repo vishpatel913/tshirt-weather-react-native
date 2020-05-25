@@ -28,8 +28,7 @@ class WeatherService {
         return json;
       })
       .catch((error) => {
-        // TODO: add error handling
-        Alert.alert(`Weather Service Error: ${error}`);
+        throw new Error(error);
       });
     // response = process.env.mock ? devResponse : response;
     return response;

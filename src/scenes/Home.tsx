@@ -39,8 +39,8 @@ const Home = ({ weather }: Props) => {
         data={hourly?.map((item) => ({
           x: moment(item.observation_time.value).format('ha'),
           y: Math.ceil(item.temp.value),
-          units: '°',
           timestamp: item.observation_time.value,
+          units: '°',
           icon: item.weather_code.value,
           additional:
             item.precipitation_type.value !== 'none'

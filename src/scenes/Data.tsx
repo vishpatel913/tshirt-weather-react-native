@@ -56,10 +56,13 @@ const Data = ({ weather }: Props) => {
       icon: current
         ? `moon-${current.moon_phase.value.replace('_', '-')}`
         : 'lunar-eclipse',
-      // content: current?.moon_phase.value,
     },
   ];
-  const precip = (daily?.[0].precipitation_probability.value || 0) > 15;
+  const precip =
+    hourly &&
+    Math.max(
+      ...hourly.slice(0, 6).map((item) => item.precipitation_probability.value),
+    ) > 10;
 
   return (
     <PageLayout>

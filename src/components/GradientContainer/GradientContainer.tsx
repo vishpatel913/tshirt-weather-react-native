@@ -84,7 +84,7 @@ const GradientContainer = ({ children }: Props) => {
     return initialGradient;
   };
 
-  let gradientData: string[] = [theme.color.blue, theme.color.indigo];
+  let gradientData: string[] = [theme.color.indigo, theme.color.pink];
   const weatherCode = current?.weather_code?.value;
 
   if (current && weatherCode) {

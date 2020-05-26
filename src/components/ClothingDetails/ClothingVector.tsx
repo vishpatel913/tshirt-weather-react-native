@@ -1,0 +1,10 @@
+export { default as Tshirt } from '../../assets/svgs/clothes/tshirt.svg';
+export { default as Jacket } from '../../assets/svgs/clothes/jacket.svg';
+export { default as Hoodie } from '../../assets/svgs/clothes/hoodie.svg';
+export { default as Coat } from '../../assets/svgs/clothes/coat.svg';
+export { default as Jeans } from '../../assets/svgs/clothes/jeans.svg';
+export { default as Shorts } from '../../assets/svgs/clothes/shorts.svg';
+export { default as Sunglasses } from '../../assets/svgs/clothes/sunglasses.svg';
+export { default as Hat } from '../../assets/svgs/clothes/hat.svg';
+export { default as Scarf } from '../../assets/svgs/clothes/scarf.svg';
+export { default as Umbrella } from '../../assets/svgs/clothes/umbrella.svg';

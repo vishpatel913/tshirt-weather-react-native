@@ -12,3 +12,4 @@ export { default as TemperatureHeader } from './TemperatureHeader';
 export { default as HourlyGraph } from './HourlyGraph';
 export { default as DailyForecast } from './DailyForecast';
 export { default as DetailTiles } from './DetailTiles';
+export { default as ClothingDetails } from './ClothingDetails';

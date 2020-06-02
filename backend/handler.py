@@ -60,11 +60,12 @@ def geocode_coords(coords):
     return data['items'][0]['address']['district']
 
 
-def calculate_clothing(temp, cloud):
+def calculate_clothing(temp, cloud, precipChance):
     upper = 4
     lower = 1
-    cloudConst = 6 * cloud
+    cloudConst = 6 * cloud / 100
     if (temp >= cloudConst + 23):
+        upper = 1
         lower = 0
     elif (temp >= cloudConst + 18):
         upper = 1
@@ -74,7 +75,10 @@ def calculate_clothing(temp, cloud):
         upper = 3
     return {
         "upper": upper,
-        "lower": lower
+        "lower": lower,
+        "sunglasses": cloud < 40,
+        "woolies": temp < 5,
+        "umbrella": precipChance > 0
     }
 
 
@@ -91,7 +95,9 @@ def main(event, context):
     data['hourly'] = weather_api.get_hourly()
     data['daily'] = weather_api.get_daily()
     data['clothing'] = calculate_clothing(
-        data['current']['temp']['value'], data['current']['cloud_cover']['value'])
+        data['current']['temp']['value'], data['current']['cloud_cover']['value'], sum(
+            h['precipitation_probability']['value'] for h in data['hourly'][0:7]) / 7
+    )
 
     data['current']['temp_min'] = data['daily'][0]['temp'][0]['min']
     data['current']['temp_max'] = data['daily'][0]['temp'][1]['max']

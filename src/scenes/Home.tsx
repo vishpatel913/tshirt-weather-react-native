@@ -29,7 +29,7 @@ const Home = ({ weather }: Props) => {
       <Section>
         <LocationHeader location={location} />
       </Section>
-      <Section>
+      <Section flex={1} loading={!current}>
         {current && (
           <TemperatureHeader
             temp={current.temp.value}
@@ -40,12 +40,12 @@ const Home = ({ weather }: Props) => {
           />
         )}
       </Section>
-      {/* {clothing && (
+      {clothing && (
         <Section>
           <ClothingDetails data={clothing} />
         </Section>
-      )} */}
-      <Section>
+      )}
+      <Section loading={!hourly}>
         <HourlyGraph
           domain={[2, 0]}
           data={hourly?.map((item) => ({

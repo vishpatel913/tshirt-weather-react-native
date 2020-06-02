@@ -1,16 +1,23 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
+// import { ActivityIndicator } from 'react-native';
 import { Text } from '..';
 
 interface Props {
+  children: ReactNode;
   title?: string;
   flex?: number;
-  children: ReactNode;
+  loading?: boolean;
 }
 
 const Container = styled.View<Props>`
   margin: ${({ theme }) => theme.spacing.single} 0;
-  ${({ flex }) => flex && `flex: ${flex}`}
+  ${({ flex }) =>
+    flex &&
+    `
+      flex: ${flex};
+      justify-content: center;
+  `}
 `;
 const Title = styled.View`
   flex-direction: row;
@@ -25,7 +32,7 @@ const Stroke = styled.View`
   margin-left: ${({ theme }) => theme.spacing.half};
 `;
 
-const SectionTitle = ({ title, flex, children }: Props) => (
+const SectionTitle = ({ title, flex, loading, children }: Props) => (
   <Container flex={flex}>
     {title && (
       <Title>
@@ -35,6 +42,7 @@ const SectionTitle = ({ title, flex, children }: Props) => (
         <Stroke />
       </Title>
     )}
+    {/* {loading ? <ActivityIndicator color="white" /> : children} */}
     {children}
   </Container>
 );

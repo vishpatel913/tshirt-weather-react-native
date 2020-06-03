@@ -6,6 +6,10 @@ export interface WeatherResponse {
   clothing: Clothing;
 }
 
+export interface WeatherError {
+  message: string;
+}
+
 export interface Weather {
   temp: WeatherNumberValue;
   feels_like: WeatherNumberValue;

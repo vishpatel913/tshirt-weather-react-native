@@ -65,11 +65,7 @@ const ClothingDetails = ({ data }: Props) => {
       <Content>
         <Text size={20}>{CLOTHING_CONFIG[upper].label}</Text>
         <SubIcons>
-          {lower < 1 ? (
-            <Shorts height={32} width={32} />
-          ) : (
-            <Jeans height={32} width={32} />
-          )}
+          {lower < 1 && <Shorts height={32} width={32} />}
           {sunglasses && <Sunglasses height={32} width={32} />}
           {umbrella && <Umbrella height={32} width={32} />}
           {woolies && <Hat height={32} width={32} />}

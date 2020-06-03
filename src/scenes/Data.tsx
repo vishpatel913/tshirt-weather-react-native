@@ -69,7 +69,15 @@ const Data = ({ weather }: Props) => {
       <Section title="Details">
         <DetailTiles data={detailsData} />
       </Section>
-      <Section title={precip ? 'chance of rain' : 'cloud cover'}>
+      <Section
+        title={
+          precip
+            ? `chance of ${toTitleCase(
+                current?.precipitation_type.value.replace('none', 'rain') ||
+                  'rain',
+              )}`
+            : 'cloud cover'
+        }>
         <HourlyGraph
           domain={precip ? undefined : [10, 0]}
           data={hourly?.map((item) => ({
@@ -77,6 +85,7 @@ const Data = ({ weather }: Props) => {
             y: precip
               ? item.precipitation_probability.value
               : item.cloud_cover.value,
+            // units: precip ? item.precipitation_probability.units : undefined,
             timestamp: item.observation_time.value,
             icon: precip
               ? item.precipitation_type.value

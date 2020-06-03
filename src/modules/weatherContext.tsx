@@ -18,6 +18,7 @@ import {
   HourlyWeather,
   DailyWeather,
   Clothing,
+  WeatherError,
 } from '../types/weather';
 import { requestLocationPermissions } from './utils';
 
@@ -35,6 +36,7 @@ export interface WeatherState {
 
 type Actions = {
   getLocation: () => Promise<void>;
+  // refreshWeather: () => Promise<void>;
   toggleDark: () => void;
 };
 
@@ -47,6 +49,7 @@ const initialState = {
   isDaytime: () => false,
   actions: {
     getLocation: () => Promise.resolve(),
+    // refreshWeather: () => Promise.resolve(),
     toggleDark: () => undefined,
   },
 };
@@ -64,20 +67,44 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [reverseDay, setReverseDay] = useState(false);
 
   const getLocation = async () => {
+    setLoading(true);
     Platform.OS === 'android' && (await requestLocationPermissions());
     Geolocation.getCurrentPosition(
       (info) => {
         const { latitude, longitude } = info.coords;
         setCoords({ lat: latitude, lon: longitude });
+        setLoading(false);
       },
       (err) => {
-        Alert.alert(err.message);
+        setLoading(false);
+        Alert.alert(
+          'Could not find your coordinates, make sure yourr location is turned on',
+        );
       },
       {
         enableHighAccuracy: true,
         timeout: 10000,
       },
     );
+  };
+
+  const updateWeather = async () => {
+    if (coords) {
+      setLoading(true);
+      const ws = new WeatherService(coords);
+      ws.get('weather')
+        .then((res: WeatherResponse) => {
+          setLocation(res.location);
+          setCurrent(res.current);
+          setHourly(res.hourly);
+          setDaily(res.daily);
+          setClothing(res.clothing);
+          setLoading(false);
+        })
+        .catch((err: WeatherError) => {
+          Alert.alert('Error', err.message);
+        });
+    }
   };
 
   const isDaytime = (ts?: string) => {
@@ -89,21 +116,13 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   };
 
   useEffect(() => {
+    // console.log('useEffect');
     if (!coords) {
-      setLoading(true);
+      // console.log('getLocation');
       getLocation();
     } else {
-      const ws = new WeatherService(coords);
-      ws.get('weather')
-        .then((res: WeatherResponse) => {
-          setLocation(res.location);
-          setCurrent(res.current);
-          setHourly(res.hourly);
-          setDaily(res.daily);
-          setClothing(res.clothing);
-          setLoading(false);
-        })
-        .catch((err) => Alert.alert(err));
+      // console.log('updateWeather');
+      updateWeather();
     }
   }, [coords]);
 

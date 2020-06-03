@@ -34,8 +34,10 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   left: ${({ x }) => x - 16}px;
   bottom: ${({ y }) => 16 - y}px;
 `;
-const NodeAdditional = styled(Text)`
+const NodeAdditional = styled.View`
   left: 30%;
+  flex-direction: row;
+  align-items: baseline;
 `;
 
 const NodeLabel = ({
@@ -46,9 +48,13 @@ const NodeLabel = ({
 }: any) => (
   <NodeContainer x={x} y={y}>
     {additional && additional.value > 0 && (
-      <NodeAdditional weight="bold" size={12}>
-        {additional.value}
-        {additional.units}
+      <NodeAdditional>
+        <Text weight="bold" size={12}>
+          {Math.round(additional.value.toPrecision(3) * 100) / 100}
+        </Text>
+        <Text weight="bold" size={additional.units.length > 3 ? 8 : 12}>
+          {additional.units}
+        </Text>
       </NodeAdditional>
     )}
     {icon && icon !== 'none' && (

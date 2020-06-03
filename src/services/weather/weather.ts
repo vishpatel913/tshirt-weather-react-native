@@ -1,5 +1,4 @@
 import qs from 'querystring';
-import { Alert } from 'react-native';
 import { Coords } from '../../types/coords';
 import { WeatherResponse } from '../../types/weather';
 import devResponse from './mocks/tempGeneratedResponse';

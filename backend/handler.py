@@ -60,7 +60,7 @@ def geocode_coords(coords):
     return data['items'][0]['address']['district']
 
 
-def calculate_clothing(temp, cloud, precipChance):
+def calculate_clothing(temp, cloud):
     upper = 4
     lower = 1
     cloudConst = 6 * cloud / 100
@@ -76,10 +76,56 @@ def calculate_clothing(temp, cloud, precipChance):
     return {
         "upper": upper,
         "lower": lower,
-        "sunglasses": cloud < 40,
-        "woolies": temp < 5,
-        "umbrella": precipChance > 0
     }
+
+
+def noramlise_response(current, hourly, daily):
+    data = {'current': current, 'hourly': hourly, 'daily': daily}
+
+    data['current']['precipitation_type']['value'] = data['current']['precipitation_type']['value'].replace(
+        ' ', '_')
+    clothing = data['clothing'] = calculate_clothing(
+        data['current']['temp']['value'], data['current']['cloud_cover']['value'])
+    data['current']['clothing_upper'] = {'value': clothing['upper']}
+    data['current']['clothing_lower'] = {'value': clothing['lower']}
+    deg_unit = '°C'
+    for k in ['temp', 'feels_like', 'dewpoint']:
+        data['current'][k]['units'] = deg_unit
+
+    for h in data['hourly']:
+        del h['lat']
+        del h['lon']
+        h['precipitation_type']['value'] = h['precipitation_type']['value'].replace(
+            ' ', '_')
+        h['temp']['units'] = deg_unit
+        h['feels_like']['units'] = deg_unit
+        h['dewpoint']['units'] = deg_unit
+        for k in ['temp', 'feels_like', 'dewpoint']:
+            h[k]['units'] = deg_unit
+        clothing = data['clothing'] = calculate_clothing(
+            h['temp']['value'], h['cloud_cover']['value'])
+        h['clothing_upper'] = {'value': clothing['upper']}
+        h['clothing_lower'] = {'value': clothing['lower']}
+
+    for d in data['daily']:
+        del d['lat']
+        del d['lon']
+        for key, value in d.items():
+            if isinstance(value, list):
+                d[key] = {}
+                for v in value:
+                    if 'min' in v:
+                        d[key]['min'] = v['min']
+                        d[key]['min']['observation_time'] = v['observation_time']
+                    if 'max' in v:
+                        d[key]['max'] = v['max']
+                        d[key]['max']['observation_time'] = v['observation_time']
+
+                if key in ['temp', 'feels_like']:
+                    d[key]['min']['units'] = deg_unit
+                    d[key]['max']['units'] = deg_unit
+
+    return data
 
 
 def main(event, context):
@@ -88,53 +134,26 @@ def main(event, context):
         'lat': params['lat'],
         'lon': params['lon']
     }
-    data = {}
     weather_api = WeatherAPI(coords)
+
+    data = {}
+    current = weather_api.get_current()
+    hourly = weather_api.get_hourly()
+    daily = weather_api.get_daily()
+
+    data = noramlise_response(current, hourly, daily)
     data['location'] = geocode_coords(coords)
-    data['current'] = weather_api.get_current()
-    data['hourly'] = weather_api.get_hourly()
-    data['daily'] = weather_api.get_daily()
-    data['clothing'] = calculate_clothing(
-        data['current']['temp']['value'], data['current']['cloud_cover']['value'], sum(
-            h['precipitation_probability']['value'] for h in data['hourly'][0:7]) / 7
-    )
 
-    data['current']['temp_min'] = data['daily'][0]['temp'][0]['min']
-    data['current']['temp_max'] = data['daily'][0]['temp'][1]['max']
-    data['current']['precipitation_type']['value'] = data['current']['precipitation_type']['value'].replace(
-        " ", "_")
-    degC = '°C'
-    data['current']['temp']['units'] = degC
-    data['current']['feels_like']['units'] = degC
-    data['current']['temp_min']['units'] = degC
-    data['current']['temp_max']['units'] = degC
-    data['current']['dewpoint']['units'] = degC
-    for h in data['hourly']:
-        del h['lat']
-        del h['lon']
-        h['precipitation_type']['value'] = h['precipitation_type']['value'].replace(
-            " ", "_")
-        h['temp']['units'] = degC
-        h['feels_like']['units'] = degC
-        h['dewpoint']['units'] = degC
-    for d in data['daily']:
-        d['temp'][0]['min']['units'] = degC
-        d['temp'][1]['max']['units'] = degC
-        d['feels_like'][0]['min']['units'] = degC
-        d['feels_like'][1]['max']['units'] = degC
-        del d['lat']
-        del d['lon']
-
-    if "export" in params:
+    if 'export' in params:
         with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'w') as outfile:
-            outfile.write("export default ")
+            outfile.write('export default ')
         with open('../src/services/weather/mocks/tempGeneratedResponse.ts', 'a') as outfile:
             json.dump(data, outfile)
 
     response = {
-        "statusCode": 200,
+        'statusCode': 200,
         'headers': {'Content-Type': 'application/json'},
-        "body": json.dumps(data)
+        'body': json.dumps(data)
     }
 
     return response

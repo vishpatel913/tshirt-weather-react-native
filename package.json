@@ -7,8 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --watch",
-    "lint": "eslint --ext .ts,.tsx ./src",
-    "compile-ts": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint --ext .ts,.tsx --fix ./src && tsc -p tsconfig.json --noEmit",
     "lint:css": "stylelint './src/**/*.js'",
     "copy-fonts": "cp src/assets/fonts/Weather-Icons.ttf ios/Fonts && cp src/assets/fonts/Weather-Icons.ttf android/app/src/main/assets/fonts"
   },

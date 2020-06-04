@@ -17,7 +17,6 @@ import {
   Weather,
   HourlyWeather,
   DailyWeather,
-  Clothing,
   WeatherError,
 } from '../types/weather';
 import { requestLocationPermissions } from './utils';
@@ -28,7 +27,6 @@ export interface WeatherState {
   current?: Weather;
   hourly?: HourlyWeather[];
   daily?: DailyWeather[];
-  clothing?: Clothing;
   isLoading: boolean;
   isDaytime: (ts?: string) => boolean;
   actions: Actions;
@@ -36,7 +34,6 @@ export interface WeatherState {
 
 type Actions = {
   getLocation: () => Promise<void>;
-  // refreshWeather: () => Promise<void>;
   toggleDark: () => void;
 };
 
@@ -49,7 +46,6 @@ const initialState = {
   isDaytime: () => false,
   actions: {
     getLocation: () => Promise.resolve(),
-    // refreshWeather: () => Promise.resolve(),
     toggleDark: () => undefined,
   },
 };
@@ -63,7 +59,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [current, setCurrent] = useState<Weather | undefined>(undefined);
   const [hourly, setHourly] = useState<HourlyWeather[] | undefined>(undefined);
   const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
-  const [clothing, setClothing] = useState<Clothing | undefined>(undefined);
   const [reverseDay, setReverseDay] = useState(false);
 
   const getLocation = async () => {
@@ -98,11 +93,10 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setCurrent(res.current);
           setHourly(res.hourly);
           setDaily(res.daily);
-          setClothing(res.clothing);
           setLoading(false);
         })
         .catch((err: WeatherError) => {
-          Alert.alert('Error', err.message);
+          Alert.alert('Error', 'Unable to fetch the weather');
         });
     }
   };
@@ -116,12 +110,9 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   };
 
   useEffect(() => {
-    // console.log('useEffect');
     if (!coords) {
-      // console.log('getLocation');
       getLocation();
     } else {
-      // console.log('updateWeather');
       updateWeather();
     }
   }, [coords]);
@@ -132,7 +123,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     current,
     hourly,
     daily,
-    clothing,
     isLoading,
     isDaytime,
     actions: { getLocation, toggleDark: () => setReverseDay(!reverseDay) },

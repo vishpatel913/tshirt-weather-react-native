@@ -3,7 +3,6 @@ export interface WeatherResponse {
   current: Weather;
   hourly: HourlyWeather[];
   daily: DailyWeather[];
-  clothing: Clothing;
 }
 
 export interface WeatherError {
@@ -13,8 +12,6 @@ export interface WeatherError {
 export interface Weather {
   temp: WeatherNumberValue;
   feels_like: WeatherNumberValue;
-  temp_min: WeatherNumberValue;
-  temp_max: WeatherNumberValue;
   dewpoint: WeatherNumberValue;
   humidity: WeatherNumberValue;
   visibility: WeatherNumberValue;
@@ -28,22 +25,24 @@ export interface Weather {
   sunrise: WeatherStringValue;
   sunset: WeatherStringValue;
   weather_code: WeatherCodeValue;
+  clothing_upper: WeatherNumberValue;
+  clothing_lower: WeatherNumberValue;
   observation_time: WeatherStringValue;
 }
 
-export interface HourlyWeather extends Omit<Weather, 'temp_min' | 'temp_max'> {
+export interface HourlyWeather extends Weather {
   precipitation_probability: WeatherNumberValue;
 }
 
 export interface DailyWeather {
-  temp: DailyWeatherValue[];
-  feels_like: DailyWeatherValue[];
-  humidity: DailyWeatherValue[];
-  visibility: DailyWeatherValue[];
-  wind_speed: DailyWeatherValue[];
-  wind_direction: DailyWeatherValue[];
-  baro_pressure: DailyWeatherValue[];
-  precipitation: DailyWeatherValue[];
+  temp: WeatherMinMaxValue;
+  feels_like: WeatherMinMaxValue;
+  humidity: WeatherMinMaxValue;
+  visibility: WeatherMinMaxValue;
+  wind_speed: WeatherMinMaxValue;
+  wind_direction: WeatherMinMaxValue;
+  baro_pressure: WeatherMinMaxValue;
+  precipitation: WeatherMinMaxValue;
   precipitation_probability: WeatherNumberValue;
   precipitation_accumulation: WeatherNumberValue;
   sunrise: WeatherStringValue;
@@ -52,26 +51,19 @@ export interface DailyWeather {
   observation_time: WeatherStringValue;
 }
 
-export interface Clothing {
-  upper: number;
-  lower: number;
-  sunglasses?: boolean;
-  umbrella?: boolean;
-  woolies?: boolean;
-}
-
 export interface WeatherNumberValue {
   value: number;
   units?: string;
+  observation_time?: string;
 }
 
 export interface WeatherStringValue {
   value: string;
   units?: string;
+  observation_time?: string;
 }
 
-export interface DailyWeatherValue {
-  observation_time: string;
+export interface WeatherMinMaxValue {
   min?: WeatherNumberValue;
   max?: WeatherNumberValue;
 }

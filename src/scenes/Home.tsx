@@ -22,7 +22,7 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { location, current, hourly, clothing } = weather;
+  const { location, current, hourly, daily } = weather;
 
   return (
     <PageLayout landscape>
@@ -30,19 +30,25 @@ const Home = ({ weather }: Props) => {
         <LocationHeader location={location} />
       </Section>
       <Section flex={1} loading={!current}>
-        {current && (
+        {current && daily && (
           <TemperatureHeader
             temp={current.temp.value}
-            min={current.temp_min.value}
-            max={current.temp_max.value}
+            min={daily[0].temp.min?.value}
+            max={daily[0].temp.max?.value}
             label={current.weather_code.value}
             icon={current.weather_code.value}
           />
         )}
       </Section>
-      {clothing && (
+      {current && daily && (
         <Section>
-          <ClothingDetails data={clothing} />
+          <ClothingDetails
+            upper={current.clothing_upper.value}
+            lower={current.clothing_lower.value}
+            sunglasses={current.cloud_cover.value < 30}
+            umbrella={daily[0].precipitation_probability.value > 0}
+            woolies={current.temp.value < 5}
+          />
         </Section>
       )}
       <Section loading={!hourly}>

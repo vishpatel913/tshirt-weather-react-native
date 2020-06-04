@@ -1,12 +1,11 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
-import { Clothing } from '../../types/weather';
 import {
   Tshirt,
   Jacket,
   Hoodie,
   Coat,
-  Jeans,
+  // Jeans,
   Shorts,
   Sunglasses,
   Hat,
@@ -16,7 +15,11 @@ import {
 import { Text } from '..';
 
 interface Props {
-  data: Clothing;
+  upper: number;
+  lower: number;
+  sunglasses?: boolean;
+  umbrella?: boolean;
+  woolies?: boolean;
 }
 
 const Container = styled.View`
@@ -57,8 +60,13 @@ const CLOTHING_CONFIG = [
   { label: 'Multiple layers for sure', icon: <Coat height={64} width={64} /> },
 ];
 
-const ClothingDetails = ({ data }: Props) => {
-  const { upper, lower, sunglasses, umbrella, woolies } = data;
+const ClothingDetails = ({
+  upper,
+  lower,
+  sunglasses,
+  umbrella,
+  woolies,
+}: Props) => {
   return (
     <Container>
       {CLOTHING_CONFIG[upper].icon}

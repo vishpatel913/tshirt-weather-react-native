@@ -1,7 +1,7 @@
 import qs from 'querystring';
 import { Coords } from '../../types/coords';
 import { WeatherResponse } from '../../types/weather';
-import devResponse from './mocks/tempGeneratedResponse';
+// import devResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
   coords: Coords;
@@ -19,17 +19,18 @@ class WeatherService {
       lon: this.coords.lon,
     };
 
-    let response = await fetch(
+    const response = await fetch(
       `${this.baseUrl}/${endpoint}?${qs.stringify(params)}`,
     )
       .then((res) => res.json())
       .then((json) => {
+        if (json.message?.includes('error')) throw json.message;
         return json;
       })
       .catch((error) => {
         throw new Error(error);
       });
-    // response = process.env.mock ? devResponse : response;
+
     return response;
   }
 }

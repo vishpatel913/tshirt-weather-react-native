@@ -101,8 +101,8 @@ const Data = ({ weather }: Props) => {
           data={daily?.map((item) => ({
             timestamp: item.observation_time.value,
             icon: item.weather_code.value,
-            tempMax: item.temp[1].max?.value,
-            tempMin: item.temp[0].min?.value,
+            tempMax: item.temp.max?.value,
+            tempMin: item.temp.min?.value,
             additional:
               item.precipitation_probability.value > 0
                 ? item.precipitation_probability

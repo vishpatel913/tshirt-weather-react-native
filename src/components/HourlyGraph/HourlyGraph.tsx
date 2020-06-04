@@ -34,9 +34,9 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   left: ${({ x }) => x - 16}px;
   bottom: ${({ y }) => 16 - y}px;
 `;
-const NodeAdditional = styled.View`
+const NodeAdditional = styled.View<{ col: boolean }>`
   left: 30%;
-  flex-direction: row;
+  flex-direction: ${({ col }) => (col ? 'column' : 'row')};
   align-items: baseline;
 `;
 
@@ -48,7 +48,7 @@ const NodeLabel = ({
 }: any) => (
   <NodeContainer x={x} y={y}>
     {additional && additional.value > 0 && (
-      <NodeAdditional>
+      <NodeAdditional col={additional.units.length > 3}>
         <Text weight="bold" size={12}>
           {Math.round(additional.value.toPrecision(3) * 100) / 100}
         </Text>

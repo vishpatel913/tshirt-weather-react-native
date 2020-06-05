@@ -88,7 +88,7 @@ def noramlise_response(current, hourly, daily):
         data['current']['temp']['value'], data['current']['cloud_cover']['value'])
     data['current']['clothing_upper'] = {'value': clothing['upper']}
     data['current']['clothing_lower'] = {'value': clothing['lower']}
-    deg_unit = '°C'
+    deg_unit = '\u00b0C'
     for k in ['temp', 'feels_like', 'dewpoint']:
         data['current'][k]['units'] = deg_unit
 

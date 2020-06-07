@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
+import { useWeather } from '../../modules/weatherContext';
 import {
   Tshirt,
   Jacket,
@@ -67,6 +68,8 @@ const ClothingDetails = ({
   umbrella,
   woolies,
 }: Props) => {
+  const { isDaytime } = useWeather();
+
   return (
     <Container>
       {CLOTHING_CONFIG[upper].icon}
@@ -74,7 +77,7 @@ const ClothingDetails = ({
         <Text size={20}>{CLOTHING_CONFIG[upper].label}</Text>
         <SubIcons>
           {lower < 1 && <Shorts height={32} width={32} />}
-          {sunglasses && <Sunglasses height={32} width={32} />}
+          {isDaytime() && sunglasses && <Sunglasses height={32} width={32} />}
           {umbrella && <Umbrella height={32} width={32} />}
           {woolies && <Hat height={32} width={32} />}
           {woolies && <Scarf height={32} width={32} />}

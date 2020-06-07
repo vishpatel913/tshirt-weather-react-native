@@ -85,10 +85,12 @@ const Data = ({ weather }: Props) => {
             y: precip
               ? item.precipitation_probability.value
               : item.cloud_cover.value,
-            // units: precip ? item.precipitation_probability.units : undefined,
+            units: precip ? item.precipitation_probability.units : undefined,
             timestamp: item.observation_time.value,
             icon: precip
-              ? item.precipitation_type.value
+              ? item.precipitation_probability.value > 0
+                ? item.precipitation_type.value
+                : undefined
               : item.weather_code.value,
             additional: precip
               ? { ...item.precipitation, type: item.precipitation_type.value }

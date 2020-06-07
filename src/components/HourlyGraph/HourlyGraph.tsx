@@ -35,7 +35,7 @@ const NodeContainer = styled.View<{ x: number; y: number }>`
   bottom: ${({ y }) => 16 - y}px;
 `;
 const NodeAdditional = styled.View<{ col: boolean }>`
-  left: 30%;
+  left: 16px;
   flex-direction: ${({ col }) => (col ? 'column' : 'row')};
   align-items: baseline;
 `;
@@ -57,8 +57,11 @@ const NodeLabel = ({
         </Text>
       </NodeAdditional>
     )}
-    {icon && icon !== 'none' && (
-      <WeatherIcon name={icon} timestamp={timestamp} />
+    {icon && (
+      <WeatherIcon
+        name={icon !== 'none' ? icon : 'drizzle'}
+        timestamp={timestamp}
+      />
     )}
     {units && (
       <Text size={20} weight="bold">
@@ -83,7 +86,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         height={160}
         domain={{ y: domainY }}
         domainPadding={{ y: [10, 120] }}
-        padding={{ left: 20, right: 100, bottom: 36 }}
+        padding={{ left: 20, right: 100, bottom: 36, top: 20 }}
         style={{
           parent: { color: '#fff' },
         }}>

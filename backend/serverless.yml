@@ -40,9 +40,9 @@ custom:
 
 # you can add packaging information here
 package:
-  #  include:
-  #    - include-me.py
-  #    - include-me-dir/**
+  include:
+    # - include-me.py
+    - app/**
   exclude:
     - venv/** # virtualenv
     - node_modules/**

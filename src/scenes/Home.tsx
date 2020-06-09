@@ -22,7 +22,7 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { location, current, hourly, daily } = weather;
+  const { location, current, hourly, daily, status, isLoading } = weather;
 
   return (
     <PageLayout landscape>
@@ -40,14 +40,14 @@ const Home = ({ weather }: Props) => {
           />
         )}
       </Section>
-      {current && daily && (
+      {status && !isLoading && (
         <Section>
           <ClothingDetails
-            upper={current.clothing_upper.value}
-            lower={current.clothing_lower.value}
-            sunglasses={current.cloud_cover.value < 30}
-            umbrella={daily[0].precipitation_probability.value > 0}
-            woolies={current.temp.value < 5}
+            upper={status.clothing.upper}
+            lower={status.clothing.lower}
+            sunglasses={status.sunny}
+            umbrella={status.precipChance}
+            woolies={status.cold}
           />
         </Section>
       )}
@@ -60,13 +60,7 @@ const Home = ({ weather }: Props) => {
             timestamp: item.observation_time.value,
             units: '°',
             icon: item.weather_code.value,
-            additional:
-              item.precipitation_type.value !== 'none'
-                ? {
-                    ...item.precipitation_probability,
-                    type: item.precipitation_type.value,
-                  }
-                : undefined,
+            additional: item.precipitation_probability,
           }))}
         />
       </Section>

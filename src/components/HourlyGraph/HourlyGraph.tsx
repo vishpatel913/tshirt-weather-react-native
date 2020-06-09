@@ -74,10 +74,9 @@ const NodeLabel = ({
 
 const HourlyGraph = ({ data = [], domain }: Props) => {
   const { isLoading } = useWeather();
-  const graphData = data.slice(0, 6);
   const domainY: Props['domain'] = [
-    Math.min(...graphData.map((i) => i.y)) - (domain?.[0] || 0),
-    Math.max(...graphData.map((i) => i.y)) + (domain?.[1] || 0.1),
+    Math.min(...data.map((i) => i.y)) - (domain?.[0] || 0),
+    Math.max(...data.map((i) => i.y)) + (domain?.[1] || 0.1),
   ];
 
   return (
@@ -91,7 +90,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
           parent: { color: '#fff' },
         }}>
         <VictoryLine
-          data={graphData}
+          data={data}
           interpolation="monotoneX"
           labelComponent={<View />}
           style={{
@@ -104,7 +103,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
           }}
         />
         <VictoryScatter
-          data={graphData}
+          data={data}
           size={3}
           labels={() => null}
           labelComponent={<NodeLabel />}
@@ -117,7 +116,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
           }}
         />
         <VictoryBar
-          data={graphData}
+          data={data}
           barWidth={1}
           labelComponent={<View />}
           style={{

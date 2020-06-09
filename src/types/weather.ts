@@ -3,10 +3,7 @@ export interface WeatherResponse {
   current: Weather;
   hourly: HourlyWeather[];
   daily: DailyWeather[];
-}
-
-export interface WeatherError {
-  message: string;
+  status: Status;
 }
 
 export interface Weather {
@@ -49,6 +46,16 @@ export interface DailyWeather {
   sunset: WeatherStringValue;
   weather_code: WeatherCodeValue;
   observation_time: WeatherStringValue;
+}
+
+export interface Status {
+  sunny: boolean;
+  precipChance: boolean;
+  cold: boolean;
+  clothing: {
+    upper: number;
+    lower: number;
+  };
 }
 
 export interface WeatherNumberValue {
@@ -107,4 +114,8 @@ export enum MoonPhase {
   waning_gibbous = 'waning_gibbous',
   third_quarter = 'third_quarter',
   waning_crescent = 'waning_crescent',
+}
+
+export interface WeatherError {
+  message: string;
 }

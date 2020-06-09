@@ -14,10 +14,11 @@ import { WeatherService } from '../services';
 import { Coords } from '../types/coords';
 import {
   WeatherResponse,
+  WeatherError,
   Weather,
   HourlyWeather,
   DailyWeather,
-  WeatherError,
+  Status,
 } from '../types/weather';
 import { requestLocationPermissions } from './utils';
 
@@ -27,6 +28,7 @@ export interface WeatherState {
   current?: Weather;
   hourly?: HourlyWeather[];
   daily?: DailyWeather[];
+  status?: Status;
   isLoading: boolean;
   isDaytime: (ts?: string) => boolean;
   actions: Actions;
@@ -60,6 +62,8 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [hourly, setHourly] = useState<HourlyWeather[] | undefined>(undefined);
   const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
   const [reverseDay, setReverseDay] = useState(false);
+  const [hourOffset, setHourOffset] = useState(0);
+  const hourLimit = 6;
 
   const getLocation = async () => {
     setLoading(true);
@@ -101,14 +105,6 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     }
   };
 
-  const isDaytime = (ts?: string) => {
-    const now = moment(ts);
-    const isBetweenSuns =
-      now.isAfter(current ? moment(current.sunrise.value) : moment(6, 'HH')) &&
-      now.isBefore(current ? moment(current.sunset.value) : moment(21, 'HH'));
-    return isBetweenSuns !== reverseDay;
-  };
-
   useEffect(() => {
     if (!coords) {
       getLocation();
@@ -117,12 +113,47 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     }
   }, [coords]);
 
+  const isDaytime = (ts?: string) => {
+    const now = moment(ts);
+    const isBetweenSuns =
+      now.isAfter(current ? moment(current.sunrise.value) : moment(6, 'HH')) &&
+      now.isBefore(current ? moment(current.sunset.value) : moment(21, 'HH'));
+    return isBetweenSuns !== reverseDay;
+  };
+
+  const activeHours = (data?: HourlyWeather[]) =>
+    data?.slice(hourOffset, hourOffset + hourLimit) || [];
+
+  const status = {
+    sunny:
+      Math.min(...activeHours(hourly).map((h) => h.cloud_cover.value)) < 20,
+    precipChance:
+      Math.max(
+        ...activeHours(hourly).map((h) => h.precipitation_probability.value),
+      ) > 10,
+    cold:
+      activeHours(hourly).reduce((a, c) => a + c.feels_like.value, 0) /
+        hourLimit <
+      5,
+    clothing: {
+      upper: Math.round(
+        activeHours(hourly).reduce((a, c) => c.clothing_upper.value, 0) /
+          hourLimit,
+      ),
+      lower: Math.round(
+        activeHours(hourly).reduce((a, c) => c.clothing_lower.value, 0) /
+          hourLimit,
+      ),
+    },
+  };
+
   const ctx = {
     coords,
     location,
     current,
-    hourly,
+    hourly: activeHours(hourly),
     daily,
+    status,
     isLoading,
     isDaytime,
     actions: { getLocation, toggleDark: () => setReverseDay(!reverseDay) },

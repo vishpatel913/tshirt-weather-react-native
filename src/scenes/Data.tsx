@@ -22,8 +22,9 @@ const PageLayout = styled(Layout)`
 `;
 
 const Data = ({ weather }: Props) => {
-  const { current, daily, hourly, isDaytime } = weather;
+  const { current, daily, hourly, status, isDaytime } = weather;
   const sunKey = isDaytime() ? 'sunset' : 'sunrise';
+  const willRain = status?.precipChance;
 
   const detailsData = [
     {
@@ -58,11 +59,6 @@ const Data = ({ weather }: Props) => {
         : 'lunar-eclipse',
     },
   ];
-  const precip =
-    hourly &&
-    Math.max(
-      ...hourly.slice(0, 6).map((item) => item.precipitation_probability.value),
-    ) > 10;
 
   return (
     <PageLayout>
@@ -71,7 +67,7 @@ const Data = ({ weather }: Props) => {
       </Section>
       <Section
         title={
-          precip
+          willRain
             ? `chance of ${toTitleCase(
                 current?.precipitation_type.value.replace('none', 'rain') ||
                   'rain',
@@ -79,22 +75,20 @@ const Data = ({ weather }: Props) => {
             : 'cloud cover'
         }>
         <HourlyGraph
-          domain={precip ? undefined : [10, 0]}
+          domain={willRain ? undefined : [10, 0]}
           data={hourly?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
-            y: precip
+            y: willRain
               ? item.precipitation_probability.value
               : item.cloud_cover.value,
-            units: precip ? item.precipitation_probability.units : undefined,
+            units: willRain ? item.precipitation_probability.units : undefined,
             timestamp: item.observation_time.value,
-            icon: precip
+            icon: willRain
               ? item.precipitation_probability.value > 0
                 ? item.precipitation_type.value
                 : undefined
               : item.weather_code.value,
-            additional: precip
-              ? { ...item.precipitation, type: item.precipitation_type.value }
-              : item.cloud_cover,
+            additional: willRain ? item.precipitation : item.cloud_cover,
           }))}
         />
       </Section>

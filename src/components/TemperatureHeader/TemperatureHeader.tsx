@@ -49,13 +49,21 @@ const DetailsView = styled.View`
 `;
 
 const TemperatureHeader = ({ temp, min, max, label, icon }: Props) => {
+  const titleDescription = toTitleCase(
+    label
+      .split('_')
+      .slice(0, 2)
+      .reduce(
+        (a, c) => (['heavy', 'light'].includes(c) ? [c, ...a] : [...a, c]),
+        [''],
+      )
+      .join(' '),
+  ).trim();
   return (
     <Container>
       <DescriptionView>
         <WeatherIcon padding name={icon} size={48} />
-        <DescriptionText>
-          {toTitleCase(label.split('_').slice(0, 2).join(' '))}
-        </DescriptionText>
+        <DescriptionText>{titleDescription}</DescriptionText>
       </DescriptionView>
       <TemperatureView>
         <Temperature weight="light">{Math.ceil(temp)}°</Temperature>

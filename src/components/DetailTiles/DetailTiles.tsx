@@ -30,6 +30,9 @@ const Label = styled(Text)`
   margin-top: 4px;
 `;
 
+const roundValue = (value: number | string) =>
+  typeof value === 'number' && value !== 100 ? value.toPrecision(2) : value;
+
 const DetailTiles = ({ data }: Props) => {
   return (
     <Container>
@@ -38,7 +41,7 @@ const DetailTiles = ({ data }: Props) => {
           <Icon name={item.icon} size={32} />
           <Label size={12}>{item.text}</Label>
           {item.content && (
-            <Text size={20}>{`${item.content?.value}${
+            <Text size={20}>{`${roundValue(item.content?.value)}${
               item.content?.units || ''
             }`}</Text>
           )}

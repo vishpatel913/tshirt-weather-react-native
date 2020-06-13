@@ -112,7 +112,7 @@ export enum MoonPhase {
   waxing_gibbous = 'waxing_gibbous',
   full = 'full',
   waning_gibbous = 'waning_gibbous',
-  third_quarter = 'third_quarter',
+  last_quarter = 'last_quarter',
   waning_crescent = 'waning_crescent',
 }
 

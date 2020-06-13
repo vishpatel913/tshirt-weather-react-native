@@ -677,13 +677,13 @@
         "isMulticolor": false,
         "isMulticolor2": false,
         "grid": 0,
-        "tags": ["moon-third-quarter"]
+        "tags": ["moon-last-quarter"]
       },
       "attrs": [{}],
       "properties": {
         "order": 242,
         "id": 26,
-        "name": "moon-third-quarter",
+        "name": "moon-last-quarter",
         "prevSize": 32,
         "code": 59677
       },

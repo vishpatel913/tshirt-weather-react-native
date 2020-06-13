@@ -1,7 +1,6 @@
 import qs from 'querystring';
 import { Coords } from '../../types/coords';
 import { WeatherResponse } from '../../types/weather';
-// import devResponse from './mocks/tempGeneratedResponse';
 
 class WeatherService {
   coords: Coords;
@@ -17,6 +16,7 @@ class WeatherService {
     const params = {
       lat: this.coords.lat,
       lon: this.coords.lon,
+      // mocks: '*',
     };
 
     const response = await fetch(

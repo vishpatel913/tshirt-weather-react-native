@@ -1,0 +1,3803 @@
+{
+  "current": {
+    "lat": 51.4623656,
+    "lon": -0.1699604,
+    "temp": { "value": 24.5, "units": "\u00b0C" },
+    "feels_like": { "value": 21.5, "units": "\u00b0C" },
+    "dewpoint": { "value": 8.75, "units": "\u00b0C" },
+    "wind_speed": { "value": 4.44, "units": "m/s" },
+    "baro_pressure": { "value": 1009.5625, "units": "hPa" },
+    "visibility": { "value": 10, "units": "km" },
+    "humidity": { "value": 44.06, "units": "%" },
+    "wind_direction": { "value": 148, "units": "degrees" },
+    "precipitation": { "value": 0, "units": "mm/hr" },
+    "precipitation_type": { "value": "none" },
+    "cloud_cover": { "value": 50, "units": "%" },
+    "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+    "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+    "moon_phase": { "value": "last_quarter" },
+    "weather_code": { "value": "partly_cloudy" },
+    "observation_time": { "value": "2020-06-13T12:48:02.685Z" },
+    "clothing_upper": { "value": 1 },
+    "clothing_lower": { "value": 1 }
+  },
+  "hourly": [
+    {
+      "temp": { "value": 21.37, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.37, "units": "\u00b0C" },
+      "humidity": { "value": 44.43, "units": "%" },
+      "baro_pressure": { "value": 1009.54, "units": "hPa" },
+      "dewpoint": { "value": 8.82, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.39, "units": "m/s" },
+      "wind_direction": { "value": 147.66, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 38.59, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-13T12:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.55, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.55, "units": "\u00b0C" },
+      "humidity": { "value": 44.03, "units": "%" },
+      "baro_pressure": { "value": 1009.68, "units": "hPa" },
+      "dewpoint": { "value": 8.82, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.49, "units": "m/s" },
+      "wind_direction": { "value": 148.92, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 72.64, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T13:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 22.03, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 22.03, "units": "\u00b0C" },
+      "humidity": { "value": 39.59, "units": "%" },
+      "baro_pressure": { "value": 1009.21, "units": "hPa" },
+      "dewpoint": { "value": 7.72, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.84, "units": "m/s" },
+      "wind_direction": { "value": 150.7, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 53.48, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-13T14:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.87, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.87, "units": "\u00b0C" },
+      "humidity": { "value": 40.82, "units": "%" },
+      "baro_pressure": { "value": 1009.49, "units": "hPa" },
+      "dewpoint": { "value": 7.96, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.76, "units": "m/s" },
+      "wind_direction": { "value": 155.77, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 69.33, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T15:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.84, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.84, "units": "\u00b0C" },
+      "humidity": { "value": 42.37, "units": "%" },
+      "baro_pressure": { "value": 1009.82, "units": "hPa" },
+      "dewpoint": { "value": 8.5, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.95, "units": "m/s" },
+      "wind_direction": { "value": 149.63, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 78.13, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-13T16:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.81, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.81, "units": "\u00b0C" },
+      "humidity": { "value": 42.15, "units": "%" },
+      "baro_pressure": { "value": 1010.01, "units": "hPa" },
+      "dewpoint": { "value": 8.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.9, "units": "m/s" },
+      "wind_direction": { "value": 146.31, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 65.9, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T17:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.2, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.2, "units": "\u00b0C" },
+      "humidity": { "value": 44.33, "units": "%" },
+      "baro_pressure": { "value": 1010.22, "units": "hPa" },
+      "dewpoint": { "value": 8.57, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.51, "units": "m/s" },
+      "wind_direction": { "value": 146.76, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 63.79, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T18:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.53, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.53, "units": "\u00b0C" },
+      "humidity": { "value": 48.99, "units": "%" },
+      "baro_pressure": { "value": 1010.53, "units": "hPa" },
+      "dewpoint": { "value": 9.45, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.54, "units": "m/s" },
+      "wind_direction": { "value": 138.34, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 73.53, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T19:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.22, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 19.22, "units": "\u00b0C" },
+      "humidity": { "value": 57.94, "units": "%" },
+      "baro_pressure": { "value": 1011.02, "units": "hPa" },
+      "dewpoint": { "value": 10.72, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.81, "units": "m/s" },
+      "wind_direction": { "value": 103.09, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 66.85, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T20:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.75, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 17.75, "units": "\u00b0C" },
+      "humidity": { "value": 76.46, "units": "%" },
+      "baro_pressure": { "value": 1011.55, "units": "hPa" },
+      "dewpoint": { "value": 13.68, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.29, "units": "m/s" },
+      "wind_direction": { "value": 82.36, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 76.55, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-13T21:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.96, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.96, "units": "\u00b0C" },
+      "humidity": { "value": 82.59, "units": "%" },
+      "baro_pressure": { "value": 1012.08, "units": "hPa" },
+      "dewpoint": { "value": 14.21, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.09, "units": "m/s" },
+      "wind_direction": { "value": 90.91, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 74.44, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-13T22:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.48, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.48, "units": "\u00b0C" },
+      "humidity": { "value": 82.73, "units": "%" },
+      "baro_pressure": { "value": 1012.06, "units": "hPa" },
+      "dewpoint": { "value": 13.75, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.48, "units": "m/s" },
+      "wind_direction": { "value": 103.96, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 48.44, "units": "%" },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-13T23:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.85, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 15.85, "units": "\u00b0C" },
+      "humidity": { "value": 83.91, "units": "%" },
+      "baro_pressure": { "value": 1012.35, "units": "hPa" },
+      "dewpoint": { "value": 13.3, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.26, "units": "m/s" },
+      "wind_direction": { "value": 99.31, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 46.29, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T00:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.27, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 15.27, "units": "\u00b0C" },
+      "humidity": { "value": 83.66, "units": "%" },
+      "baro_pressure": { "value": 1012.04, "units": "hPa" },
+      "dewpoint": { "value": 12.64, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.04, "units": "m/s" },
+      "wind_direction": { "value": 109.09, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 21.2, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-14T01:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.72, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.72, "units": "\u00b0C" },
+      "humidity": { "value": 81.92, "units": "%" },
+      "baro_pressure": { "value": 1012.45, "units": "hPa" },
+      "dewpoint": { "value": 11.74, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.99, "units": "m/s" },
+      "wind_direction": { "value": 124.16, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 13.68, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-14T02:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.19, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.19, "units": "\u00b0C" },
+      "humidity": { "value": 83.62, "units": "%" },
+      "baro_pressure": { "value": 1012.42, "units": "hPa" },
+      "dewpoint": { "value": 11.38, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.05, "units": "m/s" },
+      "wind_direction": { "value": 103.21, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 7.96, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-14T03:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.64, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.64, "units": "\u00b0C" },
+      "humidity": { "value": 85.72, "units": "%" },
+      "baro_pressure": { "value": 1012.62, "units": "hPa" },
+      "dewpoint": { "value": 11.31, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.75, "units": "m/s" },
+      "wind_direction": { "value": 115.82, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-14T04:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.5, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.5, "units": "\u00b0C" },
+      "humidity": { "value": 87, "units": "%" },
+      "baro_pressure": { "value": 1012.95, "units": "hPa" },
+      "dewpoint": { "value": 11.42, "units": "\u00b0C" },
+      "wind_speed": { "value": 1, "units": "m/s" },
+      "wind_direction": { "value": 87.53, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-14T05:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 15, "units": "\u00b0C" },
+      "humidity": { "value": 82.19, "units": "%" },
+      "baro_pressure": { "value": 1012.97, "units": "hPa" },
+      "dewpoint": { "value": 11.95, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.95, "units": "m/s" },
+      "wind_direction": { "value": 122.91, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-14T06:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.39, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.39, "units": "\u00b0C" },
+      "humidity": { "value": 77.01, "units": "%" },
+      "baro_pressure": { "value": 1013.76, "units": "hPa" },
+      "dewpoint": { "value": 12.26, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.29, "units": "m/s" },
+      "wind_direction": { "value": 156.49, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 20.64, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-14T07:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.12, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 18.12, "units": "\u00b0C" },
+      "humidity": { "value": 65.48, "units": "%" },
+      "baro_pressure": { "value": 1013.86, "units": "hPa" },
+      "dewpoint": { "value": 11.63, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.64, "units": "m/s" },
+      "wind_direction": { "value": 148.72, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 56.65, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T08:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.06, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 19.06, "units": "\u00b0C" },
+      "humidity": { "value": 61.72, "units": "%" },
+      "baro_pressure": { "value": 1014.15, "units": "hPa" },
+      "dewpoint": { "value": 11.53, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.49, "units": "m/s" },
+      "wind_direction": { "value": 156.37, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 65.64, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-14T09:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.09, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.09, "units": "\u00b0C" },
+      "humidity": { "value": 57.13, "units": "%" },
+      "baro_pressure": { "value": 1013.94, "units": "hPa" },
+      "dewpoint": { "value": 11.37, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.97, "units": "m/s" },
+      "wind_direction": { "value": 174.9, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 50.43, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T10:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.94, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.94, "units": "\u00b0C" },
+      "humidity": { "value": 51.74, "units": "%" },
+      "baro_pressure": { "value": 1014.17, "units": "hPa" },
+      "dewpoint": { "value": 10.67, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.04, "units": "m/s" },
+      "wind_direction": { "value": 176.2, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 83.02, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14T11:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.76, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.76, "units": "\u00b0C" },
+      "humidity": { "value": 54.68, "units": "%" },
+      "baro_pressure": { "value": 1014.28, "units": "hPa" },
+      "dewpoint": { "value": 11.3, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.34, "units": "m/s" },
+      "wind_direction": { "value": 187.69, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 68.66, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-14T12:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.09, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.09, "units": "\u00b0C" },
+      "humidity": { "value": 53.38, "units": "%" },
+      "baro_pressure": { "value": 1014.27, "units": "hPa" },
+      "dewpoint": { "value": 11.25, "units": "\u00b0C" },
+      "wind_speed": { "value": 4.24, "units": "m/s" },
+      "wind_direction": { "value": 185.54, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 61.08, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T13:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.57, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.57, "units": "\u00b0C" },
+      "humidity": { "value": 50.64, "units": "%" },
+      "baro_pressure": { "value": 1013.91, "units": "hPa" },
+      "dewpoint": { "value": 10.9, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.9, "units": "m/s" },
+      "wind_direction": { "value": 184.09, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 61.45, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T14:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.35, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 21.35, "units": "\u00b0C" },
+      "humidity": { "value": 51.57, "units": "%" },
+      "baro_pressure": { "value": 1013.84, "units": "hPa" },
+      "dewpoint": { "value": 10.94, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.77, "units": "m/s" },
+      "wind_direction": { "value": 195.54, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 65.43, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-14T15:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.05, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 21.05, "units": "\u00b0C" },
+      "humidity": { "value": 54.8, "units": "%" },
+      "baro_pressure": { "value": 1013.16, "units": "hPa" },
+      "dewpoint": { "value": 11.59, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.09, "units": "m/s" },
+      "wind_direction": { "value": 210.36, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.84, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14T16:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.41, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 21.41, "units": "\u00b0C" },
+      "humidity": { "value": 51.76, "units": "%" },
+      "baro_pressure": { "value": 1013.37, "units": "hPa" },
+      "dewpoint": { "value": 11.14, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.98, "units": "m/s" },
+      "wind_direction": { "value": 222.94, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 60.71, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T17:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.05, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 21.05, "units": "\u00b0C" },
+      "humidity": { "value": 52.84, "units": "%" },
+      "baro_pressure": { "value": 1013.57, "units": "hPa" },
+      "dewpoint": { "value": 11.1, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.3, "units": "m/s" },
+      "wind_direction": { "value": 229.48, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 48.13, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-14T18:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.89, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 19.89, "units": "\u00b0C" },
+      "humidity": { "value": 58.82, "units": "%" },
+      "baro_pressure": { "value": 1014.01, "units": "hPa" },
+      "dewpoint": { "value": 11.67, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.07, "units": "m/s" },
+      "wind_direction": { "value": 230.47, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 97.07, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14T19:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.38, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 18.38, "units": "\u00b0C" },
+      "humidity": { "value": 63.82, "units": "%" },
+      "baro_pressure": { "value": 1014.67, "units": "hPa" },
+      "dewpoint": { "value": 11.43, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.3, "units": "m/s" },
+      "wind_direction": { "value": 229.27, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 81.93, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14T20:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.71, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.71, "units": "\u00b0C" },
+      "humidity": { "value": 70.84, "units": "%" },
+      "baro_pressure": { "value": 1014.98, "units": "hPa" },
+      "dewpoint": { "value": 11.37, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.81, "units": "m/s" },
+      "wind_direction": { "value": 218.39, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14T21:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.38, "units": "\u00b0C" },
+      "precipitation": { "value": 0.001, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 15.38, "units": "\u00b0C" },
+      "humidity": { "value": 77.83, "units": "%" },
+      "baro_pressure": { "value": 1015.19, "units": "hPa" },
+      "dewpoint": { "value": 11.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.82, "units": "m/s" },
+      "wind_direction": { "value": 217.5, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 36.06, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-14T22:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.37, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.37, "units": "\u00b0C" },
+      "humidity": { "value": 81.61, "units": "%" },
+      "baro_pressure": { "value": 1015.47, "units": "hPa" },
+      "dewpoint": { "value": 11.15, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.82, "units": "m/s" },
+      "wind_direction": { "value": 218.33, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-14T23:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.56, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.56, "units": "\u00b0C" },
+      "humidity": { "value": 84.19, "units": "%" },
+      "baro_pressure": { "value": 1015.72, "units": "hPa" },
+      "dewpoint": { "value": 10.88, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.53, "units": "m/s" },
+      "wind_direction": { "value": 226.8, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T00:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 12.85, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 12.85, "units": "\u00b0C" },
+      "humidity": { "value": 85.7, "units": "%" },
+      "baro_pressure": { "value": 1015.89, "units": "hPa" },
+      "dewpoint": { "value": 10.52, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.45, "units": "m/s" },
+      "wind_direction": { "value": 231.67, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T01:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 12.3, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 12.3, "units": "\u00b0C" },
+      "humidity": { "value": 85.9, "units": "%" },
+      "baro_pressure": { "value": 1015.73, "units": "hPa" },
+      "dewpoint": { "value": 10.11, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.19, "units": "m/s" },
+      "wind_direction": { "value": 230.47, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T02:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 11.86, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 11.86, "units": "\u00b0C" },
+      "humidity": { "value": 87.14, "units": "%" },
+      "baro_pressure": { "value": 1015.74, "units": "hPa" },
+      "dewpoint": { "value": 9.89, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.92, "units": "m/s" },
+      "wind_direction": { "value": 221.78, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T03:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 11.48, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 11.48, "units": "\u00b0C" },
+      "humidity": { "value": 87.74, "units": "%" },
+      "baro_pressure": { "value": 1015.74, "units": "hPa" },
+      "dewpoint": { "value": 9.67, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.83, "units": "m/s" },
+      "wind_direction": { "value": 213.97, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T04:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 11.68, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 11.68, "units": "\u00b0C" },
+      "humidity": { "value": 87.08, "units": "%" },
+      "baro_pressure": { "value": 1016.07, "units": "hPa" },
+      "dewpoint": { "value": 9.7, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.49, "units": "m/s" },
+      "wind_direction": { "value": 197.79, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T05:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.24, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.24, "units": "\u00b0C" },
+      "humidity": { "value": 81.79, "units": "%" },
+      "baro_pressure": { "value": 1016.33, "units": "hPa" },
+      "dewpoint": { "value": 10.26, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.5, "units": "m/s" },
+      "wind_direction": { "value": 205.24, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 0.79, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "clear" },
+      "observation_time": { "value": "2020-06-15T06:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.34, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 15.34, "units": "\u00b0C" },
+      "humidity": { "value": 70.76, "units": "%" },
+      "baro_pressure": { "value": 1016.82, "units": "hPa" },
+      "dewpoint": { "value": 10.12, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.35, "units": "m/s" },
+      "wind_direction": { "value": 180.24, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 18.85, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T07:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.4, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 17.4, "units": "\u00b0C" },
+      "humidity": { "value": 61.8, "units": "%" },
+      "baro_pressure": { "value": 1016.55, "units": "hPa" },
+      "dewpoint": { "value": 10.05, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.87, "units": "m/s" },
+      "wind_direction": { "value": 174.4, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 23.57, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "last_quarter" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T08:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.23, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 19.23, "units": "\u00b0C" },
+      "humidity": { "value": 54.66, "units": "%" },
+      "baro_pressure": { "value": 1016.48, "units": "hPa" },
+      "dewpoint": { "value": 10, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.63, "units": "m/s" },
+      "wind_direction": { "value": 172.48, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 64.62, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-15T09:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.62, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 19.62, "units": "\u00b0C" },
+      "humidity": { "value": 56.46, "units": "%" },
+      "baro_pressure": { "value": 1016.33, "units": "hPa" },
+      "dewpoint": { "value": 10.9, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.96, "units": "m/s" },
+      "wind_direction": { "value": 167.87, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 97.78, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-15T10:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.41, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 18.41, "units": "\u00b0C" },
+      "humidity": { "value": 69.37, "units": "%" },
+      "baro_pressure": { "value": 1016.53, "units": "hPa" },
+      "dewpoint": { "value": 12.7, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.81, "units": "m/s" },
+      "wind_direction": { "value": 192.56, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 92.81, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-15T11:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.42, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 19.42, "units": "\u00b0C" },
+      "humidity": { "value": 63.32, "units": "%" },
+      "baro_pressure": { "value": 1016.16, "units": "hPa" },
+      "dewpoint": { "value": 12.37, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.38, "units": "m/s" },
+      "wind_direction": { "value": 192.92, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 88.76, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-15T12:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.11, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.11, "units": "\u00b0C" },
+      "humidity": { "value": 60.61, "units": "%" },
+      "baro_pressure": { "value": 1016.12, "units": "hPa" },
+      "dewpoint": { "value": 12.3, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.83, "units": "m/s" },
+      "wind_direction": { "value": 195.65, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 70.27, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-15T13:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.99, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.99, "units": "\u00b0C" },
+      "humidity": { "value": 57.07, "units": "%" },
+      "baro_pressure": { "value": 1015.72, "units": "hPa" },
+      "dewpoint": { "value": 12.16, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.87, "units": "m/s" },
+      "wind_direction": { "value": 194.32, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 46.9, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-15T14:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.36, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.36, "units": "\u00b0C" },
+      "humidity": { "value": 53.67, "units": "%" },
+      "baro_pressure": { "value": 1015.59, "units": "hPa" },
+      "dewpoint": { "value": 11.56, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.89, "units": "m/s" },
+      "wind_direction": { "value": 194.58, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 30.97, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T15:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 21.23, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 21.23, "units": "\u00b0C" },
+      "humidity": { "value": 51.85, "units": "%" },
+      "baro_pressure": { "value": 1015.19, "units": "hPa" },
+      "dewpoint": { "value": 10.93, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.77, "units": "m/s" },
+      "wind_direction": { "value": 199.42, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 33.46, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T16:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.7, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.7, "units": "\u00b0C" },
+      "humidity": { "value": 53.07, "units": "%" },
+      "baro_pressure": { "value": 1015.24, "units": "hPa" },
+      "dewpoint": { "value": 10.75, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.73, "units": "m/s" },
+      "wind_direction": { "value": 199.28, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 38.02, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-15T17:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 20.12, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 20.12, "units": "\u00b0C" },
+      "humidity": { "value": 53.71, "units": "%" },
+      "baro_pressure": { "value": 1015.21, "units": "hPa" },
+      "dewpoint": { "value": 10.48, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.21, "units": "m/s" },
+      "wind_direction": { "value": 199.28, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 27.11, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T18:00:00.000Z" },
+      "clothing_upper": { "value": 1 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.99, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 18.99, "units": "\u00b0C" },
+      "humidity": { "value": 61.24, "units": "%" },
+      "baro_pressure": { "value": 1015.4, "units": "hPa" },
+      "dewpoint": { "value": 11.39, "units": "\u00b0C" },
+      "wind_speed": { "value": 3.28, "units": "m/s" },
+      "wind_direction": { "value": 200.42, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 33.3, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-15T19:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.53, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 17.53, "units": "\u00b0C" },
+      "humidity": { "value": 69.38, "units": "%" },
+      "baro_pressure": { "value": 1015.65, "units": "hPa" },
+      "dewpoint": { "value": 11.86, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.84, "units": "m/s" },
+      "wind_direction": { "value": 199.14, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 49.66, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-15T20:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.37, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.37, "units": "\u00b0C" },
+      "humidity": { "value": 76.04, "units": "%" },
+      "baro_pressure": { "value": 1015.82, "units": "hPa" },
+      "dewpoint": { "value": 12.14, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.93, "units": "m/s" },
+      "wind_direction": { "value": 197.59, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 59.9, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-15T21:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.58, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 15.58, "units": "\u00b0C" },
+      "humidity": { "value": 80.16, "units": "%" },
+      "baro_pressure": { "value": 1015.85, "units": "hPa" },
+      "dewpoint": { "value": 12.18, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.62, "units": "m/s" },
+      "wind_direction": { "value": 197.53, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 67.04, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-15T22:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.98, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.98, "units": "\u00b0C" },
+      "humidity": { "value": 84.19, "units": "%" },
+      "baro_pressure": { "value": 1015.5, "units": "hPa" },
+      "dewpoint": { "value": 12.28, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.91, "units": "m/s" },
+      "wind_direction": { "value": 193.37, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 74.4, "units": "%" },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-15T23:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.55, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.55, "units": "\u00b0C" },
+      "humidity": { "value": 86.99, "units": "%" },
+      "baro_pressure": { "value": 1015.49, "units": "hPa" },
+      "dewpoint": { "value": 12.34, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.68, "units": "m/s" },
+      "wind_direction": { "value": 162.87, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 86.81, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-16T00:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.1, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.1, "units": "\u00b0C" },
+      "humidity": { "value": 89.08, "units": "%" },
+      "baro_pressure": { "value": 1015.47, "units": "hPa" },
+      "dewpoint": { "value": 12.3, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.58, "units": "m/s" },
+      "wind_direction": { "value": 155.72, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 80.48, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-16T01:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.66, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.66, "units": "\u00b0C" },
+      "humidity": { "value": 90.75, "units": "%" },
+      "baro_pressure": { "value": 1015.42, "units": "hPa" },
+      "dewpoint": { "value": 12.23, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.34, "units": "m/s" },
+      "wind_direction": { "value": 157.77, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 55.12, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-16T02:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.16, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 13.16, "units": "\u00b0C" },
+      "humidity": { "value": 92.49, "units": "%" },
+      "baro_pressure": { "value": 1015.1, "units": "hPa" },
+      "dewpoint": { "value": 12.06, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.29, "units": "m/s" },
+      "wind_direction": { "value": 147.3, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 37.85, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-16T03:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 12.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 12.65, "units": "\u00b0C" },
+      "humidity": { "value": 94.07, "units": "%" },
+      "baro_pressure": { "value": 1015.04, "units": "hPa" },
+      "dewpoint": { "value": 11.85, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.32, "units": "m/s" },
+      "wind_direction": { "value": 141.24, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 60.99, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-16T04:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 12.67, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 12.67, "units": "\u00b0C" },
+      "humidity": { "value": 95.77, "units": "%" },
+      "baro_pressure": { "value": 1014.88, "units": "hPa" },
+      "dewpoint": { "value": 12.03, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.38, "units": "m/s" },
+      "wind_direction": { "value": 149.58, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 36.09, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-16T05:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.19, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 14.19, "units": "\u00b0C" },
+      "humidity": { "value": 88.5, "units": "%" },
+      "baro_pressure": { "value": 1015, "units": "hPa" },
+      "dewpoint": { "value": 12.21, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.5, "units": "m/s" },
+      "wind_direction": { "value": 107.37, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 13.9, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-16T06:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.04, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 16.04, "units": "\u00b0C" },
+      "humidity": { "value": 79.11, "units": "%" },
+      "baro_pressure": { "value": 1015.02, "units": "hPa" },
+      "dewpoint": { "value": 12.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.82, "units": "m/s" },
+      "wind_direction": { "value": 116.26, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 26.75, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_clear" },
+      "observation_time": { "value": "2020-06-16T07:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.74, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 17.74, "units": "\u00b0C" },
+      "humidity": { "value": 69.75, "units": "%" },
+      "baro_pressure": { "value": 1015.04, "units": "hPa" },
+      "dewpoint": { "value": 12.15, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.16, "units": "m/s" },
+      "wind_direction": { "value": 139.52, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 69.99, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-16T08:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.53, "units": "\u00b0C" },
+      "precipitation": { "value": 0.0059, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": { "value": 18.53, "units": "\u00b0C" },
+      "humidity": { "value": 65.25, "units": "%" },
+      "baro_pressure": { "value": 1014.64, "units": "hPa" },
+      "dewpoint": { "value": 11.89, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.42, "units": "m/s" },
+      "wind_direction": { "value": 119.65, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 95.92, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T09:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.3, "units": "\u00b0C" },
+      "precipitation": { "value": 0.1875, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 18.3, "units": "\u00b0C" },
+      "humidity": { "value": 66.79, "units": "%" },
+      "baro_pressure": { "value": 1014.76, "units": "hPa" },
+      "dewpoint": { "value": 12.23, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.65, "units": "m/s" },
+      "wind_direction": { "value": 137.49, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 98.29, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T10:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.19, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4063, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": { "value": 18.19, "units": "\u00b0C" },
+      "humidity": { "value": 72.85, "units": "%" },
+      "baro_pressure": { "value": 1014.7, "units": "hPa" },
+      "dewpoint": { "value": 13.27, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.4, "units": "m/s" },
+      "wind_direction": { "value": 150.98, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 92.72, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T11:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.38, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4492, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": { "value": 18.38, "units": "\u00b0C" },
+      "humidity": { "value": 73.43, "units": "%" },
+      "baro_pressure": { "value": 1014.49, "units": "hPa" },
+      "dewpoint": { "value": 13.56, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.46, "units": "m/s" },
+      "wind_direction": { "value": 130.96, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 89.04, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T12:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.38, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4492, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": { "value": 18.38, "units": "\u00b0C" },
+      "humidity": { "value": 73.43, "units": "%" },
+      "baro_pressure": { "value": 1014.49, "units": "hPa" },
+      "dewpoint": { "value": 13.56, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.46, "units": "m/s" },
+      "wind_direction": { "value": 130.96, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 89.04, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T13:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.38, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4492, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": { "value": 18.38, "units": "\u00b0C" },
+      "humidity": { "value": 73.43, "units": "%" },
+      "baro_pressure": { "value": 1014.49, "units": "hPa" },
+      "dewpoint": { "value": 13.56, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.46, "units": "m/s" },
+      "wind_direction": { "value": 130.96, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 89.04, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T14:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.6836, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 19.65, "units": "\u00b0C" },
+      "humidity": { "value": 70.11, "units": "%" },
+      "baro_pressure": { "value": 1013.54, "units": "hPa" },
+      "dewpoint": { "value": 13.8, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.58, "units": "m/s" },
+      "wind_direction": { "value": 117, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 86.82, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T15:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.6836, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 19.65, "units": "\u00b0C" },
+      "humidity": { "value": 70.11, "units": "%" },
+      "baro_pressure": { "value": 1013.54, "units": "hPa" },
+      "dewpoint": { "value": 13.8, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.58, "units": "m/s" },
+      "wind_direction": { "value": 117, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 86.82, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T16:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.6836, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 19.65, "units": "\u00b0C" },
+      "humidity": { "value": 70.11, "units": "%" },
+      "baro_pressure": { "value": 1013.54, "units": "hPa" },
+      "dewpoint": { "value": 13.8, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.58, "units": "m/s" },
+      "wind_direction": { "value": 117, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 86.82, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T17:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.7441, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 18.65, "units": "\u00b0C" },
+      "humidity": { "value": 76.24, "units": "%" },
+      "baro_pressure": { "value": 1012.87, "units": "hPa" },
+      "dewpoint": { "value": 14.36, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.9, "units": "m/s" },
+      "wind_direction": { "value": 96.38, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T18:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.7441, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 18.65, "units": "\u00b0C" },
+      "humidity": { "value": 76.24, "units": "%" },
+      "baro_pressure": { "value": 1012.87, "units": "hPa" },
+      "dewpoint": { "value": 14.36, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.9, "units": "m/s" },
+      "wind_direction": { "value": 96.38, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T19:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.65, "units": "\u00b0C" },
+      "precipitation": { "value": 0.7441, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 18.65, "units": "\u00b0C" },
+      "humidity": { "value": 76.24, "units": "%" },
+      "baro_pressure": { "value": 1012.87, "units": "hPa" },
+      "dewpoint": { "value": 14.36, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.9, "units": "m/s" },
+      "wind_direction": { "value": 96.38, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16T20:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.71, "units": "\u00b0C" },
+      "precipitation": { "value": 0.1465, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 20, "units": "%" },
+      "feels_like": { "value": 16.71, "units": "\u00b0C" },
+      "humidity": { "value": 87.21, "units": "%" },
+      "baro_pressure": { "value": 1013.48, "units": "hPa" },
+      "dewpoint": { "value": 14.63, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.13, "units": "m/s" },
+      "wind_direction": { "value": 93.17, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T21:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.71, "units": "\u00b0C" },
+      "precipitation": { "value": 0.1465, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 20, "units": "%" },
+      "feels_like": { "value": 16.71, "units": "\u00b0C" },
+      "humidity": { "value": 87.21, "units": "%" },
+      "baro_pressure": { "value": 1013.48, "units": "hPa" },
+      "dewpoint": { "value": 14.63, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.13, "units": "m/s" },
+      "wind_direction": { "value": 93.17, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T22:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.71, "units": "\u00b0C" },
+      "precipitation": { "value": 0.1465, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 20, "units": "%" },
+      "feels_like": { "value": 16.71, "units": "\u00b0C" },
+      "humidity": { "value": 87.21, "units": "%" },
+      "baro_pressure": { "value": 1013.48, "units": "hPa" },
+      "dewpoint": { "value": 14.63, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.13, "units": "m/s" },
+      "wind_direction": { "value": 93.17, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-16T23:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.98, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 14.98, "units": "\u00b0C" },
+      "humidity": { "value": 96.05, "units": "%" },
+      "baro_pressure": { "value": 1013.11, "units": "hPa" },
+      "dewpoint": { "value": 14.38, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.97, "units": "m/s" },
+      "wind_direction": { "value": 60.71, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 58.88, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-17T00:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.98, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 14.98, "units": "\u00b0C" },
+      "humidity": { "value": 96.05, "units": "%" },
+      "baro_pressure": { "value": 1013.11, "units": "hPa" },
+      "dewpoint": { "value": 14.38, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.97, "units": "m/s" },
+      "wind_direction": { "value": 60.71, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 58.88, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-17T01:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.98, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 14.98, "units": "\u00b0C" },
+      "humidity": { "value": 96.05, "units": "%" },
+      "baro_pressure": { "value": 1013.11, "units": "hPa" },
+      "dewpoint": { "value": 14.38, "units": "\u00b0C" },
+      "wind_speed": { "value": 0.97, "units": "m/s" },
+      "wind_direction": { "value": 60.71, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 58.88, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "partly_cloudy" },
+      "observation_time": { "value": "2020-06-17T02:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.72, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 13.72, "units": "\u00b0C" },
+      "humidity": { "value": 96.46, "units": "%" },
+      "baro_pressure": { "value": 1012.78, "units": "hPa" },
+      "dewpoint": { "value": 13.24, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.48, "units": "m/s" },
+      "wind_direction": { "value": 75.57, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T03:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.72, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 13.72, "units": "\u00b0C" },
+      "humidity": { "value": 96.46, "units": "%" },
+      "baro_pressure": { "value": 1012.78, "units": "hPa" },
+      "dewpoint": { "value": 13.24, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.48, "units": "m/s" },
+      "wind_direction": { "value": 75.57, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T04:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 13.72, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": { "value": 13.72, "units": "\u00b0C" },
+      "humidity": { "value": 96.46, "units": "%" },
+      "baro_pressure": { "value": 1012.78, "units": "hPa" },
+      "dewpoint": { "value": 13.24, "units": "\u00b0C" },
+      "wind_speed": { "value": 1.48, "units": "m/s" },
+      "wind_direction": { "value": 75.57, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T05:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.76, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 14.76, "units": "\u00b0C" },
+      "humidity": { "value": 87.34, "units": "%" },
+      "baro_pressure": { "value": 1012.96, "units": "hPa" },
+      "dewpoint": { "value": 12.78, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.12, "units": "m/s" },
+      "wind_direction": { "value": 70.19, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.26, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T06:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.76, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 14.76, "units": "\u00b0C" },
+      "humidity": { "value": 87.34, "units": "%" },
+      "baro_pressure": { "value": 1012.96, "units": "hPa" },
+      "dewpoint": { "value": 12.78, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.12, "units": "m/s" },
+      "wind_direction": { "value": 70.19, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.26, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T07:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 14.76, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 14.76, "units": "\u00b0C" },
+      "humidity": { "value": 87.34, "units": "%" },
+      "baro_pressure": { "value": 1012.96, "units": "hPa" },
+      "dewpoint": { "value": 12.78, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.12, "units": "m/s" },
+      "wind_direction": { "value": 70.19, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.26, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T08:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.14, "units": "\u00b0C" },
+      "precipitation": { "value": 0.5996, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 16.14, "units": "\u00b0C" },
+      "humidity": { "value": 84.28, "units": "%" },
+      "baro_pressure": { "value": 1013.25, "units": "hPa" },
+      "dewpoint": { "value": 13.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.33, "units": "m/s" },
+      "wind_direction": { "value": 62.52, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.96, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-17T09:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.14, "units": "\u00b0C" },
+      "precipitation": { "value": 0.5996, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 16.14, "units": "\u00b0C" },
+      "humidity": { "value": 84.28, "units": "%" },
+      "baro_pressure": { "value": 1013.25, "units": "hPa" },
+      "dewpoint": { "value": 13.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.33, "units": "m/s" },
+      "wind_direction": { "value": 62.52, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.96, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-17T10:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 16.14, "units": "\u00b0C" },
+      "precipitation": { "value": 0.5996, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 16.14, "units": "\u00b0C" },
+      "humidity": { "value": 84.28, "units": "%" },
+      "baro_pressure": { "value": 1013.25, "units": "hPa" },
+      "dewpoint": { "value": 13.41, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.33, "units": "m/s" },
+      "wind_direction": { "value": 62.52, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 99.96, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-17T11:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.61, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4434, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 45, "units": "%" },
+      "feels_like": { "value": 18.61, "units": "\u00b0C" },
+      "humidity": { "value": 67.42, "units": "%" },
+      "baro_pressure": { "value": 1012.89, "units": "hPa" },
+      "dewpoint": { "value": 12.53, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.66, "units": "m/s" },
+      "wind_direction": { "value": 49.81, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T12:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.61, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4434, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 45, "units": "%" },
+      "feels_like": { "value": 18.61, "units": "\u00b0C" },
+      "humidity": { "value": 67.42, "units": "%" },
+      "baro_pressure": { "value": 1012.89, "units": "hPa" },
+      "dewpoint": { "value": 12.53, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.66, "units": "m/s" },
+      "wind_direction": { "value": 49.81, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T13:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 18.61, "units": "\u00b0C" },
+      "precipitation": { "value": 0.4434, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 45, "units": "%" },
+      "feels_like": { "value": 18.61, "units": "\u00b0C" },
+      "humidity": { "value": 67.42, "units": "%" },
+      "baro_pressure": { "value": 1012.89, "units": "hPa" },
+      "dewpoint": { "value": 12.53, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.66, "units": "m/s" },
+      "wind_direction": { "value": 49.81, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T14:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.33, "units": "\u00b0C" },
+      "precipitation": { "value": 0.002, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 19.33, "units": "\u00b0C" },
+      "humidity": { "value": 59.16, "units": "%" },
+      "baro_pressure": { "value": 1012.76, "units": "hPa" },
+      "dewpoint": { "value": 11.32, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 44.78, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 98.24, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T15:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.33, "units": "\u00b0C" },
+      "precipitation": { "value": 0.002, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 19.33, "units": "\u00b0C" },
+      "humidity": { "value": 59.16, "units": "%" },
+      "baro_pressure": { "value": 1012.76, "units": "hPa" },
+      "dewpoint": { "value": 11.32, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 44.78, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 98.24, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T16:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 19.33, "units": "\u00b0C" },
+      "precipitation": { "value": 0.002, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 35, "units": "%" },
+      "feels_like": { "value": 19.33, "units": "\u00b0C" },
+      "humidity": { "value": 59.16, "units": "%" },
+      "baro_pressure": { "value": 1012.76, "units": "hPa" },
+      "dewpoint": { "value": 11.32, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 44.78, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 98.24, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T17:00:00.000Z" },
+      "clothing_upper": { "value": 2 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.18, "units": "\u00b0C" },
+      "precipitation": { "value": 0.0039, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 17.18, "units": "\u00b0C" },
+      "humidity": { "value": 77.01, "units": "%" },
+      "baro_pressure": { "value": 1012.71, "units": "hPa" },
+      "dewpoint": { "value": 13.12, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.37, "units": "m/s" },
+      "wind_direction": { "value": 41.32, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T18:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.18, "units": "\u00b0C" },
+      "precipitation": { "value": 0.0039, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 17.18, "units": "\u00b0C" },
+      "humidity": { "value": 77.01, "units": "%" },
+      "baro_pressure": { "value": 1012.71, "units": "hPa" },
+      "dewpoint": { "value": 13.12, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.37, "units": "m/s" },
+      "wind_direction": { "value": 41.32, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T19:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 17.18, "units": "\u00b0C" },
+      "precipitation": { "value": 0.0039, "units": "mm/hr" },
+      "precipitation_type": { "value": "rain" },
+      "precipitation_probability": { "value": 15, "units": "%" },
+      "feels_like": { "value": 17.18, "units": "\u00b0C" },
+      "humidity": { "value": 77.01, "units": "%" },
+      "baro_pressure": { "value": 1012.71, "units": "hPa" },
+      "dewpoint": { "value": 13.12, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.37, "units": "m/s" },
+      "wind_direction": { "value": 41.32, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-17T20:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.74, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 15.74, "units": "\u00b0C" },
+      "humidity": { "value": 83.55, "units": "%" },
+      "baro_pressure": { "value": 1013.66, "units": "hPa" },
+      "dewpoint": { "value": 12.98, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 29.41, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T21:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.74, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 15.74, "units": "\u00b0C" },
+      "humidity": { "value": 83.55, "units": "%" },
+      "baro_pressure": { "value": 1013.66, "units": "hPa" },
+      "dewpoint": { "value": 12.98, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 29.41, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T22:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.74, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 15.74, "units": "\u00b0C" },
+      "humidity": { "value": 83.55, "units": "%" },
+      "baro_pressure": { "value": 1013.66, "units": "hPa" },
+      "dewpoint": { "value": 12.98, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 29.41, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17T23:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    },
+    {
+      "temp": { "value": 15.74, "units": "\u00b0C" },
+      "precipitation": { "value": 0, "units": "mm/hr" },
+      "precipitation_type": { "value": "none" },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": { "value": 15.74, "units": "\u00b0C" },
+      "humidity": { "value": 83.55, "units": "%" },
+      "baro_pressure": { "value": 1013.66, "units": "hPa" },
+      "dewpoint": { "value": 12.98, "units": "\u00b0C" },
+      "wind_speed": { "value": 2.17, "units": "m/s" },
+      "wind_direction": { "value": 29.41, "units": "degrees" },
+      "visibility": { "value": 16, "units": "km" },
+      "cloud_cover": { "value": 100, "units": "%" },
+      "sunrise": { "value": "2020-06-18T03:43:16.715Z" },
+      "sunset": { "value": "2020-06-18T20:20:48.684Z" },
+      "moon_phase": { "value": "waning_crescent" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-18T00:00:00.000Z" },
+      "clothing_upper": { "value": 3 },
+      "clothing_lower": { "value": 1 }
+    }
+  ],
+  "daily": [
+    {
+      "temp": {
+        "min": {
+          "value": 14.85,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-14T04:00:00Z"
+        },
+        "max": {
+          "value": 22.73,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-13T16:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0.125, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.0625,
+          "units": "mm/hr",
+          "observation_time": "2020-06-13T18:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 25, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 14.85,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-14T04:00:00Z"
+        },
+        "max": {
+          "value": 22.73,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-13T16:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 38,
+          "units": "%",
+          "observation_time": "2020-06-13T15:00:00Z"
+        },
+        "max": {
+          "value": 78.8,
+          "units": "%",
+          "observation_time": "2020-06-14T02:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1003.49,
+          "units": "hPa",
+          "observation_time": "2020-06-13T07:00:00Z"
+        },
+        "max": {
+          "value": 1007.9,
+          "units": "hPa",
+          "observation_time": "2020-06-14T00:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 1.33,
+          "units": "m/s",
+          "observation_time": "2020-06-14T04:00:00Z"
+        },
+        "max": {
+          "value": 5.51,
+          "units": "m/s",
+          "observation_time": "2020-06-13T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 148.65,
+          "units": "degrees",
+          "observation_time": "2020-06-14T04:00:00Z"
+        },
+        "max": {
+          "value": 119.01,
+          "units": "degrees",
+          "observation_time": "2020-06-13T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-13T23:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-14T01:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-13T03:43:25.826Z" },
+      "sunset": { "value": "2020-06-13T20:18:30.241Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-13" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 14.05,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T04:00:00Z"
+        },
+        "max": {
+          "value": 22.35,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-14T14:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-14T05:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 14.05,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T04:00:00Z"
+        },
+        "max": {
+          "value": 22.35,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-14T14:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 43.8,
+          "units": "%",
+          "observation_time": "2020-06-14T14:00:00Z"
+        },
+        "max": {
+          "value": 80,
+          "units": "%",
+          "observation_time": "2020-06-15T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1007.84,
+          "units": "hPa",
+          "observation_time": "2020-06-14T05:00:00Z"
+        },
+        "max": {
+          "value": 1010.93,
+          "units": "hPa",
+          "observation_time": "2020-06-15T04:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 1.56,
+          "units": "m/s",
+          "observation_time": "2020-06-15T04:00:00Z"
+        },
+        "max": {
+          "value": 4.28,
+          "units": "m/s",
+          "observation_time": "2020-06-14T15:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 267.18,
+          "units": "degrees",
+          "observation_time": "2020-06-15T04:00:00Z"
+        },
+        "max": {
+          "value": 190.53,
+          "units": "degrees",
+          "observation_time": "2020-06-14T15:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-14T11:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-14T23:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-14T03:43:17.883Z" },
+      "sunset": { "value": "2020-06-14T20:19:03.716Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-14" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 14.25,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T05:00:00Z"
+        },
+        "max": {
+          "value": 25.15,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T13:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 2.25, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.625,
+          "units": "mm/hr",
+          "observation_time": "2020-06-15T17:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 30, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 14.25,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T05:00:00Z"
+        },
+        "max": {
+          "value": 25.15,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-15T13:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 32.1,
+          "units": "%",
+          "observation_time": "2020-06-15T13:00:00Z"
+        },
+        "max": {
+          "value": 75.3,
+          "units": "%",
+          "observation_time": "2020-06-16T04:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1009.74,
+          "units": "hPa",
+          "observation_time": "2020-06-15T18:00:00Z"
+        },
+        "max": {
+          "value": 1011.83,
+          "units": "hPa",
+          "observation_time": "2020-06-15T07:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 1.26,
+          "units": "m/s",
+          "observation_time": "2020-06-15T06:00:00Z"
+        },
+        "max": {
+          "value": 3.28,
+          "units": "m/s",
+          "observation_time": "2020-06-15T15:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 263.21,
+          "units": "degrees",
+          "observation_time": "2020-06-15T06:00:00Z"
+        },
+        "max": {
+          "value": 230.42,
+          "units": "degrees",
+          "observation_time": "2020-06-15T15:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 21.99,
+          "units": "km",
+          "observation_time": "2020-06-15T17:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-15T21:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-15T03:43:13.006Z" },
+      "sunset": { "value": "2020-06-15T20:19:34.339Z" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-15" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 15.41,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-17T04:00:00Z"
+        },
+        "max": {
+          "value": 24.77,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-16T12:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 4.5, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 1.1875,
+          "units": "mm/hr",
+          "observation_time": "2020-06-16T14:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 65, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 15.41,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-17T04:00:00Z"
+        },
+        "max": {
+          "value": 24.77,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-16T12:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 39.5,
+          "units": "%",
+          "observation_time": "2020-06-16T11:00:00Z"
+        },
+        "max": {
+          "value": 77.3,
+          "units": "%",
+          "observation_time": "2020-06-17T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1007.73,
+          "units": "hPa",
+          "observation_time": "2020-06-16T17:00:00Z"
+        },
+        "max": {
+          "value": 1010.34,
+          "units": "hPa",
+          "observation_time": "2020-06-16T08:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 0.81,
+          "units": "m/s",
+          "observation_time": "2020-06-16T09:00:00Z"
+        },
+        "max": {
+          "value": 3.82,
+          "units": "m/s",
+          "observation_time": "2020-06-16T17:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 210.18,
+          "units": "degrees",
+          "observation_time": "2020-06-16T09:00:00Z"
+        },
+        "max": {
+          "value": 118.96,
+          "units": "degrees",
+          "observation_time": "2020-06-16T17:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 9.32,
+          "units": "km",
+          "observation_time": "2020-06-16T13:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-17T04:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-16T03:43:11.192Z" },
+      "sunset": { "value": "2020-06-16T20:20:02.067Z" },
+      "weather_code": { "value": "rain_light" },
+      "observation_time": { "value": "2020-06-16" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 12.75,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T04:00:00Z"
+        },
+        "max": {
+          "value": 23.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-17T14:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-17T05:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 12.75,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T04:00:00Z"
+        },
+        "max": {
+          "value": 23.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-17T14:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 43.9,
+          "units": "%",
+          "observation_time": "2020-06-17T12:00:00Z"
+        },
+        "max": {
+          "value": 83.1,
+          "units": "%",
+          "observation_time": "2020-06-18T04:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1009.72,
+          "units": "hPa",
+          "observation_time": "2020-06-17T05:00:00Z"
+        },
+        "max": {
+          "value": 1013.33,
+          "units": "hPa",
+          "observation_time": "2020-06-18T04:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 2.76,
+          "units": "m/s",
+          "observation_time": "2020-06-17T05:00:00Z"
+        },
+        "max": {
+          "value": 5.61,
+          "units": "m/s",
+          "observation_time": "2020-06-17T16:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 40.55,
+          "units": "degrees",
+          "observation_time": "2020-06-17T05:00:00Z"
+        },
+        "max": {
+          "value": 36.65,
+          "units": "degrees",
+          "observation_time": "2020-06-17T16:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-18T01:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-17T21:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-17T03:43:12.431Z" },
+      "sunset": { "value": "2020-06-17T20:20:26.860Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-17" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 12.95,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T05:00:00Z"
+        },
+        "max": {
+          "value": 21.65,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-18T05:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 12.95,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T05:00:00Z"
+        },
+        "max": {
+          "value": 21.65,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-18T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 54.6,
+          "units": "%",
+          "observation_time": "2020-06-18T15:00:00Z"
+        },
+        "max": {
+          "value": 82,
+          "units": "%",
+          "observation_time": "2020-06-18T05:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1013.4,
+          "units": "hPa",
+          "observation_time": "2020-06-18T05:00:00Z"
+        },
+        "max": {
+          "value": 1017.36,
+          "units": "hPa",
+          "observation_time": "2020-06-19T03:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 3.55,
+          "units": "m/s",
+          "observation_time": "2020-06-19T03:00:00Z"
+        },
+        "max": {
+          "value": 4.97,
+          "units": "m/s",
+          "observation_time": "2020-06-18T09:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 24.65,
+          "units": "degrees",
+          "observation_time": "2020-06-19T03:00:00Z"
+        },
+        "max": {
+          "value": 15.33,
+          "units": "degrees",
+          "observation_time": "2020-06-18T09:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-19T00:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-18T06:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-18T03:43:16.715Z" },
+      "sunset": { "value": "2020-06-18T20:20:48.684Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-18" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 12.61,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T03:00:00Z"
+        },
+        "max": {
+          "value": 24.7,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-19T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-19T06:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 12.61,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T03:00:00Z"
+        },
+        "max": {
+          "value": 24.7,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-19T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 42.4,
+          "units": "%",
+          "observation_time": "2020-06-19T12:00:00Z"
+        },
+        "max": {
+          "value": 78,
+          "units": "%",
+          "observation_time": "2020-06-20T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1017.24,
+          "units": "hPa",
+          "observation_time": "2020-06-19T18:00:00Z"
+        },
+        "max": {
+          "value": 1018.87,
+          "units": "hPa",
+          "observation_time": "2020-06-20T00:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 3.17,
+          "units": "m/s",
+          "observation_time": "2020-06-19T06:00:00Z"
+        },
+        "max": {
+          "value": 4.67,
+          "units": "m/s",
+          "observation_time": "2020-06-19T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 28.47,
+          "units": "degrees",
+          "observation_time": "2020-06-19T06:00:00Z"
+        },
+        "max": {
+          "value": 33.36,
+          "units": "degrees",
+          "observation_time": "2020-06-19T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-19T12:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-19T21:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-19T03:43:24.027Z" },
+      "sunset": { "value": "2020-06-19T20:21:07.504Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-19" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 12.12,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T06:00:00Z"
+        },
+        "max": {
+          "value": 23.93,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-20T06:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 12.12,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T06:00:00Z"
+        },
+        "max": {
+          "value": 23.93,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-20T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 41.9,
+          "units": "%",
+          "observation_time": "2020-06-20T15:00:00Z"
+        },
+        "max": {
+          "value": 77.4,
+          "units": "%",
+          "observation_time": "2020-06-20T06:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1015.3,
+          "units": "hPa",
+          "observation_time": "2020-06-20T18:00:00Z"
+        },
+        "max": {
+          "value": 1018.51,
+          "units": "hPa",
+          "observation_time": "2020-06-20T06:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 3.65,
+          "units": "m/s",
+          "observation_time": "2020-06-20T06:00:00Z"
+        },
+        "max": {
+          "value": 5.7,
+          "units": "m/s",
+          "observation_time": "2020-06-20T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 41.31,
+          "units": "degrees",
+          "observation_time": "2020-06-20T06:00:00Z"
+        },
+        "max": {
+          "value": 34.77,
+          "units": "degrees",
+          "observation_time": "2020-06-20T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-20T15:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-20T06:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-20T03:43:34.350Z" },
+      "sunset": { "value": "2020-06-20T20:21:23.293Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-20" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 13.15,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T03:00:00Z"
+        },
+        "max": {
+          "value": 24.95,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-21T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-21T06:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 13.15,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T03:00:00Z"
+        },
+        "max": {
+          "value": 24.95,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-21T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 44.6,
+          "units": "%",
+          "observation_time": "2020-06-21T15:00:00Z"
+        },
+        "max": {
+          "value": 70.5,
+          "units": "%",
+          "observation_time": "2020-06-22T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1013.71,
+          "units": "hPa",
+          "observation_time": "2020-06-21T15:00:00Z"
+        },
+        "max": {
+          "value": 1015.73,
+          "units": "hPa",
+          "observation_time": "2020-06-21T06:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 3.99,
+          "units": "m/s",
+          "observation_time": "2020-06-22T03:00:00Z"
+        },
+        "max": {
+          "value": 5.2,
+          "units": "m/s",
+          "observation_time": "2020-06-21T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 26.56,
+          "units": "degrees",
+          "observation_time": "2020-06-22T03:00:00Z"
+        },
+        "max": {
+          "value": 27.1,
+          "units": "degrees",
+          "observation_time": "2020-06-21T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-21T09:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-22T00:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-21T03:43:47.665Z" },
+      "sunset": { "value": "2020-06-21T20:21:36.024Z" },
+      "weather_code": { "value": "mostly_cloudy" },
+      "observation_time": { "value": "2020-06-21" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 13.2,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T06:00:00Z"
+        },
+        "max": {
+          "value": 24.07,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-22T06:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 0, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 13.2,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T06:00:00Z"
+        },
+        "max": {
+          "value": 24.07,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-22T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 47.3,
+          "units": "%",
+          "observation_time": "2020-06-22T15:00:00Z"
+        },
+        "max": {
+          "value": 75.7,
+          "units": "%",
+          "observation_time": "2020-06-23T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1011.69,
+          "units": "hPa",
+          "observation_time": "2020-06-22T15:00:00Z"
+        },
+        "max": {
+          "value": 1014.21,
+          "units": "hPa",
+          "observation_time": "2020-06-22T06:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 4.11,
+          "units": "m/s",
+          "observation_time": "2020-06-22T09:00:00Z"
+        },
+        "max": {
+          "value": 5.12,
+          "units": "m/s",
+          "observation_time": "2020-06-22T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 29.61,
+          "units": "degrees",
+          "observation_time": "2020-06-22T09:00:00Z"
+        },
+        "max": {
+          "value": 32.71,
+          "units": "degrees",
+          "observation_time": "2020-06-22T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-22T15:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-23T03:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-22T03:44:03.942Z" },
+      "sunset": { "value": "2020-06-22T20:21:45.675Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-22" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 13.75,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-23T06:00:00Z"
+        },
+        "max": {
+          "value": 22.96,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-23T12:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0,
+          "units": "mm/hr",
+          "observation_time": "2020-06-23T06:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 5, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 13.75,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-23T06:00:00Z"
+        },
+        "max": {
+          "value": 22.96,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-23T12:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 50.1,
+          "units": "%",
+          "observation_time": "2020-06-23T12:00:00Z"
+        },
+        "max": {
+          "value": 78.9,
+          "units": "%",
+          "observation_time": "2020-06-23T06:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1009.92,
+          "units": "hPa",
+          "observation_time": "2020-06-24T03:00:00Z"
+        },
+        "max": {
+          "value": 1012.01,
+          "units": "hPa",
+          "observation_time": "2020-06-23T09:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 3.37,
+          "units": "m/s",
+          "observation_time": "2020-06-24T03:00:00Z"
+        },
+        "max": {
+          "value": 4.67,
+          "units": "m/s",
+          "observation_time": "2020-06-23T12:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 30.31,
+          "units": "degrees",
+          "observation_time": "2020-06-24T03:00:00Z"
+        },
+        "max": {
+          "value": 39.75,
+          "units": "degrees",
+          "observation_time": "2020-06-23T12:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-24T00:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-23T09:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-23T03:44:23.155Z" },
+      "sunset": { "value": "2020-06-23T20:21:52.228Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-23" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 14.96,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-24T06:00:00Z"
+        },
+        "max": {
+          "value": 26.45,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-24T12:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 1.0208, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.3333,
+          "units": "mm/hr",
+          "observation_time": "2020-06-24T18:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 40, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 14.96,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-24T06:00:00Z"
+        },
+        "max": {
+          "value": 26.45,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-24T12:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 45.4,
+          "units": "%",
+          "observation_time": "2020-06-24T12:00:00Z"
+        },
+        "max": {
+          "value": 80.2,
+          "units": "%",
+          "observation_time": "2020-06-24T06:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1006.08,
+          "units": "hPa",
+          "observation_time": "2020-06-25T03:00:00Z"
+        },
+        "max": {
+          "value": 1009.82,
+          "units": "hPa",
+          "observation_time": "2020-06-24T06:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 0.88,
+          "units": "m/s",
+          "observation_time": "2020-06-25T03:00:00Z"
+        },
+        "max": {
+          "value": 3.15,
+          "units": "m/s",
+          "observation_time": "2020-06-24T06:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 163.99,
+          "units": "degrees",
+          "observation_time": "2020-06-25T03:00:00Z"
+        },
+        "max": {
+          "value": 30.21,
+          "units": "degrees",
+          "observation_time": "2020-06-24T06:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 23.4,
+          "units": "km",
+          "observation_time": "2020-06-24T15:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-25T00:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-24T03:44:45.273Z" },
+      "sunset": { "value": "2020-06-24T20:21:55.668Z" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-24" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 17.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-26T03:00:00Z"
+        },
+        "max": {
+          "value": 26.35,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-25T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0.1667, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.1667,
+          "units": "mm/hr",
+          "observation_time": "2020-06-25T18:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 45, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 17.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-26T03:00:00Z"
+        },
+        "max": {
+          "value": 26.35,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-25T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 37.4,
+          "units": "%",
+          "observation_time": "2020-06-25T15:00:00Z"
+        },
+        "max": {
+          "value": 73.5,
+          "units": "%",
+          "observation_time": "2020-06-26T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1003.26,
+          "units": "hPa",
+          "observation_time": "2020-06-25T18:00:00Z"
+        },
+        "max": {
+          "value": 1005.96,
+          "units": "hPa",
+          "observation_time": "2020-06-25T06:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 0.63,
+          "units": "m/s",
+          "observation_time": "2020-06-25T06:00:00Z"
+        },
+        "max": {
+          "value": 3.04,
+          "units": "m/s",
+          "observation_time": "2020-06-25T21:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 158.23,
+          "units": "degrees",
+          "observation_time": "2020-06-25T06:00:00Z"
+        },
+        "max": {
+          "value": 279.23,
+          "units": "degrees",
+          "observation_time": "2020-06-25T21:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-25T15:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-25T18:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-25T03:45:10.259Z" },
+      "sunset": { "value": "2020-06-25T20:21:55.984Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-25" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 16.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-27T03:00:00Z"
+        },
+        "max": {
+          "value": 24.85,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-26T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0.1875, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.125,
+          "units": "mm/hr",
+          "observation_time": "2020-06-26T12:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 40, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 16.55,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-27T03:00:00Z"
+        },
+        "max": {
+          "value": 24.85,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-26T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 38.3,
+          "units": "%",
+          "observation_time": "2020-06-26T15:00:00Z"
+        },
+        "max": {
+          "value": 77.5,
+          "units": "%",
+          "observation_time": "2020-06-27T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1005.15,
+          "units": "hPa",
+          "observation_time": "2020-06-26T06:00:00Z"
+        },
+        "max": {
+          "value": 1007.98,
+          "units": "hPa",
+          "observation_time": "2020-06-27T03:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 2.3,
+          "units": "m/s",
+          "observation_time": "2020-06-27T03:00:00Z"
+        },
+        "max": {
+          "value": 5.17,
+          "units": "m/s",
+          "observation_time": "2020-06-26T15:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 228.57,
+          "units": "degrees",
+          "observation_time": "2020-06-27T03:00:00Z"
+        },
+        "max": {
+          "value": 203.31,
+          "units": "degrees",
+          "observation_time": "2020-06-26T15:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 23.11,
+          "units": "km",
+          "observation_time": "2020-06-26T12:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-26T06:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-26T03:45:38.075Z" },
+      "sunset": { "value": "2020-06-26T20:21:53.168Z" },
+      "weather_code": { "value": "drizzle" },
+      "observation_time": { "value": "2020-06-26" }
+    },
+    {
+      "temp": {
+        "min": {
+          "value": 16.12,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-28T03:00:00Z"
+        },
+        "max": {
+          "value": 23.06,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-27T15:00:00Z"
+        }
+      },
+      "precipitation_accumulation": { "value": 0.0208, "units": "mm" },
+      "precipitation": {
+        "max": {
+          "value": 0.0208,
+          "units": "mm/hr",
+          "observation_time": "2020-06-27T12:00:00Z"
+        }
+      },
+      "precipitation_probability": { "value": 10, "units": "%" },
+      "feels_like": {
+        "min": {
+          "value": 16.12,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-28T03:00:00Z"
+        },
+        "max": {
+          "value": 23.06,
+          "units": "\u00b0C",
+          "observation_time": "2020-06-27T15:00:00Z"
+        }
+      },
+      "humidity": {
+        "min": {
+          "value": 44.5,
+          "units": "%",
+          "observation_time": "2020-06-27T15:00:00Z"
+        },
+        "max": {
+          "value": 77.3,
+          "units": "%",
+          "observation_time": "2020-06-28T03:00:00Z"
+        }
+      },
+      "baro_pressure": {
+        "min": {
+          "value": 1007.64,
+          "units": "hPa",
+          "observation_time": "2020-06-27T15:00:00Z"
+        },
+        "max": {
+          "value": 1009.01,
+          "units": "hPa",
+          "observation_time": "2020-06-27T21:00:00Z"
+        }
+      },
+      "wind_speed": {
+        "min": {
+          "value": 1.56,
+          "units": "m/s",
+          "observation_time": "2020-06-28T03:00:00Z"
+        },
+        "max": {
+          "value": 3.83,
+          "units": "m/s",
+          "observation_time": "2020-06-27T18:00:00Z"
+        }
+      },
+      "wind_direction": {
+        "min": {
+          "value": 281.32,
+          "units": "degrees",
+          "observation_time": "2020-06-28T03:00:00Z"
+        },
+        "max": {
+          "value": 224.97,
+          "units": "degrees",
+          "observation_time": "2020-06-27T18:00:00Z"
+        }
+      },
+      "visibility": {
+        "min": {
+          "value": 24.13,
+          "units": "km",
+          "observation_time": "2020-06-27T21:00:00Z"
+        },
+        "max": {
+          "value": 24.14,
+          "units": "km",
+          "observation_time": "2020-06-27T09:00:00Z"
+        }
+      },
+      "sunrise": { "value": "2020-06-27T03:46:08.679Z" },
+      "sunset": { "value": "2020-06-27T20:21:47.216Z" },
+      "weather_code": { "value": "cloudy" },
+      "observation_time": { "value": "2020-06-27" }
+    }
+  ],
+  "location": "Battersea"
+}

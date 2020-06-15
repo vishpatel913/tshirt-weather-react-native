@@ -1,6 +1,6 @@
 import json
 import unittest
-from handler import calculate_clothing
+from app.clothing import calculate_clothing
 
 import unittest
 

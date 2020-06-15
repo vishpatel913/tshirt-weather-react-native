@@ -1,4 +1,4 @@
-service: weather
+service: tshirt-weather-serverless-python
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -10,7 +10,17 @@ provider:
   runtime: python3.6
   environment: ${file(./.env.yml)}
   stage: prod
-# region: us-east-1
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}'
 
 plugins:
   - serverless-offline
@@ -21,6 +31,8 @@ custom:
     httpPort: 5000
   pythonRequirements:
     dockerizePip: true
+    zip: true
+    slim: true
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -40,6 +52,7 @@ custom:
 
 # you can add packaging information here
 package:
+  individually: true
   include:
     # - include-me.py
     - app/**
@@ -57,6 +70,14 @@ functions:
       - http:
           path: weather
           method: get
+          # cors: true
+  save:
+    handler: handler.save_current_data
+    events:
+      - http:
+          path: weather
+          method: post
+          # cors: true
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
@@ -91,8 +112,22 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
+resources:
+  Resources:
+    WeatherDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
 #    NewResource:
 #      Type: AWS::S3::Bucket
 #      Properties:

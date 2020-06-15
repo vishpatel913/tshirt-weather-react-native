@@ -65,5 +65,6 @@ env.bak/
 venv.bak/
 
 
-# Serverless directories
+# Serverless
+*.zip
 .serverless

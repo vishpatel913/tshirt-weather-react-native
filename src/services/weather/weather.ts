@@ -8,7 +8,7 @@ class WeatherService {
   constructor(coords: Coords) {
     this.coords = coords;
     this.baseUrl =
-      'https://fe883xgkja.execute-api.us-east-1.amazonaws.com/prod';
+      'https://486izb204e.execute-api.us-east-1.amazonaws.com/prod';
     // 'http://localhost:5000/prod';
   }
 

@@ -2,6 +2,11 @@ import qs from 'querystring';
 import { Coords } from '../../types/coords';
 import { WeatherResponse } from '../../types/weather';
 
+interface Clothing {
+  upper: string;
+  lower?: string;
+}
+
 class WeatherService {
   coords: Coords;
   baseUrl: string;
@@ -23,6 +28,28 @@ class WeatherService {
       `${this.baseUrl}/${endpoint}?${qs.stringify(params)}`,
     )
       .then((res) => res.json())
+      .then((json) => {
+        if (json.message?.includes('error')) throw json.message;
+        return json;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+
+    return response;
+  }
+
+  async saveClothing(clothing: Clothing) {
+    let data = {
+      method: 'POST',
+      body: JSON.stringify(clothing),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = fetch(`${this.baseUrl}/weather`, data)
+      .then((res) => res.json()) // promise
       .then((json) => {
         if (json.message?.includes('error')) throw json.message;
         return json;

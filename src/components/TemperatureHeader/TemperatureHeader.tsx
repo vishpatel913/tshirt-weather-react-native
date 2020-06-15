@@ -54,11 +54,12 @@ const TemperatureHeader = ({ temp, min, max, label, icon }: Props) => {
       .split('_')
       .slice(0, 2)
       .reduce(
-        (a, c) => (['heavy', 'light'].includes(c) ? [c, ...a] : [...a, c]),
-        [''],
+        (a, c) =>
+          ['heavy', 'light'].includes(c) ? [c.trim(), ...a] : [...a, c.trim()],
+        new Array(0),
       )
       .join(' '),
-  ).trim();
+  );
   return (
     <Container>
       <DescriptionView>

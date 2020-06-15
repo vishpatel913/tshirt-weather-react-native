@@ -126,22 +126,22 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
 
   const status = {
     sunny:
-      Math.min(...activeHours(hourly).map((h) => h.cloud_cover.value)) < 20,
+      Math.min(...activeHours(hourly).map((h) => h.cloud_cover.value)) < 25,
     precipChance:
       Math.max(
         ...activeHours(hourly).map((h) => h.precipitation_probability.value),
       ) > 10,
     cold:
-      activeHours(hourly).reduce((a, c) => a + c.feels_like.value, 0) /
+      activeHours(hourly).reduce((t, c) => t + c.feels_like.value, 0) /
         hourLimit <
       5,
     clothing: {
       upper: Math.round(
-        activeHours(hourly).reduce((a, c) => c.clothing_upper.value, 0) /
+        activeHours(hourly).reduce((t, c) => t + c.clothing_upper.value, 0) /
           hourLimit,
       ),
       lower: Math.round(
-        activeHours(hourly).reduce((a, c) => c.clothing_lower.value, 0) /
+        activeHours(hourly).reduce((t, c) => t + c.clothing_lower.value, 0) /
           hourLimit,
       ),
     },

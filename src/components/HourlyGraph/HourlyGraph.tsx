@@ -9,6 +9,7 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from 'victory-native';
+import { roundValue } from '../../modules/utils';
 import { WeatherCode, WeatherNumberValue } from '../../types/weather';
 import { useWeather } from '../../modules/weatherContext';
 import { WeatherIcon, Text } from '..';
@@ -50,7 +51,7 @@ const NodeLabel = ({
     {additional && additional.value > 0 && (
       <NodeAdditional col={additional.units.length > 3}>
         <Text weight="bold" size={12}>
-          {Math.round(additional.value.toPrecision(3) * 100) / 100}
+          {roundValue(additional.value)}
         </Text>
         <Text weight="bold" size={additional.units.length > 3 ? 8 : 12}>
           {additional.units}

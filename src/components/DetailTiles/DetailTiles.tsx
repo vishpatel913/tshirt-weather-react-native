@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { WeatherNumberValue, WeatherStringValue } from 'src/types/weather';
 import { Icon, Text } from '..';
+import { roundValue } from '../../modules/utils';
 
 interface Props {
   data?: Detail[];
@@ -29,9 +30,6 @@ const TileContainer = styled.View`
 const Label = styled(Text)`
   margin-top: 4px;
 `;
-
-const roundValue = (value: number | string) =>
-  typeof value === 'number' && value !== 100 ? value.toPrecision(2) : value;
 
 const DetailTiles = ({ data }: Props) => {
   return (

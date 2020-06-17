@@ -23,6 +23,7 @@ const StyledText = styled(RNText)<Props>`
   text-shadow: ${({ shadow }) =>
     shadow ? '2px 2px 5px rgba(0, 0, 0, 0.5)' : 'none'};
   text-transform: ${({ transform }) => transform || 'none'};
+  ${({ size }) => size && size < 12 && `line-height: ${size}px;`}
 `;
 
 const Text = (props: Props) => {

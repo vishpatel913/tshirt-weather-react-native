@@ -66,29 +66,32 @@ const Data = ({ weather }: Props) => {
         <DetailTiles data={detailsData} />
       </Section>
       <Section
-        title={
-          willRain
-            ? `chance of ${toTitleCase(
-                current?.precipitation_type.value.replace('none', 'rain') ||
-                  'rain',
-              )}`
-            : 'cloud cover'
-        }>
+        multi={[
+          { index: +!willRain, title: 'Rain chance', icon: 'raindrops' },
+          { index: +!!willRain, title: 'cloud cover', icon: 'cloud' },
+        ]}>
         <HourlyGraph
-          domain={willRain ? undefined : [10, 0]}
           data={hourly?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
-            y: willRain
-              ? item.precipitation_probability.value
-              : item.cloud_cover.value,
-            units: willRain ? item.precipitation_probability.units : undefined,
+            y: item.precipitation_probability.value,
+            units: item.precipitation_probability.units,
             timestamp: item.observation_time.value,
-            icon: willRain
-              ? item.precipitation_probability.value > 0
+            icon:
+              item.precipitation_probability.value > 0
                 ? item.precipitation_type.value
-                : undefined
-              : item.weather_code.value,
-            additional: willRain ? item.precipitation : item.cloud_cover,
+                : undefined,
+
+            additional: item.precipitation,
+          }))}
+        />
+        <HourlyGraph
+          domain={[10, 0]}
+          data={hourly?.map((item) => ({
+            x: moment(item.observation_time.value).format('ha'),
+            y: item.cloud_cover.value,
+            timestamp: item.observation_time.value,
+            icon: item.weather_code.value,
+            additional: item.cloud_cover,
           }))}
         />
       </Section>

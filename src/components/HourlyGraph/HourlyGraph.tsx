@@ -64,7 +64,7 @@ const NodeLabel = ({
         timestamp={timestamp}
       />
     )}
-    {units && (
+    {units && datum.y > 0 && (
       <Text size={20} weight="bold">
         {datum.y}
         {units}

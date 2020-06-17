@@ -1,4 +1,5 @@
 import qs from 'querystring';
+import { SERVERLESS_ENDPOINT } from 'react-native-dotenv';
 import { Coords } from '../../types/coords';
 import { WeatherResponse } from '../../types/weather';
 
@@ -12,8 +13,7 @@ class WeatherService {
   baseUrl: string;
   constructor(coords: Coords) {
     this.coords = coords;
-    this.baseUrl =
-      'https://486izb204e.execute-api.us-east-1.amazonaws.com/prod';
+    this.baseUrl = SERVERLESS_ENDPOINT;
     // 'http://localhost:5000/prod';
   }
 

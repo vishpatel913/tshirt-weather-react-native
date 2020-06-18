@@ -1,0 +1,332 @@
+[
+  {
+    "lon": -0.1606744,
+    "lat": 51.4622518,
+    "temp": {
+      "value": 15.58,
+      "units": "C"
+    },
+    "precipitation": {
+      "value": 0.6099,
+      "units": "mm/hr"
+    },
+    "precipitation_type": {
+      "value": "rain"
+    },
+    "precipitation_probability": {
+      "value": 65,
+      "units": "%"
+    },
+    "feels_like": {
+      "value": 15.58,
+      "units": "C"
+    },
+    "humidity": {
+      "value": 81.59,
+      "units": "%"
+    },
+    "baro_pressure": {
+      "value": 1009.42,
+      "units": "hPa"
+    },
+    "dewpoint": {
+      "value": 12.53,
+      "units": "C"
+    },
+    "wind_speed": {
+      "value": 2.89,
+      "units": "m/s"
+    },
+    "wind_direction": {
+      "value": 248.74,
+      "units": "degrees"
+    },
+    "visibility": {
+      "value": 16,
+      "units": "km"
+    },
+    "cloud_cover": {
+      "value": 99.49,
+      "units": "%"
+    },
+    "sunrise": {
+      "value": "2020-06-18T03:43:14.523Z"
+    },
+    "sunset": {
+      "value": "2020-06-18T20:20:46.416Z"
+    },
+    "moon_phase": {
+      "value": "waning_crescent"
+    },
+    "weather_code": {
+      "value": "rain_light"
+    },
+    "observation_time": {
+      "value": "2020-06-18T10:00:00.000Z"
+    }
+  },
+  {
+    "lon": -0.1606744,
+    "lat": 51.4622518,
+    "temp": {
+      "value": 16.6,
+      "units": "C"
+    },
+    "precipitation": {
+      "value": 0.2222,
+      "units": "mm/hr"
+    },
+    "precipitation_type": {
+      "value": "rain"
+    },
+    "precipitation_probability": {
+      "value": 45,
+      "units": "%"
+    },
+    "feels_like": {
+      "value": 16.6,
+      "units": "C"
+    },
+    "humidity": {
+      "value": 75,
+      "units": "%"
+    },
+    "baro_pressure": {
+      "value": 1009.55,
+      "units": "hPa"
+    },
+    "dewpoint": {
+      "value": 12.22,
+      "units": "C"
+    },
+    "wind_speed": {
+      "value": 2.47,
+      "units": "m/s"
+    },
+    "wind_direction": {
+      "value": 244.38,
+      "units": "degrees"
+    },
+    "visibility": {
+      "value": 16,
+      "units": "km"
+    },
+    "cloud_cover": {
+      "value": 100,
+      "units": "%"
+    },
+    "sunrise": {
+      "value": "2020-06-18T03:43:14.523Z"
+    },
+    "sunset": {
+      "value": "2020-06-18T20:20:46.416Z"
+    },
+    "moon_phase": {
+      "value": "waning_crescent"
+    },
+    "weather_code": {
+      "value": "drizzle"
+    },
+    "observation_time": {
+      "value": "2020-06-18T11:00:00.000Z"
+    }
+  },
+  {
+    "lon": -0.1606744,
+    "lat": 51.4622518,
+    "temp": {
+      "value": 17.11,
+      "units": "C"
+    },
+    "precipitation": {
+      "value": 0.2212,
+      "units": "mm/hr"
+    },
+    "precipitation_type": {
+      "value": "rain"
+    },
+    "precipitation_probability": {
+      "value": 35,
+      "units": "%"
+    },
+    "feels_like": {
+      "value": 17.11,
+      "units": "C"
+    },
+    "humidity": {
+      "value": 70.32,
+      "units": "%"
+    },
+    "baro_pressure": {
+      "value": 1009.54,
+      "units": "hPa"
+    },
+    "dewpoint": {
+      "value": 11.82,
+      "units": "C"
+    },
+    "wind_speed": {
+      "value": 3.18,
+      "units": "m/s"
+    },
+    "wind_direction": {
+      "value": 226.97,
+      "units": "degrees"
+    },
+    "visibility": {
+      "value": 16,
+      "units": "km"
+    },
+    "cloud_cover": {
+      "value": 100,
+      "units": "%"
+    },
+    "sunrise": {
+      "value": "2020-06-18T03:43:14.523Z"
+    },
+    "sunset": {
+      "value": "2020-06-18T20:20:46.416Z"
+    },
+    "moon_phase": {
+      "value": "waning_crescent"
+    },
+    "weather_code": {
+      "value": "drizzle"
+    },
+    "observation_time": {
+      "value": "2020-06-18T12:00:00.000Z"
+    }
+  },
+  {
+    "lon": -0.1606744,
+    "lat": 51.4622518,
+    "temp": {
+      "value": 17.49,
+      "units": "C"
+    },
+    "precipitation": {
+      "value": 0.1455,
+      "units": "mm/hr"
+    },
+    "precipitation_type": {
+      "value": "rain"
+    },
+    "precipitation_probability": {
+      "value": 35,
+      "units": "%"
+    },
+    "feels_like": {
+      "value": 17.49,
+      "units": "C"
+    },
+    "humidity": {
+      "value": 75.05,
+      "units": "%"
+    },
+    "baro_pressure": {
+      "value": 1009.59,
+      "units": "hPa"
+    },
+    "dewpoint": {
+      "value": 12.73,
+      "units": "C"
+    },
+    "wind_speed": {
+      "value": 3.25,
+      "units": "m/s"
+    },
+    "wind_direction": {
+      "value": 221.43,
+      "units": "degrees"
+    },
+    "visibility": {
+      "value": 16,
+      "units": "km"
+    },
+    "cloud_cover": {
+      "value": 90.35,
+      "units": "%"
+    },
+    "sunrise": {
+      "value": "2020-06-18T03:43:14.523Z"
+    },
+    "sunset": {
+      "value": "2020-06-18T20:20:46.416Z"
+    },
+    "moon_phase": {
+      "value": "waning_crescent"
+    },
+    "weather_code": {
+      "value": "drizzle"
+    },
+    "observation_time": {
+      "value": "2020-06-18T13:00:00.000Z"
+    }
+  },
+  {
+    "lon": -0.1606744,
+    "lat": 51.4622518,
+    "temp": {
+      "value": 19.05,
+      "units": "C"
+    },
+    "precipitation": {
+      "value": 0.0718,
+      "units": "mm/hr"
+    },
+    "precipitation_type": {
+      "value": "rain"
+    },
+    "precipitation_probability": {
+      "value": 30,
+      "units": "%"
+    },
+    "feels_like": {
+      "value": 19.05,
+      "units": "C"
+    },
+    "humidity": {
+      "value": 65.17,
+      "units": "%"
+    },
+    "baro_pressure": {
+      "value": 1009.11,
+      "units": "hPa"
+    },
+    "dewpoint": {
+      "value": 12.53,
+      "units": "C"
+    },
+    "wind_speed": {
+      "value": 3.43,
+      "units": "m/s"
+    },
+    "wind_direction": {
+      "value": 206.32,
+      "units": "degrees"
+    },
+    "visibility": {
+      "value": 16,
+      "units": "km"
+    },
+    "cloud_cover": {
+      "value": 68.06,
+      "units": "%"
+    },
+    "sunrise": {
+      "value": "2020-06-18T03:43:14.523Z"
+    },
+    "sunset": {
+      "value": "2020-06-18T20:20:46.416Z"
+    },
+    "moon_phase": {
+      "value": "waning_crescent"
+    },
+    "weather_code": {
+      "value": "drizzle"
+    },
+    "observation_time": {
+      "value": "2020-06-18T14:00:00.000Z"
+    }
+  }
+]

@@ -5,7 +5,8 @@
   "main": "handler.py",
   "scripts": {
     "serve": "sls offline",
-    "deploy": "sls deploy -v"
+    "deploy": "sls deploy -v",
+    "test": "nosetests --verbosity=3"
   },
   "author": "",
   "license": "ISC",

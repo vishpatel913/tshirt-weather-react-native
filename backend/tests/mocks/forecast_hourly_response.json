@@ -11,7 +11,7 @@
       "units": "mm/hr"
     },
     "precipitation_type": {
-      "value": "rain"
+      "value": "freezing rain"
     },
     "precipitation_probability": {
       "value": 65,

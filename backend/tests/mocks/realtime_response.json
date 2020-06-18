@@ -2,11 +2,11 @@
   "lat": 51.4622518,
   "lon": -0.1606744,
   "temp": {
-    "value": 15.63,
+    "value": 15,
     "units": "C"
   },
   "feels_like": {
-    "value": 15.63,
+    "value": 15,
     "units": "C"
   },
   "dewpoint": {
@@ -38,10 +38,10 @@
     "units": "mm/hr"
   },
   "precipitation_type": {
-    "value": "rain"
+    "value": "rain heavy"
   },
   "cloud_cover": {
-    "value": 100,
+    "value": 77,
     "units": "%"
   },
   "sunrise": {

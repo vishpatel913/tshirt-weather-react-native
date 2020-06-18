@@ -74,7 +74,7 @@ def main(event, context):
         'lat': params['lat'],
         'lon': params['lon']
     }
-    mock_path = './mocks/generatedResponse.json'
+    mock_path = './data/generated_response.json'
 
     if 'mocks' in params:
         with open(mock_path, 'r') as mock_data:

@@ -101,15 +101,16 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
         })
         .catch((err: WeatherError) => {
           Alert.alert('Error', 'Unable to fetch the weather');
+          setLoading(false);
         });
     }
   };
 
   useEffect(() => {
-    if (!coords) {
-      getLocation();
-    } else {
+    if (coords) {
       updateWeather();
+    } else {
+      getLocation();
     }
   }, [coords]);
 

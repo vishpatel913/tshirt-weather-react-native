@@ -6,9 +6,9 @@ export const toTitleCase = (string: string) =>
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
 
-export const roundValue = (value: number | string, sigfig = 2) =>
+export const roundValue = (value: number | string, sf = 2) =>
   typeof value === 'number' && value !== 100 && value > 0
-    ? Math.ceil(parseFloat(value.toPrecision(sigfig)) * 1000) / 1000
+    ? Math.ceil(parseFloat(value.toPrecision(sf)) * 1000) / 1000
     : value;
 
 export const requestLocationPermissions = async () => {

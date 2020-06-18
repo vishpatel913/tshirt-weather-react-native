@@ -67,7 +67,14 @@ const Data = ({ weather }: Props) => {
       </Section>
       <Section
         multi={[
-          { index: +!willRain, title: 'Rain chance', icon: 'raindrops' },
+          {
+            index: +!willRain,
+            title: `chance of ${toTitleCase(
+              current?.precipitation_type.value.replace('none', 'rain') ||
+                'rain',
+            )}`,
+            icon: 'raindrops',
+          },
           { index: +!!willRain, title: 'cloud cover', icon: 'cloud' },
         ]}>
         <HourlyGraph

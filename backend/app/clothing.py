@@ -1,4 +1,6 @@
 def calculate_clothing(temp, cloud):
+    if cloud == None:
+        cloud = 0
     upper = 4
     lower = 1
     cloudConst = 6 * cloud / 100

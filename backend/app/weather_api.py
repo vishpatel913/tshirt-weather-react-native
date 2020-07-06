@@ -9,57 +9,57 @@ deg_unit = '\u00b0C'
 
 class WeatherAPI:
     def __init__(self, coords):
-        self.api_url_base = 'https://api.climacell.co/v3/weather'
-        self.params = {
+        if not all(coords.values()):
+            raise ValueError('Location not supplied')
+
+        self.base_url = 'https://api.climacell.co/v3/weather'
+        self.base_params = {
             'apikey': os.environ['CLIMACELL_API_KEY'],
             'lat': coords['lat'],
             'lon': coords['lon'],
             'unit_system': 'si',
         }
-        self.fields = ['temp', 'feels_like', 'dewpoint', 'humidity', 'wind_speed', 'wind_direction',
-                       'baro_pressure', 'precipitation', 'precipitation_type', 'sunrise', 'sunset',
-                       'visibility', 'cloud_cover', 'moon_phase', 'weather_code']
+        self.generic_fields = ['temp', 'feels_like', 'dewpoint', 'humidity', 'wind_speed', 'wind_direction',
+                               'baro_pressure', 'precipitation', 'precipitation_type', 'sunrise', 'sunset',
+                               'visibility', 'cloud_cover', 'moon_phase', 'weather_code']
         self.header = {'content-type': 'application/json'}
 
     def get(self, endpoint, params):
         qstr = urlencode(params)
-        api_url = '{0}/{1}?{2}'.format(self.api_url_base, endpoint, qstr)
+        api_url = '%s/%s?%s' % (self.base_url, endpoint, qstr)
         response = requests.get(api_url, headers=self.header)
         response = response.json()
         return response
 
     def get_current(self):
-        params = self.params
-        params['fields'] = ','.join(self.fields)
+        params = self.base_params
+        params['fields'] = ','.join(self.generic_fields)
         response = self.get('realtime', params)
 
         return self.normalize_weather(response)
 
     def get_hourly(self):
-        params = self.params
+        params = self.base_params
         params['fields'] = ','.join(
-            self.fields + ['precipitation_probability'])
+            self.generic_fields + ['precipitation_probability'])
         response = self.get('forecast/hourly', params)
 
-        for h in response:
-            del h['lat']
-            del h['lon']
-            h = self.normalize_weather(h)
-
-        return response
+        normalized_response = [self.normalize_weather(
+            h, del_coords=True) for h in response]
+        return normalized_response
 
     def get_daily(self):
-        params = self.params
-        fields = self.fields + \
+        params = self.base_params
+        fields = self.generic_fields + \
             ['precipitation_probability', 'precipitation_accumulation']
-        remove = ['dewpoint', 'precipitation_type',
-                  'cloud_cover', 'moon_phase']
-        for r in remove:
-            if r in fields:
-                fields.remove(r)
+        remove_fields = ['dewpoint', 'precipitation_type',
+                         'cloud_cover', 'moon_phase']
+
+        fields = [f for f in fields if f not in remove_fields]
         params['fields'] = ','.join(fields)
         response = self.get('forecast/daily', params)
 
+        normalized_response = response
         for d in response:
             del d['lat']
             del d['lon']
@@ -71,10 +71,13 @@ class WeatherAPI:
                         d[key]['min']['units'] = deg_unit
                         d[key]['max']['units'] = deg_unit
 
-        return response
+        return normalized_response
 
     @staticmethod
-    def normalize_weather(dict):
+    def normalize_weather(dict, del_coords=False):
+        if del_coords:
+            del dict['lat']
+            del dict['lon']
         dict['precipitation_type']['value'] = dict['precipitation_type']['value'].replace(
             ' ', '_')
         for k in ['temp', 'feels_like', 'dewpoint']:

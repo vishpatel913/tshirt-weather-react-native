@@ -67,4 +67,5 @@ venv.bak/
 
 # Serverless
 *.zip
+unzip-requirements.py
 .serverless

@@ -74,10 +74,10 @@ def main(event, context):
         'lat': params['lat'],
         'lon': params['lon']
     }
-    mock_path = './data/generated_response.json'
+    generated_data_path = './data/generated_response.json'
 
     if 'mocks' in params:
-        with open(mock_path, 'r') as mock_data:
+        with open(generated_data_path, 'r') as mock_data:
             print('using mocks')
             return build_response(200, json.load(mock_data))
 
@@ -90,7 +90,7 @@ def main(event, context):
     data['location'] = geocode_coords(coords)
 
     if 'export' in params:
-        with open(mock_path, 'w') as outfile:
+        with open(generated_data_path, 'w') as outfile:
             json.dump(data, outfile)
 
     return build_response(200, data)

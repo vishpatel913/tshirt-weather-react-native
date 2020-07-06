@@ -9,3 +9,11 @@ def test_clothing_calculations():
     clothing_json = calculate_clothing(temp, cloud)
     eq_(clothing_json,
         {'upper': 1, 'lower': 1})
+
+
+def test_clothing_no_params():
+    temp = 23
+    cloud = None
+    clothing_json = calculate_clothing(temp, cloud)
+    eq_(clothing_json,
+        {'upper': 1, 'lower': 0})

@@ -1,21 +1,26 @@
-import json
 import os
-from unittest.mock import patch, MagicMock
-from nose.tools import with_setup, assert_equal, assert_in, assert_not_in
+import json
+from unittest.mock import patch, call, MagicMock
+from nose.tools import with_setup, assert_equal, assert_in, assert_not_in, assert_raises
 from app.weather_api import WeatherAPI
 
-mock_coords = {'lat': '54.9952895', 'lon': '-1.609961'}
+mock_coords = {'lat': '54', 'lon': '-1.6'}
 with patch.dict(os.environ, {'CLIMACELL_API_KEY': 'key'}):
     mock_weather_api = WeatherAPI(mock_coords)
 
 
-def mock_get(endpoint, params):
+def mock_successful_get(endpoint, params):
     with open(f'./tests/mocks/{endpoint.replace("/", "_")}_response.json', 'r') as mock_data:
         return json.load(mock_data)
 
 
 def setup_mock():
-    mock_weather_api.get = MagicMock(side_effect=mock_get)
+    mock_weather_api.get = MagicMock(side_effect=mock_successful_get)
+
+
+def test_throws_error_when_null_coords():
+    with patch.dict(os.environ, {'CLIMACELL_API_KEY': 'key'}):
+        assert_raises(ValueError, WeatherAPI, {"lat": None, "lon": None})
 
 
 @with_setup(setup_mock)
@@ -35,10 +40,10 @@ def test_get_current_correct_temp_units():
 
 
 @with_setup(setup_mock)
-def test_get_hourly_correct_params_passed():
+def test_get_hourly_correct_field_params_passed():
     response = mock_weather_api.get_hourly()
-    assert_in('precipitation_probability',
-              mock_weather_api.params['fields'])
+    arg1, arg2 = mock_weather_api.get.call_args[0]
+    assert_in('precipitation_probability', arg2['fields'])
 
 
 @with_setup(setup_mock)
@@ -49,12 +54,20 @@ def test_get_hourly_correct_type_string_format():
 
 
 @with_setup(setup_mock)
-def test_get_daily_correct_params_passed():
+def test_get_hourly_correct_temp_units():
+    response = mock_weather_api.get_hourly()
+    feels_like = response[0]['feels_like']
+    assert_equal(feels_like['units'], '°C')
+
+
+@with_setup(setup_mock)
+def test_get_daily_correct_field_params_passed():
     response = mock_weather_api.get_daily()
-    assert_in('precipitation_accumulation',
-              mock_weather_api.params['fields'])
-    assert_not_in('cloud_cover',
-                  mock_weather_api.params['fields'])
+    arg1, arg2 = mock_weather_api.get.call_args[0]
+    assert_in('precipitation_probability', arg2['fields'])
+    assert_in('precipitation_accumulation', arg2['fields'])
+    assert_not_in('cloud_cover', arg2['fields'])
+    assert_not_in('moon_phase', arg2['fields'])
 
 
 @with_setup(setup_mock)

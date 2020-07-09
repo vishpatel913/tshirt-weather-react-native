@@ -84,3 +84,24 @@ def test_get_daily_correct_temp_unit():
     today = response[0]
     units = today['feels_like']['min']['units']
     assert_equal(units, '°C')
+
+
+@with_setup(setup_mock)
+def test_normalising_min_max_data():
+    input = [
+        {
+            'min': {'value': 12, 'units': 'C'},
+            'observation_time': 1000
+        },
+        {
+            'max': {'value': 24, 'units': 'C'},
+            'observation_time': 2000
+        },
+    ]
+    expected = {
+        'min': {'value': 12, 'units': '°C', 'observation_time': 1000},
+        'max': {'value': 24, 'units': '°C', 'observation_time': 2000}
+    }
+    res = mock_weather_api.normalize_min_max(input, 'temp')
+
+    assert_equal(res, expected)

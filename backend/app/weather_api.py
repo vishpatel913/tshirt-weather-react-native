@@ -1,6 +1,7 @@
 import json
 import requests
 import os
+from functools import reduce
 from urllib.parse import urlencode
 from .clothing import calculate_clothing
 
@@ -59,19 +60,14 @@ class WeatherAPI:
         params['fields'] = ','.join(fields)
         response = self.get('forecast/daily', params)
 
-        normalized_response = response
         for d in response:
             del d['lat']
             del d['lon']
             for key, value in d.items():
                 if isinstance(value, list):
-                    d[key] = self.normalize_min_max(value)
+                    d[key] = self.normalize_min_max(value, key)
 
-                    if key in ['temp', 'feels_like']:
-                        d[key]['min']['units'] = deg_unit
-                        d[key]['max']['units'] = deg_unit
-
-        return normalized_response
+        return response
 
     @staticmethod
     def normalize_weather(dict, del_coords=False):
@@ -91,14 +87,16 @@ class WeatherAPI:
         return dict
 
     @staticmethod
-    def normalize_min_max(list):
-        dict = {}
-        for i in list:
-            if 'min' in i:
-                dict['min'] = i['min']
-                dict['min']['observation_time'] = i['observation_time']
-            if 'max' in i:
-                dict['max'] = i['max']
-                dict['max']['observation_time'] = i['observation_time']
+    def normalize_min_max(list, key):
+        normalized_dict = {}
+        tk = 'observation_time'
+        for m in list:
+            min_max_key = reduce(lambda a, b: a if a !=
+                                 tk else b, m.keys())
+            if min_max_key in m:
+                normalized_dict[min_max_key] = m[min_max_key]
+                normalized_dict[min_max_key][tk] = m[tk]
+                if key in ['temp', 'feels_like']:
+                    normalized_dict[min_max_key]['units'] = deg_unit
 
-        return dict
+        return normalized_dict

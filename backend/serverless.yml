@@ -54,7 +54,6 @@ custom:
 package:
   individually: true
   include:
-    # - include-me.py
     - app/**
   exclude:
     - venv/** # virtualenv
@@ -65,17 +64,17 @@ package:
 
 functions:
   weather:
-    handler: handler.main
+    handler: handlers/get_weather.main
     events:
       - http:
           path: weather
           method: get
           # cors: true
   save:
-    handler: handler.save_current_data
+    handler: handlers/classify_current_weather.main
     events:
       - http:
-          path: weather
+          path: classify
           method: post
           # cors: true
 #      - websocket: $connect

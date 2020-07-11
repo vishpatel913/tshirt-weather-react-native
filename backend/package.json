@@ -6,7 +6,9 @@
   "scripts": {
     "serve": "sls offline",
     "deploy": "sls deploy -v",
-    "test": "nosetests --verbosity=3"
+    "test": "nosetests",
+    "lint": "pycodestyle .",
+    "format": "autopep8 --in-place --recursive ."
   },
   "author": "",
   "license": "ISC",

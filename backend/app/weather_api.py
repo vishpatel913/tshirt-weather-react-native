@@ -1,17 +1,19 @@
 import json
 import requests
 import os
+import logging
 from functools import reduce
 from urllib.parse import urlencode
 from .clothing import calculate_clothing
+from .error import ErrorWithCode
 
-deg_unit = '\u00b0C'
+deg_c_unit = '\u00b0C'
 
 
 class WeatherAPI:
     def __init__(self, coords):
         if not all(coords.values()):
-            raise ValueError('Location not supplied')
+            raise ValueError('Coordinates required')
 
         self.base_url = 'https://api.climacell.co/v3/weather'
         self.base_params = {
@@ -20,17 +22,23 @@ class WeatherAPI:
             'lon': coords['lon'],
             'unit_system': 'si',
         }
-        self.generic_fields = ['temp', 'feels_like', 'dewpoint', 'humidity', 'wind_speed', 'wind_direction',
-                               'baro_pressure', 'precipitation', 'precipitation_type', 'sunrise', 'sunset',
-                               'visibility', 'cloud_cover', 'moon_phase', 'weather_code']
+        self.generic_fields = ['temp', 'feels_like', 'dewpoint', 'humidity',
+                               'wind_speed', 'wind_direction', 'baro_pressure',
+                               'precipitation', 'precipitation_type', 'sunset',
+                               'sunrise', 'visibility', 'moon_phase',
+                               'cloud_cover', 'weather_code']
         self.header = {'content-type': 'application/json'}
 
     def get(self, endpoint, params):
         qstr = urlencode(params)
-        api_url = '%s/%s?%s' % (self.base_url, endpoint, qstr)
-        response = requests.get(api_url, headers=self.header)
-        response = response.json()
-        return response
+        endpoint = '%s/%s?%s' % (self.base_url, endpoint, qstr)
+        response = requests.get(endpoint, headers=self.header)
+
+        if response.status_code != 200:
+            raise ErrorWithCode(
+                'Failed to connect to ClimaCell API', response.status_code)
+
+        return response.json()
 
     def get_current(self):
         params = self.base_params
@@ -45,8 +53,8 @@ class WeatherAPI:
             self.generic_fields + ['precipitation_probability'])
         response = self.get('forecast/hourly', params)
 
-        normalized_response = [self.normalize_weather(
-            h, del_coords=True) for h in response]
+        normalized_response = [self.normalize_weather(h) for h in response]
+
         return normalized_response
 
     def get_daily(self):
@@ -55,29 +63,25 @@ class WeatherAPI:
             ['precipitation_probability', 'precipitation_accumulation']
         remove_fields = ['dewpoint', 'precipitation_type',
                          'cloud_cover', 'moon_phase']
-
         fields = [f for f in fields if f not in remove_fields]
         params['fields'] = ','.join(fields)
         response = self.get('forecast/daily', params)
 
-        for d in response:
-            del d['lat']
-            del d['lon']
-            for key, value in d.items():
-                if isinstance(value, list):
-                    d[key] = self.normalize_min_max(value, key)
+        normalized_response = [{key: self.normalize_min_max(value, key)
+                                for key, value in d.items()
+                                if key not in ['lat', 'lon']}
+                               for d in response]
 
-        return response
+        return normalized_response
 
     @staticmethod
-    def normalize_weather(dict, del_coords=False):
-        if del_coords:
-            del dict['lat']
-            del dict['lon']
-        dict['precipitation_type']['value'] = dict['precipitation_type']['value'].replace(
-            ' ', '_')
+    def normalize_weather(dict):
+        del dict['lat']
+        del dict['lon']
+        dict['precipitation_type']['value'] = \
+            dict['precipitation_type']['value'].replace(' ', '_')
         for k in ['temp', 'feels_like', 'dewpoint']:
-            dict[k]['units'] = deg_unit
+            dict[k]['units'] = deg_c_unit
 
         clothing = calculate_clothing(
             dict['temp']['value'], dict['cloud_cover']['value'])
@@ -87,16 +91,19 @@ class WeatherAPI:
         return dict
 
     @staticmethod
-    def normalize_min_max(list, key):
+    def normalize_min_max(value, key):
+        if not isinstance(value, list):
+            return value
+
         normalized_dict = {}
-        tk = 'observation_time'
-        for m in list:
-            min_max_key = reduce(lambda a, b: a if a !=
-                                 tk else b, m.keys())
-            if min_max_key in m:
-                normalized_dict[min_max_key] = m[min_max_key]
-                normalized_dict[min_max_key][tk] = m[tk]
+        time_key = 'observation_time'
+        for m in value:
+            limit_key = reduce(lambda a, b: a if a !=
+                               time_key else b, m.keys())
+            if limit_key in m:
+                normalized_dict[limit_key] = m[limit_key]
+                normalized_dict[limit_key][time_key] = m[time_key]
                 if key in ['temp', 'feels_like']:
-                    normalized_dict[min_max_key]['units'] = deg_unit
+                    normalized_dict[limit_key]['units'] = deg_c_unit
 
         return normalized_dict

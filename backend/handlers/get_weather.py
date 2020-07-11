@@ -25,7 +25,7 @@ def main(event, context):
             return build_response(304, json.load(mock_data))
 
     weather_api = WeatherAPI(coords)
-    data = {'coords': coords}
+    data = {"coords": coords}
 
     try:
         data["current"] = weather_api.get_current()

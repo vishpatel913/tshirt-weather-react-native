@@ -8,7 +8,7 @@
     "deploy": "sls deploy -v",
     "test": "nosetests",
     "lint": "pycodestyle .",
-    "format": "autopep8 --in-place --recursive ."
+    "format": "autopep8 -i -r -a -a ."
   },
   "author": "",
   "license": "ISC",

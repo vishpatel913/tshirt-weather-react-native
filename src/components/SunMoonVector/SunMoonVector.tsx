@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Animated, View } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
 import { SkyVectorKey } from '../../types/common';
@@ -21,7 +21,7 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
     rayOuterSize: { moon: 0, sun: 280 },
     rayOpacity: { moon: 0, sun: 0.5 },
   };
-  const state = {
+  const initialSvg = {
     moonMask: new Animated.Value(animatedValues.moonMask[initialKey]),
     mainSize: new Animated.Value(animatedValues.mainSize[initialKey]),
     rayInnerSize: new Animated.Value(animatedValues.rayInnerSize[initialKey]),
@@ -34,45 +34,48 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
     delay: 500,
     useNativeDriver: false,
   };
+  const [svgValues, setSvgValues] = useState(initialSvg);
 
   const transitionTo = (key: SkyVectorKey) => {
     return Animated.parallel([
-      Animated.timing(state.moonMask, {
+      Animated.timing(svgValues.moonMask, {
         toValue: animatedValues.moonMask[key],
         ...animationConfig,
       }),
-      Animated.timing(state.mainSize, {
+      Animated.timing(svgValues.mainSize, {
         toValue: animatedValues.mainSize[key],
         ...animationConfig,
       }),
-      Animated.timing(state.rayInnerSize, {
+      Animated.timing(svgValues.rayInnerSize, {
         toValue: animatedValues.rayInnerSize[key],
         ...animationConfig,
       }),
-      Animated.timing(state.rayOuterSize, {
+      Animated.timing(svgValues.rayOuterSize, {
         toValue: animatedValues.rayOuterSize[key],
         ...animationConfig,
       }),
-      Animated.timing(state.rayOpacity, {
+      Animated.timing(svgValues.rayOpacity, {
         toValue: animatedValues.rayOpacity[key],
         ...animationConfig,
       }),
     ]);
   };
 
-  const loopTransitions = () => {
+  const loopTransitions = () =>
     Animated.loop(
       Animated.sequence(
         [transitionTo(SkyVectorKey.MOON), transitionTo(SkyVectorKey.SUN)].sort(
           () => -(moon || 0),
         ),
       ),
-    ).start();
-  };
+    );
 
   useEffect(() => {
     if (animate) {
-      loopTransitions();
+      loopTransitions().start();
+    } else {
+      loopTransitions().stop();
+      setSvgValues(initialSvg);
     }
   }, [animate]);
 
@@ -86,7 +89,7 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
               <AnimatedCircle
                 cx={400}
                 cy={250}
-                r={state.moonMask}
+                r={svgValues.moonMask}
                 fill="black"
               />
             </Mask>
@@ -94,21 +97,21 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
           <AnimatedCircle
             cx={300}
             cy={300}
-            r={state.rayOuterSize}
+            r={svgValues.rayOuterSize}
             fill="#fcf8f1"
-            fillOpacity={state.rayOpacity}
+            fillOpacity={svgValues.rayOpacity}
           />
           <AnimatedCircle
             cx={300}
             cy={300}
-            r={state.rayInnerSize}
+            r={svgValues.rayInnerSize}
             fill="#fcf8f1"
-            fillOpacity={state.rayOpacity}
+            fillOpacity={svgValues.rayOpacity}
           />
           <AnimatedCircle
             cx={300}
             cy={300}
-            r={state.mainSize}
+            r={svgValues.mainSize}
             fill={`hsl(${moon ? 212.7 : 38.2}, 64.7%, 96.7%)`}
             mask="url(#moon-mask)"
           />

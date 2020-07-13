@@ -17,7 +17,7 @@ const Background = styled.View`
   height: 400px;
   width: 100%;
 `;
-const Sun = styled(SunMoonVector)<{ opacity?: number }>`
+const SunMoon = styled(SunMoonVector)<{ opacity?: number }>`
   position: absolute;
   right: 64px;
   top: 64px;
@@ -25,7 +25,7 @@ const Sun = styled(SunMoonVector)<{ opacity?: number }>`
 `;
 
 const LandscapeVector = () => {
-  const { current, isDaytime } = useWeather();
+  const { current, isDaytime, isLoading } = useWeather();
   const cloudOpacity = (100 - (current?.cloud_cover.value || 0)) / 100;
 
   return (
@@ -34,10 +34,11 @@ const LandscapeVector = () => {
       <Background>
         <Svg>
           <G mask="url(#landscapeMask)">
-            <Sun
+            <SunMoon
               width={64}
               height={64}
               moon={!isDaytime()}
+              animate={isLoading}
               opacity={cloudOpacity}
             />
             {!isDaytime() &&

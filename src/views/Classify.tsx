@@ -5,6 +5,7 @@ import { Layout, Section, Text, Button, SunMoonVector } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 import WeatherService from '../services/weather';
 import CheckCircle from '../assets/svgs/tick.svg';
+import { toTitleCase } from '../modules/utils';
 
 interface Props {
   weather: WeatherState;
@@ -23,9 +24,35 @@ const SaveStateFooter = styled.View`
 `;
 
 const Classify = ({ weather }: Props) => {
-  const { coords } = weather;
+  const { coords, current } = weather;
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+
+  const handleSave = (upper: string, lower?: string) => {
+    const ignoreKeys = [
+      'sunrise',
+      'sunset',
+      'moon_phase',
+      'observation_time',
+      'clothing_upper',
+      'clothing_lower',
+    ];
+    const currentData =
+      current &&
+      Object.entries(current).reduce(
+        (a, [k, v]) => (!ignoreKeys.includes(k) ? `${a}${k}: ${v.value}\n` : a),
+        '',
+      );
+    Alert.alert(
+      `Save Clothing - ${toTitleCase(upper)}`,
+      currentData,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Save', onPress: () => saveClassification(upper, lower) },
+      ],
+      { cancelable: true },
+    );
+  };
 
   const saveClassification = async (upper: string, lower?: string) => {
     setSaving(true);
@@ -46,50 +73,21 @@ const Classify = ({ weather }: Props) => {
 
   return (
     <PageLayout>
-      <Section title="Save Clothing">
+      <Section title="Clothing Classifications">
         <ButtonsWrapper>
           <Button
             text="T-shirt & Shorts"
-            onPress={() => {
-              saveClassification('tshirt', 'shorts');
-            }}
+            onPress={() => handleSave('tshirt', 'shorts')}
           />
-          <Button
-            text="T-shirt"
-            onPress={() => {
-              saveClassification('tshirt');
-            }}
-          />
+          <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
           <Button
             text="Jacket & Shorts"
-            onPress={() => {
-              saveClassification('jacket', 'shorts');
-            }}
+            onPress={() => handleSave('jacket', 'shorts')}
           />
-          <Button
-            text="Jacket"
-            onPress={() => {
-              saveClassification('jacket');
-            }}
-          />
-          <Button
-            text="Jumper"
-            onPress={() => {
-              saveClassification('jumper');
-            }}
-          />
-          <Button
-            text="Coat"
-            onPress={() => {
-              saveClassification('coat');
-            }}
-          />
-          <Button
-            text="Layers"
-            onPress={() => {
-              saveClassification('layers');
-            }}
-          />
+          <Button text="Jacket" onPress={() => handleSave('jacket')} />
+          <Button text="Jumper" onPress={() => handleSave('jumper')} />
+          <Button text="Coat" onPress={() => handleSave('coat')} />
+          <Button text="Layers" onPress={() => handleSave('layers')} />
         </ButtonsWrapper>
       </Section>
 

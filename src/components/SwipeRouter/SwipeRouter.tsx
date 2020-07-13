@@ -30,13 +30,28 @@ const SwipeRouter = ({ children }: Props) => {
   useEffect(() => {
     Animated.loop(
       Animated.timing(arrowY, {
-        toValue: 1,
-        duration: 3000,
+        toValue: arrowY.interpolate({
+          inputRange: [0, 0.05, 0.15, 1],
+          outputRange: [0, 10, 0, 0],
+        }),
+        duration: 2000,
+        delay: 1000,
         easing: Easing.linear,
         useNativeDriver: true,
       }),
     ).start();
   }, []);
+
+  useEffect(() => {
+    if (index === pages - 1) {
+      Animated.timing(arrowY, {
+        toValue: 1000,
+        duration: 1000,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [index]);
 
   return (
     <>
@@ -58,21 +73,9 @@ const SwipeRouter = ({ children }: Props) => {
         {children}
       </SwipeContainer>
       <Footer>
-        {index !== pages - 1 && (
-          <SwipeArrowContainer
-            style={{
-              transform: [
-                {
-                  translateY: arrowY.interpolate({
-                    inputRange: [0, 0.05, 0.15, 1],
-                    outputRange: [0, 10, 0, 0],
-                  }),
-                },
-              ],
-            }}>
-            <SwipeArrow width={40} height={40} />
-          </SwipeArrowContainer>
-        )}
+        <SwipeArrowContainer style={{ transform: [{ translateY: arrowY }] }}>
+          <SwipeArrow width={40} height={40} />
+        </SwipeArrowContainer>
       </Footer>
     </>
   );

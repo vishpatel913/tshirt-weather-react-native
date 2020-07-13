@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
+import { useNavigation } from '@react-navigation/native';
 import { useWeather } from '../../modules/weatherContext';
 import {
   Tshirt,
@@ -13,7 +14,7 @@ import {
   Scarf,
   Umbrella,
 } from './ClothingVector';
-import { Text } from '..';
+import { Text, Icon } from '..';
 
 interface Props {
   upper: number;
@@ -45,6 +46,9 @@ const SubIcons = styled.View<{ children: ReactNode[] }>`
     children?.length &&
     `width: ${children.filter((item) => !!item).length * 40}px`};
 `;
+const ClassifyButton = styled.TouchableOpacity`
+  margin-left: auto;
+`;
 
 const CLOTHING_CONFIG = [
   {
@@ -69,6 +73,7 @@ const ClothingDetails = ({
   woolies,
 }: Props) => {
   const { isDaytime } = useWeather();
+  const { navigate } = useNavigation();
 
   return (
     <Container>
@@ -83,6 +88,9 @@ const ClothingDetails = ({
           {woolies && <Scarf height={32} width={32} />}
         </SubIcons>
       </Content>
+      <ClassifyButton onPress={() => navigate('classify')}>
+        <Icon name="hurricane" />
+      </ClassifyButton>
     </Container>
   );
 };

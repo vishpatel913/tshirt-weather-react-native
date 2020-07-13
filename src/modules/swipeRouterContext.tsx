@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useContext } from 'react';
 
-export interface RouterState {
+export interface SwipeRouterState {
   pages: number;
   index: number;
   push: (i: number) => void;
@@ -17,9 +17,9 @@ const initialState = {
   push: (i: number) => null,
 };
 
-export const RouterContext = createContext<RouterState>(initialState);
+export const SwipeRouterContext = createContext<SwipeRouterState>(initialState);
 
-export const RouterProvider = ({ children, pages }: ProviderProps) => {
+export const SwipeRouterProvider = ({ children, pages }: ProviderProps) => {
   const [index, push] = useState(initialState.index);
 
   const ctx = {
@@ -29,8 +29,10 @@ export const RouterProvider = ({ children, pages }: ProviderProps) => {
   };
 
   return (
-    <RouterContext.Provider value={ctx}>{children}</RouterContext.Provider>
+    <SwipeRouterContext.Provider value={ctx}>
+      {children}
+    </SwipeRouterContext.Provider>
   );
 };
 
-export const useRouter = () => useContext(RouterContext);
+export const useSwipeRouter = () => useContext(SwipeRouterContext);

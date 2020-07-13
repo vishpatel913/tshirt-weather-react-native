@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Layout, Section, Text, Button, SunMoonVector } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 import WeatherService from '../services/weather';
@@ -12,6 +13,10 @@ interface Props {
 }
 
 const PageLayout = styled(Layout)`
+  justify-content: flex-start;
+`;
+const Header = styled.View`
+  flex-direction: row;
   justify-content: flex-start;
 `;
 const ButtonsWrapper = styled.View`
@@ -27,6 +32,7 @@ const Classify = ({ weather }: Props) => {
   const { coords, current } = weather;
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const { goBack } = useNavigation();
 
   const handleSave = (upper: string, lower?: string) => {
     const ignoreKeys = [
@@ -44,7 +50,7 @@ const Classify = ({ weather }: Props) => {
         '',
       );
     Alert.alert(
-      `Save Clothing - ${toTitleCase(upper)}`,
+      `Save Current Weather: ${toTitleCase(upper)}`,
       currentData,
       [
         { text: 'Cancel', style: 'cancel' },
@@ -73,6 +79,14 @@ const Classify = ({ weather }: Props) => {
 
   return (
     <PageLayout>
+      <Header>
+        <Button
+          small
+          text="Back"
+          icon="direction-left"
+          onPress={() => goBack()}
+        />
+      </Header>
       <Section title="Clothing Classifications">
         <ButtonsWrapper>
           <Button

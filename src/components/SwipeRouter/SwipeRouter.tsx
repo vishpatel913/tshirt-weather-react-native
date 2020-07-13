@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 
 import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
 import { useWeather } from '../../modules/weatherContext';
-import { useRouter } from '../../modules/routerContext';
+import { useSwipeRouter } from '../../modules/swipeRouterContext';
 
 interface Props {
   children: ReactNode;
@@ -24,7 +24,7 @@ const SwipeArrowContainer = styled(Animated.View)`
 
 const SwipeRouter = ({ children }: Props) => {
   const { isLoading, actions } = useWeather();
-  const { pages, index, push } = useRouter();
+  const { pages, index, push } = useSwipeRouter();
   const arrowY = new Animated.Value(0);
 
   useEffect(() => {

@@ -6,8 +6,7 @@ import { RouterProvider } from './modules/routerContext';
 import { theme } from './styles/theme';
 
 import { GradientContainer, SwipeRouter } from './components';
-import Home from './views/Home';
-import Data from './views/Data';
+import { Home, Data } from './views';
 
 const App = () => (
   <>

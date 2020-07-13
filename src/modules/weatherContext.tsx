@@ -11,7 +11,7 @@ import moment from 'moment';
 import Geolocation from '@react-native-community/geolocation';
 
 import { WeatherService } from '../services';
-import { Coords } from '../types/coords';
+import { Coords } from '../types/location';
 import {
   WeatherResponse,
   WeatherError,
@@ -93,7 +93,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
       const ws = new WeatherService(coords);
       ws.get('weather')
         .then((res: WeatherResponse) => {
-          setLocation(res.location);
+          setLocation(res.location.name);
           setCurrent(res.current);
           setHourly(res.hourly);
           setDaily(res.daily);
@@ -157,7 +157,10 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     status,
     isLoading,
     isDaytime,
-    actions: { getLocation, toggleDark: () => setReverseDay(!reverseDay) },
+    actions: {
+      getLocation,
+      toggleDark: () => setReverseDay(!reverseDay),
+    },
   };
 
   return (

@@ -22,16 +22,16 @@ def main(event, context):
     if "mocks" in params:
         with open(generated_data_path, "r") as mock_data:
             logging.info("returned mock data")
-            return build_response(304, json.load(mock_data))
+            return build_response(200, json.load(mock_data))
 
     weather_api = WeatherAPI(coords)
-    data = {"coords": coords}
+    data = {"location": coords}
 
     try:
         data["current"] = weather_api.get_current()
         data["hourly"] = weather_api.get_hourly()
         data["daily"] = weather_api.get_daily()
-        data["location"] = geocode_coords(coords)
+        data["location"]["name"] = geocode_coords(coords)
 
     except ErrorWithCode as e:
         logging.error("Unable to fetch weather data")

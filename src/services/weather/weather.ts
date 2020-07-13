@@ -1,6 +1,6 @@
 import qs from 'querystring';
 import { SERVERLESS_ENDPOINT } from 'react-native-dotenv';
-import { Coords } from '../../types/coords';
+import { Coords } from '../../types/location';
 import { WeatherResponse } from '../../types/weather';
 
 interface Clothing {
@@ -40,7 +40,11 @@ class WeatherService {
   }
 
   async saveClothing(clothing: Clothing) {
-    let data = {
+    const params = {
+      lat: this.coords.lat,
+      lon: this.coords.lon,
+    };
+    const data = {
       method: 'POST',
       body: JSON.stringify(clothing),
       headers: {
@@ -48,7 +52,10 @@ class WeatherService {
         'Content-Type': 'application/json',
       },
     };
-    const response = fetch(`${this.baseUrl}/weather`, data)
+    const response = fetch(
+      `${this.baseUrl}/classify?${qs.stringify(params)}`,
+      data,
+    )
       .then((res) => res.json()) // promise
       .then((json) => {
         if (json.message?.includes('error')) throw json.message;

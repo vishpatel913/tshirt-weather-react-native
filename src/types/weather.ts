@@ -1,5 +1,7 @@
+import { Location } from './location';
+
 export interface WeatherResponse {
-  location: string;
+  location: Location;
   current: Weather;
   hourly: HourlyWeather[];
   daily: DailyWeather[];

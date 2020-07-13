@@ -1,7 +1,5 @@
 export default {
   current: {
-    lat: 51.4623656,
-    lon: -0.1699604,
     temp: { value: 22, units: '\u00b0C' },
     feels_like: { value: 22, units: '\u00b0C' },
     dewpoint: { value: 10, units: '\u00b0C' },
@@ -3799,6 +3797,10 @@ export default {
       observation_time: { value: '2020-06-18' },
     },
   ],
-  clothing: { upper: 4, lower: 1 },
-  location: 'Battersea',
+  clothing: { upper: 2, lower: 1 },
+  location: {
+    lat: 51.4623656,
+    lon: -0.1699604,
+    name: 'Battersea',
+  },
 };

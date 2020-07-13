@@ -1,7 +1,5 @@
 {
   "current": {
-    "lat": 51.4623656,
-    "lon": -0.1699604,
     "temp": { "value": 24.5, "units": "\u00b0C" },
     "feels_like": { "value": 21.5, "units": "\u00b0C" },
     "dewpoint": { "value": 8.75, "units": "\u00b0C" },
@@ -3799,5 +3797,9 @@
       "observation_time": { "value": "2020-06-27" }
     }
   ],
-  "location": "Battersea"
+  "location": {
+    "lat": 51.4623656,
+    "lon": -0.1699604,
+    "name": "Battersea"
+  }
 }

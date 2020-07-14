@@ -8,7 +8,8 @@
     "deploy": "sls deploy -v",
     "test": "nosetests",
     "lint": "pycodestyle .",
-    "format": "autopep8 -i -r -a -a ."
+    "format": "autopep8 -i -r -a -a .",
+    "venv": ". venv/bin/activate"
   },
   "author": "",
   "license": "ISC",

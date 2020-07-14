@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Animated, View } from 'react-native';
+import { Animated } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
 import { SkyVectorKey } from '../../types/common';
 
@@ -80,44 +80,42 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
   }, [animate]);
 
   return (
-    <View {...rest}>
-      <Svg width={width} height={height} viewBox="0 0 600 600">
-        <G id="sun-group">
-          <Defs>
-            <Mask id="moon-mask">
-              <Rect width="100%" height="100%" fill="white" />
-              <AnimatedCircle
-                cx={400}
-                cy={250}
-                r={svgValues.moonMask}
-                fill="black"
-              />
-            </Mask>
-          </Defs>
-          <AnimatedCircle
-            cx={300}
-            cy={300}
-            r={svgValues.rayOuterSize}
-            fill="#fcf8f1"
-            fillOpacity={svgValues.rayOpacity}
-          />
-          <AnimatedCircle
-            cx={300}
-            cy={300}
-            r={svgValues.rayInnerSize}
-            fill="#fcf8f1"
-            fillOpacity={svgValues.rayOpacity}
-          />
-          <AnimatedCircle
-            cx={300}
-            cy={300}
-            r={svgValues.mainSize}
-            fill={`hsl(${moon ? 212.7 : 38.2}, 64.7%, 96.7%)`}
-            mask="url(#moon-mask)"
-          />
-        </G>
-      </Svg>
-    </View>
+    <Svg width={width} height={height} viewBox="0 0 600 600">
+      <G id="sun-group">
+        <Defs>
+          <Mask id="moon-mask">
+            <Rect width="100%" height="100%" fill="white" />
+            <AnimatedCircle
+              cx={400}
+              cy={250}
+              r={svgValues.moonMask}
+              fill="black"
+            />
+          </Mask>
+        </Defs>
+        <AnimatedCircle
+          cx={300}
+          cy={300}
+          r={svgValues.rayOuterSize}
+          fill="#fcf8f1"
+          fillOpacity={svgValues.rayOpacity}
+        />
+        <AnimatedCircle
+          cx={300}
+          cy={300}
+          r={svgValues.rayInnerSize}
+          fill="#fcf8f1"
+          fillOpacity={svgValues.rayOpacity}
+        />
+        <AnimatedCircle
+          cx={300}
+          cy={300}
+          r={svgValues.mainSize}
+          fill={`hsl(${moon ? 212.7 : 38.2}, 64.7%, 96.7%)`}
+          mask="url(#moon-mask)"
+        />
+      </G>
+    </Svg>
   );
 };
 

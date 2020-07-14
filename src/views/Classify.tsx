@@ -83,7 +83,7 @@ const Classify = ({ weather }: Props) => {
         <Button
           small
           text="Back"
-          icon="direction-left"
+          icon="arrow-left_feather"
           onPress={() => goBack()}
         />
       </Header>

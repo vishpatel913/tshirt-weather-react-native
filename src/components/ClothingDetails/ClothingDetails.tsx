@@ -48,6 +48,7 @@ const SubIcons = styled.View<{ children: ReactNode[] }>`
 `;
 const ClassifyButton = styled.TouchableOpacity`
   margin-left: auto;
+  padding: 4px;
 `;
 
 const CLOTHING_CONFIG = [
@@ -89,7 +90,7 @@ const ClothingDetails = ({
         </SubIcons>
       </Content>
       <ClassifyButton onPress={() => navigate('classify')}>
-        <Icon name="hurricane" />
+        <Icon feather name="upload-cloud" size={20} />
       </ClassifyButton>
     </Container>
   );

@@ -25,10 +25,15 @@ const ButtonContainer = styled(TouchableOpacity)<{
 `;
 
 const Button = ({ text, icon, small, ...rest }: Props) => {
-  console.log('small :>> ', small);
+  const iconSplit = icon?.split('_');
+  const iconConfig = iconSplit && {
+    name: iconSplit[0],
+    [iconSplit[1]]: !!iconSplit[1],
+  };
+
   return (
     <ButtonContainer {...rest} small={small}>
-      {icon && <Icon name={icon} size={small ? 16 : 20} padding />}
+      {iconConfig && <Icon {...iconConfig} size={small ? 16 : 20} padding />}
       <Text size={small ? 16 : 20}>{text}</Text>
     </ButtonContainer>
   );

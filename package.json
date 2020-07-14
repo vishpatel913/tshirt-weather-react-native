@@ -3,7 +3,8 @@
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": " react-native run-android",
+    "sim-android": "emulator -avd OnePlus_6T",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "serve": "yarn --cwd backend run serve",

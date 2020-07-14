@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import moment from 'moment';
+import { Dimensions } from 'react-native';
 import { Svg, Defs, Mask, G, Circle, Rect } from 'react-native-svg';
 import { useWeather } from '../../modules/weatherContext';
+import SunMoonVector from '../SunMoonVector';
 import Landscape from '../../assets/svgs/landscape.svg';
 import LandscapeMask from '../../assets/svgs/landscape-mask.svg';
-import SunMoonVector from '../SunMoonVector';
 
 const Container = styled.View`
   position: relative;
@@ -18,15 +20,25 @@ const Background = styled.View`
   width: 100%;
 `;
 const SunMoon = styled(SunMoonVector)<{ opacity?: number }>`
-  position: absolute;
-  right: 64px;
-  top: 64px;
   opacity: ${({ opacity }) => opacity && opacity};
 `;
 
 const LandscapeVector = () => {
   const { current, isDaytime, isLoading } = useWeather();
   const cloudOpacity = (100 - (current?.cloud_cover.value || 0)) / 100;
+  const screenWidth = Dimensions.get('window').width;
+
+  const getSunHeight = () => {
+    if (!current) {
+      return 64;
+    }
+    const from = isDaytime() ? current.sunrise.value : current.sunset.value;
+    const to = isDaytime() ? current.sunset.value : current.sunrise.value;
+    const skyPos = moment().diff(moment(from)) / moment(to).diff(moment(from));
+    const x = skyPos;
+    const y = 300 * (x - 0.5) ** 2;
+    return 64 + y;
+  };
 
   return (
     <Container>
@@ -34,13 +46,15 @@ const LandscapeVector = () => {
       <Background>
         <Svg>
           <G mask="url(#landscapeMask)">
-            <SunMoon
-              width={64}
-              height={64}
-              moon={!isDaytime()}
-              animate={isLoading}
-              opacity={cloudOpacity}
-            />
+            <G transform={`translate(${screenWidth - 128},${getSunHeight()})`}>
+              <SunMoon
+                width={64}
+                height={64}
+                moon={!isDaytime()}
+                animate={isLoading}
+                opacity={cloudOpacity}
+              />
+            </G>
             {!isDaytime() &&
               Array.from({ length: 200 }).map((i) => (
                 <Circle

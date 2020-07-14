@@ -1,6 +1,8 @@
 import React from 'react';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 import styled from 'styled-components/native';
+import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 import icoMoonConfig from '../../assets/fonts/selection.json';
 
 interface Props {
@@ -8,20 +10,28 @@ interface Props {
   size?: number;
   color?: string;
   padding?: boolean;
+  simple?: boolean;
+  feather?: boolean;
 }
-const Icon = createIconSetFromIcoMoon(
+const IcomoonIcon = createIconSetFromIcoMoon(
   icoMoonConfig,
   'Weather-Icons',
   'Weather-Icons.ttf',
 );
 
-const WhiteIcon = styled(Icon)<Props>`
-  color: ${({ theme, color }) => color || theme.color.white};
+const StyledIcon = styled(IcomoonIcon)<Props>`
+  color: ${({ theme, color }) => color || theme.colors.white};
   margin: 0 ${({ padding }) => padding && '4px'};
 `;
 
-const StyledIcon = ({ size, ...rest }: Props) => {
-  return <WhiteIcon {...rest} size={size || 32} />;
+const Icon = ({ size, simple, feather, ...rest }: Props) => {
+  let CustomIcon = StyledIcon;
+  if (feather) {
+    CustomIcon = CustomIcon.withComponent(FeatherIcon);
+  } else if (simple) {
+    CustomIcon = CustomIcon.withComponent(SimpleLineIcon);
+  }
+  return <CustomIcon {...rest} size={size || 32} />;
 };
 
-export default StyledIcon;
+export default Icon;

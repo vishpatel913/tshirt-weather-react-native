@@ -18,7 +18,7 @@ const StyledText = styled(RNText)<Props>`
       theme.font.main,
     )};
   font-size: ${({ size }) => Math.ceil((size || 16) / 4) * 4}px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.colors.white};
   opacity: ${({ grey }) => (grey ? 0.7 : 1)};
   text-shadow: ${({ shadow }) =>
     shadow ? '2px 2px 5px rgba(0, 0, 0, 0.5)' : 'none'};

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 const Hr = styled.View<{ padded?: boolean }>`
-  border-bottom-color: ${({ theme }) => theme.color.white};
+  border-bottom-color: ${({ theme }) => theme.colors.white};
   border-bottom-width: 1px;
   opacity: 0.5;
   margin: ${({ theme }) => theme.spacing.half} auto;

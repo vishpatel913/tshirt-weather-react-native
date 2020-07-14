@@ -1,6 +1,5 @@
 import React, { ReactNode, Children, useState } from 'react';
 import styled from 'styled-components/native';
-// import { ActivityIndicator } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Text } from '..';
 import { Icon } from '../Icon';
@@ -39,7 +38,7 @@ const Stroke = styled.View<{ middle?: boolean }>`
   align-self: flex-start;
   height: 50%;
   border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.color.white};
+  border-bottom-color: ${({ theme }) => theme.colors.white};
   opacity: 0.5;
   margin-left: ${({ theme }) => theme.spacing.half};
   margin-right: ${({ theme, middle }) => (middle ? theme.spacing.half : 0)};

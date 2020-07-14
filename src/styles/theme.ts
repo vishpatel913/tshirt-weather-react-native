@@ -1,4 +1,5 @@
 import {} from 'styled-components/native';
+import { DefaultTheme } from 'react-native-paper';
 
 declare module 'styled-components' {
   type Theme = typeof theme;
@@ -19,6 +20,7 @@ declare module 'styled-components' {
 }
 
 export const theme = {
+  ...DefaultTheme,
   font: {
     thin: 'WorkSans-Thin',
     light: 'WorkSans-ExtraLight',
@@ -31,10 +33,10 @@ export const theme = {
     triple: '48px',
     half: '8px',
   },
-  color: {
+  roundness: 4,
+  colors: {
     // purpleDark: '#070544',
     // purple: '#361D9D',
-    // pink: '#E04483',
     // pinkLight: '#E67FC4',
     // yellow: '#FAC140',
     blue: '#1D2F6F',
@@ -42,7 +44,21 @@ export const theme = {
     yellow: '#FAC748',
     beige: '#F9E9EC',
     pink: '#F88DAD',
-    white: '#fff',
+    pinkDark: '#E04483',
+    white: '#FFF',
+
+    primary: '#1D2F6F',
+    accent: '#FAC748',
+    background: '#8390FA',
+    surface: '#000000',
+    error: '#E04483',
+    text: '#FFFFFF',
+    onBackground: '#FFFFFF',
+    onSurface: '#FFFFFF',
+    disabled: '#FFFFFF42',
+    placeholder: '#FFFFFF8a',
+    backdrop: '#FFFFFF80',
+    notification: '#F88DAD',
   },
   gradientMap: {
     clear: {
@@ -64,5 +80,8 @@ export const theme = {
       night: ['#3a4759', '#899fb8'],
     },
     pink: ['#E04483', '#E67FC4'],
+  },
+  animation: {
+    scale: 1.0,
   },
 };

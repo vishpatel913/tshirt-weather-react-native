@@ -104,7 +104,11 @@ const Classify = ({ weather }: Props) => {
         <ButtonsWrapper>
           <ShortsContainer>
             <Text size={20}>Shorts</Text>
-            <Switch value={shorts} onValueChange={() => setShorts(!shorts)} />
+            <Switch
+              value={shorts}
+              onValueChange={() => setShorts(!shorts)}
+              color="#ffffff54"
+            />
           </ShortsContainer>
           <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
           <Button text="Jacket" onPress={() => handleSave('jacket')} />

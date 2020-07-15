@@ -20,7 +20,7 @@ const PubLink = styled.TouchableOpacity`
 `;
 
 const Footer = () => {
-  const { current, isLoading } = useWeather();
+  const { current, status, isLoading } = useWeather();
   return (
     <Container>
       <Text size={12} weight="bold">
@@ -30,13 +30,17 @@ const Footer = () => {
               'h:mm a',
             )}`}
       </Text>
-      <PubLink
-        onPress={() => Linking.openURL('https://pubs-nearby.firebaseapp.com')}>
-        <Icon material padding name="beer" size={10} />
-        <Text size={12} weight="bold">
-          Fancy a Beer?
-        </Text>
-      </PubLink>
+      {status?.sunny && (
+        <PubLink
+          onPress={() =>
+            Linking.openURL('https://pubs-nearby.firebaseapp.com')
+          }>
+          <Icon material padding name="beer" size={10} />
+          <Text size={12} weight="bold">
+            Beer Garden?
+          </Text>
+        </PubLink>
+      )}
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Animated, Platform } from 'react-native';
+import { Animated, Platform, Easing } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
 import { SkyVectorKey } from '../../types/common';
 
@@ -32,7 +32,8 @@ const SunMoonVector = ({ width, height, moon, animate }: Props) => {
     duration: 500,
     animateOnDidMount: false,
     delay: 500,
-    useNativeDriver: false,
+    useNativeDriver: true,
+    easing: Easing.ease,
   };
   const [svgValues, setSvgValues] = useState(initialSvg);
 

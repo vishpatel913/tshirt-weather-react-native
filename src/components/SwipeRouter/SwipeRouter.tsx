@@ -1,6 +1,12 @@
-import React, { ReactNode, useEffect, Children, useState } from 'react';
+import React, {
+  ReactNode,
+  useContext,
+  useEffect,
+  Children,
+  useState,
+} from 'react';
 import { Animated, Easing, RefreshControl } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { ThemeContext } from 'styled-components/native';
 import Swiper from 'react-native-swiper';
 
 import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
@@ -26,6 +32,7 @@ const SwipeRouter = ({ children }: Props) => {
   const arrowY = new Animated.Value(0);
   const { length: pages } = Children.toArray(children);
   const [index, setIndex] = useState(0);
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     Animated.loop(
@@ -68,6 +75,13 @@ const SwipeRouter = ({ children }: Props) => {
           <RefreshControl
             refreshing={isLoading}
             onRefresh={() => actions.getLocation()}
+            colors={[
+              theme.colors.indigo,
+              theme.colors.pink,
+              theme.colors.yellow,
+            ]}
+            progressBackgroundColor={theme.colors.blue}
+            tintColor={theme.colors.white}
           />
         }>
         {children}

@@ -32,7 +32,7 @@ const Footer = () => {
       </Text>
       <PubLink
         onPress={() => Linking.openURL('https://pubs-nearby.firebaseapp.com')}>
-        <Icon material name="beer" size={10} />
+        <Icon material padding name="beer" size={10} />
         <Text size={12} weight="bold">
           Fancy a Beer?
         </Text>

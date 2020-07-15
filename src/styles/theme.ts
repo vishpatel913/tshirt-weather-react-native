@@ -1,5 +1,4 @@
 import {} from 'styled-components/native';
-import { DefaultTheme } from 'react-native-paper';
 
 declare module 'styled-components' {
   type Theme = typeof theme;
@@ -20,11 +19,11 @@ declare module 'styled-components' {
 }
 
 export const theme = {
-  ...DefaultTheme,
-  font: {
+  fonts: {
     thin: 'WorkSans-Thin',
     light: 'WorkSans-ExtraLight',
-    main: 'WorkSans-Light',
+    regular: 'WorkSans-Light',
+    medium: 'WorkSans-Regular',
     bold: 'WorkSans-Regular',
   },
   spacing: {

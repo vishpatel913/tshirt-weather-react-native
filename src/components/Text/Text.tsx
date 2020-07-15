@@ -13,9 +13,9 @@ interface Props {
 
 const StyledText = styled(RNText)<Props>`
   font-family: ${({ theme, weight }) =>
-    Object.entries(theme.font).reduce(
+    Object.entries(theme.fonts).reduce(
       (acc, [key, value]) => (key === weight ? value : acc),
-      theme.font.main,
+      theme.fonts.regular,
     )};
   font-size: ${({ size }) => Math.ceil((size || 16) / 4) * 4}px;
   color: ${({ theme }) => theme.colors.white};

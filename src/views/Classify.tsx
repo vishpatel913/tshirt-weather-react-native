@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Switch } from 'react-native-paper';
+
 import { Layout, Section, Text, Button, SunMoonVector } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 import WeatherService from '../services/weather';
@@ -22,6 +24,13 @@ const Header = styled.View`
 const ButtonsWrapper = styled.View`
   margin: 16px 0;
 `;
+const ShortsContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin: 8px 0;
+`;
 const SaveStateFooter = styled.View`
   justify-content: space-between;
   align-items: center;
@@ -32,9 +41,10 @@ const Classify = ({ weather }: Props) => {
   const { coords, current } = weather;
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [shorts, setShorts] = useState(false);
   const { goBack } = useNavigation();
 
-  const handleSave = (upper: string, lower?: string) => {
+  const handleSave = (upper: string) => {
     const ignoreKeys = [
       'sunrise',
       'sunset',
@@ -51,22 +61,24 @@ const Classify = ({ weather }: Props) => {
         '',
       );
     Alert.alert(
-      `Save Current Weather: ${toTitleCase(upper)}`,
+      `Save Current Weather: ${toTitleCase(upper)} ${
+        shorts ? 'with Shorts' : ''
+      }`,
       currentData,
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: 'Save', onPress: () => saveClassification(upper, lower) },
+        { text: 'Save', onPress: () => saveClassification(upper) },
       ],
       { cancelable: true },
     );
   };
 
-  const saveClassification = async (upper: string, lower?: string) => {
+  const saveClassification = async (upper: string) => {
     setSaving(true);
     if (coords) {
       const ws = new WeatherService(coords);
       try {
-        await ws.saveClothing({ upper, lower });
+        await ws.saveClothing({ upper, lower: shorts ? 'shorts' : undefined });
         setSaved(true);
       } catch (e) {
         Alert.alert('Problem saving weather to database');
@@ -90,15 +102,11 @@ const Classify = ({ weather }: Props) => {
       </Header>
       <Section title="Clothing Classifications">
         <ButtonsWrapper>
-          <Button
-            text="T-shirt & Shorts"
-            onPress={() => handleSave('tshirt', 'shorts')}
-          />
+          <ShortsContainer>
+            <Text size={20}>Shorts</Text>
+            <Switch value={shorts} onValueChange={() => setShorts(!shorts)} />
+          </ShortsContainer>
           <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
-          <Button
-            text="Jacket & Shorts"
-            onPress={() => handleSave('jacket', 'shorts')}
-          />
           <Button text="Jacket" onPress={() => handleSave('jacket')} />
           <Button text="Jumper" onPress={() => handleSave('jumper')} />
           <Button text="Coat" onPress={() => handleSave('coat')} />

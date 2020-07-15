@@ -21,17 +21,23 @@ class WeatherService {
     const params = {
       lat: this.coords.lat,
       lon: this.coords.lon,
-      // mocks: '*',
+      // mocks: 1,
     };
 
+    let statusCode: number;
     const response = await fetch(
       `${this.baseUrl}/${endpoint}?${qs.stringify(params)}`,
     )
-      .then((res) => res.json())
+      .then((res) => {
+        statusCode = res.status;
+        return res.json();
+      })
       .then((json) => {
-        return json;
+        if (statusCode >= 200 && statusCode < 300) return json;
+        throw new Error(json.message);
       })
       .catch((error) => {
+        console.log('error', error);
         throw new Error(error);
       });
 

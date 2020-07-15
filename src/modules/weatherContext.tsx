@@ -62,7 +62,10 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [hourly, setHourly] = useState<HourlyWeather[] | undefined>(undefined);
   const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
   const [reverseDay, setReverseDay] = useState(false);
-  const [hourOffset, setHourOffset] = useState(0);
+  const [
+    hourOffset,
+    // setHourOffset
+  ] = useState(0);
   const hourLimit = 6;
 
   const getLocation = async () => {

@@ -5,7 +5,6 @@ import Swiper from 'react-native-swiper';
 
 import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
 import { useWeather } from '../../modules/weatherContext';
-import { useSwipeRouter } from '../../modules/swipeRouterContext';
 
 interface Props {
   children: ReactNode;

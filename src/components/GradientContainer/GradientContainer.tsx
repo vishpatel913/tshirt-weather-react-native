@@ -4,12 +4,10 @@ import styled, { ThemeContext } from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 
-import { Text } from '..';
 import { useWeather } from '../../modules/weatherContext';
 
 interface Props {
   children: ReactNode;
-  showUpdated?: boolean;
 }
 
 interface HSL {
@@ -21,11 +19,6 @@ interface HSL {
 const GardientContainer = styled(LinearGradient)`
   height: 100%;
   position: relative;
-`;
-const UpdatedText = styled(Text)`
-  position: absolute;
-  bottom: ${({ theme }) => theme.spacing.single};
-  left: ${({ theme }) => theme.spacing.double};
 `;
 
 const baseGradient = {
@@ -41,8 +34,8 @@ const baseGradient = {
 
 const hsl = ({ h, s, l }: HSL) => `hsl(${h}, ${s}%, ${l}%)`;
 
-const GradientContainer = ({ children, showUpdated }: Props) => {
-  const { current, isDaytime, isLoading } = useWeather();
+const GradientContainer = ({ children }: Props) => {
+  const { current, isDaytime } = useWeather();
   const theme = useContext(ThemeContext);
   const daytime = isDaytime();
   const now = moment();
@@ -134,15 +127,6 @@ const GradientContainer = ({ children, showUpdated }: Props) => {
           backgroundColor: gradientData[1],
         }}>
         <GardientContainer colors={gradientData}>{children}</GardientContainer>
-        {showUpdated && (
-          <UpdatedText size={12} weight="bold">
-            {isLoading
-              ? 'Updating...'
-              : `Updated: ${moment(current?.observation_time.value).format(
-                  'h:mm a',
-                )}`}
-          </UpdatedText>
-        )}
       </SafeAreaView>
     </>
   );

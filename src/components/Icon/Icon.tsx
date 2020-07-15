@@ -2,7 +2,7 @@ import React from 'react';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 import styled from 'styled-components/native';
 import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
-import FeatherIcon from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import icoMoonConfig from '../../assets/fonts/selection.json';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   color?: string;
   padding?: boolean;
   simple?: boolean;
-  feather?: boolean;
+  material?: boolean;
 }
 const IcomoonIcon = createIconSetFromIcoMoon(
   icoMoonConfig,
@@ -24,10 +24,10 @@ const StyledIcon = styled(IcomoonIcon)<Props>`
   margin: 0 ${({ padding }) => padding && '4px'};
 `;
 
-const Icon = ({ size, simple, feather, ...rest }: Props) => {
+const Icon = ({ size, simple, material, ...rest }: Props) => {
   let CustomIcon = StyledIcon;
-  if (feather) {
-    CustomIcon = CustomIcon.withComponent(FeatherIcon);
+  if (material) {
+    CustomIcon = CustomIcon.withComponent(MaterialCommunityIcon);
   } else if (simple) {
     CustomIcon = CustomIcon.withComponent(SimpleLineIcon);
   }

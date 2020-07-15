@@ -5,6 +5,7 @@ export { default as Button } from './Button';
 export { default as GradientContainer } from './GradientContainer';
 export { default as SwipeRouter } from './SwipeRouter';
 export { default as Layout } from './Layout';
+export { default as Footer } from './Footer';
 export { default as LocationHeader } from './LocationHeader';
 export { default as LandscapeVector } from './LandscapeVector';
 export { default as SunMoonVector } from './SunMoonVector';

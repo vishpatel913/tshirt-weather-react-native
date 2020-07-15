@@ -90,7 +90,7 @@ const ClothingDetails = ({
         </SubIcons>
       </Content>
       <ClassifyButton onPress={() => navigate('classify')}>
-        <Icon feather name="upload-cloud" size={20} />
+        <Icon material name="database-plus" size={20} />
       </ClassifyButton>
     </Container>
   );

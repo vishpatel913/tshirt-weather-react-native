@@ -46,7 +46,8 @@ const Classify = ({ weather }: Props) => {
     const currentData =
       current &&
       Object.entries(current).reduce(
-        (a, [k, v]) => (!ignoreKeys.includes(k) ? `${a}${k}: ${v.value}\n` : a),
+        (a, [k, v]) =>
+          !ignoreKeys.includes(k) ? `${a}${toTitleCase(k)}: ${v.value}\n` : a,
         '',
       );
     Alert.alert(
@@ -83,7 +84,7 @@ const Classify = ({ weather }: Props) => {
         <Button
           small
           text="Back"
-          icon="arrow-left_feather"
+          icon="arrow-left_material"
           onPress={() => goBack()}
         />
       </Header>
@@ -104,7 +105,6 @@ const Classify = ({ weather }: Props) => {
           <Button text="Layers" onPress={() => handleSave('layers')} />
         </ButtonsWrapper>
       </Section>
-
       {saving && (
         <SaveStateFooter>
           {saved ? (

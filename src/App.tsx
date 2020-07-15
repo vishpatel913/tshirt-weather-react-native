@@ -3,20 +3,20 @@ import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import { NavigationContainer } from '@react-navigation/native';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
+import { enableScreens } from 'react-native-screens';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { Provider as PaperProvider } from 'react-native-paper';
 
 import { Home, Data, Classify } from './views';
-import { GradientContainer, SwipeRouter } from './components';
+import { GradientContainer, SwipeRouter, Footer } from './components';
 import { withGradient } from './components/GradientContainer/GradientContainer';
 import { WeatherProvider } from './modules/weatherContext';
-import { SwipeRouterProvider } from './modules/swipeRouterContext';
 import { theme } from './styles/theme';
 
 import 'react-native-gesture-handler';
 
-const Stack = createStackNavigator();
+enableScreens();
+const Stack = createNativeStackNavigator();
 
 const App = () => (
   <>
@@ -28,18 +28,16 @@ const App = () => (
             translucent
             backgroundColor="#00000000"
           />
-          <GradientContainer showUpdated>
+          <GradientContainer>
             <NavigationContainer>
               <Stack.Navigator
-                mode="card"
-                initialRouteName="main"
-                headerMode="none"
                 screenOptions={{
-                  cardStyle: { backgroundColor: 'transparent' },
-                  cardOverlayEnabled: false,
-                  gestureDirection: 'horizontal',
+                  headerShown: false,
                 }}>
-                <Stack.Screen name="main" component={MainSwipePage} />
+                <Stack.Screen
+                  name="main"
+                  component={withGradient(MainSwipePage)}
+                />
                 <Stack.Screen
                   name="classify"
                   component={withGradient(Classify)}
@@ -47,6 +45,7 @@ const App = () => (
               </Stack.Navigator>
             </NavigationContainer>
           </GradientContainer>
+          <Footer />
         </PaperProvider>
       </ThemeProvider>
     </WeatherProvider>
@@ -54,12 +53,10 @@ const App = () => (
 );
 
 const MainSwipePage = () => (
-  <SwipeRouterProvider pages={2}>
-    <SwipeRouter>
-      <Home />
-      <Data />
-    </SwipeRouter>
-  </SwipeRouterProvider>
+  <SwipeRouter>
+    <Home />
+    <Data />
+  </SwipeRouter>
 );
 
 export default App;

@@ -29,7 +29,6 @@ class WeatherService {
     )
       .then((res) => res.json())
       .then((json) => {
-        if (json.message?.includes('error')) throw json.message;
         return json;
       })
       .catch((error) => {

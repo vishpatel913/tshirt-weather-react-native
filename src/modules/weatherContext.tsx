@@ -100,7 +100,7 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setLoading(false);
         })
         .catch((err: WeatherError) => {
-          Alert.alert('Error', 'Unable to fetch the weather');
+          Alert.alert('Error', err.message);
           setLoading(false);
         });
     }

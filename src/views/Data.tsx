@@ -87,7 +87,6 @@ const Data = ({ weather }: Props) => {
               item.precipitation_probability.value > 0
                 ? item.precipitation_type.value
                 : undefined,
-
             additional: item.precipitation,
           }))}
         />
@@ -96,6 +95,7 @@ const Data = ({ weather }: Props) => {
           data={hourly?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
             y: item.cloud_cover.value,
+            // units: item.cloud_cover.units,
             timestamp: item.observation_time.value,
             icon: item.weather_code.value,
             additional: item.cloud_cover,

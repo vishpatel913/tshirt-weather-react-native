@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Platform } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
 import { SkyVectorKey } from '../../types/common';
 
@@ -12,7 +12,7 @@ interface Props {
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
+const SunMoonVector = ({ width, height, moon, animate }: Props) => {
   const initialKey = moon ? 'moon' : 'sun';
   const animatedValues = {
     moonMask: { moon: 225, sun: 0 },
@@ -112,7 +112,7 @@ const SunMoonVector = ({ width, height, moon, animate, ...rest }: Props) => {
           cy={300}
           r={svgValues.mainSize}
           fill={`hsl(${moon ? 212.7 : 38.2}, 64.7%, 96.7%)`}
-          mask="url(#moon-mask)"
+          mask={Platform.OS !== 'ios' && 'url(#moon-mask)'}
         />
       </G>
     </Svg>

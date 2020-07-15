@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
-import { Dimensions } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { Svg, Defs, Mask, G, Circle, Rect } from 'react-native-svg';
 import { useWeather } from '../../modules/weatherContext';
 import SunMoonVector from '../SunMoonVector';
@@ -11,22 +11,20 @@ import LandscapeMask from '../../assets/svgs/landscape-mask.svg';
 const Container = styled.View`
   position: relative;
 `;
-const Background = styled.View`
+const Background = styled.View<{ opacity?: number }>`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 400px;
   width: 100%;
-`;
-const SunMoon = styled(SunMoonVector)<{ opacity?: number }>`
   opacity: ${({ opacity }) => opacity && opacity};
 `;
 
 const LandscapeVector = () => {
   const { current, isDaytime, isLoading } = useWeather();
   const cloudOpacity = (100 - (current?.cloud_cover.value || 0)) / 100;
-  const screenWidth = Dimensions.get('window').width;
+  const { width } = useWindowDimensions();
 
   const getSunHeight = () => {
     if (!current) {
@@ -43,16 +41,15 @@ const LandscapeVector = () => {
   return (
     <Container>
       <Landscape width="100%" height="400px" />
-      <Background>
+      <Background opacity={cloudOpacity}>
         <Svg>
           <G mask="url(#landscapeMask)">
-            <G transform={`translate(${screenWidth - 128},${getSunHeight()})`}>
-              <SunMoon
+            <G transform={`translate(${width - 128},${getSunHeight()})`}>
+              <SunMoonVector
                 width={64}
                 height={64}
                 moon={!isDaytime()}
                 animate={isLoading}
-                opacity={cloudOpacity}
               />
             </G>
             {!isDaytime() &&
@@ -62,7 +59,6 @@ const LandscapeVector = () => {
                   cx={`${Math.random() * 100}%`}
                   cy={Math.random() * 220}
                   r={Math.random()}
-                  opacity={cloudOpacity}
                   fill="white"
                 />
               ))}

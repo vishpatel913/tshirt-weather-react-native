@@ -116,6 +116,16 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
             },
           }}
         />
+        <VictoryScatter
+          style={{ data: { fill: '#ffffff' } }}
+          size={4}
+          data={data.slice(0, 1)}
+        />
+        <VictoryScatter
+          style={{ data: { fill: '#fff3' } }}
+          size={10}
+          data={data.slice(0, 1)}
+        />
         <VictoryBar
           data={data}
           barWidth={1}

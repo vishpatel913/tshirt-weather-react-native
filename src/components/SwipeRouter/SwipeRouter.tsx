@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, Children, useState } from 'react';
 import { Animated, Easing, RefreshControl } from 'react-native';
 import styled from 'styled-components/native';
 import Swiper from 'react-native-swiper';
@@ -24,8 +24,9 @@ const SwipeArrowContainer = styled(Animated.View)`
 
 const SwipeRouter = ({ children }: Props) => {
   const { isLoading, actions } = useWeather();
-  const { pages, index, push } = useSwipeRouter();
   const arrowY = new Animated.Value(0);
+  const { length: pages } = Children.toArray(children);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     Animated.loop(
@@ -58,7 +59,7 @@ const SwipeRouter = ({ children }: Props) => {
       <SwipeContainer
         horizontal={false}
         loop={false}
-        onIndexChanged={(i) => push(i)}
+        onIndexChanged={(i) => setIndex(i)}
         showsPagination={false}
         autoplay={false}
         showsButtons={false}

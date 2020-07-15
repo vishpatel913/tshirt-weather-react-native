@@ -1,12 +1,17 @@
 import setup
 
 import json
+import os
 import logging
 
 from app.weather_api import WeatherAPI
 from app.geocode import geocode_coords
 from app.response import build_response
 from app.error import ErrorWithCode
+
+import boto3
+
+s3 = boto3.resource("s3")
 
 
 def main(event, context):
@@ -17,12 +22,16 @@ def main(event, context):
         return build_response(400, {"message": "Coordinates required"})
 
     coords = {"lat": params["lat"], "lon": params["lon"]}
-    generated_data_path = "./data/generated_response.json"
 
     if "mocks" in params:
-        with open(generated_data_path, "r") as mock_data:
-            logging.info("returned mock data")
-            return build_response(200, json.load(mock_data))
+        key = f'mock_response_{params["mocks"]}.json'
+        try:
+            obj = s3.Object(bucket_name=os.environ["S3_BUCKET"], key=key)
+            mock_data = obj.get()["Body"].read().decode("utf-8")
+        except BaseException:
+            return build_response(404, {"message": "Mock key does not exist"})
+
+        return build_response(200, json.loads(mock_data))
 
     weather_api = WeatherAPI(coords)
     data = {"location": coords}
@@ -38,7 +47,9 @@ def main(event, context):
         return build_response(e.code, {"message": e.message})
 
     if "export" in params:
-        with open(generated_data_path, "w") as outfile:
-            json.dump(data, outfile)
+        key = f'mock_response_{params["export"]}.json'
+        s3.Object(bucket_name=os.environ["S3_BUCKET"], key=key).put(
+            Body=(bytes(json.dumps(data).encode("UTF-8")))
+        )
 
     return build_response(200, data)

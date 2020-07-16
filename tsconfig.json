@@ -45,7 +45,7 @@
     // "experimentalDecorators": true,
     // "emitDecoratorMetadata": true,
   },
-  "include": ["src", "lib", "stories"],
+  "include": ["src", "lib", "stories", "__tests__"],
   "exclude": [
     "node_modules",
     "babel.config.js",

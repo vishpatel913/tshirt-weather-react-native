@@ -103,6 +103,7 @@ export enum WeatherCode {
   clear = 'clear',
   none = 'na',
 }
+
 export interface WeatherCodeValue {
   value: keyof typeof WeatherCode;
 }

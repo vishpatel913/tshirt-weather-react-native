@@ -31,13 +31,13 @@ export interface WeatherState {
   status?: Status;
   isLoading: boolean;
   isDaytime: (ts?: string) => boolean;
-  actions: Actions;
+  actions: WeatherActions;
 }
 
-type Actions = {
+export interface WeatherActions {
   getLocation: () => Promise<void>;
   toggleDark: () => void;
-};
+}
 
 type ProviderProps = {
   children: ReactNode;

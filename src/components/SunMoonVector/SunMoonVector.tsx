@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Animated, Platform, Easing } from 'react-native';
 import { Svg, G, Defs, Rect, Circle, Mask } from 'react-native-svg';
-import { SkyVectorKey } from '../../types/common';
 
 interface Props {
   width?: number;
   height?: number;
   moon?: boolean;
   animate?: boolean;
+}
+
+enum SunMoonVectorKey {
+  SUN = 'sun',
+  MOON = 'moon',
 }
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -37,7 +41,7 @@ const SunMoonVector = ({ width, height, moon, animate }: Props) => {
   };
   const [svgValues, setSvgValues] = useState(initialSvg);
 
-  const transitionTo = (key: SkyVectorKey) => {
+  const transitionTo = (key: SunMoonVectorKey) => {
     return Animated.parallel([
       Animated.timing(svgValues.moonMask, {
         toValue: animatedValues.moonMask[key],
@@ -65,9 +69,10 @@ const SunMoonVector = ({ width, height, moon, animate }: Props) => {
   const loopTransitions = () =>
     Animated.loop(
       Animated.sequence(
-        [transitionTo(SkyVectorKey.MOON), transitionTo(SkyVectorKey.SUN)].sort(
-          () => -(moon || 0),
-        ),
+        [
+          transitionTo(SunMoonVectorKey.MOON),
+          transitionTo(SunMoonVectorKey.SUN),
+        ].sort(() => -(moon || 0)),
       ),
     );
 

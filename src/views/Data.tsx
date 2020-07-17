@@ -80,7 +80,7 @@ const Data = ({ weather }: Props) => {
         <HourlyGraph
           data={hourly?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
-            y: item.precipitation_probability.value,
+            y: Math.ceil(item.precipitation_probability.value),
             units: item.precipitation_probability.units,
             timestamp: item.observation_time.value,
             icon:
@@ -94,7 +94,7 @@ const Data = ({ weather }: Props) => {
           domain={[10, 0]}
           data={hourly?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
-            y: item.cloud_cover.value,
+            y: Math.ceil(item.cloud_cover.value),
             units: item.cloud_cover.units,
             timestamp: item.observation_time.value,
             icon: item.weather_code.value,

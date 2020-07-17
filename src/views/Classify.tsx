@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components/native';
+import React, { useState, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components/native';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Switch } from 'react-native-paper';
+import { Switch, ActivityIndicator } from 'react-native-paper';
 
-import { Layout, Section, Text, Button, SunMoonVector } from '../components';
+import { Layout, Section, Text, Button, Icon } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 import WeatherService from '../services/weather';
-import CheckCircle from '../assets/svgs/tick.svg';
 import { toTitleCase } from '../modules/utils';
 
 interface Props {
@@ -34,7 +33,7 @@ const ShortsContainer = styled.View`
 const SaveStateFooter = styled.View`
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 64px;
 `;
 
 const Classify = ({ weather }: Props) => {
@@ -43,6 +42,7 @@ const Classify = ({ weather }: Props) => {
   const [saved, setSaved] = useState(false);
   const [shorts, setShorts] = useState(false);
   const { goBack } = useNavigation();
+  const theme = useContext(ThemeContext);
 
   const handleSave = (upper: string) => {
     const ignoreKeys = [
@@ -107,7 +107,7 @@ const Classify = ({ weather }: Props) => {
             <Switch
               value={shorts}
               onValueChange={() => setShorts(!shorts)}
-              color="#ffffff54"
+              color={theme.colors.blue}
             />
           </ShortsContainer>
           <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
@@ -121,13 +121,13 @@ const Classify = ({ weather }: Props) => {
         <SaveStateFooter>
           {saved ? (
             <>
-              <CheckCircle width={60} height={60} />
-              <Text size={20}>Saved</Text>
+              <Icon material name="checkbox-marked-circle-outline" size={32} />
+              <Text size={16}>Saved</Text>
             </>
           ) : (
             <>
-              <SunMoonVector width={60} height={60} animate />
-              <Text size={20}>Loading</Text>
+              <ActivityIndicator animating size={32} color="#fff" />
+              <Text size={16}>Loading</Text>
             </>
           )}
         </SaveStateFooter>

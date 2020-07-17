@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components/native';
 import { Alert, Switch, ActivityIndicator } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-import { Layout, Section, Text, Button, Icon } from '../components';
+import { Layout, Text, Button, Icon, Header } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
 import WeatherService from '../services/weather';
 import { toTitleCase } from '../modules/utils';
@@ -13,10 +12,6 @@ interface Props {
 }
 
 const PageLayout = styled(Layout)`
-  justify-content: flex-start;
-`;
-const Header = styled.View`
-  flex-direction: row;
   justify-content: flex-start;
 `;
 const ButtonsWrapper = styled.View`
@@ -40,7 +35,6 @@ const Classify = ({ weather }: Props) => {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [shorts, setShorts] = useState(false);
-  const { goBack } = useNavigation();
   const theme = useContext(ThemeContext);
 
   const handleSave = (upper: string) => {
@@ -91,35 +85,26 @@ const Classify = ({ weather }: Props) => {
 
   return (
     <PageLayout>
-      <Header>
-        <Button
-          small
-          text="Back"
-          icon="arrow-left_material"
-          onPress={() => goBack()}
-        />
-      </Header>
-      <Section title="Clothing Classifications">
-        <ButtonsWrapper>
-          <ShortsContainer>
-            <Text size={20}>Shorts</Text>
-            <Switch
-              value={shorts}
-              onValueChange={() => setShorts(!shorts)}
-              thumbColor={theme.colors.white}
-              trackColor={{
-                false: theme.colors.offwhite,
-                true: theme.colors.blue,
-              }}
-            />
-          </ShortsContainer>
-          <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
-          <Button text="Jacket" onPress={() => handleSave('jacket')} />
-          <Button text="Jumper" onPress={() => handleSave('jumper')} />
-          <Button text="Coat" onPress={() => handleSave('coat')} />
-          <Button text="Layers" onPress={() => handleSave('layers')} />
-        </ButtonsWrapper>
-      </Section>
+      <Header title="Classify Clothing" back />
+      <ButtonsWrapper>
+        <ShortsContainer>
+          <Text size={20}>Shorts</Text>
+          <Switch
+            value={shorts}
+            onValueChange={() => setShorts(!shorts)}
+            thumbColor={theme.colors.white}
+            trackColor={{
+              false: theme.colors.offwhite,
+              true: theme.colors.blue,
+            }}
+          />
+        </ShortsContainer>
+        <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
+        <Button text="Jacket" onPress={() => handleSave('jacket')} />
+        <Button text="Jumper" onPress={() => handleSave('jumper')} />
+        <Button text="Coat" onPress={() => handleSave('coat')} />
+        <Button text="Layers" onPress={() => handleSave('layers')} />
+      </ButtonsWrapper>
       {saving && (
         <SaveStateFooter>
           {saved ? (

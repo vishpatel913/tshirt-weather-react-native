@@ -7,6 +7,7 @@ interface Props {
   grey?: boolean;
   weight?: string;
   shadow?: boolean;
+  center?: boolean;
   transform?: string;
   children?: ReactNode;
 }
@@ -24,6 +25,7 @@ const StyledText = styled(RNText)<Props>`
     shadow ? '2px 2px 5px rgba(0, 0, 0, 0.5)' : 'none'};
   text-transform: ${({ transform }) => transform || 'none'};
   ${({ size }) => size && size < 12 && `line-height: ${size}px;`}
+  text-align: ${({ center }) => (center ? 'center' : 'left')}
 `;
 
 const Text = (props: Props) => {

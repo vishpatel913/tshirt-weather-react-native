@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import moment from 'moment';
 
 import {
-  LocationHeader,
+  Header,
   TemperatureHeader,
   Layout,
   HourlyGraph,
@@ -26,9 +26,7 @@ const Home = ({ weather }: Props) => {
 
   return (
     <PageLayout landscape>
-      <Section>
-        <LocationHeader location={location} />
-      </Section>
+      <Header title={isLoading ? 'Loading' : location} date />
       <Section flex={1} loading={!current}>
         {current && daily && (
           <TemperatureHeader

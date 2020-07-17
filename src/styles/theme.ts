@@ -1,5 +1,4 @@
 import {} from 'styled-components/native';
-import { DefaultTheme } from 'react-native-paper';
 
 declare module 'styled-components' {
   type Theme = typeof theme;
@@ -14,7 +13,6 @@ declare module 'styled-components' {
 }
 
 export const theme = {
-  ...DefaultTheme,
   roundness: 4,
   fonts: {
     regular: {
@@ -52,19 +50,7 @@ export const theme = {
     pink: '#F88DAD',
     pinkDark: '#E04483',
     white: '#FFF',
-
-    primary: '#1D2F6F',
-    accent: '#FAC748',
-    background: '#8390FA',
-    surface: '#1D2F6F',
-    error: '#E04483',
-    text: '#FFFFFF',
-    onBackground: '#FFFFFF',
-    onSurface: '#FFFFFF',
-    disabled: '#FFFFFF42',
-    placeholder: '#FFFFFF8a',
-    backdrop: '#FFFFFF80',
-    notification: '#F88DAD',
+    offwhite: '#FFFFFF80',
   },
   gradientMap: {
     clear: {

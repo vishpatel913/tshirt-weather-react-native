@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components/native';
-import { Alert } from 'react-native';
+import { Alert, Switch, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Switch, ActivityIndicator } from 'react-native-paper';
 
 import { Layout, Section, Text, Button, Icon } from '../components';
 import { withWeather, WeatherState } from '../modules/weatherContext';
@@ -107,7 +106,11 @@ const Classify = ({ weather }: Props) => {
             <Switch
               value={shorts}
               onValueChange={() => setShorts(!shorts)}
-              color={theme.colors.blue}
+              thumbColor={theme.colors.white}
+              trackColor={{
+                false: theme.colors.offwhite,
+                true: theme.colors.blue,
+              }}
             />
           </ShortsContainer>
           <Button text="T-shirt" onPress={() => handleSave('tshirt')} />
@@ -121,12 +124,12 @@ const Classify = ({ weather }: Props) => {
         <SaveStateFooter>
           {saved ? (
             <>
-              <Icon material name="checkbox-marked-circle-outline" size={32} />
+              <Icon material name="checkbox-marked-circle-outline" size={36} />
               <Text size={16}>Saved</Text>
             </>
           ) : (
             <>
-              <ActivityIndicator animating size={32} color="#fff" />
+              <ActivityIndicator animating size="large" color="#fff" />
               <Text size={16}>Loading</Text>
             </>
           )}

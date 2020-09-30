@@ -1,4 +1,4 @@
-import React, { ReactNode, Children, useState } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
 import { Text } from '..';
@@ -7,16 +7,10 @@ import { Icon } from '../Icon';
 interface Props {
   children: ReactNode;
   title?: string;
+  onIconPress?: () => void;
+  icon?: string;
   flex?: number;
   loading?: boolean;
-  multi?: SectionConfig[];
-}
-
-interface SectionConfig {
-  index: number;
-  title?: string;
-  icon?: string;
-  component?: ReactNode;
 }
 
 const Container = styled.View<Props>`
@@ -31,6 +25,7 @@ const Container = styled.View<Props>`
 const Title = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
   margin-bottom: ${({ theme }) => theme.spacing.single};
 `;
 const Stroke = styled.View<{ middle?: boolean }>`
@@ -47,41 +42,32 @@ const Switch = styled(TouchableOpacity)`
   border-radius: 20px;
 `;
 
-const Section = ({ title, flex, loading, multi, children }: Props) => {
-  const [index, setIndex] = useState(0);
-  const childArray = Children.toArray(children);
-
-  const sections = multi?.reduce((a: SectionConfig[], c, i) => {
-    a[c.index] = { ...c, component: childArray[i] };
-    return a;
-  }, []);
-
-  const toggleSection = () => {
-    const total = multi?.length || 1;
-    setIndex((value) => (value + 1 < total ? value + 1 : 0));
-  };
-
+const Section = ({
+  title,
+  flex,
+  icon,
+  onIconPress,
+  loading,
+  children,
+}: Props) => {
   return (
     <Container flex={flex}>
-      {(sections?.[index].title || title) && (
-        <Title>
-          <Text weight="bold" transform="uppercase">
-            {sections?.[index].title || title}
-          </Text>
-          <Stroke middle={!!sections} />
-          {sections && (
-            <Switch onPress={() => toggleSection()}>
-              <Icon
-                name={sections?.[index].icon || 'moon-full'}
-                color="white"
-                size={24}
-              />
-            </Switch>
-          )}
-        </Title>
-      )}
-      {/* {loading ? <ActivityIndicator color="white" /> : children} */}
-      {sections ? sections?.[index].component : children}
+      <Title>
+        {title && (
+          <>
+            <Text weight="bold" transform="uppercase">
+              {title}
+            </Text>
+            <Stroke middle={!!icon} />
+          </>
+        )}
+        {icon && !loading && (
+          <Switch onPress={() => onIconPress && onIconPress()}>
+            <Icon name={icon} color="white" size={24} />
+          </Switch>
+        )}
+      </Title>
+      {children}
     </Container>
   );
 };

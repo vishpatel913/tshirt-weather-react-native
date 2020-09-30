@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
-const Hr = styled.View<{ padded?: boolean }>`
+const Hr = styled.View<{ padded?: boolean; grey?: boolean }>`
   border-bottom-color: ${({ theme }) => theme.colors.white};
   border-bottom-width: 1px;
-  opacity: 0.5;
+  opacity: ${({ grey }) => (grey ? 0.1 : 0.5)};
   margin: ${({ theme }) => theme.spacing.half} auto;
   width: ${({ padded }) => (padded ? 75 : 100)}%;
 `;

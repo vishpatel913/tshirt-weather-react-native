@@ -11,9 +11,6 @@ interface Props {
   weather: WeatherState;
 }
 
-const PageLayout = styled(Layout)`
-  justify-content: flex-start;
-`;
 const ButtonsWrapper = styled.View`
   margin: 16px 0;
 `;
@@ -35,9 +32,11 @@ const Classify = ({ weather }: Props) => {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [shorts, setShorts] = useState(false);
+  const [label, setLabel] = useState<string | undefined>(undefined);
   const theme = useContext(ThemeContext);
 
   const handleSave = (upper: string) => {
+    setLabel(`${toTitleCase(upper)} ${shorts ? 'with Shorts' : ''}`);
     const ignoreKeys = [
       'sunrise',
       'sunset',
@@ -54,9 +53,7 @@ const Classify = ({ weather }: Props) => {
         '',
       );
     Alert.alert(
-      `Save Current Weather: ${toTitleCase(upper)} ${
-        shorts ? 'with Shorts' : ''
-      }`,
+      `Save Current Weather: ${label}`,
       currentData,
       [
         { text: 'Cancel', style: 'cancel' },
@@ -76,15 +73,11 @@ const Classify = ({ weather }: Props) => {
       } catch (e) {
         Alert.alert('Problem saving weather to database');
       }
-      setTimeout(() => {
-        setSaving(false);
-        setSaved(false);
-      }, 2000);
     }
   };
 
   return (
-    <PageLayout>
+    <Layout>
       <Header title="Classify Clothing" back />
       <ButtonsWrapper>
         <ShortsContainer>
@@ -94,7 +87,7 @@ const Classify = ({ weather }: Props) => {
             onValueChange={() => setShorts(!shorts)}
             thumbColor={theme.colors.white}
             trackColor={{
-              false: theme.colors.offwhite,
+              false: theme.colors.offWhite,
               true: theme.colors.blue,
             }}
           />
@@ -110,17 +103,21 @@ const Classify = ({ weather }: Props) => {
           {saved ? (
             <>
               <Icon material name="checkbox-marked-circle-outline" size={36} />
-              <Text size={16}>Saved</Text>
+              <Text grey size={16}>
+                Saved - {label}
+              </Text>
             </>
           ) : (
             <>
               <ActivityIndicator animating size="large" color="#fff" />
-              <Text size={16}>Loading</Text>
+              <Text grey size={16}>
+                Loading
+              </Text>
             </>
           )}
         </SaveStateFooter>
       )}
-    </PageLayout>
+    </Layout>
   );
 };
 

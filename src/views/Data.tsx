@@ -5,6 +5,7 @@ import moment from 'moment';
 import {
   Layout,
   Section,
+  MultiSection,
   DetailTiles,
   HourlyGraph,
   DailyForecast,
@@ -22,7 +23,7 @@ const PageLayout = styled(Layout)`
 `;
 
 const Data = ({ weather }: Props) => {
-  const { current, daily, hourly, status, isDaytime } = weather;
+  const { current, daily, activeHours, status, isDaytime } = weather;
   const sunKey = isDaytime() ? 'sunset' : 'sunrise';
   const willRain = status?.precipChance;
 
@@ -65,7 +66,7 @@ const Data = ({ weather }: Props) => {
       <Section title="Details">
         <DetailTiles data={detailsData} />
       </Section>
-      <Section
+      <MultiSection
         multi={[
           {
             index: +!willRain,
@@ -78,7 +79,7 @@ const Data = ({ weather }: Props) => {
           { index: +!!willRain, title: 'cloud cover', icon: 'cloud' },
         ]}>
         <HourlyGraph
-          data={hourly?.map((item) => ({
+          data={activeHours?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
             y: Math.ceil(item.precipitation_probability.value),
             units: item.precipitation_probability.units,
@@ -92,7 +93,7 @@ const Data = ({ weather }: Props) => {
         />
         <HourlyGraph
           domain={[10, 0]}
-          data={hourly?.map((item) => ({
+          data={activeHours?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
             y: Math.ceil(item.cloud_cover.value),
             units: item.cloud_cover.units,
@@ -100,7 +101,7 @@ const Data = ({ weather }: Props) => {
             icon: item.weather_code.value,
           }))}
         />
-      </Section>
+      </MultiSection>
       <Section title="Next 7 days">
         <DailyForecast
           data={daily?.map((item) => ({

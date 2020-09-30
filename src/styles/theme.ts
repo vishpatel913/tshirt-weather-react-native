@@ -23,6 +23,10 @@ export const theme = {
       fontFamily: 'WorkSans-Regular',
       fontWeight: 'normal' as 'normal',
     },
+    bold: {
+      fontFamily: 'WorkSans-Regular',
+      fontWeight: 'normal' as 'normal',
+    },
     light: {
       fontFamily: 'WorkSans-ExtraLight',
       fontWeight: 'normal' as 'normal',
@@ -50,7 +54,8 @@ export const theme = {
     pink: '#F88DAD',
     pinkDark: '#E04483',
     white: '#FFF',
-    offwhite: '#FFFFFF80',
+    offWhite: 'rgba(225,225,225,0.5)',
+    background: 'rgba(225,225,225,0.1)',
   },
   gradientMap: {
     clear: {

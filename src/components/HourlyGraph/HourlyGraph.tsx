@@ -86,7 +86,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         height={160}
         domain={{ y: domainY }}
         domainPadding={{ y: [10, 120] }}
-        padding={{ left: 20, right: 100, bottom: 36, top: 20 }}
+        padding={{ left: 20, right: 100, bottom: 36, top: 0 }}
         style={{
           parent: { color: '#fff' },
         }}>

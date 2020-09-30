@@ -9,8 +9,9 @@ import { Animated, Easing, RefreshControl } from 'react-native';
 import styled, { ThemeContext } from 'styled-components/native';
 import Swiper from 'react-native-swiper';
 
-import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
+import { Error } from '../../views';
 import { useWeather } from '../../modules/weatherContext';
+import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
 
 interface Props {
   children: ReactNode;
@@ -28,26 +29,11 @@ const SwipeArrowContainer = styled(Animated.View)`
 `;
 
 const SwipeRouter = ({ children }: Props) => {
-  const { isLoading, actions } = useWeather();
+  const { isLoading, error, actions } = useWeather();
   const arrowY = new Animated.Value(0);
   const { length: pages } = Children.toArray(children);
   const [index, setIndex] = useState(0);
   const theme = useContext(ThemeContext);
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.timing(arrowY, {
-        toValue: arrowY.interpolate({
-          inputRange: [0, 0.05, 0.15, 1],
-          outputRange: [0, 10, 0, 0],
-        }),
-        duration: 2000,
-        delay: 1000,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      }),
-    ).start();
-  }, []);
 
   useEffect(() => {
     if (index === pages - 1) {
@@ -60,7 +46,9 @@ const SwipeRouter = ({ children }: Props) => {
     }
   }, [index]);
 
-  return (
+  return error ? (
+    <Error />
+  ) : (
     <>
       <SwipeContainer
         horizontal={false}

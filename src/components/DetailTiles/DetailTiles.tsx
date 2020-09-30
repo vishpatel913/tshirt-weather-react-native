@@ -14,7 +14,7 @@ interface Detail {
   content?: WeatherNumberValue | WeatherStringValue;
 }
 
-const Container = styled.View`
+const GridContainer = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -24,7 +24,7 @@ const TileContainer = styled.View`
   align-items: center;
   justify-content: space-around;
   padding: ${({ theme }) => theme.spacing.single};
-  background: rgba(225, 225, 225, 0.1);
+  background: ${({ theme }) => theme.colors.background};
   margin-bottom: ${({ theme }) => theme.spacing.single};
   border-radius: 4px;
 `;
@@ -34,7 +34,7 @@ const Label = styled(Text)`
 
 const DetailTiles = ({ data }: Props) => {
   return (
-    <Container>
+    <GridContainer>
       {data?.map((item) => (
         <TileContainer key={item.icon}>
           <Icon name={item.icon} size={32} />
@@ -46,7 +46,7 @@ const DetailTiles = ({ data }: Props) => {
           )}
         </TileContainer>
       ))}
-    </Container>
+    </GridContainer>
   );
 };
 

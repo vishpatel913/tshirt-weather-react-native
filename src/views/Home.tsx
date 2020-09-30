@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import moment from 'moment';
-
+import { useNavigation } from '@react-navigation/native';
 import {
   Header,
   TemperatureHeader,
@@ -22,8 +22,8 @@ const PageLayout = styled(Layout)`
 `;
 
 const Home = ({ weather }: Props) => {
-  const { location, current, hourly, daily, status, isLoading } = weather;
-
+  const { location, current, activeHours, daily, status, isLoading } = weather;
+  const { navigate } = useNavigation();
   return (
     <PageLayout landscape>
       <Header title={isLoading ? 'Loading' : location} date />
@@ -49,10 +49,13 @@ const Home = ({ weather }: Props) => {
           />
         </Section>
       )}
-      <Section loading={!hourly}>
+      <Section
+        icon="direction-right"
+        onIconPress={() => navigate('hourly')}
+        loading={isLoading}>
         <HourlyGraph
           domain={[2, 0]}
-          data={hourly?.map((item) => ({
+          data={activeHours?.map((item) => ({
             x: moment(item.observation_time.value).format('ha'),
             y: Math.ceil(item.temp.value),
             timestamp: item.observation_time.value,

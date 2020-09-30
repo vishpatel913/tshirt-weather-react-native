@@ -14,6 +14,7 @@ interface Props {
 
 const Container = styled.View`
   flex-direction: row;
+  margin-bottom: 16px;
 `;
 const Title = styled.View`
   flex: 8;

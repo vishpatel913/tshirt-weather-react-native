@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
-import { Home, Data, Classify } from './views';
+import { Home, Data, Classify, Hourly } from './views';
 import { GradientContainer, SwipeRouter, Footer } from './components';
 import { withGradient } from './components/GradientContainer/GradientContainer';
 import { WeatherProvider } from './modules/weatherContext';
@@ -36,6 +36,7 @@ const App = () => (
                 name="main"
                 component={withGradient(MainSwipePage)}
               />
+              <Stack.Screen name="hourly" component={withGradient(Hourly)} />
               <Stack.Screen
                 name="classify"
                 component={withGradient(Classify)}

@@ -27,8 +27,10 @@ export interface WeatherState {
   location?: string;
   current?: Weather;
   hourly?: HourlyWeather[];
+  activeHours?: HourlyWeather[];
   daily?: DailyWeather[];
   status?: Status;
+  error?: string;
   isLoading: boolean;
   isDaytime: (ts?: string) => boolean;
   actions: WeatherActions;
@@ -45,6 +47,7 @@ type ProviderProps = {
 
 const initialState = {
   isLoading: true,
+  error: undefined,
   isDaytime: () => false,
   actions: {
     getLocation: () => Promise.resolve(),
@@ -62,10 +65,8 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
   const [hourly, setHourly] = useState<HourlyWeather[] | undefined>(undefined);
   const [daily, setDaily] = useState<DailyWeather[] | undefined>(undefined);
   const [reverseDay, setReverseDay] = useState(false);
-  const [
-    hourOffset,
-    // setHourOffset
-  ] = useState(0);
+  const [error, setError] = useState<string | undefined>(undefined);
+  const [hourOffset] = useState(0);
   const hourLimit = 6;
 
   const getLocation = async () => {
@@ -76,9 +77,11 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
         const { latitude, longitude } = info.coords;
         setCoords({ lat: latitude, lon: longitude });
         setLoading(false);
+        setError(undefined);
       },
       (err) => {
         setLoading(false);
+        setError(err.message);
         Alert.alert(
           'Could not find your coordinates, make sure yourr location is turned on',
         );
@@ -101,10 +104,12 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
           setHourly(res.hourly);
           setDaily(res.daily);
           setLoading(false);
+          setError(undefined);
         })
         .catch((err: WeatherError) => {
           Alert.alert('Error', err.message);
           setLoading(false);
+          setError(err.message);
         });
     }
   };
@@ -155,9 +160,11 @@ export const WeatherProvider = ({ children }: ProviderProps) => {
     coords,
     location,
     current,
-    hourly: activeHours(hourly),
+    hourly,
+    activeHours: activeHours(hourly),
     daily,
     status,
+    error,
     isLoading,
     isDaytime,
     actions: {

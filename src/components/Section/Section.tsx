@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Container = styled.View<Props>`
-  margin: ${({ theme }) => theme.spacing.single} 0;
+  margin: ${({ theme }) => theme.spacing()} 0;
   ${({ flex }) =>
     flex &&
     `
@@ -26,7 +26,7 @@ const Title = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: ${({ theme }) => theme.spacing.single};
+  margin-bottom: ${({ theme }) => theme.spacing()};
 `;
 const Stroke = styled.View<{ middle?: boolean }>`
   flex-grow: 1;
@@ -35,8 +35,8 @@ const Stroke = styled.View<{ middle?: boolean }>`
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.white};
   opacity: 0.5;
-  margin-left: ${({ theme }) => theme.spacing.half};
-  margin-right: ${({ theme, middle }) => (middle ? theme.spacing.half : 0)};
+  margin-left: ${({ theme }) => theme.spacing(0.5)};
+  margin-right: ${({ theme, middle }) => theme.spacing(middle ? 0.5 : 0)};
 `;
 const Switch = styled(TouchableOpacity)`
   border-radius: 20px;

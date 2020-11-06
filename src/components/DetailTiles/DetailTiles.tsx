@@ -23,9 +23,9 @@ const TileContainer = styled.View`
   width: 30%;
   align-items: center;
   justify-content: space-around;
-  padding: ${({ theme }) => theme.spacing.single};
+  padding: ${({ theme }) => theme.spacing()};
   background: ${({ theme }) => theme.colors.background};
-  margin-bottom: ${({ theme }) => theme.spacing.single};
+  margin-bottom: ${({ theme }) => theme.spacing()};
   border-radius: 4px;
 `;
 const Label = styled(Text)`

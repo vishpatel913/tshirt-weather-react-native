@@ -10,9 +10,7 @@ interface Props {
 
 const LayoutContainer = styled.View`
   padding: ${({ theme }) =>
-    `${Platform.OS === 'android' ? '48px' : theme.spacing.single} ${
-      theme.spacing.double
-    }`};
+    Platform.OS === 'android' ? '48px' : theme.spacing(1, 2)};
   height: 100%;
   position: relative;
 `;

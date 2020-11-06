@@ -12,14 +12,14 @@ interface Props {
 }
 
 const ButtonsWrapper = styled.View`
-  margin: 16px 0;
+  margin: ${({ theme }) => theme.spacing(1, 0)};
 `;
 const ShortsContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  margin: 8px 0;
+  padding: 0 ${({ theme }) => theme.spacing()};
+  margin: ${({ theme }) => theme.spacing(0.5, 0)};
 `;
 const SaveStateFooter = styled.View`
   justify-content: space-between;

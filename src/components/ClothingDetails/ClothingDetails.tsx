@@ -36,7 +36,7 @@ const Content = styled.View`
   align-items: flex-start;
   height: 64px;
 
-  margin-left: ${({ theme }) => theme.spacing.single};
+  margin-left: ${({ theme }) => theme.spacing()};
 `;
 const SubIcons = styled.View<{ children: ReactNode[] }>`
   flex-direction: row;

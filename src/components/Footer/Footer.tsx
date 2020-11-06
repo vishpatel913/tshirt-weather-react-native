@@ -11,8 +11,8 @@ const Container = styled.View`
   justify-content: space-between;
   align-items: baseline;
   width: 100%;
-  bottom: ${({ theme }) => theme.spacing.single};
-  padding: 0 ${({ theme }) => theme.spacing.double};
+  bottom: ${({ theme }) => theme.spacing()};
+  padding: 0 ${({ theme }) => theme.spacing(2)};
 `;
 const PubLink = styled.TouchableOpacity`
   flex-direction: row;

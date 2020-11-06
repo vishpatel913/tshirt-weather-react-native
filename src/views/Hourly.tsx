@@ -27,7 +27,7 @@ const Description = styled.View`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-right: 16px;
+  margin-right: ${({ theme }) => theme.spacing()};
 `;
 const Details = styled.View`
   flex-direction: row;

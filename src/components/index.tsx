@@ -2,6 +2,7 @@ export { default as Text } from './Text';
 export { Icon, WeatherIcon } from './Icon';
 export { default as Hr } from './Hr';
 export { default as Button } from './Button';
+export { default as Alert } from './Alert';
 export { default as Container } from './Container';
 export { default as GradientContainer } from './GradientContainer';
 export { default as SwipeRouter } from './SwipeRouter';

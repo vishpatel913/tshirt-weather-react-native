@@ -1,14 +1,10 @@
 import {} from 'styled-components/native';
+import spacing from './spacing';
 
 declare module 'styled-components' {
   type Theme = typeof theme;
   export interface DefaultTheme extends Theme {
-    spacing: {
-      single: string;
-      double: string;
-      triple: string;
-      half: string;
-    };
+    roundness: number;
   }
 }
 
@@ -36,12 +32,7 @@ export const theme = {
       fontWeight: 'normal' as 'normal',
     },
   },
-  spacing: {
-    single: '16px',
-    double: '32px',
-    triple: '48px',
-    half: '8px',
-  },
+  spacing,
   colors: {
     // purpleDark: '#070544',
     // purple: '#361D9D',

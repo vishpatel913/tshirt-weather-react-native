@@ -24,8 +24,8 @@ const StyledContainer = styled(TouchableOpacity)<Props>`
   align-items: ${({ align }) => align || 'center'};
   justify-content: ${({ justify }) => justify || 'flex-start'};
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
-  padding: ${({ padding, theme }) => (padding ? theme.spacing.single : '0px')};
-  margin: ${({ margin, theme }) => (margin ? theme.spacing.half : '0px')};
+  padding: ${({ padding, theme }) => theme.spacing(padding ? 1 : 0)};
+  margin: ${({ margin, theme }) => theme.spacing(margin ? 0.5 : 0)};
   border-radius: ${({ rounded, theme }) => (rounded ? '4px' : '0px')};
 `;
 

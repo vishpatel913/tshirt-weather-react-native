@@ -8,8 +8,6 @@ import React, {
 import { Animated, Easing, RefreshControl } from 'react-native';
 import styled, { ThemeContext } from 'styled-components/native';
 import Swiper from 'react-native-swiper';
-
-import { Error } from '../../views';
 import { useWeather } from '../../modules/weatherContext';
 import SwipeArrow from '../../assets/svgs/swipe-arrow.svg';
 
@@ -20,7 +18,7 @@ interface Props {
 const SwipeContainer = styled(Swiper)``;
 const Footer = styled.View`
   position: absolute;
-  bottom: ${({ theme }) => theme.spacing.single};
+  bottom: ${({ theme }) => theme.spacing()};
   width: 100%;
 `;
 const SwipeArrowContainer = styled(Animated.View)`
@@ -29,7 +27,7 @@ const SwipeArrowContainer = styled(Animated.View)`
 `;
 
 const SwipeRouter = ({ children }: Props) => {
-  const { isLoading, error, actions } = useWeather();
+  const { isLoading, actions } = useWeather();
   const arrowY = new Animated.Value(0);
   const { length: pages } = Children.toArray(children);
   const [index, setIndex] = useState(0);
@@ -46,9 +44,7 @@ const SwipeRouter = ({ children }: Props) => {
     }
   }, [index]);
 
-  return error ? (
-    <Error />
-  ) : (
+  return (
     <>
       <SwipeContainer
         horizontal={false}

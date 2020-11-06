@@ -18,8 +18,9 @@ const ButtonContainer = styled(TouchableOpacity)<{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: ${({ small }) => (small ? '8px' : '8px 16px')};
-  margin: 8px 0;
+  padding: ${({ small, theme }) =>
+    small ? theme.spacing(0.5) : theme.spacing(0.5, 1)};
+  margin: ${({ theme }) => theme.spacing(0.5, 0)};
   border-radius: 8px;
   background: #ffffff1a;
 `;

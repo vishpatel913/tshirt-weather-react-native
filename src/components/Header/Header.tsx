@@ -14,14 +14,14 @@ interface Props {
 
 const Container = styled.View`
   flex-direction: row;
-  margin-bottom: 16px;
+  margin-bottom: ${({ theme }) => theme.spacing()};
 `;
 const Title = styled.View`
   flex: 8;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 ${({ theme }) => theme.spacing.double};
+  padding: 0 ${({ theme }) => theme.spacing(2)};
 `;
 const ButtonContainer = styled.View`
   flex: 1;

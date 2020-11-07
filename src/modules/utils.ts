@@ -7,8 +7,8 @@ export const toTitleCase = (string: string) =>
     .join(' ');
 
 export const roundValue = (value: number | string, sf = 2) =>
-  typeof value === 'number' && value !== 100 && value > 0
-    ? Math.ceil(parseFloat(value.toPrecision(sf)) * 1000) / 1000
+  typeof value === 'number'
+    ? Math.ceil(parseFloat(value.toPrecision(sf)) * 100) / 100
     : value;
 
 export const requestLocationPermissions = async () => {

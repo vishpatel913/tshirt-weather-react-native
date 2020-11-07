@@ -54,7 +54,8 @@ class WeatherAPI:
             self.generic_fields + ["precipitation_probability"])
         response = self.get("forecast/hourly", params)
 
-        normalized_response = [self.normalize_weather(h) for h in response]
+        normalized_response = [
+            self.normalize_weather(h, hourly=True) for h in response]
 
         return normalized_response
 
@@ -82,13 +83,15 @@ class WeatherAPI:
         return normalized_response
 
     @staticmethod
-    def normalize_weather(dict):
+    def normalize_weather(dict, hourly=False):
         del dict["lat"]
         del dict["lon"]
         dict["precipitation_type"]["value"] = \
             dict["precipitation_type"]["value"].replace(" ", "_")
         for k in ["temp", "feels_like", "dewpoint"]:
             dict[k]["units"] = deg_c_unit
+        if hourly:
+            dict["precipitation"]["units"] = "mm"
 
         clothing = calculate_clothing(
             dict["temp"]["value"], dict["cloud_cover"]["value"]

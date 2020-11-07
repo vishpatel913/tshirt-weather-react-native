@@ -64,6 +64,13 @@ def test_get_hourly_correct_temp_units():
 
 
 @with_setup(setup_mock)
+def test_get_hourly_correct_precip_units():
+    response = mock_weather_api.get_hourly()
+    precipitation = response[0]["precipitation"]
+    assert_equal(precipitation["units"], "mm")
+
+
+@with_setup(setup_mock)
 def test_get_daily_correct_field_params_passed():
     response = mock_weather_api.get_daily()
     arg1, arg2 = mock_weather_api.get.call_args[0]

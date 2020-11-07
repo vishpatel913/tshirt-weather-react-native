@@ -5,7 +5,7 @@
   "scripts": {
     "android": " react-native run-android",
     "sim-android": "emulator -avd OnePlus_6T",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator",
     "start": "react-native start",
     "serve": "yarn --cwd backend run serve",
     "test": "jest --watch",

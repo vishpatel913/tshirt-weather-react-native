@@ -48,7 +48,7 @@ const NodeLabel = ({
   datum: { units, timestamp, icon, additional },
 }: any) => (
   <NodeContainer x={x} y={y}>
-    {additional && additional.value > 0 && (
+    {additional?.value > 0 && (
       <NodeAdditional col={additional.units.length > 3}>
         <Text weight="bold" size={12}>
           {roundValue(additional.value)}
@@ -87,9 +87,7 @@ const HourlyGraph = ({ data = [], domain }: Props) => {
         domain={{ y: domainY }}
         domainPadding={{ y: [10, 120] }}
         padding={{ left: 20, right: 100, bottom: 36, top: 0 }}
-        style={{
-          parent: { color: '#fff' },
-        }}>
+        style={{ parent: { color: '#fff' } }}>
         <VictoryLine
           data={data}
           interpolation="monotoneX"

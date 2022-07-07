@@ -28,7 +28,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.0",
     "metro-config": "^0.59.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "querystring": "^0.2.0",
     "react": "16.11.0",
     "react-native": "0.62.0",
